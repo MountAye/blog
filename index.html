@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!--
+Material HTML5 Template (https://naveenshaji.github.io/material)
+The MIT License (MIT)
+
+Copyright (c) 2015 Naveen Shaji
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>阿掖山：一个博客 | 阿掖山：一个博客</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="阿掖山：一个博客" />
+<meta name="author" content="MountAye" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="阿掖山：一个博客" />
+<meta property="og:description" content="阿掖山：一个博客" />
+<link rel="canonical" href="https://mountaye.github.io/blog/" />
+<meta property="og:url" content="https://mountaye.github.io/blog/" />
+<meta property="og:site_name" content="阿掖山：一个博客" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="阿掖山：一个博客" />
+<script type="application/ld+json">
+{"headline":"阿掖山：一个博客","url":"https://mountaye.github.io/blog/","author":{"@type":"Person","name":"MountAye"},"@type":"WebSite","description":"阿掖山：一个博客","name":"阿掖山：一个博客","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="description" content="阿掖山：一个博客">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=0">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/blog//css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="/blog//css/main.css">
+    <link rel="canonical" href="https://mountaye.github.io/blog//">
+    <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/javascript" src="/blog//js/jquery.min.js"></script>
+    <script src="/blog//js/jquery.nicescroll.min.js"></script>
+    <script src="/blog//js/jquery.nicescroll.plus.js"></script>
+    <script src="/blog//js/velocity.min.js"></script>
+    <script src="/blog//js/skrollr.min.js"></script>
+    <script src="/blog//js/jquery.scrolline.js"></script>
+    <script type="text/javascript" src="/blog//js/modernizr.js"></script>
+    <script type="text/javascript" src="/blog//js/materialize.min.js"></script>
+    <script type="text/javascript" src="/blog//js/main.js"></script>
+</head>
+
+  <body class="blue lighten-5"> 
+    <div class="preloader blue container-fluid row">
+      <div class="white-text text-darken-4 xpretext"><h4>阿掖山：一个博客</h4></div>
+      <div class="progress blue lighten-2 xpreloading">
+        <div class="indeterminate blue darken-3"></div>
+      </div>
+    </div> 
+    <header class="site-header">
+  <div class="navbar-fixed">
+    <nav class="blue darken-2 waves-effect waves-light">
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="/blog//" class="brand-logo">
+            <i class="mdi-communication-chat"></i>
+            阿掖山：一个博客
+          </a>
+          <ul id="nav-mobile" class="right side-nav">
+            <li><a href="/blog//History/">历史</a></li>
+            <li><a href="/blog//Topics/">分类</a></li>
+            <li><a href="/blog//Links/">友链</a></li>
+            <li><a href="/blog//Comments/">留言</a></li>
+            <li><a href="/blog//About/">关于</a></li>
+          </ul>
+          <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <a class="darken-2 scrollToTop btn-floating btn-large waves-effect waves-light blue"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+    <div id="page-wrap">
+      <div id="main-content">
+        <div id="guts">
+          <div class="container">
+            <div class="wrapper text-darken-3">
+              <script type="text/javascript">
+  function changeQuote(){
+    var baseurl = "/blog/";
+    var urlQuotes = baseurl + "/assets/data/quotes.json";
+    $.ajax({ 
+      url: urlQuotes,
+      type: "GET",
+      dataType: "json",
+      success: function(msg){
+        var quotes = msg;
+        var i = Math.floor( Math.random()*(quotes.length+1) );
+        var quote = quotes[i];
+        document.getElementById("quoteLine").innerHTML = quote.text;
+        document.getElementById("quoteAuthor").innerHTML = quote.author;
+      },
+      error: function(msg){alert(msg);}
+    });
+  };
+  document.addEventListener("DOMContentLoaded", changeQuote);
+</script>
+<div>
+  <div id="skrollr-body">
+    <div id="non-skrollr">
+      <div class="container-fluid">
+        <div class="mast blue-text text-darken-3">
+          <h4 id="quoteLine">当你的浏览器启用 JavaScript 之后，<br>这里会出现一句随机格言。</h4>
+          <h4>——<b id="quoteAuthor">阿掖山，一个博客</b></h4>
+          <!-- <a target="_blank" href="http://github.com/naveenshaji/material" class="blue darken-2 white-text text-darken-3 waves-effect waves-light btn"><i class="mdi-action-get-app"></i> View on github</a><br> -->
+          <i class="mdi-navigation-arrow-drop-down" style="font-size: 200px;"></i>
+        </div>
+      </div>
+      
+        
+        <a href="/blog//articles/install-pytorch-cpu-on-fedora">  
+          <div class="container-fluid paper card blue z-depth-2 waves-effect waves-light">
+            
+            <div class="card-action blue darken-2 white-text">
+              <div class="card-title"><h1>.py | Fedora 上安装 CPU 版 pytorch</h1></div>
+              <p>Oct 13, 2021</p>
+            </div>
+            <div class="card-content blue white-text">
+              <p>import torch (as tf)</p>
+              <!-- <button href="/blog//articles/install-pytorch-cpu-on-fedora" class="blue darken-1 white-text text-darken-3 waves-effect waves-light btn">View Post</button>
+              <button class="blue darken-1 white-text text-darken-3 waves-effect waves-light btn" href='#'>Bookmark!</button> -->
+            </div>
+          </div>
+        </a>
+
+        
+        
+        <!-- scrolling effect wrong! -->
+          <a href="/blog//articles/taile-celebration-of-life">  
+            <div class="container-fluid paper card blue darken-2 z-depth-2 waves-effect waves-light">
+              <div class="card-action white-text">
+                <div class="card-title"><h4>.doc | 泰勒的追思会</h4></div>
+                <p>Sep 23, 2021</p>
+              </div>
+            </div>
+          </a>
+        
+        
+        <!-- scrolling effect wrong! -->
+          <a href="/blog//articles/translate-dalio-on-china-and-arguments">  
+            <div class="container-fluid paper card blue darken-2 z-depth-2 waves-effect waves-light">
+              <div class="card-action white-text">
+                <div class="card-title"><h4>.en | 达里奥关于滴滴及课外辅导的看法，及2篇相关文章</h4></div>
+                <p>Aug 14, 2021</p>
+              </div>
+            </div>
+          </a>
+        
+        
+        <!-- scrolling effect wrong! -->
+          <a href="/blog//articles/python-interpreter-editor-virtualenv">  
+            <div class="container-fluid paper card blue darken-2 z-depth-2 waves-effect waves-light">
+              <div class="card-action white-text">
+                <div class="card-title"><h4>.py | 笔记：python 编辑器、解释器、虚拟环境</h4></div>
+                <p>Jun 29, 2021</p>
+              </div>
+            </div>
+          </a>
+        
+        
+        <!-- scrolling effect wrong! -->
+          <a href="/blog//articles/civ6-game-review-france-vs-rome">  
+            <div class="container-fluid paper card blue darken-2 z-depth-2 waves-effect waves-light">
+              <div class="card-action white-text">
+                <div class="card-title"><h4>.exe | 《文明6》娱乐局战报：被罗马吊打的法兰西</h4></div>
+                <p>May 26, 2021</p>
+              </div>
+            </div>
+          </a>
+        
+        
+        <!-- scrolling effect wrong! -->
+          <a href="/blog//articles/mpipks-non-equilibrium-physics-transcript-11-ggplot">  
+            <div class="container-fluid paper card blue darken-2 z-depth-2 waves-effect waves-light">
+              <div class="card-action white-text">
+                <div class="card-title"><h4>.mpipks-transcript | 11. Data Visualization</h4></div>
+                <p>May 18, 2021</p>
+              </div>
+            </div>
+          </a>
+        
+        <br/><br/><br/>
+        <button href="/blog//History/" class="blue darken-1 white-text text-darken-3 waves-effect waves-light btn">
+          <span class="">全部文章</span>
+        </button>
+        &nbsp;&nbsp;&nbsp;
+        <button href="/blog//Topics/" class="blue darken-1 white-text text-darken-3 waves-effect waves-light btn">
+          <span class="">内容分类</span>
+        </button>
+    </div>
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
+<footer class="page-footer blue darken-2">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">social-links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="http://facebook.com/xSF.AzraeL/" target="_blank"><i class="mdi-social-person-add"></i> Facebook</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://plus.google.com/u/0/114363400342894379257/posts" target="_blank"><i class="mdi-social-plus-one"></i> Google+</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/naveenshaji/" target="_blank"><i class="mdi-notification-adb"></i> GitHub</a></li>
+        </ul>
+      </div>
+             
+      <div class="col l3 m6 s12">
+      <h5 class="white-text">where-i-live</h5>
+      <p class="grey-text text-lighten-4">TC 11/1827<br>West Cliff Gardens 35<br>Kowdiar, Trivandrum<br>&nbsp;</p>
+      </div>
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">contact-me</h5>
+        <p class="grey-text text-lighten-4">+91-9496-74-7070<br>naveen@pixelblenders.com<br>xsf.azrael@gmail.com</p>
+      </div>
+
+                         
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">MountAye</h5>
+        <p class="grey-text text-lighten-4">MountAye: A Blog</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2021 MountAye
+      <a class="grey-text text-lighten-4 right" href="http://mountaye.github.io/" target="_blank">MountAye</a>
+    </div>
+  </div>
+</footer> -->
+
+  </body>
+</html>

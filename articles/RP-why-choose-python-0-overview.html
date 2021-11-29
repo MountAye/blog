@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--
+Material HTML5 Template (https://naveenshaji.github.io/material)
+The MIT License (MIT)
+
+Copyright (c) 2015 Naveen Shaji
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>.py 转载：为什么俺推荐 Python[0]·概述 | 阿掖山：一个博客</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content=".py 转载：为什么俺推荐 Python[0]·概述" />
+<meta name="author" content="MountAye" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="从几个不同的角度来鼓吹一下 Python。" />
+<meta property="og:description" content="从几个不同的角度来鼓吹一下 Python。" />
+<link rel="canonical" href="https://mountaye.github.io/blog/articles/RP-why-choose-python-0-overview" />
+<meta property="og:url" content="https://mountaye.github.io/blog/articles/RP-why-choose-python-0-overview" />
+<meta property="og:site_name" content="阿掖山：一个博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-02-07T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content=".py 转载：为什么俺推荐 Python[0]·概述" />
+<script type="application/ld+json">
+{"headline":".py 转载：为什么俺推荐 Python[0]·概述","dateModified":"2019-02-07T00:00:00-06:00","url":"https://mountaye.github.io/blog/articles/RP-why-choose-python-0-overview","datePublished":"2019-02-07T00:00:00-06:00","author":{"@type":"Person","name":"MountAye"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/RP-why-choose-python-0-overview"},"description":"从几个不同的角度来鼓吹一下 Python。","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="description" content="阿掖山：一个博客">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=0">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/blog//css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="/blog//css/main.css">
+    <link rel="canonical" href="https://mountaye.github.io/blog//articles/RP-why-choose-python-0-overview">
+    <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/javascript" src="/blog//js/jquery.min.js"></script>
+    <script src="/blog//js/jquery.nicescroll.min.js"></script>
+    <script src="/blog//js/jquery.nicescroll.plus.js"></script>
+    <script src="/blog//js/velocity.min.js"></script>
+    <script src="/blog//js/skrollr.min.js"></script>
+    <script src="/blog//js/jquery.scrolline.js"></script>
+    <script type="text/javascript" src="/blog//js/modernizr.js"></script>
+    <script type="text/javascript" src="/blog//js/materialize.min.js"></script>
+    <script type="text/javascript" src="/blog//js/main.js"></script>
+</head>
+
+  <body class="blue lighten-5"> 
+    <div class="preloader blue container-fluid row">
+      <div class="white-text text-darken-4 xpretext"><h4>阿掖山：一个博客</h4></div>
+      <div class="progress blue lighten-2 xpreloading">
+        <div class="indeterminate blue darken-3"></div>
+      </div>
+    </div> 
+    <header class="site-header">
+  <div class="navbar-fixed">
+    <nav class="blue darken-2 waves-effect waves-light">
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="/blog//" class="brand-logo">
+            <i class="mdi-communication-chat"></i>
+            阿掖山：一个博客
+          </a>
+          <ul id="nav-mobile" class="right side-nav">
+            <li><a href="/blog//History/">历史</a></li>
+            <li><a href="/blog//Topics/">分类</a></li>
+            <li><a href="/blog//Links/">友链</a></li>
+            <li><a href="/blog//Comments/">留言</a></li>
+            <li><a href="/blog//About/">关于</a></li>
+          </ul>
+          <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <a class="darken-2 scrollToTop btn-floating btn-large waves-effect waves-light blue"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+    <div id="page-wrap">
+      <div id="main-content">
+        <div id="guts">
+          <div class="container">
+            <div class="wrapper text-darken-3">
+              <div id="skrollr-body">
+  <div class="post container paper card" style="margin-top: 8em; margin-bottom: 5em;">
+    <header class="post-header">
+      <h1 class="post-title">.py | 转载：为什么俺推荐 Python[0]·概述</h1>
+      <p class="post-meta">Feb 7, 2019</p>
+    </header>
+    <article class="post-content">
+        <p>当初博客开张的时候，原计划在编程语言方面聊聊 C++、Java 和 Python。谁曾想半年多过去了，尚未写过 Python 的帖子。实在是说不过去啊！所以今天赶紧写一篇来凑数。</p>
+
+<p>其实俺接触 Python 的时间，也不算太早（大概是2003年那会儿）。当时看到 Eric Raymond 关于几大编程语言的评价（原文在“这里”，翻译在“这里”），之后又看了他写的《Why Python?》。感觉这位大牛蛮器重 Python 滴，于是俺也就跟风学习了一番。从此一发不可收拾——现在 Python 已然成为俺最常使用的脚本语言了。</p>
+
+<p>接下来，俺就从几个不同的角度来鼓吹一下 Python。假如你从来没有听说过或者从来没用过此语言，听了俺的忽悠之后，或许会有所心动 :-) 假如你觉得俺只不过是 Python 阵营的枪手，发发广告帖，那你就不用再浪费宝贵的时间去看后续的帖子了。</p>
+
+<p>按照俺先前的习惯，会把接下来的内容拆成几个帖子来写……</p>
+
+<p>为了方便阅读，把本系列帖子的目录整理如下（需翻墙）：</p>
+
+<ol>
+  <li><a href="/blog/articles/RP-why-choose-python-1-script">作为脚本语言的 Python</a></li>
+  <li><a href="/blog/articles/RP-why-choose-python-2-dynamic">作为动态语言的 Python</a></li>
+  <li><a href="/blog/articles/RP-why-choose-python-3-oop">作为面向对象语言的 Python</a></li>
+  <li><a href="/blog/articles/RP-why-choose-python-4-fp">作为函数式编程语言的 Python</a></li>
+  <li><a href="/blog/articles/RP-why-choose-python-5-tool">作为瑞士军刀的 Python</a></li>
+  <li>（未完待续）</li>
+</ol>
+
+<blockquote>
+  <p><strong>版权声明</strong></p>
+
+  <p>本博客<label for="blog" class="margin-toggle sidenote-number"></label><input type="checkbox" id="blog" class="margin-toggle" /><span class="sidenote card">指编程随想的博客 </span>所有的原创文章，作者皆保留版权。转载必须包含本声明，保持本文完整，并以超链接形式注明作者编程随想和本文原始地址：<br /></p>
+
+  <p><a href="https://program-think.blogspot.com/2009/08/why-choose-python-0-overview.html">https://program-think.blogspot.com/2009/08/why-choose-python-0-overview.html</a></p>
+</blockquote>
+
+    </article>
+    <br/><br/><br/>
+  </div>
+  <div class="comment container paper card" style="margin-bottom: 10em;">
+    <h2>读者评论</h2><br>
+    <script src="https://utteranc.es/client.js"
+        repo="MountAye/blog"
+        issue-term="title"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+    <!-- <div class="row">
+  <div class="col s8">
+    <ul class="tabs blue z-depth-1">
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4 active" href="#markdown">Markdown</a></li>
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4" href="#preview">Preview</a></li>
+    </ul>
+  </div>
+  <br><br><br>
+  <div id="markdown" class="col s8">
+    <div class="row">
+      <form class="col s12">
+        <div class="row blue-text">
+          <div class="input-field col s12">
+            <input id="first_name" type="text" class="validate materialize-textarea blue-text text-darken-3">
+            <label for="first_name" class="blue-text text-darken-3">Title</label>
+          </div>
+          <div class="input-field col s12 blue-text">
+            <textarea id="textarea1" class="materialize-textarea blue-text text-darken-3"></textarea>
+            <label for="textarea1" class="blue-text text-darken-3">Enter comment</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button class="blue darken-1 white-text text-darken-3 waves-effect waves-cyan waves-light btn" href="/"><i class="mdi-action-backup"></i> &nbsp; Log in to comment</button>
+  </div>
+  <div id="preview" class="col s12">
+    hhhh
+  </div>
+</div> -->
+    <br><br><br>
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
+<footer class="page-footer blue darken-2">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">social-links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="http://facebook.com/xSF.AzraeL/" target="_blank"><i class="mdi-social-person-add"></i> Facebook</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://plus.google.com/u/0/114363400342894379257/posts" target="_blank"><i class="mdi-social-plus-one"></i> Google+</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/naveenshaji/" target="_blank"><i class="mdi-notification-adb"></i> GitHub</a></li>
+        </ul>
+      </div>
+             
+      <div class="col l3 m6 s12">
+      <h5 class="white-text">where-i-live</h5>
+      <p class="grey-text text-lighten-4">TC 11/1827<br>West Cliff Gardens 35<br>Kowdiar, Trivandrum<br>&nbsp;</p>
+      </div>
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">contact-me</h5>
+        <p class="grey-text text-lighten-4">+91-9496-74-7070<br>naveen@pixelblenders.com<br>xsf.azrael@gmail.com</p>
+      </div>
+
+                         
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">MountAye</h5>
+        <p class="grey-text text-lighten-4">MountAye: A Blog</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2021 MountAye
+      <a class="grey-text text-lighten-4 right" href="http://mountaye.github.io/" target="_blank">MountAye</a>
+    </div>
+  </div>
+</footer> -->
+
+  </body>
+</html>

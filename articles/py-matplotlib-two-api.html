@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--
+Material HTML5 Template (https://naveenshaji.github.io/material)
+The MIT License (MIT)
+
+Copyright (c) 2015 Naveen Shaji
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>.py matplotlib笔记：两种API | 阿掖山：一个博客</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content=".py matplotlib笔记：两种API" />
+<meta name="author" content="MountAye" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="import matplotlib.pyplot as plt" />
+<meta property="og:description" content="import matplotlib.pyplot as plt" />
+<link rel="canonical" href="https://mountaye.github.io/blog/articles/py-matplotlib-two-api" />
+<meta property="og:url" content="https://mountaye.github.io/blog/articles/py-matplotlib-two-api" />
+<meta property="og:site_name" content="阿掖山：一个博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-04T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content=".py matplotlib笔记：两种API" />
+<script type="application/ld+json">
+{"headline":".py matplotlib笔记：两种API","dateModified":"2020-10-04T00:00:00-05:00","url":"https://mountaye.github.io/blog/articles/py-matplotlib-two-api","datePublished":"2020-10-04T00:00:00-05:00","author":{"@type":"Person","name":"MountAye"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/py-matplotlib-two-api"},"description":"import matplotlib.pyplot as plt","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="description" content="阿掖山：一个博客">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=0">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/blog//css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="/blog//css/main.css">
+    <link rel="canonical" href="https://mountaye.github.io/blog//articles/py-matplotlib-two-api">
+    <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/javascript" src="/blog//js/jquery.min.js"></script>
+    <script src="/blog//js/jquery.nicescroll.min.js"></script>
+    <script src="/blog//js/jquery.nicescroll.plus.js"></script>
+    <script src="/blog//js/velocity.min.js"></script>
+    <script src="/blog//js/skrollr.min.js"></script>
+    <script src="/blog//js/jquery.scrolline.js"></script>
+    <script type="text/javascript" src="/blog//js/modernizr.js"></script>
+    <script type="text/javascript" src="/blog//js/materialize.min.js"></script>
+    <script type="text/javascript" src="/blog//js/main.js"></script>
+</head>
+
+  <body class="blue lighten-5"> 
+    <div class="preloader blue container-fluid row">
+      <div class="white-text text-darken-4 xpretext"><h4>阿掖山：一个博客</h4></div>
+      <div class="progress blue lighten-2 xpreloading">
+        <div class="indeterminate blue darken-3"></div>
+      </div>
+    </div> 
+    <header class="site-header">
+  <div class="navbar-fixed">
+    <nav class="blue darken-2 waves-effect waves-light">
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="/blog//" class="brand-logo">
+            <i class="mdi-communication-chat"></i>
+            阿掖山：一个博客
+          </a>
+          <ul id="nav-mobile" class="right side-nav">
+            <li><a href="/blog//History/">历史</a></li>
+            <li><a href="/blog//Topics/">分类</a></li>
+            <li><a href="/blog//Links/">友链</a></li>
+            <li><a href="/blog//Comments/">留言</a></li>
+            <li><a href="/blog//About/">关于</a></li>
+          </ul>
+          <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <a class="darken-2 scrollToTop btn-floating btn-large waves-effect waves-light blue"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+    <div id="page-wrap">
+      <div id="main-content">
+        <div id="guts">
+          <div class="container">
+            <div class="wrapper text-darken-3">
+              <div id="skrollr-body">
+  <div class="post container paper card" style="margin-top: 8em; margin-bottom: 5em;">
+    <header class="post-header">
+      <h1 class="post-title">.py | matplotlib笔记：两种API</h1>
+      <p class="post-meta">Oct 4, 2020</p>
+    </header>
+    <article class="post-content">
+        <p>“图”这个字在英语中可以对应好几个词，picture, image, figure, plot… 其中的 plot，意思是展示两组或两组以上的数据之间关系的图像。用时髦一点的话说，就是数据可视化的产物。</p>
+
+<p>所谓<code class="language-plaintext highlighter-rouge">matplotlib</code>，顾名思义，<del><code class="language-plaintext highlighter-rouge">mat</code> 表示山寨 MATLAB</del>，<code class="language-plaintext highlighter-rouge">plot</code> 的含义如上所述，<code class="language-plaintext highlighter-rouge">lib</code> 表示这是 python 的<a href="http://www.yinwang.org/blog-cn/2017/05/25/dsl">一个第三方库 (library)，而不是某种领域专用的编程语言 (domain specific languange, DSL)</a>。</p>
+
+<p>所谓 API，全称是 application programming interface, 应用程序接口，约等于在你有了自己的数据，想调用 matplotlib 来画图的时候，那些需要写在你自己代码里的语句的语法规则。</p>
+
+<p>因为是代码库，所以在一切开始之前，需要在你的 python 代码开头声明引入</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">plt</code> 可以换成你喜欢并且不和其他代码冲突的名字，但是这三个字母是大家的约定俗成的，网上的绝大多数示例代码都这么写，<del>照抄就完事了。</del></p>
+
+<h2 id="matplotlib-的两种-api"><code class="language-plaintext highlighter-rouge">matplotlib</code> 的两种 API</h2>
+
+<p><code class="language-plaintext highlighter-rouge">matplotlib</code> 有两种 API，（其实还有第 3 种 <code class="language-plaintext highlighter-rouge">pylab</code>，但它没能经得起时间的检验，已经处于官方极不推荐的状态），分别是：</p>
+
+<ul>
+  <li>基于状态的 (state-based)</li>
+  <li>面向对象的 (object-oriented)</li>
+</ul>
+
+<p>两种风格混用的话大概率没法玩得转，会产生各种出人意料的输出结果，新手 debug 的能力又比较差，所以最好先选边站队，有时间再学剩下的一个。</p>
+
+<p>对于有 MATLAB 基础的朋友，基于状态的 API 语法和 MATLAB 几乎一模一样，几乎可以直接上手，当年 python 算是后起之秀，这一招当初就是为了从 MATLAB 那里吸引用户， <del>相当歹毒。</del> 这套接口本身也比较简单，适合在调试程序的时候快速看一下结果，检查错误。</p>
+
+<p>对于一般的初学者，matplotlib 的代码本身就是用面向对象的编程范式写成的，学习这套 API 可以更好的理解代码，知道自己究竟在干什么，顺便还可以熟悉一下面向对象的编程范式。现在学 python 之前就会 MATLAB 的人越来越少，网上 <del>可供复制粘贴</del> 的示例代码越来越多地使用面向对象的语法，学习面向对象的接口也更加实用。</p>
+
+<h2 id="两种-api-的相同任务">两种 API 的相同任务</h2>
+
+<p><img src="/blog//assets/photos/2020-10-04_figure-and-axes.png" alt="" /></p>
+
+<p>上图来自网上随便找的一篇论文，可以看到，一般我们会把信息相关的几幅小图放在一起，在文章排版的时候，这张组合在一起的图片算作一个单位。在 matplotlib 里面，这样一个基本单位叫做 <code class="language-plaintext highlighter-rouge">figure</code>，而每一幅小图叫做 <code class="language-plaintext highlighter-rouge">axis</code> （变量名常简写作 <code class="language-plaintext highlighter-rouge">ax</code>）。平时的单图可以看作只有一个 <code class="language-plaintext highlighter-rouge">axis</code> 的 <code class="language-plaintext highlighter-rouge">figure</code>，多图的时候往往用一个 tuple <code class="language-plaintext highlighter-rouge">axes</code> 的 <code class="language-plaintext highlighter-rouge">__getitem__()</code> 方法来控制每个子图。</p>
+
+<p><img src="/blog//assets/photos/2020-10-04_anatomy-of-figure.png" alt="" /></p>
+
+<p>上图<a href="https://matplotlib.org/gallery/showcase/anatomy.html#anatomy-of-a-figure">来自官网</a>，图中的蓝字就是 matplotlib 认为的一张只有一个 axis 的 figure 所包含的元素。</p>
+
+<p>两种 API 要做的事情，就是建立 <code class="language-plaintext highlighter-rouge">figure</code> 和 <code class="language-plaintext highlighter-rouge">axis</code>，然后提供函数/方法来生成或者改变各个元素。</p>
+
+<h2 id="基于状态-state-based">基于状态 (state-based)</h2>
+
+<p>所谓基于状态的 API，不太好解释，前面已经说过，在每个函数前面加上 plt，剩下的就和写 MATLAB 几乎完全一样。</p>
+
+<p>看<a href="https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py">官网给出的教程</a>，可以观察到两个有趣的现象：</p>
+
+<ul>
+  <li>几乎没有赋值运算符 <code class="language-plaintext highlighter-rouge">=</code></li>
+  <li>几乎所有的 <code class="language-plaintext highlighter-rouge">.</code> 前面都是 <code class="language-plaintext highlighter-rouge">plt</code></li>
+</ul>
+
+<p>也就是说，与 matplotlib 相关的命令都是函数，而且不需要将返回值赋给任何变量。<code class="language-plaintext highlighter-rouge">figure</code> 和 <code class="language-plaintext highlighter-rouge">axis</code> 的概念被隐藏起来了，<code class="language-plaintext highlighter-rouge">plt.figure()</code> 建立一个 figure；<code class="language-plaintext highlighter-rouge">plt.subplot()</code>建立多个 axes，并且将程序的注意力放到函数参数指定的子图上；紧跟着的设定各种元素的函数都会作用到之前最新一个 <code class="language-plaintext highlighter-rouge">plt.subplot()</code> 所指定的子图上。</p>
+
+<p>没有赋值说明函数的返回值并不重要，这些函数都会作用在后台维护的 figure 和 axis 的状态机上面，也就是说这些函数都有副作用，不是纯函数。</p>
+
+<h2 id="面向对象-object-oriented">面向对象 (object-oriented)</h2>
+
+<p><a href="https://matplotlib.org/gallery/showcase/anatomy.html#anatomy-of-a-figure">作为对比</a>：</p>
+
+<ul>
+  <li>头几句会有赋值运算符 <code class="language-plaintext highlighter-rouge">=</code>，被赋值的变量名一般就是 <code class="language-plaintext highlighter-rouge">fig</code> 和 <code class="language-plaintext highlighter-rouge">ax</code>。</li>
+  <li><code class="language-plaintext highlighter-rouge">.</code> 前面都是 <code class="language-plaintext highlighter-rouge">fig</code> 和 <code class="language-plaintext highlighter-rouge">ax</code>，其中 <code class="language-plaintext highlighter-rouge">ax</code> 居多。</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">fig</code> 和 <code class="language-plaintext highlighter-rouge">ax</code> 分别是 <code class="language-plaintext highlighter-rouge">matplotlib.figure.Figure</code> 和 <code class="language-plaintext highlighter-rouge">matplotlib.axes.Axes</code> 两种对象的实例，画图和调整都是在调用两种对象的方法，主要是 <code class="language-plaintext highlighter-rouge">ax</code> 的方法。</p>
+
+<h2 id="不同之处-cheat-sheet">不同之处 Cheat Sheet</h2>
+
+<p>绝大多数命令，在两种 API 之下的名字都一样，差别就在于开头究竟是 <code class="language-plaintext highlighter-rouge">plt.</code> 还是 <code class="language-plaintext highlighter-rouge">ax.</code>，但是少数命令不同，下面做了一个表格，进行一个不完全的列举：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>State-Based</th>
+      <th>任务</th>
+      <th>Object-Oriented</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">plt.figure(**args)</code></td>
+      <td><strong>新建 figure</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">fig = plt.figure(**args)</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">plt.subplot(**args)</code></td>
+      <td><strong>新建 axis</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">ax = fig.add_subplot(**args)</code></td>
+    </tr>
+    <tr>
+      <td>好像没有</td>
+      <td><strong>同时新建 figure 和复数 axes</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">fig,axes = plt.subplots(**args)</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">plt.title(**args)</code></td>
+      <td><strong>设置 figrue 标题</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">ax.set_title(**args)</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">plt.xlabel(**args)</code></td>
+      <td><strong>设置 x 轴名称</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">ax.set_xlabel(**args)</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">plt.ylabel(**args)</code></td>
+      <td><strong>设置 y 轴名称</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">ax.set_ylabel(**args)</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">plt.xlim(**args)</code></td>
+      <td><strong>设置 x 轴范围</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">ax.set_xlim(**args)</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">plt.ylim(**args)</code></td>
+      <td><strong>设置 y 轴范围</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">ax.set_ylim(**args)</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>其他不同的命令，以后用到的时候会随手更新。</p>
+
+    </article>
+    <br/><br/><br/>
+  </div>
+  <div class="comment container paper card" style="margin-bottom: 10em;">
+    <h2>读者评论</h2><br>
+    <script src="https://utteranc.es/client.js"
+        repo="MountAye/blog"
+        issue-term="title"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+    <!-- <div class="row">
+  <div class="col s8">
+    <ul class="tabs blue z-depth-1">
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4 active" href="#markdown">Markdown</a></li>
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4" href="#preview">Preview</a></li>
+    </ul>
+  </div>
+  <br><br><br>
+  <div id="markdown" class="col s8">
+    <div class="row">
+      <form class="col s12">
+        <div class="row blue-text">
+          <div class="input-field col s12">
+            <input id="first_name" type="text" class="validate materialize-textarea blue-text text-darken-3">
+            <label for="first_name" class="blue-text text-darken-3">Title</label>
+          </div>
+          <div class="input-field col s12 blue-text">
+            <textarea id="textarea1" class="materialize-textarea blue-text text-darken-3"></textarea>
+            <label for="textarea1" class="blue-text text-darken-3">Enter comment</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button class="blue darken-1 white-text text-darken-3 waves-effect waves-cyan waves-light btn" href="/"><i class="mdi-action-backup"></i> &nbsp; Log in to comment</button>
+  </div>
+  <div id="preview" class="col s12">
+    hhhh
+  </div>
+</div> -->
+    <br><br><br>
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
+<footer class="page-footer blue darken-2">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">social-links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="http://facebook.com/xSF.AzraeL/" target="_blank"><i class="mdi-social-person-add"></i> Facebook</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://plus.google.com/u/0/114363400342894379257/posts" target="_blank"><i class="mdi-social-plus-one"></i> Google+</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/naveenshaji/" target="_blank"><i class="mdi-notification-adb"></i> GitHub</a></li>
+        </ul>
+      </div>
+             
+      <div class="col l3 m6 s12">
+      <h5 class="white-text">where-i-live</h5>
+      <p class="grey-text text-lighten-4">TC 11/1827<br>West Cliff Gardens 35<br>Kowdiar, Trivandrum<br>&nbsp;</p>
+      </div>
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">contact-me</h5>
+        <p class="grey-text text-lighten-4">+91-9496-74-7070<br>naveen@pixelblenders.com<br>xsf.azrael@gmail.com</p>
+      </div>
+
+                         
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">MountAye</h5>
+        <p class="grey-text text-lighten-4">MountAye: A Blog</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2021 MountAye
+      <a class="grey-text text-lighten-4 right" href="http://mountaye.github.io/" target="_blank">MountAye</a>
+    </div>
+  </div>
+</footer> -->
+
+  </body>
+</html>

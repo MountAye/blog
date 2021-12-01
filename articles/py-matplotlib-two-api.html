@@ -31,7 +31,7 @@ THE SOFTWARE.
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>.py matplotlib笔记：两种API | 阿掖山：一个博客</title>
-<meta name="generator" content="Jekyll v4.2.0" />
+<meta name="generator" content="Jekyll v4.2.1" />
 <meta property="og:title" content=".py matplotlib笔记：两种API" />
 <meta name="author" content="MountAye" />
 <meta property="og:locale" content="en_US" />
@@ -45,27 +45,29 @@ THE SOFTWARE.
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content=".py matplotlib笔记：两种API" />
 <script type="application/ld+json">
-{"headline":".py matplotlib笔记：两种API","dateModified":"2020-10-04T00:00:00-05:00","url":"https://mountaye.github.io/blog/articles/py-matplotlib-two-api","datePublished":"2020-10-04T00:00:00-05:00","author":{"@type":"Person","name":"MountAye"},"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/py-matplotlib-two-api"},"description":"import matplotlib.pyplot as plt","@context":"https://schema.org"}</script>
+{"headline":".py matplotlib笔记：两种API","dateModified":"2020-10-04T00:00:00-05:00","datePublished":"2020-10-04T00:00:00-05:00","url":"https://mountaye.github.io/blog/articles/py-matplotlib-two-api","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/py-matplotlib-two-api"},"author":{"@type":"Person","name":"MountAye"},"@type":"BlogPosting","description":"import matplotlib.pyplot as plt","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <meta name="description" content="阿掖山：一个博客">
+    <meta name="description" content="智力活动是一种生活态度">
     <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=0">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="/blog//css/materialize.min.css" media="screen,projection" />
-    <link rel="stylesheet" href="/blog//css/main.css">
-    <link rel="canonical" href="https://mountaye.github.io/blog//articles/py-matplotlib-two-api">
+    <link type="text/css" rel="stylesheet" href="/blog/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="/blog/css/main.css">
+    <link rel="canonical" href="https://mountaye.github.io/blog/articles/py-matplotlib-two-api">
     <script type="text/javascript" async
     src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
-    <script type="text/javascript" src="/blog//js/jquery.min.js"></script>
-    <script src="/blog//js/jquery.nicescroll.min.js"></script>
-    <script src="/blog//js/jquery.nicescroll.plus.js"></script>
-    <script src="/blog//js/velocity.min.js"></script>
-    <script src="/blog//js/skrollr.min.js"></script>
-    <script src="/blog//js/jquery.scrolline.js"></script>
-    <script type="text/javascript" src="/blog//js/modernizr.js"></script>
-    <script type="text/javascript" src="/blog//js/materialize.min.js"></script>
-    <script type="text/javascript" src="/blog//js/main.js"></script>
+    <script type="text/javascript" src="/blog/js/jquery.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.plus.js"></script>
+    <script src="/blog/js/velocity.min.js"></script>
+    <script src="/blog/js/skrollr.min.js"></script>
+    <script src="/blog/js/jquery.scrolline.js"></script>
+    <script type="text/javascript" src="/blog/js/modernizr.js"></script>
+    <script type="text/javascript" src="/blog/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/blog/js/main.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="阿掖山：一个博客" href="/blog/feed.xml" />
+    <link rel="shortcut icon" href="/blog/assets/img/favicon.ico" >
 </head>
 
   <body class="blue lighten-5"> 
@@ -80,16 +82,16 @@ THE SOFTWARE.
     <nav class="blue darken-2 waves-effect waves-light">
       <div class="nav-wrapper">
         <div class="container">
-          <a href="/blog//" class="brand-logo">
+          <a href="/blog/" class="brand-logo">
             <i class="mdi-communication-chat"></i>
             阿掖山：一个博客
           </a>
           <ul id="nav-mobile" class="right side-nav">
-            <li><a href="/blog//History/">历史</a></li>
-            <li><a href="/blog//Topics/">分类</a></li>
-            <li><a href="/blog//Links/">友链</a></li>
-            <li><a href="/blog//Comments/">留言</a></li>
-            <li><a href="/blog//About/">关于</a></li>
+            <li><a href="/blog/History/">历史</a></li>
+            <li><a href="/blog/Topics/">分类</a></li>
+            <li><a href="/blog/Comments/">留言</a></li>
+            <li><a href="/blog/Links/">友链</a></li>
+            <li><a href="/blog/About/">关于</a></li>
           </ul>
           <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
         </div>
@@ -141,11 +143,11 @@ THE SOFTWARE.
 
 <h2 id="两种-api-的相同任务">两种 API 的相同任务</h2>
 
-<p><img src="/blog//assets/photos/2020-10-04_figure-and-axes.png" alt="" /></p>
+<p><img src="/blog/assets/photos/2020-10-04_figure-and-axes.png" alt="" /></p>
 
 <p>上图来自网上随便找的一篇论文，可以看到，一般我们会把信息相关的几幅小图放在一起，在文章排版的时候，这张组合在一起的图片算作一个单位。在 matplotlib 里面，这样一个基本单位叫做 <code class="language-plaintext highlighter-rouge">figure</code>，而每一幅小图叫做 <code class="language-plaintext highlighter-rouge">axis</code> （变量名常简写作 <code class="language-plaintext highlighter-rouge">ax</code>）。平时的单图可以看作只有一个 <code class="language-plaintext highlighter-rouge">axis</code> 的 <code class="language-plaintext highlighter-rouge">figure</code>，多图的时候往往用一个 tuple <code class="language-plaintext highlighter-rouge">axes</code> 的 <code class="language-plaintext highlighter-rouge">__getitem__()</code> 方法来控制每个子图。</p>
 
-<p><img src="/blog//assets/photos/2020-10-04_anatomy-of-figure.png" alt="" /></p>
+<p><img src="/blog/assets/photos/2020-10-04_anatomy-of-figure.png" alt="" /></p>
 
 <p>上图<a href="https://matplotlib.org/gallery/showcase/anatomy.html#anatomy-of-a-figure">来自官网</a>，图中的蓝字就是 matplotlib 认为的一张只有一个 axis 的 figure 所包含的元素。</p>
 

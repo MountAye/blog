@@ -243,6 +243,55 @@ th, td{ font-size: 1.2rem;
                 margin-bottom: 0;
                 font-size: 1.0rem;
                 line-height: 1.96; }
+
+/* side note from tuft.css */
+
+/* a hack required by .card{ overflow: visible } */
+.post h1 {padding-top: 2em;}
+.comment h2 {padding: 2em;}
+
+.sidenote { 
+    /* overflow: visible !important; */
+    float: right;
+    clear: right;
+    padding: 0.3em;
+    width: 40%;
+    margin-top: 0;
+    margin-bottom: 1.96rem;
+    margin-left: 1em;
+    margin-right: -60%;
+    font-size: 0.9 em;
+    line-height: 1.96; 
+    /* vertical-align: baseline; */
+    position: relative;
+    left: -1em; 
+    text-indent: 0em;
+}
+
+/* li .sidenote{ margin-right: -80%; }  */
+
+/* blockquote .sidenote { margin-right: -50% }  */
+
+.sidenote-number { counter-increment: sidenote-counter; }
+
+.sidenote-number:after, .sidenote:before { content: counter(sidenote-counter) " ";
+                      font-family: et-bembo-roman-old-style;
+                      /* color was $contrast-color */
+                      color: blue;
+                      position: relative;
+                      vertical-align: baseline; }
+
+.sidenote-number:after { content: counter(sidenote-counter);
+    font-size: 1rem;
+    top: -0.5rem;
+    left: 0.1rem; }
+
+.sidenote:before { content: counter(sidenote-counter) ".\000a0"; 
+    /* color was $contrast-color */
+    color: blue;
+    top: 0rem; } 
+
+
 /* -- End of Table Styling section --*/
 
 
@@ -413,15 +462,17 @@ nav {
         width: 1200px;
         margin-left: -600px;
     }
-    .paper {width: 85%;}
+    .paper {width: 1065px;}
+    /* .sidenote {width: 300px;} */
 }
 
 @media (max-width: 1600px) {
     .scroll-1 {
-        width: 1000px;
-        margin-left: -500px;
+        width: 1200px;
+        margin-left: -600px;
     }
-    .sidenote {width: 35%;}
+    .paper {width: 100%;}
+    /* .sidenote {width: 30%;} */
 }
 
 @media (max-width: 1200px) {
@@ -534,54 +585,6 @@ nav {
 
 @media screen and (min-width: 1000px){ html{ font-size: 14px;} }
 
-
-/* side note from tuft.css */
-
-/* a hack required by .card{ overflow: visible } */
-.post h1 {padding-top: 2em;}
-.comment h2 {padding: 2em;}
-
-.sidenote { 
-    /* overflow: visible !important; */
-    float: right;
-    clear: right;
-    margin-right: -60%;
-    padding: 0.3em;
-    width: 50%;
-    margin-top: 0;
-    margin-bottom: 1.96rem;
-    margin-left: 3em;
-    font-size: 0.9 em;
-    line-height: 1.96; 
-    /* vertical-align: baseline; */
-    position: relative; 
-    left: 5%;
-    text-indent: 0em;
-}
-
-/* li .sidenote{ margin-right: -80%; }  */
-
-/* blockquote .sidenote { margin-right: -50% }  */
-
-.sidenote-number { counter-increment: sidenote-counter; }
-
-.sidenote-number:after, .sidenote:before { content: counter(sidenote-counter) " ";
-                      font-family: et-bembo-roman-old-style;
-                      /* color was $contrast-color */
-                      color: blue;
-                      position: relative;
-                      vertical-align: baseline; }
-
-.sidenote-number:after { content: counter(sidenote-counter);
-    font-size: 1rem;
-    top: -0.5rem;
-    left: 0.1rem; }
-
-.sidenote:before { content: counter(sidenote-counter) ".\000a0"; 
-    /* color was $contrast-color */
-    color: blue;
-    top: 0rem; } 
-
 /* responsive setting for sidenote */
 
 @media screen and (max-width: 768px) { 
@@ -597,7 +600,7 @@ nav {
                                     }
     .ghComment, .ghBody, .ghFooter { margin-left: 0; } }
 
-@media (max-width: 768px) { 
+@media (max-width: 1000px) { 
     label.margin-toggle:not(.sidenote-number) { display: inline; color: blue; }
     .sidenote { display: none; }
     .margin-toggle:checked + .sidenote { 

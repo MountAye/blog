@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>阿掖山：一个博客</title>
-    <description>阿掖山：一个博客</description>
-    <link>https://mountaye.github.io/blog//</link>
-    <atom:link href="https://mountaye.github.io/blog//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 29 Nov 2021 00:13:06 -0600</pubDate>
-    <lastBuildDate>Mon, 29 Nov 2021 00:13:06 -0600</lastBuildDate>
-    <generator>Jekyll v4.2.0</generator>
+    <description>智力活动是一种生活态度</description>
+    <link>https://mountaye.github.io/blog/</link>
+    <atom:link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 30 Nov 2021 21:38:50 -0600</pubDate>
+    <lastBuildDate>Tue, 30 Nov 2021 21:38:50 -0600</lastBuildDate>
+    <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>.py | Fedora 上安装 CPU 版 pytorch</title>
@@ -105,8 +105,8 @@ tf.Tensor&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&q
 &lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/47068709/your-cpu-supports-instructions-that-this-tensorflow-binary-was-not-compiled-to-u&quot;&gt;stackoverflow 的这个回答&lt;/a&gt; 说，需要从源码编译 tensorflow，具体的方法在&lt;a href=&quot;https://www.tensorflow.org/install/source#linux&quot;&gt;官网也有&lt;/a&gt;，但是实在是太麻烦了，&lt;del&gt;（还是鸽了）&lt;/del&gt; 下次单独写成一篇吧。&lt;/p&gt;
 </description>
         <pubDate>Wed, 13 Oct 2021 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog//articles/install-pytorch-cpu-on-fedora</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog//articles/install-pytorch-cpu-on-fedora</guid>
+        <link>https://mountaye.github.io/blog/articles/install-pytorch-cpu-on-fedora</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/install-pytorch-cpu-on-fedora</guid>
         
         
       </item>
@@ -144,8 +144,8 @@ tf.Tensor&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&q
 &lt;p&gt;开学前的一个星期是迎新周，作为研究生教学主管，维教授依惯例需要在迎新会上讲话，向研究生新生介绍项目教学计划。迎新活动的主办方是高年级学生组成的 mentor committee，committee 的头儿安鲁写信给卡教授，问他愿不愿意代替维教授出席。卡教授回复说他已经问过了，维教授觉得自己还能正常履职。作为 committee 的一员，维教授讲话的时候我也在场，介绍十分顺利，只是在教授对着幻灯片的一处幽默的时候，我不知道该做什么表情。&lt;/p&gt;
 </description>
         <pubDate>Thu, 23 Sep 2021 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog//articles/taile-celebration-of-life</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog//articles/taile-celebration-of-life</guid>
+        <link>https://mountaye.github.io/blog/articles/taile-celebration-of-life</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/taile-celebration-of-life</guid>
         
         
       </item>
@@ -259,8 +259,8 @@ tf.Tensor&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&q
 &lt;p&gt;更糟糕的是，如果中国无法改革国内经济，或者国际政治局势进一步恶化，甚至撤资都可能成为问题。如果发生这种情况，仓促进入的投资者和公司将有时间悠闲地忏悔。&lt;/p&gt;
 </description>
         <pubDate>Sat, 14 Aug 2021 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog//articles/translate-dalio-on-china-and-arguments</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog//articles/translate-dalio-on-china-and-arguments</guid>
+        <link>https://mountaye.github.io/blog/articles/translate-dalio-on-china-and-arguments</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/translate-dalio-on-china-and-arguments</guid>
         
         
       </item>
@@ -330,8 +330,8 @@ tf.Tensor&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&q
 &lt;p&gt;也许都对，但是 编辑器 + 解释器 + …… 比起 IDE 就是处在鄙视链的上游。这一点可以不同意，但是应该要知道，不然别人抖包袱的时候你没捧上哏，挺尴尬的。&lt;/p&gt;
 </description>
         <pubDate>Tue, 29 Jun 2021 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog//articles/python-interpreter-editor-virtualenv</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog//articles/python-interpreter-editor-virtualenv</guid>
+        <link>https://mountaye.github.io/blog/articles/python-interpreter-editor-virtualenv</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/python-interpreter-editor-virtualenv</guid>
         
         
       </item>
@@ -531,15 +531,15 @@ tf.Tensor&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&q
 
 &lt;p&gt;最后贴几张战略模式的截图吧，许愿《文明7》能够像 P 社游戏一样给战时的军事单位移动加上那种很带感的箭头。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog//assets/photos/2021-05-26-rome-turn144.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2021-05-26-rome-turn144.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog//assets/photos/2021-05-26-france-turn144.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2021-05-26-france-turn144.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog//assets/photos/2021-05-26-spain-turn144.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2021-05-26-spain-turn144.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 26 May 2021 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog//articles/civ6-game-review-france-vs-rome</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog//articles/civ6-game-review-france-vs-rome</guid>
+        <link>https://mountaye.github.io/blog/articles/civ6-game-review-france-vs-rome</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/civ6-game-review-france-vs-rome</guid>
         
         
       </item>
@@ -2703,8 +2703,8 @@ tf.Tensor&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&q
 &lt;br /&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;82:24&lt;/code&gt; so when are you when are you going&lt;/p&gt;
 </description>
         <pubDate>Tue, 18 May 2021 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog//articles/mpipks-non-equilibrium-physics-transcript-11-ggplot</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog//articles/mpipks-non-equilibrium-physics-transcript-11-ggplot</guid>
+        <link>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-11-ggplot</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-11-ggplot</guid>
         
         
         <category>post</category>
@@ -2866,8 +2866,8 @@ tf.Tensor&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&q
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 15 May 2021 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog//articles/mpipks-non-equilibrium-physics-note-10-dimension-reduction</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog//articles/mpipks-non-equilibrium-physics-note-10-dimension-reduction</guid>
+        <link>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-note-10-dimension-reduction</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-note-10-dimension-reduction</guid>
         
         
       </item>
@@ -4691,8 +4691,8 @@ tf.Tensor&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&q
 &lt;br /&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;77:16&lt;/code&gt; you&lt;/p&gt;
 </description>
         <pubDate>Fri, 14 May 2021 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog//articles/mpipks-non-equilibrium-physics-transcript-10-dimension-reduction</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog//articles/mpipks-non-equilibrium-physics-transcript-10-dimension-reduction</guid>
+        <link>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-10-dimension-reduction</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-10-dimension-reduction</guid>
         
         
       </item>
@@ -7217,8 +7217,8 @@ tf.Tensor&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&q
 1&lt;br /&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;00:34&lt;/code&gt; bye&lt;/p&gt;
 </description>
         <pubDate>Tue, 27 Apr 2021 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog//articles/mpipks-non-equilibrium-physics-transcript-09-data-wrangling</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog//articles/mpipks-non-equilibrium-physics-transcript-09-data-wrangling</guid>
+        <link>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-09-data-wrangling</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-09-data-wrangling</guid>
         
         
       </item>
@@ -7327,8 +7327,8 @@ tf.Tensor&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&q
 &lt;p&gt;哦对了，我有女朋友了，而且在 hackathon 的过程中把女朋友惹哭了……问题是我现在已经不记得具体是怎么把人家惹哭的了，连道歉都显得很不诚恳……我确实是一个不擅长合作的人，或者说跟别人说话的我，和想问题的我并不是同一个人，之前本科 CUPT 和建模的时候也一样，需要和人打交道的时候就几乎干不了活儿，严重的时候自己就退化成了鼓励师……总之一切错误在我，希望她不要记仇…… &lt;br /&gt;（。・＿・。）ﾉ&lt;/p&gt;
 </description>
         <pubDate>Thu, 22 Apr 2021 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog//articles/qc-hackathon-write-up</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog//articles/qc-hackathon-write-up</guid>
+        <link>https://mountaye.github.io/blog/articles/qc-hackathon-write-up</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/qc-hackathon-write-up</guid>
         
         
       </item>

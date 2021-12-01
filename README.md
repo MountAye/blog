@@ -1,6 +1,6 @@
-﻿
 # 阿掖山：一个博客
 
+![Total visitor](https://visitor-count-badge.herokuapp.com/total.svg?repo_id=)
 
 这是一个中文博客，作者希望保持匿名。
 

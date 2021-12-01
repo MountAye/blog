@@ -1,6 +1,6 @@
 # 阿掖山：一个博客
 
-![visitor badge](https://visitor-badge.glitch.me/badge?page_id=MountAye.blog&left_text=访客)
+![visitor badge](https://visitor-badge.glitch.me/badge?page_id=MountAye.blog&left_text=%E7%82%B9%E5%87%BB%E6%AC%A1%E6%95%B0)
 
 这是一个中文博客，作者希望保持匿名。
 

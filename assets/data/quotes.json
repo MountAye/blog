@@ -1,17 +1,5 @@
 ﻿[
 {
-  "text":   "Life is short. You need Python.",
-"author": "Bruce Eckel"
-},
-{
-  "text": "You cannot answer a question you cannot ask and you cannot ask a question you have no words for.",
-"author": "Judea Pearl & Dana Mackenzie 《The Book of Why》"
-},
-{
-  "text": "Readability counts." ,
-"author": "The Zen of Python"
-},
-{
   "text": "实用性大于意识形态",
 "author": "Arch Linux 中文社区 - Wiki - Arch_Linux (简体中文)"
 },
@@ -24,6 +12,10 @@
 "author": "阿尔伯特·爱因斯坦"
 },
 {
+  "text": "登高,坡顶自有青天,倘若正有一朵白云闪耀,那就望云爬坡吧",
+"author": "日剧《坂上之云》"
+},
+{
   "text": "成功不必在我，功成其中有我",
 "author": "编程随想"
 },
@@ -34,6 +26,14 @@
 {
   "text": "有些人喷着喷着，就把自己当例子给举出去了。:-)",
 "author": "《编程随想的博客》评论区"
+},
+{
+  "text": "金钱的奴隶挥着鞭子，在用金钱买来的奴隶面前摆出个主人的样子，只是人们没有自觉罢了，其实每个人都是某种东西的奴隶。",
+"author": "TV 动画《冰海战纪》"
+},
+{
+  "text": "You cannot answer a question you cannot ask and you cannot ask a question you have no words for.",
+"author": "Judea Pearl & Dana Mackenzie 《The Book of Why》"
 },
 {
   "text": "当人们无法谈论屋子里的大象的时候，只能小心翼翼的讨论着被大象踩死的人，就成为我们为数不多的快乐了。",
@@ -64,12 +64,12 @@
 "author": "陈冠中《裸命》"
 },
 {
-  "text": "人活在世上，有的活成了面子，有的活成了里子，都是时势使然。",
-"author": "电影《一代宗师》"
-},
-{
   "text": "环境不想让你做好一件事，或者想让你做不好一件事，但你把它做好了，这就是抵抗。",
 "author": "豆瓣用户 @朱岳"
+},
+{
+  "text": "Life is short. You need Python.",
+"author": "Bruce Eckel"
 },
 {
   "text": "在蛋里，很难知道<br>是世界即将崩坏<br>还是壳即将裂开",
@@ -77,19 +77,19 @@
 },
 {
   "text": "人应该管理的是精力与注意力而不是时间，这两者有很大的不同。",
-"author": "饭否用户 @郭家二少爷"
+"author": "饭否@郭家二少爷"
 },
 {
   "text": "当你还是个孩子的时候你就想长大，因为成年人可以为所欲为。<br>如果你是个成年人，你也会因为同样的原因而想重新成为一个孩子。",
-"author": "饭否用户 @heavenblue"
+"author": "饭否@heavenblue"
 },
 {
   "text": "“荷花不知道，她自己就是夏天”——一小学生创作诗歌",
-"author": "饭否用户 @Lifbrasir"
+"author": "饭否@Lifbrasir"
 },
 {
   "text": "“你是非常可爱的人，真应该遇到最好的人，我也真希望我就是。”——王小波",
-"author": "饭否用户 @马冇冇"
+"author": "饭否@马冇冇"
 },
 {
   "text": "史学的工作是整理史料，不是作艺术的建设，不是做疏通的事业，不是去扶持或推倒这个运动，或那个主义。",
@@ -98,6 +98,18 @@
 {
   "text": "艺术广大之极，足以占据一个人。",
 "author": "福楼拜"
+},
+{
+  "text":   "Bran Stark: Can a man still be brave if he's afraid? <br>Ned Stark: That is the only time a man can be brave.",
+"author": "TV episodes 《Game of Thrones》"
+},
+{
+  "text": "Men decide where power resides whether or not they know it.",
+"author": "TV episodes 《Game of Thrones》"
+},
+{
+  "text": "There is nothing in the world more powerful than a good story.",
+"author": "TV episodes 《Game of Thrones》"
 },
 {
   "text": "民主不能靠恩赐，民主是争来的。要有笔杆子，要有用鲜血做墨水的笔杆子。",
@@ -297,7 +309,7 @@
 },
 {
   "text": "好的程序代码本身就是最好的文档。",
-"author": "Steve McConnell 《代码大全》"
+"author": "Steve McConnell《代码大全》"
 },
 {
   "text": "在回信的最后，泰森表示，虽然科学家反对宗教对教育的渗透，但他一直认为学校里应该有一门介绍各种宗教的课，这样的课之所以没有设立，“从历史上讲， 是因为宗教自己从来就没有宽容其他宗教的雅量”。",
@@ -360,6 +372,14 @@
 "author": "钱天白，中国第一封电子邮件"
 },
 {
+  "text": "世界上的大罪恶，大残忍——没有比残忍更大的罪恶了——大多是真有道德理想的人干的。没有道德的人犯罪，自己明白是罪；真有道德的人害了人，他还觉得是道德应有的代价。",
+"author": "钱钟书《谈教训》"
+},
+{
+  "text": "上帝惩罚人类，有时来一个荒年，有时来一次瘟疫或战争，有时产生一个道德家，抱有高尚得一般人实现不了的理想，伴随着和他的理想成正比例的自信心和煽动力，融合成不自觉的骄傲。",
+"author": "钱钟书《谈教训》"
+},
+{
   "text": "有时，有些学科，经常让人成为四流科学家而得意洋洋。",
 "author": "Peyton Rous，饶毅翻译"
 },
@@ -368,24 +388,24 @@
 "author": "乔治·萨顿 (George Sarton)，科学史学家，评价平行公设"
 },
 {
+  "text": "妖魔说，你不能妖魔化我，你不客观，你不中立，你在搞非黑即白——我把这个叫做“妖魔化陷阱”。搞社科写作、尤其是搞历史写作的人，掉进去就完了。",
+"author": "谌旭彬，微信@史料搬运工《一些理解，不一定对》"
+},
+{
+  "text": "最坏的时代是批评者退场的时代。批评者退场，剩下的便只有颂扬者与讽刺者。颂扬者丧失了良知，讽刺者对未来不抱希望。",
+"author": "谌旭彬，微信@史料搬运工《一些理解，不一定对》"
+},
+{
+  "text": "人心就是这样。当有人长期灌输一加一等于十时，你说一加一等于五才会被视为客观。你要说一加一等于二，你就是极端分子。",
+"author": "谌旭彬，微信@史料搬运工《一些理解，不一定对》"
+},
+{
+  "text": "朱重八是个残忍的人，也是个实诚人。他在《大诰》里劝明帝国的百姓老老实实，不要总想着反抗，理由便非常务实：“缺食而死者，终非兵刃之死。设使被兵所逼，仓惶投崖趋火赴渊而殁，观其窘于衣食而死者，岂不优游自尽者乎！”——和平时代里饿死累死，总好过在乱世里被刀兵杀死。",
+"author": "谌旭彬，微信@史料搬运工《一些理解，不一定对》"
+},
+{
   "text": "所以隐忍苟活，函粪土之中而不辞者，恨私心有所不尽，鄙没世而文采不表于后也。",
 "author": "司马迁《报任安书》"
-},
-{
-  "text": "金钱的奴隶挥着鞭子，在用金钱买来的奴隶面前摆出个主人的样子，只是人们没有自觉罢了，其实每个人都是某种东西的奴隶。",
-"author": "TV 动画《冰海战纪》"
-},
-{
-  "text":   "Bran Stark: Can a man still be brave if he's afraid? <br>Ned Stark: That is the only time a man can be brave.",
-"author": "TV episodes 《Game of Thrones》"
-},
-{
-  "text": "Men decide where power resides whether or not they know it.",
-"author": "TV episodes 《Game of Thrones》"
-},
-{
-  "text": "There is nothing in the world more powerful than a good story.",
-"author": "TV episodes 《Game of Thrones》"
 },
 {
   "text": "昨日之敌乃是今日之友。",
@@ -456,6 +476,14 @@
 "author": "徐志摩《欧游漫录——血，谒列宁遗体回想》"
 },
 {
+  "text": "人活在世上，有的活成了面子，有的活成了里子，都是时势使然。",
+"author": "电影《一代宗师》"
+},
+{
+  "text": "忠國有句俗語說，你永遠叫不醒一個裝睡的人。這句話明顯誤導讀者。既然一個人可以裝睡，那麼他也可以裝醒——假裝被你叫醒。",
+"author": "YouTube@政經孫老師"
+},
+{
   "text": "林田高志：百思不如一试，根据我的经验，这句话十有八九是真的。",
 "author": "羽海野千花《三月的狮子》"
 },
@@ -464,7 +492,15 @@
 "author": "羽海野千花《三月的狮子》"
 },
 {
+  "text": "Readability counts." ,
+"author": "The Zen of Python"
+},
+{
   "text": "我们不幸生于中国人之间，比不得华侨，可以一辈子安全地隔着适应的距离崇拜着神圣的祖国。",
+"author": "张爱玲"
+},
+{
+  "text": "母爱这个大题目， 像一切大题目一样， 上面做了太多的滥调文章。 ……而女人， 如果也标榜母爱的话， 那是她自己明白她本身是不足重的， 男人只尊敬她这一点， 所以不得不加以夸张， 浑身是母亲了。 其实有些感情是， 如果时时把它戏剧化， 就光剩下戏剧了； 母爱尤其是。",
 "author": "张爱玲"
 },
 {

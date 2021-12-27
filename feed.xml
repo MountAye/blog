@@ -5,9 +5,150 @@
     <description>智力活动是一种生活态度</description>
     <link>https://mountaye.github.io/blog/</link>
     <atom:link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 11 Dec 2021 13:18:44 -0600</pubDate>
-    <lastBuildDate>Sat, 11 Dec 2021 13:18:44 -0600</lastBuildDate>
+    <pubDate>Sun, 26 Dec 2021 22:30:55 -0600</pubDate>
+    <lastBuildDate>Sun, 26 Dec 2021 22:30:55 -0600</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>.git | 管理 GitHub 不同用户身份的仓库</title>
+        <description>&lt;p&gt;很显然，我不可能把“阿掖山”这个名字写到论文里，与研究相关的项目、组里的代码和数据，都由另一个实名的 GitHub 账号来处理。这就有个问题——如何告诉 GitHub 某个项目文件夹该由哪个账号来做版本管理。&lt;/p&gt;
+
+&lt;p&gt;于是 STFW，结果看到了GitHub  官方的回答：&lt;a href=&quot;https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts&quot;&gt;“这边建议您把两个账号合并呢～”&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;其实这个问题在建立这个博客站之前就解决了，但是因为很长时间我的研究代码都是自己在用，而且只在台式机上用，一直没有推到 GitHub 上去，实名账号一直没在笔记本上用过。具体细节忘得差不多了，这次复习一下。&lt;/p&gt;
+
+&lt;p&gt;作为例子，两个账号的用户名分别是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;USER1&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;USER2&lt;/code&gt;，注册邮箱分别是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;USER1@EMAIL.com&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;USER2@EMAIL.com&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;多个计算机用户&quot;&gt;多个计算机用户&lt;/h2&gt;
+
+&lt;p&gt;当然了，最简单的方法就是新建一个操作系统用户，每个用户登录一个 GitHub 账号。这种方法好处很多：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;不需要特殊操作。&lt;/li&gt;
+  &lt;li&gt;适用于不同操作系统。&lt;/li&gt;
+  &lt;li&gt;切换身份需要专门切换账号，有助于防止操作者忘记自己所处的身份。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;但是这篇文章不会涉及这种方法，因为当初买电脑的时候并没有注意到需要做身份隔离，等到发现事情不妙的时候已经混装和两个身份需要的不同软件，积重难返。于是采用了以下两节的解决方案。&lt;/p&gt;
+
+&lt;h2 id=&quot;单个计算机用户windows-github-desktop&quot;&gt;单个计算机用户@Windows: GitHub Desktop&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2021-12-26-github-desktop.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;在官网下载、安装、打开 &lt;a href=&quot;https://desktop.github.com/&quot;&gt;GitHub Desktop&lt;/a&gt; 客户端。&lt;/li&gt;
+  &lt;li&gt;在 GitHub 网页版上切换到新的账户。&lt;/li&gt;
+  &lt;li&gt;点击左上角 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;File &amp;gt; Options&lt;/code&gt;，默认界面就是账户信息。点击 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Sign Out&lt;/code&gt; 退出登录，然后再点击 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Sign In&lt;/code&gt;，根据弹出窗口的提示操作，就来到了新的账户。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;单个计算机用户linux--sshconfig&quot;&gt;单个计算机用户@Linux : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ssh/config&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;具体操作看以下两个连接就够了：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/JoaquimLey/e6049a12c8fd2923611802384cd2fb4a&quot;&gt;https://gist.github.com/JoaquimLey/e6049a12c8fd2923611802384cd2fb4a&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.github.com/en/authentication/connecting-to-github-with-ssh&quot;&gt;https://docs.github.com/en/authentication/connecting-to-github-with-ssh&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;del&gt;但是为了水字数，&lt;/del&gt; 还是写得详细一点……&lt;/p&gt;
+
+&lt;h3 id=&quot;本地生成并启用-ssh-key&quot;&gt;本地：生成并启用 SSH key&lt;/h3&gt;
+
+&lt;p&gt;打开命令行，输入以下命令，生成 SSH key：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+ssh-keygen &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; rsa &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; 4096 &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;USER1&quot;&lt;/span&gt; 
+ssh-keygen &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; rsa &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; 4096 &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;USER2&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;其中 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-t&lt;/code&gt; 指定加密算法，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-b&lt;/code&gt; 指定密钥的位数，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-C&lt;/code&gt; 相当于注释。&lt;/p&gt;
+
+&lt;p&gt;然后命令行会弹出几个选项，可以一路按回车使用默认值。&lt;/p&gt;
+
+&lt;p&gt;上述命令完成后，在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.ssh&lt;/code&gt; 文件夹应该会有两对四个密钥文件：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.ssh/USER1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.ssh/USER1.pub&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.ssh/USER2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.ssh/USER2.pub&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;然后输入以下命令，启用刚刚生成的密钥。&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;ssh-agent &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 启动 ssh-agent&lt;/span&gt;
+ssh-add ~/.ssh/USER1   &lt;span class=&quot;c&quot;&gt;# 添加 USER1 的密钥&lt;/span&gt;
+ssh-add ~/.ssh/USER2   &lt;span class=&quot;c&quot;&gt;# 添加 USER2 的密钥&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;网页把密钥添加到对应的账号&quot;&gt;网页：把密钥添加到对应的账号&lt;/h3&gt;
+
+&lt;p&gt;在网页端以 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;USER1&lt;/code&gt; 身份登录 GitHub 之后，在 “Settings” 页面找到 “SSH and GPG keys” 选项卡，点击绿色的 “New SSH key” 按钮之后，将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.ssh/USER1.pub&lt;/code&gt; 中的内容复制到 “Key” 填空区，然后起一个名字，点击 “Add SSH key” 按钮。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2021-12-26-github-key.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;USER2也照此办理。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;千万要注意&lt;/strong&gt;复制的应该是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.pub&lt;/code&gt; 后缀的文件！&lt;/p&gt;
+
+&lt;h3 id=&quot;本地编辑-sshconfig-文件&quot;&gt;本地：编辑 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.ssh/config&lt;/code&gt; 文件&lt;/h3&gt;
+
+&lt;p&gt;在 ~/.ssh/ 找到或者新建一个名为 config 的文本文件。打开之后，将以下内容添加到文件中：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Host github.com-user1
+	Hostname github.com
+	User git
+	IdentityFile ~/.ssh/user1
+Host github.com-user2
+	Hostname github.com
+	User git
+	IdentityFile ~/.ssh/user2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;git-clone-时-repo-地址的改动&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clone&lt;/code&gt; 时 repo 地址的改动&lt;/h3&gt;
+
+&lt;p&gt;一般的 git clone, 直接把 GitHub 提供的命令复制粘贴到命令行就行了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2021-12-26-git-clone.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;但是我们这个不同，首先是只能选择 SSH 模式，然后是需要在域名&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github.com&lt;/code&gt; 后面加上&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-user1&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+git clone git@github.com-user1:User/Repo.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这里就体现出之前在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.ssh/config&lt;/code&gt; 把 Host 命名为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github.com-****&lt;/code&gt; 的好处了。&lt;/p&gt;
+
+&lt;h3 id=&quot;git-commit-前填写在-repo-中填写账户信息&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git commit&lt;/code&gt; 前填写在 repo 中填写账户信息&lt;/h3&gt;
+
+&lt;p&gt;第一次做完改动推送到 GitHub 之前，需要专门在 repo 级别写明自己的身份，也就是在命令行输入：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+git config &lt;span class=&quot;nt&quot;&gt;--local&lt;/span&gt; user.name  &lt;span class=&quot;s2&quot;&gt;&quot;USER1&quot;&lt;/span&gt;
+git config &lt;span class=&quot;nt&quot;&gt;--local&lt;/span&gt; user.email &lt;span class=&quot;s2&quot;&gt;&quot;USER1@EMAIL.com&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;注意为了防止操作者忘记自己所处的身份&quot;&gt;&lt;strong&gt;注意：&lt;/strong&gt;为了防止操作者忘记自己所处的身份&lt;/h3&gt;
+
+&lt;p&gt;强烈建议去掉用户信息的全局设置：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--unset&lt;/span&gt; user.name
+git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--unset&lt;/span&gt; user.email
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这样假如忘记之前的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git config --local&lt;/code&gt;, 第一次 git commit 的时候会报错，提示信息缺失。&lt;/p&gt;
+
+&lt;p&gt;这样操作一次之后，之后的操作几乎感受不到账户的不同。&lt;/p&gt;
+</description>
+        <pubDate>Sun, 26 Dec 2021 00:00:00 -0600</pubDate>
+        <link>https://mountaye.github.io/blog/articles/git-multiple-users</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/git-multiple-users</guid>
+        
+        
+      </item>
     
       <item>
         <title>.py | import 引用现成的代码</title>
@@ -3263,167 +3404,6 @@ tf.Tensor&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&q
         
         
         <category>post</category>
-        
-      </item>
-    
-      <item>
-        <title>.mpipks-note | 10. Dimension Reduction</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;第十讲是由校外邀请来的嘉宾来讲数据降维，所以课程网站上没有课件。时间轴和语音转录相对来说不那么有意义了。所以在听课的过程中做了如下笔记。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;High dimensinoal data&lt;/li&gt;
-  &lt;li&gt;Dimensionality Reduction Methods&lt;/li&gt;
-  &lt;li&gt;Clustering (a discrete form of reduction)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;high-dimensional-data&quot;&gt;High Dimensional Data&lt;/h2&gt;
-
-&lt;p&gt;data matrix X:n*m.&lt;/p&gt;
-
-&lt;p&gt;n samples as rows, m columns as observables&lt;/p&gt;
-
-&lt;p&gt;How to visualize?&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;m=1: list&lt;/li&gt;
-  &lt;li&gt;m=2: x-y plot&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Aim of dimension reduction: reduce the number of observables, while keeping relevant information.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;examples&quot;&gt;Examples&lt;/h3&gt;
-
-&lt;p&gt;Ferromagnetic Ising model of a 28*28 lattice, 50,000 samples. The 1st principal component scales with the magnetization.&lt;/p&gt;
-
-&lt;p&gt;500,000 DNA sites of 3,000 humans. Projections onto the first 2 principal components givees a rough map of Europe&lt;/p&gt;
-
-&lt;p&gt;Fashion MNIST: 60,000 pictures of 784 (28*28) pixels. UMAP projections onto 2 dimensions&lt;/p&gt;
-
-&lt;h2 id=&quot;linear-dimension-reduction&quot;&gt;Linear dimension reduction&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Principal component analysis&lt;/li&gt;
-  &lt;li&gt;Non-negative matrix factorization&lt;/li&gt;
-  &lt;li&gt;Independent component analysis&lt;/li&gt;
-  &lt;li&gt;Factor analysis&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;principal-component-analysis&quot;&gt;Principal component analysis&lt;/h3&gt;
-
-&lt;p&gt;change of basis&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Aim:&lt;/strong&gt; to find a transformation such that&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;the components are uncorrelated&lt;/li&gt;
-  &lt;li&gt;ordered by the explained variability&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Math&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;p&gt;\(X^T X\) is a \(m \times m\) matrix. Eigen-decomposition gives \((\lambda,W)\) where \(W\)’s columns are eigen vectors sorted by \(\lambda\)&lt;/p&gt;
-
-&lt;p&gt;\(T = X \cdot W\) where  \(T\) is the score onto principal components, and \(T^TT\) is diagonal&lt;/p&gt;
-
-&lt;p&gt;\(T_r = X \cdot W_r\) where \(W_r\) is a n*r matrix of the first r components&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Practice In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;R&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Iris Dataset&lt;/li&gt;
-  &lt;li&gt;Pitures of Objects at Different Angles:&lt;/li&gt;
-  &lt;li&gt;Swiss Roll: the transformed data almost have the same structure as the original data. This shows the limit of PCA due to linearity&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&quot;&quot;&gt;wikipedia - Nonlinear_dimensionality_reduction&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;umap-uniform-manifold-approximation&quot;&gt;UMAP: uniform manifold approximation&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Assumptions&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;uniformed distributeed on Riemann manifold&lt;/li&gt;
-  &lt;li&gt;Riemann metric is locally constant&lt;/li&gt;
-  &lt;li&gt;The manifold is locally conncected&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Results&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;models the manifold with a fuzzy topological structure&lt;/li&gt;
-  &lt;li&gt;finds low dimensional projection of the data that has the cloest possible equivalent fuzzy topological structure&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Simplex&lt;/strong&gt;
-0-simplex: dot
-1-simplex: line
-2-simplex: triangle
-3-simplex: 正四面体&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Problem&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;p&gt;When the uniform distribution is not met, the result may not be what we like. To circumvent this, we need to define the local metric with the nearest neighbours.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Finding a low dimensional representation&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;derive similar fuzzy topological representation of a low dimensional representation&lt;/li&gt;
-  &lt;li&gt;interpret edge weight s as proba&lt;/li&gt;
-  &lt;li&gt;minimize cross entropy&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;pair-code.github.com/understand_umap&quot;&gt;pair-code.github.io/understand_umap&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Practice in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;R&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Swiss Roll becomes a 2-d ring&lt;/li&gt;
-  &lt;li&gt;Pictures at different angles are well seperated&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;clustering&quot;&gt;Clustering&lt;/h2&gt;
-
-&lt;h3 id=&quot;hierarchiral-clustering&quot;&gt;hierarchiral clustering&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;metric&lt;/li&gt;
-  &lt;li&gt;linkage criterion / distance between clusters&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;centroid-base-clustering-k-means&quot;&gt;centroid base clustering (k-means)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;pre-specify number of clusters, k&lt;/li&gt;
-  &lt;li&gt;partition the data such that the squared distance to cluster mean position is minimal&lt;/li&gt;
-  &lt;li&gt;Lloyd algorithm
-    &lt;ul&gt;
-      &lt;li&gt;start with random centers&lt;/li&gt;
-      &lt;li&gt;assign data to neatest center&lt;/li&gt;
-      &lt;li&gt;compute new centers&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;graph-based-clustering&quot;&gt;graph based-clustering&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;graph representation of data&lt;/li&gt;
-  &lt;li&gt;partition the data such that modularity Q is optimized&lt;/li&gt;
-  &lt;li&gt;\(Q = \sum_{i=1}^c e_{ii}-\gamma {a_i}^2, a_i = \sum_{j-1}^c e_{ij}\).
-    &lt;ul&gt;
-      &lt;li&gt;\(e_{ij}\): fraction of links between cluster i and j&lt;/li&gt;
-      &lt;li&gt;\(\gamma\): resulution&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;Question: How to identify order in high-dimensinoal data?&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;dimensionality reductuon to visualize high-dimensional data and to identify macroscopic observables&lt;/li&gt;
-  &lt;li&gt;clustering to identify discrete order in high dimensional data&lt;/li&gt;
-  &lt;li&gt;methods to se depending on the problem at hand&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Sat, 15 May 2021 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-note-10-dimension-reduction</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-note-10-dimension-reduction</guid>
-        
         
       </item>
     

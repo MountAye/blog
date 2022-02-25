@@ -5,9 +5,307 @@
     <description>智力活动是一种生活态度</description>
     <link>https://mountaye.github.io/blog/</link>
     <atom:link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 21 Jan 2022 16:19:34 -0600</pubDate>
-    <lastBuildDate>Fri, 21 Jan 2022 16:19:34 -0600</lastBuildDate>
+    <pubDate>Fri, 25 Feb 2022 15:03:36 -0600</pubDate>
+    <lastBuildDate>Fri, 25 Feb 2022 15:03:36 -0600</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>.tex | 生物学知识提纲</title>
+        <description>&lt;p&gt;最近在学校书店看到一本书，是 BARRON’S 360 系列的《A Complete Study Guide to Biology with Online Practice》。（原本）觉得对半路出家的我来说很有用，但是美国的书实在是太TM贵了，于是把目录抄录下来，对照内容自己找资料自学。&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;算是开了一个新坑？&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;抄完之后才发现这基本上就是国内高中的生物学水平，对生物分类方面的介绍还是立足于向下一代传递信息，有趣但是对我的研究帮助不大；对分子生物学和细胞生物学方面的介绍少了点。“世界上最好的高中教育在美国，只不过是在美国大学。”段子诚不我欺。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;总论/元信息 &lt;br /&gt;
+BIOLOGY: THE SCIENCE OF LIFE
+    &lt;ol&gt;
+      &lt;li&gt;生物的科学&lt;br /&gt;
+ The Science of Biology&lt;/li&gt;
+      &lt;li&gt;生物学诸分支&lt;br /&gt;
+ Branches of Biology&lt;/li&gt;
+      &lt;li&gt;当代生物学家的工作&lt;br /&gt;
+ The Work of the Modern Biologist&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;生命的特征&lt;br /&gt;
+ CHARACTERISTICS OF LIFE
+    &lt;ol&gt;
+      &lt;li&gt;主要生命活动&lt;br /&gt;
+ Major Life Functions&lt;/li&gt;
+      &lt;li&gt;生物如何命名&lt;br /&gt;
+ How Living Things Are Named&lt;/li&gt;
+      &lt;li&gt;五界分类系统&lt;br /&gt;
+ Five-Kingdom System of Classifications&lt;/li&gt;
+      &lt;li&gt;六界分类系统&lt;br /&gt;
+ Six-Kingdom System of Classifications&lt;/li&gt;
+      &lt;li&gt;三域分类系统&lt;br /&gt;
+ Three-Domain System of Classifications&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;细胞：生命的基本单位 &lt;br /&gt;
+THE CELL: BASIC UNIT OF LIFE
+    &lt;ol&gt;
+      &lt;li&gt;作为基本单位的细胞&lt;br /&gt;
+ The Cell as a Basic Unit&lt;/li&gt;
+      &lt;li&gt;细胞的各部分&lt;br /&gt;
+ Parts of a Cell&lt;/li&gt;
+      &lt;li&gt;动植物细胞比较&lt;br /&gt;
+ Comparison of Plant and Animal Cells&lt;/li&gt;
+      &lt;li&gt;细胞和组织&lt;br /&gt;
+ Organization of Cells and Tissues&lt;/li&gt;
+      &lt;li&gt;细胞增殖&lt;br /&gt;
+ Cell Reproduction&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;生命的化学 &lt;br /&gt;
+THE CHEMISTRY OF LIFE
+    &lt;ol&gt;
+      &lt;li&gt;一些基础化学原则&lt;br /&gt;
+ Some Basic Principles of Chemistry&lt;/li&gt;
+      &lt;li&gt;化学键&lt;br /&gt;
+ Chemical Bonding&lt;/li&gt;
+      &lt;li&gt;化学反应&lt;br /&gt;
+ Chemical Reactions&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;细胞的基础化学 &lt;br /&gt;
+THE BASIC CHEMISTRY OF CELLS
+    &lt;ol&gt;
+      &lt;li&gt;作为化学工厂的细胞&lt;br /&gt;
+ The Cell as a Chemical Factory&lt;/li&gt;
+      &lt;li&gt;活体细胞中酶的作用&lt;br /&gt;
+ The Role of Enzyme in Living Cells&lt;/li&gt;
+      &lt;li&gt;细胞呼吸&lt;br /&gt;
+ Cellular Respiration&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;细菌和病毒 &lt;br /&gt;
+BACTERIA AND VIRUSES
+    &lt;ol&gt;
+      &lt;li&gt;原核生物&lt;br /&gt;
+ Prokaryotes&lt;/li&gt;
+      &lt;li&gt;细菌的分类&lt;br /&gt;
+ Classification of Bacteria
+        &lt;ol&gt;
+          &lt;li&gt;古菌界&lt;br /&gt;
+ Kingdom Archaeobacteria&lt;/li&gt;
+          &lt;li&gt;细菌界&lt;br /&gt;
+ Kingdom Eubacteria&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;细菌的重要性&lt;br /&gt;
+ Importance of Bacteria&lt;/li&gt;
+      &lt;li&gt;病毒&lt;br /&gt;
+ Virus&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;原生生物界：原生动物、类真菌原生生物、类植物原生生物&lt;br /&gt;
+THE PROTIST KINGDOM: PROTOZOA, FUNGUS-LIKE PROTISTS, PLANT-LIKE PROTISTS
+    &lt;ol&gt;
+      &lt;li&gt;主要原生生物&lt;br /&gt;
+ Major Groups of Protists
+        &lt;ol&gt;
+          &lt;li&gt;原生动物&lt;br /&gt;
+ Protozoa, the animal-like protists&lt;/li&gt;
+          &lt;li&gt;类真菌原生生物&lt;br /&gt;
+ Fungus-like protists&lt;/li&gt;
+          &lt;li&gt;类植物原生生物&lt;br /&gt;
+ plant-like protists&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;原生生物对人类的重要性&lt;br /&gt;
+ Importance of Protists to Humans&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;真菌&lt;br /&gt;
+THE FUNGI
+    &lt;ol&gt;
+      &lt;li&gt;真菌的一般特性&lt;br /&gt;
+ General Features of Fungi&lt;/li&gt;
+      &lt;li&gt;主要真菌门&lt;br /&gt;
+ Major Divisions of Fungi&lt;/li&gt;
+      &lt;li&gt;特殊营养关系&lt;br /&gt;
+ Special Nutritional Relationships&lt;/li&gt;
+      &lt;li&gt;真菌对人类的重要性&lt;br /&gt;
+ Importance of Fungi to Humans&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;绿色植物&lt;br /&gt;
+THE GREEN PLANTS
+    &lt;ol&gt;
+      &lt;li&gt;植物的一般特点&lt;br /&gt;
+ General Characteristics of Plants&lt;/li&gt;
+      &lt;li&gt;主要植物门&lt;br /&gt;
+ Major Divisions of Plants&lt;/li&gt;
+      &lt;li&gt;光合作用&lt;br /&gt;
+ Photosynthesis&lt;/li&gt;
+      &lt;li&gt;植物激素&lt;br /&gt;
+ Plant Hermones&lt;/li&gt;
+      &lt;li&gt;光周期律&lt;br /&gt;
+ Photoperiodicity&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;无脊椎动物：从海绵到软体动物&lt;br /&gt;
+INVERTEBRATES: SPONGES TO MOLLUSKS
+    &lt;ol&gt;
+      &lt;li&gt;动物体的基本组织结构&lt;br /&gt;
+Basic Organization of the Animal Body&lt;/li&gt;
+      &lt;li&gt;无脊椎动物的一般特点&lt;br /&gt;
+General Characteristics of Invertebrates&lt;/li&gt;
+      &lt;li&gt;海绵&lt;br /&gt;
+Phylum Porifera — Sponges&lt;/li&gt;
+      &lt;li&gt;腔肠动物——水螅、水母、珊瑚、海葵及其近亲&lt;br /&gt;
+Phylum Cnidaria (Coelenterates) — Hydrozoa, Jellyfish, Corals, Sea Anemones, and Their Relatives&lt;/li&gt;
+      &lt;li&gt;扁形动物门&lt;br /&gt;
+Phylum Platyhelminthes—Flatworms&lt;/li&gt;
+      &lt;li&gt;线虫动物门&lt;br /&gt;
+Phylum Nematoda—Roundworms&lt;/li&gt;
+      &lt;li&gt;环节动物门&lt;br /&gt;
+Phylum Annelida—Segmented Worms&lt;/li&gt;
+      &lt;li&gt;&lt;del&gt;蛤与蛤丝&lt;/del&gt; &lt;br /&gt;
+Phylum Mollusks—Clams and Their Relatives&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;无脊椎动物：节肢动物&lt;br /&gt;
+INVERTEBRATES: THE ANTHROPODA
+    &lt;ol&gt;
+      &lt;li&gt;主要代表纲&lt;br /&gt;
+Major Representative Classes&lt;/li&gt;
+      &lt;li&gt;蛛形钢&lt;br /&gt;
+Class Arachnida—Spiders and Ticks&lt;/li&gt;
+      &lt;li&gt;软甲纲&lt;br /&gt;
+Class Malacostraca—Lobsters and Their Relatives&lt;/li&gt;
+      &lt;li&gt;昆虫纲&lt;br /&gt;
+Class Insecta&lt;/li&gt;
+      &lt;li&gt;节肢动物对人类的重要性&lt;br /&gt;
+Importance of Arthropoda to Humans&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;后口动物、脊索动物、哺乳动物&lt;br /&gt;
+DEUTEROSTOMES, CHORDATES, AND MAMMALS
+    &lt;ol&gt;
+      &lt;li&gt;后口动物总门&lt;br /&gt;
+The Deuterostomes&lt;/li&gt;
+      &lt;li&gt;脊索动物门&lt;br /&gt;
+Phylum Chordata—The Chordates&lt;/li&gt;
+      &lt;li&gt;脊椎动物亚门&lt;br /&gt;
+Subphylum Vertebrata—The Vertebrates&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;人：一种特殊的有脊椎动物&lt;br /&gt;
+HOMO SAPIENS: A SPECIAL VERTEBRATE
+    &lt;ol&gt;
+      &lt;li&gt;灵长类的特点&lt;br /&gt;
+Characteristics of Primates&lt;/li&gt;
+      &lt;li&gt;骨骼系统&lt;br /&gt;
+The Skeletal System&lt;/li&gt;
+      &lt;li&gt;肌肉系统&lt;br /&gt;
+The Muscular System&lt;/li&gt;
+      &lt;li&gt;神经系统&lt;br /&gt;
+The Nervous System&lt;/li&gt;
+      &lt;li&gt;内分泌系统&lt;br /&gt;
+The Endocrine System&lt;/li&gt;
+      &lt;li&gt;呼吸系统&lt;br /&gt;
+The Respiratory System&lt;/li&gt;
+      &lt;li&gt;循环系统&lt;br /&gt;
+The Circulatory System&lt;/li&gt;
+      &lt;li&gt;淋巴系统&lt;br /&gt;
+The Lymphatic System&lt;/li&gt;
+      &lt;li&gt;消化系统&lt;br /&gt;
+The Digestive System&lt;/li&gt;
+      &lt;li&gt;排泄系统&lt;br /&gt;
+The Excretory System&lt;/li&gt;
+      &lt;li&gt;感觉器官&lt;br /&gt;
+Sense Organs&lt;/li&gt;
+      &lt;li&gt;生殖&lt;br /&gt;
+Reproduction&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;营养：吃出健康&lt;br /&gt;
+NUTRITION: EATING FOR HEALTH
+    &lt;ol&gt;
+      &lt;li&gt;大量营养物质&lt;br /&gt;
+Macronutrients: Carbohydrates, Proteins, and Lipids&lt;/li&gt;
+      &lt;li&gt;微量营养物质&lt;br /&gt;
+Micronutrients: Vitamins and Minerals&lt;/li&gt;
+      &lt;li&gt;进食障碍&lt;br /&gt;
+Eating Disorders&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;人类疾病和免疫系统&lt;br /&gt;
+DISEASES OF HOMO SAPIENS AND THE IMMUNE SYS传染病TEM
+    &lt;ol&gt;
+      &lt;li&gt;传染病&lt;br /&gt;
+Infectious Diseases&lt;/li&gt;
+      &lt;li&gt;免疫系统&lt;br /&gt;
+The Immune System&lt;/li&gt;
+      &lt;li&gt;非传染病&lt;br /&gt;
+Noninfectious Diseases&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;遗传和基因学&lt;br /&gt;
+HEREDITY AND GENETICS
+    &lt;ol&gt;
+      &lt;li&gt;经典遗传原理&lt;br /&gt;
+Classical Principles of Heredity&lt;/li&gt;
+      &lt;li&gt;现代基因学&lt;br /&gt;
+Modern Genetics&lt;/li&gt;
+      &lt;li&gt;基因技术&lt;br /&gt;
+Genetic Technologies&lt;/li&gt;
+      &lt;li&gt;逆转录病毒——RNA中的基因编码&lt;br /&gt;
+The Retrovirus of AIDS—Genetic Coding in RNA&lt;/li&gt;
+      &lt;li&gt;遗传对人类的重要性&lt;br /&gt;
+Importance of Heredity to Humans&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;演化论&lt;br /&gt;
+PRINCIPLES OF EVOLUTION
+    &lt;ol&gt;
+      &lt;li&gt;演化的证据&lt;br /&gt;
+Evidence of Evolution&lt;/li&gt;
+      &lt;li&gt;演化的思想&lt;br /&gt;
+Ideas About Evolution&lt;/li&gt;
+      &lt;li&gt;生命的起源&lt;br /&gt;
+The Origin of Life&lt;/li&gt;
+      &lt;li&gt;人类的演化&lt;br /&gt;
+Evolution of Humans&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;生态学&lt;br /&gt;
+ECOLOGY
+    &lt;ol&gt;
+      &lt;li&gt;生态系统的概念&lt;br /&gt;
+The Concept of the Ecosystem&lt;/li&gt;
+      &lt;li&gt;生态系统中的能量流动&lt;br /&gt;
+Energy Flow in an Ecosystem&lt;/li&gt;
+      &lt;li&gt;生物地球化学循环&lt;br /&gt;
+Biogeochemical Cycles&lt;/li&gt;
+      &lt;li&gt;限制因素的概念&lt;br /&gt;
+The Limiting Factor Concept&lt;/li&gt;
+      &lt;li&gt;温室效应&lt;br /&gt;
+Greenhouse Effect&lt;/li&gt;
+      &lt;li&gt;全球变暖&lt;br /&gt;
+Global Warming&lt;/li&gt;
+      &lt;li&gt;生态演化&lt;br /&gt;
+Ecological Succession&lt;/li&gt;
+      &lt;li&gt;世界生物群系&lt;br /&gt;
+World Biomes&lt;/li&gt;
+      &lt;li&gt;人类和生物圈&lt;br /&gt;
+Humans and the Biosphere&lt;/li&gt;
+      &lt;li&gt;生态保护&lt;br /&gt;
+Conservation&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 25 Feb 2022 00:00:00 -0600</pubDate>
+        <link>https://mountaye.github.io/blog/articles/barron-360-biology-contents</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/barron-360-biology-contents</guid>
+        
+        
+      </item>
     
       <item>
         <title>.pdf | 《三体》摘抄·《I.地球往事》</title>
@@ -1309,214 +1607,6 @@ tf.Tensor&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&q
         <pubDate>Tue, 29 Jun 2021 00:00:00 -0500</pubDate>
         <link>https://mountaye.github.io/blog/articles/python-interpreter-editor-virtualenv</link>
         <guid isPermaLink="true">https://mountaye.github.io/blog/articles/python-interpreter-editor-virtualenv</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>.exe | 《文明6》娱乐局战报：被罗马吊打的法兰西</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;前几天在微信公众号，有新关注的读者问我最近在进行什么项目，我说 python 教程还在写，结果这次的更新是……请大家相信我，python 教程第 2 篇真的在写了（新建 markdown 文档.gif），我打算聊一聊上篇实操指南背后究竟在干什么，什么是编程语言的解释器、编辑器、python 的虚拟环境等等……&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;每周一次的《文明6》游戏还在火热进行中。自从第一次参加，用格鲁吉亚的塔玛丽被唐学长的马普切放置 play 之后，发愤图强，业余时间基本上都在看油管上的视频战报学技术，最终在上一局，极大地球图中用彼得，在唐学长开局被 AI 偷袭，和朱学长中途退赛的情况下，和朱学长身后留下的 AI 势均力敌，并且在与其之战争中占据上风，有望拿下比赛。虽然最后由于交战拖垮了网络连接而提前结束，但毕竟是巨大的进步。&lt;/p&gt;
-
-&lt;p&gt;于是老子就飘了，觉得这次朱学长不在，可以和唐哥掰掰手腕了。结果十分丢人现眼，150 回合不到，人家已经开始建宇航中心了，而且文化并不比我落后，旅游业绩甚至超过我。&lt;/p&gt;
-
-&lt;p&gt;怎么可能呢？于是分别以我和他的视角加载游戏，看看差距到底在哪里。本来以为我是有定期存档的，结果发现手头只有 22 回合和 144 回合的存档，才想起来第一次游戏到一半的时候就发现自己的科技被甩开了，于是自暴自弃了。虽然这样的学习价值不大了，但还是姑且写完这篇文章，算是有始有终吧。&lt;/p&gt;
-
-&lt;h2 id=&quot;偷师&quot;&gt;偷师&lt;/h2&gt;
-
-&lt;p&gt;在此之前，游戏结束如果比较早的话，会和肖学姐，也就是唐学长的女朋友打听一点经验攻略，再加上自己的观察以及油管，以及之前接手过朱学长跑路后留下的位置，汇总成以下的经验总结：&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;早期的文化非常重要。平伽拉是早期总督的首选。&lt;/li&gt;
-  &lt;li&gt;产能主要来自地貌的改良，建立工业区之前达到每城 30 “即可”。&lt;/li&gt;
-  &lt;li&gt;工人，很多很多工人。&lt;/li&gt;
-  &lt;li&gt;第一个时代进入黄金时代很重要，哪怕只是金币打折买工人也很赚。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;对比&quot;&gt;对比&lt;/h2&gt;
-
-&lt;p&gt;以下是对比内容，法国从右往左看，罗马从左往右。&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;法兰西 (144 回合)&lt;/th&gt;
-      &lt;th&gt;法兰西 (22 回合)&lt;/th&gt;
-      &lt;th&gt;对比&lt;/th&gt;
-      &lt;th&gt;罗马 (22 回合)&lt;/th&gt;
-      &lt;th&gt;罗马 (144 回合)&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;法国中部、南德和奥地利、多瑙河流域丘陵森林&lt;/td&gt;
-      &lt;td&gt;法国平原，平原多，邻国多且近，粮少树少&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;地理位置&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;亚平宁半岛，面积小，沿海，草原丘陵多，树多&lt;/td&gt;
-      &lt;td&gt;亚平宁半岛、西西里岛、法国西南、巴尔干西北&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;4科研、2军事、1商业、1宗教、1工业，3座城邦完全没有使者&lt;/td&gt;
-      &lt;td&gt;首发1科研，发现1工业城邦&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;城邦&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;首发1商业、1宗教，发现1科研城邦&lt;/td&gt;
-      &lt;td&gt;3科研、2军事、1商业、1宗教，使者均超过6&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;9邻国，缺埃及，对西班牙开战&lt;/td&gt;
-      &lt;td&gt;德国、英国、罗马&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;邻国&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;法国&lt;/td&gt;
-      &lt;td&gt;10邻国&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;发现4座自然奇观，无一控制&lt;/td&gt;
-      &lt;td&gt;英国白崖&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;奇观&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;维苏威火山、马特洪峰&lt;/td&gt;
-      &lt;td&gt;马特洪峰2格，维苏威火山3格处坐城&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;7座己方城市、1座占领城市、1俘虏开拓者，多数10人口，最多13&lt;/td&gt;
-      &lt;td&gt;1城市，0开拓者（剩1回合），10锤0粮&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;城市&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;1城市，2开拓者&lt;/td&gt;
-      &lt;td&gt;11城，多数10人口，最多14人口&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;3骑兵军团、2骑兵、1骑士军团、1骑士、1射石炮、1勇士、4闲置巨作伟人，2间谍，4商人，1外商&lt;/td&gt;
-      &lt;td&gt;1侦察、1勇士、1骑手&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;单位&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;1勇士、1侦察、1英雄&lt;/td&gt;
-      &lt;td&gt;侦察兵、机关枪队、直升机、罗马军团、四段帆船、私掠船、装甲舰、轻快帆船、14商路，外商为主&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;无工人&lt;/td&gt;
-      &lt;td&gt;1名1锤工人、2改良&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;工人&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;1名4锤工人，0改良&lt;/td&gt;
-      &lt;td&gt;4工人，共6锤&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;5文化区、3学院区、3商业区、2娱乐区、3工业区、7水渠、2军营、外交区、市政广场&lt;/td&gt;
-      &lt;td&gt;0&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;区域&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;0&lt;/td&gt;
-      &lt;td&gt;1文化区、8学院区、3商业区、8港口、3娱乐区、5工业区、3保护区、1圣地、1飞机场、1军营、外交区、市政广场&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;（谒见厅、情报局）&lt;/td&gt;
-      &lt;td&gt;1纪念碑&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;建筑&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;除免费纪念碑外，0建筑&lt;/td&gt;
-      &lt;td&gt;（祠堂、外交部），几乎所有城市都没有下水道，区域建筑拉满，少数港口无码头&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;0&lt;/td&gt;
-      &lt;td&gt;0&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;奇观&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;0&lt;/td&gt;
-      &lt;td&gt;13，大浴场、墨索拉斯王陵、（大图书馆、马丘比丘、基尔瓦吉斯瓦尼、休伊神庙、罗马斗兽场、大本钟）、（巨像、大灯塔、紫禁城、牛津大学）、鲁尔山谷&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;3级平伽拉、左1右2马格努斯、右1瑞纳&lt;/td&gt;
-      &lt;td&gt;0级平伽拉&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;总督&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;0级梁&lt;/td&gt;
-      &lt;td&gt;新城左2右1梁，右1马格努斯，左1瑞纳，0级平伽拉&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;民主主义，只有剧院相邻加成，奇观工人产能加成、战时政策为主&lt;/td&gt;
-      &lt;td&gt;酋邦，忘了撤信仰卡&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;政体&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;酋邦&lt;/td&gt;
-      &lt;td&gt;商人共和，工商学相邻加成、学院人口加成&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;+29&lt;/td&gt;
-      &lt;td&gt;+1，大地女神&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;宗教&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;+2，尚未建立万神殿&lt;/td&gt;
-      &lt;td&gt;+94，开拓者+1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;+128.2&lt;/td&gt;
-      &lt;td&gt;+5.1，3科技，3尤里卡，0解锁区域&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;科技&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;+5，4科技，2尤里卡，0解锁区域&lt;/td&gt;
-      &lt;td&gt;+501.3，人口、外交办&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;+207.3 (+260~)&lt;/td&gt;
-      &lt;td&gt;+5.6，2文化，1鼓舞，0解锁区域&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;文化&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;+4，2文化，1鼓舞，0解锁区域&lt;/td&gt;
-      &lt;td&gt;+166.3，工作坊提供文化？奇观为主，巨作出售&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;+45.5, 1505金币，1间谍&lt;/td&gt;
-      &lt;td&gt;+11，99金币&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;经济&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;+10，154金币&lt;/td&gt;
-      &lt;td&gt;+553.3，4532金币&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;阿南西，未重召&lt;/td&gt;
-      &lt;td&gt;无&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;英雄&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;辛巴达，刚刚召唤&lt;/td&gt;
-      &lt;td&gt;未重召&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;文化结社前2&lt;/td&gt;
-      &lt;td&gt;未选择，只发现宗教结社&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;结社&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;未选择，已发现宗教、文化、科技结社&lt;/td&gt;
-      &lt;td&gt;宗教结社前2&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;有一个很诡异的现象：当我以不同的身份加载游戏时，各个玩家的数据是不同的。以罗马视角来看，法国的文化超过 260，但在法国看来自己只有 207；法国看到的罗马有 586 科研，210 文化，罗马自己看到的是 501 科研和 166 文化。&lt;/p&gt;
-
-&lt;h2 id=&quot;本局经验&quot;&gt;本局经验&lt;/h2&gt;
-
-&lt;p&gt;虽然输了之后哔哔赖赖很没品，但还是要说，以罗马身份进入游戏的时候我就知道，这局自己真的没有赢面。罗马本身就是强势文明，地形以草原丘陵为主，粮食和产能都不缺，我的起始点几乎全是平原，粮食和产能都不够。而且罗马的周围城邦众多，我的附近则是直接竞争的其他真人玩家。这局游戏是唐学长建的房间，等我们加入的时候他就已经选好了罗马，我觉得选法国已经算是一个次优的选择了。&lt;/p&gt;
-
-&lt;p&gt;回过头来看，我在很多方面做的还是不错的。比如在进入游戏之前就决定了要以文化胜利为目标，没有分心太多在科研上。比如地理知识比美国同学好，一路向东进入南德和多瑙河流域的丘陵，把游戏中的德国挤压在了缺乏产能的平原地区，而且分割成了两块。更利用文化上的优势使得德国贴脸的城市叛变，并且早作准备从蛮族手里买来2个骑手，2回合城市易帜。&lt;/p&gt;
-
-&lt;p&gt;但是依然有很多选择时候看来并非最佳。我获得万神殿比较早，当时有机会拿到移民 +1，但是我觉得法国并非宗教文明，争取文化胜利又需要用信仰买自然学家，于是选择了大地女神，结果这直接导致罗马开局就有 4 移民，以后滚雪球的差距也就不意外了。另外，对于奇观和伟人的了解显然不如对方，比如大工程师达芬奇配合墨索拉斯王陵，为罗马的每座工作坊提供了6点文化，而我在之前连达芬奇的效果都不知道，看到这波操作直呼开挂。&lt;/p&gt;
-
-&lt;h2 id=&quot;全局经验&quot;&gt;全局经验&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;总督还是要因地制宜。罗马本次平伽拉仅仅是任命而已，上来先任命的是提高工人使用次数的梁&lt;/li&gt;
-  &lt;li&gt;工业区的数量不需要太多，由于之前的产能不足恐惧症，这次的工业区建的有点魔怔了，工业区应当根据人口数量配合商业区和自己的目标。&lt;/li&gt;
-  &lt;li&gt;商业区和港口的作用被低估了，商路区域应当尽快每城一座，金币购买建筑效果拔群。&lt;/li&gt;
-  &lt;li&gt;市政广场没必要与剧院相邻。&lt;/li&gt;
-  &lt;li&gt;娱乐区的作用不止在于为剧院广场提供相邻加成，宜居度本身就很重要。&lt;/li&gt;
-  &lt;li&gt;战争经验依然不足，解决 AI 的速度依然慢了一些。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;……&lt;/h2&gt;
-
-&lt;p&gt;在破解罗马超高文化谜团的过程中发现了这个网页，应该非常有用：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://civilization.fandom.com/wiki/Victory_(Civ6)&quot;&gt;https://civilization.fandom.com/wiki/Victory_(Civ6)&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;最后贴几张战略模式的截图吧，许愿《文明7》能够像 P 社游戏一样给战时的军事单位移动加上那种很带感的箭头。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2021-05-26-rome-turn144.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2021-05-26-france-turn144.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2021-05-26-spain-turn144.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 26 May 2021 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog/articles/civ6-game-review-france-vs-rome</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/civ6-game-review-france-vs-rome</guid>
         
         
       </item>

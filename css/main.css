@@ -80,6 +80,27 @@ h3 { font-style: bold;
     margin-bottom: 0;
     line-height: 1.08888888888889; }
 
+.post h2::before { font-family: sans-serif;
+                   content:"\00023\00a0"; }
+.post h3::before { font-family: sans-serif;
+                   content:"\00023\00023\00a0"; }
+.post h4::before { font-family: sans-serif;
+                   content:"\00023\00023\00023\00a0"; }
+.post ul {
+  list-style-type: circle;
+}
+
+hr.slender {
+    border: 0;
+    height: 1px;
+    margin-top: 1.4rem;
+    margin-bottom:1.4rem;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+}
+
 /* ET says a need for more than 3 levels of headings is the sign of a diseased mind */
 
 p.subtitle { font-style: italic;
@@ -97,7 +118,11 @@ p, li { line-height: 1.5em;
        padding-right: 2rem; 
        vertical-align: baseline; }
 
-
+blockquote {
+  background-color: #fffff0;
+  border-left: solid thick #1976D2;
+  padding: 1em 0em; 
+}
 blockquote p,
 blockquote ol,
 blockquote ul {  font-size: 1.5em;
@@ -535,9 +560,6 @@ nav {
 /* Portrait tablet to landscape and desktop */
 
 @media (max-height: 979px) {
-    .scroll-1 .card-content {
-        height: 70px;
-    }
     .scroll-1 .card .cover {
         height: 250px;
     }

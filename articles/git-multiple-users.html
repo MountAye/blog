@@ -29,31 +29,39 @@ THE SOFTWARE.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>.git 管理 GitHub 不同用户身份的仓库 | 阿掖山：一个博客</title>
-<meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content=".git 管理 GitHub 不同用户身份的仓库" />
-<meta name="author" content="MountAye" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="多用户多账户，如何告诉 GitHub 某个项目文件夹该由哪个账号来做版本管理。" />
-<meta property="og:description" content="多用户多账户，如何告诉 GitHub 某个项目文件夹该由哪个账号来做版本管理。" />
-<link rel="canonical" href="https://mountaye.github.io/blog/articles/git-multiple-users" />
-<meta property="og:url" content="https://mountaye.github.io/blog/articles/git-multiple-users" />
-<meta property="og:site_name" content="阿掖山：一个博客" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-12-26T00:00:00-06:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content=".git 管理 GitHub 不同用户身份的仓库" />
-<script type="application/ld+json">
-{"headline":".git 管理 GitHub 不同用户身份的仓库","dateModified":"2021-12-26T00:00:00-06:00","datePublished":"2021-12-26T00:00:00-06:00","url":"https://mountaye.github.io/blog/articles/git-multiple-users","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/git-multiple-users"},"author":{"@type":"Person","name":"MountAye"},"@type":"BlogPosting","description":"多用户多账户，如何告诉 GitHub 某个项目文件夹该由哪个账号来做版本管理。","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
 
-    <meta name="description" content="智力活动是一种生活态度">
+    <!-- start of SEO by hand copying plugin results on Feb 5, 2022 -->
+    <title>.git | 管理 GitHub 不同用户身份的仓库 | 阿掖山：一个博客</title>
+    <meta name="generator" content="Jekyll" />
+    <meta property="og:title" content=".git | 管理 GitHub 不同用户身份的仓库" />
+    
+    
+    
+    
+      
+        <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2021-12-26 00:00:00 -0600" />
+        <meta property="article:modified_time" content="2021-12-26 00:00:00 -0600" />
+        <script type="application/ld+json">
+            {"headline":".git | 管理 GitHub 不同用户身份的仓库","dateModified":"2021-12-26 00:00:00 -0600","datePublished":"2021-12-26 00:00:00 -0600,"url":"https://mountaye.github.io/blog/articles/git-multiple-users","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/git-multiple-users"},"author":{"@type":"Person","name":"MountAye"},"@type":"BlogPosting","description":"多用户多账户，如何告诉 GitHub 某个项目文件夹该由哪个账号来做版本管理。","@context":"https://schema.org"}
+        </script> 
+    
+
+    <meta property="og:locale" content="zh-cn" />
+    <meta name="author" content="MountAye" />
+    <meta name="description" content="多用户多账户，如何告诉 GitHub 某个项目文件夹该由哪个账号来做版本管理。" />
+    <meta property="og:description" content="多用户多账户，如何告诉 GitHub 某个项目文件夹该由哪个账号来做版本管理。" />
+    <link rel="canonical" href="https://mountaye.github.io/blog/articles/git-multiple-users" />
+    <meta property="og:url" content="https://mountaye.github.io/blog/articles/git-multiple-users" />
+    <meta name="og:site_name" content="阿掖山：一个博客" /> 
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content=".git | 管理 GitHub 不同用户身份的仓库" />
+    <!-- end of SEO -->
+
     <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=0">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="/blog/css/materialize.min.css" media="screen,projection" />
     <link rel="stylesheet" href="/blog/css/main.css">
-    <link rel="canonical" href="https://mountaye.github.io/blog/articles/git-multiple-users">
     <script type="text/javascript" async
     src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
@@ -70,7 +78,7 @@ THE SOFTWARE.
     <link rel="shortcut icon" href="/blog/assets/img/favicon.ico" >
 </head>
 
-  <body class="blue lighten-5"> 
+  <body class="yellow lighten-5"> 
     <div class="preloader blue container-fluid row">
       <div class="white-text text-darken-4 xpretext"><h4>阿掖山：一个博客</h4></div>
       <div class="progress blue lighten-2 xpreloading">
@@ -110,8 +118,9 @@ THE SOFTWARE.
   <div class="post container paper card" style="margin-top: 8em; margin-bottom: 5em;">
     <header class="post-header">
       <h1 class="post-title">.git | 管理 GitHub 不同用户身份的仓库</h1>
-      <p class="post-meta">Dec 26, 2021</p>
+      <div class="post-meta" style="font-size: 1.5em">Dec 26, 2021</div>
     </header>
+    <hr class="slender">
     <article class="post-content">
         <p>很显然，我不可能把“阿掖山”这个名字写到论文里，与研究相关的项目、组里的代码和数据，都由另一个实名的 GitHub 账号来处理。这就有个问题——如何告诉 GitHub 某个项目文件夹该由哪个账号来做版本管理。</p>
 

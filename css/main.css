@@ -119,6 +119,11 @@ h3 { font-style: bold;
     padding-left: 0;
 }
 
+.post em {
+    font-style: unset;
+    text-decoration: underline;
+}
+
 .post strong {
     color: #a00000;
 }

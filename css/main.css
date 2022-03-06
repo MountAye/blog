@@ -29,26 +29,6 @@ html {
 }
 
 
-.post.container.card {
-    /* because there is a wierd padding right for <p> */
-    padding-left:  4em;
-    padding-right: 2em;
-}
-
-.post * {
-    overflow: visible;
-}
-
-.post p {
-    text-indent: 2em;
-    text-align: left;
-}
-
-.post img { 
-    width: 95%;
-    padding-right: 2em;
-} 
-
 .card {
     overflow: visible;
 }
@@ -86,8 +66,61 @@ h3 { font-style: bold;
                    content:"\00023\00023\00a0"; }
 .post h4::before { font-family: sans-serif;
                    content:"\00023\00023\00023\00a0"; }
+
+.post ul, .post ol {
+    padding-left: 2em;
+}
+
+
 .post ul {
   list-style-type: circle;
+}
+
+.post ul li {
+    list-style-type: circle;
+  }
+  
+
+.post.container.card {
+    /* because there is a wierd padding right for <p> */
+    padding-left:  4em;
+    padding-right: 2em;
+}
+
+.post * {
+    overflow: visible;
+}
+
+.post p {
+    text-indent: 2em;
+    text-align: left;
+}
+
+.post img { 
+    width: 95%;
+    padding-right: 2em;
+} 
+
+.post a {
+    color: #1976D2;
+    font-weight: bold;
+}
+
+.post p code,
+.post li code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #a00000;
+    background-color: #f9f2f4;
+    border-radius: 5px;
+}
+
+.post pre code {
+    padding-left: 0;
+}
+
+.post strong {
+    color: #a00000;
 }
 
 hr.slender {

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<!--
+Material HTML5 Template (https://naveenshaji.github.io/material)
+The MIT License (MIT)
+
+Copyright (c) 2015 Naveen Shaji
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- start of SEO by hand copying plugin results on Feb 5, 2022 -->
+    <title>.py | TensorBoard 笔记（PyTorch 版） | 阿掖山：一个博客</title>
+    <meta name="generator" content="Jekyll" />
+    <meta property="og:title" content=".py | TensorBoard 笔记（PyTorch 版）" />
+    
+    
+    
+    
+      
+        <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2022-04-08 00:00:00 -0500" />
+        <meta property="article:modified_time" content="2022-04-08 00:00:00 -0500" />
+        <script type="application/ld+json">
+            {"headline":".py | TensorBoard 笔记（PyTorch 版）","dateModified":"2022-04-08 00:00:00 -0500","datePublished":"2022-04-08 00:00:00 -0500,"url":"https://mountaye.github.io/blog/articles/tensorboard-on-pytorch","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/tensorboard-on-pytorch"},"author":{"@type":"Person","name":"MountAye"},"@type":"BlogPosting","description":"TensorBoard 是 TensorFlow 团队开发的一款可视化工具，方便观察和调整机器学习的数据集、模型、超参数和训练结果等等。但是不知道为什么，PyTorch 调用 TensorBoard，要比 TensorFlow 方便简单得多，<del>这何尝不是一种 NTR</del>……","@context":"https://schema.org"}
+        </script> 
+    
+
+    <meta property="og:locale" content="zh-cn" />
+    <meta name="author" content="MountAye" />
+    <meta name="description" content="TensorBoard 是 TensorFlow 团队开发的一款可视化工具，方便观察和调整机器学习的数据集、模型、超参数和训练结果等等。但是不知道为什么，PyTorch 调用 TensorBoard，要比 TensorFlow 方便简单得多，<del>这何尝不是一种 NTR</del>……" />
+    <meta property="og:description" content="TensorBoard 是 TensorFlow 团队开发的一款可视化工具，方便观察和调整机器学习的数据集、模型、超参数和训练结果等等。但是不知道为什么，PyTorch 调用 TensorBoard，要比 TensorFlow 方便简单得多，<del>这何尝不是一种 NTR</del>……" />
+    <link rel="canonical" href="https://mountaye.github.io/blog/articles/tensorboard-on-pytorch" />
+    <meta property="og:url" content="https://mountaye.github.io/blog/articles/tensorboard-on-pytorch" />
+    <meta name="og:site_name" content="阿掖山：一个博客" /> 
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content=".py | TensorBoard 笔记（PyTorch 版）" />
+    <!-- end of SEO -->
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X9B5LN42L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3X9B5LN42L');
+    </script>
+    <!-- end of Google Analytics -->
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=0">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/blog/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="/blog/css/main.css">
+    <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/javascript" src="/blog/js/jquery.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.plus.js"></script>
+    <script src="/blog/js/velocity.min.js"></script>
+    <script src="/blog/js/skrollr.min.js"></script>
+    <script src="/blog/js/jquery.scrolline.js"></script>
+    <script type="text/javascript" src="/blog/js/modernizr.js"></script>
+    <script type="text/javascript" src="/blog/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/blog/js/main.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="阿掖山：一个博客" href="/blog/feed.xml" />
+    <link rel="shortcut icon" href="/blog/assets/img/favicon.ico" >
+</head>
+
+  <body class="yellow lighten-5"> 
+    <div class="preloader blue container-fluid row">
+      <div class="white-text text-darken-4 xpretext"><h4>阿掖山：一个博客</h4></div>
+      <div class="progress blue lighten-2 xpreloading">
+        <div class="indeterminate blue darken-3"></div>
+      </div>
+    </div> 
+    <header class="site-header">
+  <div class="navbar-fixed">
+    <nav class="blue darken-2 waves-effect waves-light">
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="/blog/" class="brand-logo">
+            <i class="mdi-communication-chat"></i>
+            阿掖山：一个博客
+          </a>
+          <ul id="nav-mobile" class="right side-nav">
+            <li><a href="/blog/History/">历史</a></li>
+            <li><a href="/blog/Topics/">分类</a></li>
+            <li><a href="/blog/Comments/">留言</a></li>
+            <li><a href="/blog/Links/">友链</a></li>
+            <li><a href="/blog/About/">关于</a></li>
+          </ul>
+          <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <a class="darken-2 scrollToTop btn-floating btn-large waves-effect waves-light blue"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+    <div id="page-wrap">
+      <div id="main-content">
+        <div id="guts">
+          <div class="container">
+            <div class="wrapper text-darken-3">
+              <div id="skrollr-body">
+  <div class="post container paper card" style="margin-top: 8em; margin-bottom: 5em;">
+    <header class="post-header">
+      <h1 class="post-title">.py | TensorBoard 笔记（PyTorch 版）</h1>
+      <div class="post-meta" style="font-size: 1.5em">Apr 8, 2022</div>
+    </header>
+    <hr class="slender">
+    <article class="post-content">
+        <ul>
+  <li>官网教程：<a href="https://pytorch.org/tutorials/intermediate/tensorboard_tutorial.html">https://pytorch.org/tutorials/intermediate/tensorboard_tutorial.html</a></li>
+  <li>官方文档：<a href="https://pytorch.org/docs/stable/tensorboard.html">https://pytorch.org/docs/stable/tensorboard.html</a></li>
+</ul>
+
+<p>TensorBoard 是 TensorFlow 团队开发的一款可视化工具，方便观察和调整机器学习的数据集、模型、超参数和训练结果等等。但是不知道为什么，PyTorch 调用 TensorBoard，要比 TensorFlow 方便简单得多，<del>这何尝不是一种 NTR</del>……</p>
+
+<hr />
+
+<h2 id="用法和效果">用法和效果</h2>
+
+<p>一个使用了 TensorBoard 的 torch 项目的主文件一般是这样的（把和 TensorBoard 无关的部分都注释掉了）：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># imports
+# import matplotlib.pyplot as plt
+# import numpy as np
+</span>
+<span class="c1"># import torch
+# import torchvision
+# import torchvision.transforms as transforms
+</span>
+<span class="c1"># import torch.nn as nn
+# import torch.nn.functional as F
+# import torch.optim as optim
+</span>
+<span class="kn">from</span> <span class="nn">torch.utils.tensorboard</span> <span class="kn">import</span> <span class="n">SummaryWriter</span>
+
+<span class="c1"># # transforms
+# transform = transforms.Compose(
+#     [transforms.ToTensor(),
+#     transforms.Normalize((0.5,), (0.5,))])
+</span>
+<span class="c1"># # datasets
+# trainset = torchvision.datasets.FashionMNIST('./data',
+#     download=True,
+#     train=True,
+#     transform=transform)
+# testset = torchvision.datasets.FashionMNIST('./data',
+#     download=True,
+#     train=False,
+#     transform=transform)
+</span>
+<span class="c1"># # dataloaders
+# trainloader = torch.utils.data.DataLoader(trainset, batch_size=4,
+#                                         shuffle=True, num_workers=2)
+# testloader = torch.utils.data.DataLoader(testset, batch_size=4,
+#                                         shuffle=False, num_workers=2)
+</span>
+<span class="c1"># # constant for classes
+# classes = ('T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+#         'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle Boot')
+</span>
+<span class="c1"># class Net(nn.Module):
+#     def __init__(self):
+#         super(Net, self).__init__()
+#         self.conv1 = nn.Conv2d(1, 6, 5)
+#         self.pool = nn.MaxPool2d(2, 2)
+#         self.conv2 = nn.Conv2d(6, 16, 5)
+#         self.fc1 = nn.Linear(16 * 4 * 4, 120)
+#         self.fc2 = nn.Linear(120, 84)
+#         self.fc3 = nn.Linear(84, 10)
+#     def forward(self, x):
+#         x = self.pool(F.relu(self.conv1(x)))
+#         x = self.pool(F.relu(self.conv2(x)))
+#         x = x.view(-1, 16 * 4 * 4)
+#         x = F.relu(self.fc1(x))
+#         x = F.relu(self.fc2(x))
+#         x = self.fc3(x)
+#         return x
+# net = Net()
+</span>
+<span class="c1"># criterion = nn.CrossEntropyLoss()
+# optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+</span>
+<span class="c1"># default `log_dir` is "runs" - we'll be more specific here
+</span><span class="n">writer</span> <span class="o">=</span> <span class="n">SummaryWriter</span><span class="p">(</span><span class="s">'runs/fashion_mnist_experiment_1'</span><span class="p">)</span>
+
+<span class="n">running_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># loop over the dataset multiple times
+</span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">trainloader</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="c1"># # get the inputs; data is a list of [inputs, labels]
+</span>        <span class="c1"># inputs, labels = data
+</span>
+        <span class="c1"># # zero the parameter gradients
+</span>        <span class="c1"># optimizer.zero_grad()
+</span>
+        <span class="c1"># # forward + backward + optimize
+</span>        <span class="c1"># outputs = net(inputs)
+</span>        <span class="c1"># loss = criterion(outputs, labels)
+</span>        <span class="c1"># loss.backward()
+</span>        <span class="c1"># optimizer.step()
+</span>
+        <span class="c1"># running_loss += loss.item()
+</span>        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">999</span><span class="p">:</span>    <span class="c1"># every 1000 mini-batches...
+</span>            <span class="c1"># ...log the running loss
+</span>            <span class="n">writer</span><span class="p">.</span><span class="n">add_scalar</span><span class="p">(</span><span class="s">'training loss'</span><span class="p">,</span>
+                            <span class="n">running_loss</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">,</span>
+                            <span class="n">epoch</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">trainloader</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="c1"># 注意这一行！
+# print('Finished Training')
+</span></code></pre></div></div>
+
+<p>正常情况下，使用了tensorboard 的项目在训练的过程中，可以用网页浏览器打开网址 <code class="language-plaintext highlighter-rouge">localhost:6006</code>，应该可以看到和下图类似但不同的画面：</p>
+
+<p><img src="/blog/assets/photos/2022-04-08-tensorboard.png" alt="tensorboard" /></p>
+
+<p>下面来仔细分解。</p>
+
+<h2 id="代码分解">代码分解</h2>
+
+<p><a href="/blog/articles/python-import-script-module-package">引入</a> TensorBoard 需要下面一行代码：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">torch.utils.tensorboard</span> <span class="kn">import</span> <span class="n">SummaryWriter</span>
+</code></pre></div></div>
+
+<p>从名字就能看出来，<code class="language-plaintext highlighter-rouge">SummaryWriter</code> 是一个 class。粗略用了一下文档页面的业内搜索，好像整个 <code class="language-plaintext highlighter-rouge">torch.utils.tensorboard</code> 就只有这一个 class。</p>
+
+<p>新建一个这个类的实例：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">writer</span> <span class="o">=</span> <span class="n">SummaryWriter</span><span class="p">(</span><span class="s">'runs/fashion_mnist_experiment_1'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>这一步会在当前工作环境下新建一个 <code class="language-plaintext highlighter-rouge">/runs</code> 文件夹，</p>
+
+<p>要想显示导航栏上的“SCALARS”、“IMAGES”等等选项卡，并且让自己想观察的数据显示在各自类别的选项卡里，需要调用 <code class="language-plaintext highlighter-rouge">SummaryWriter</code> 下面的各种方法，比如 <code class="language-plaintext highlighter-rouge">add_scalar()</code>, <code class="language-plaintext highlighter-rouge">add_image()</code>.</p>
+
+<h3 id="各种方法">各种方法</h3>
+
+<p>用法和效果举例如下：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">add_scalar()</code>: 在一张图中画出<strong>一个标量</strong>指标随学习迭代的<strong>变化曲线</strong>。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">tag</code>: 图片的标题。</li>
+      <li><code class="language-plaintext highlighter-rouge">scalar_value</code>: 指标的值，也就是纵坐标。</li>
+      <li><code class="language-plaintext highlighter-rouge">global_step</code>: 全局迭代次数，也就是横坐标。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">add_scalars()</code>: 在一张图中同时画出<strong>多个指标</strong>随学习迭代的<strong>变化曲线</strong>。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">main_tag</code>: 图片的标题</li>
+      <li><code class="language-plaintext highlighter-rouge">tag_scalar_dict</code>: 一个字典，字典的键是变量的名字，值是各个变量的纵坐标。</li>
+      <li><code class="language-plaintext highlighter-rouge">global_step</code>: 全局迭代次数，也就是横坐标。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">add_custome_scalars()</code>: 没有用过，也没见到例子，不太明白。根据描述像是把之前 <code class="language-plaintext highlighter-rouge">add_scalar()</code> 和 <code class="language-plaintext highlighter-rouge">add_scalars()</code> 的结果重新组合，对 SCALARS 选项卡重新排版。每个 <code class="language-plaintext highlighter-rouge">SummaryWriter</code> 只能运行一次，可以在训练开始前运行，也可以在之后。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">layout</code>: 只有一个这参数，是一个字典，字典的键像是新图片/章节的名字，值是下一级字典或者是 <code class="language-plaintext highlighter-rouge">add_scalar()</code> 出现过/将要出现的 <code class="language-plaintext highlighter-rouge">tag</code> 参数。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">add_figure()</code>: 显示 <code class="language-plaintext highlighter-rouge">matplotlib</code> 画出的<strong>图表</strong>。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">tag</code>: 标题</li>
+      <li><code class="language-plaintext highlighter-rouge">figure</code>: 图表，要求类型为 <code class="language-plaintext highlighter-rouge">matplotlib.pyplot.figure</code></li>
+      <li><code class="language-plaintext highlighter-rouge">global_step</code>:迭代次数，效果如何 没试过。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">add_histogram()</code>: 在一张图中画出一个样本的<strong>直方图</strong>，以及这个直方图随迭代变化的规律。这是个三维图片，x 轴是直方图的取值范围，y 轴是迭代次数，z 轴是直方图的频率值。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">tag</code>: 图片标题。</li>
+      <li><code class="language-plaintext highlighter-rouge">values</code>: 一个 <code class="language-plaintext highlighter-rouge">torch.Tensor</code> 或者 <code class="language-plaintext highlighter-rouge">numpy.array</code> ，用于绘制直方图的样本.</li>
+      <li><code class="language-plaintext highlighter-rouge">global_step</code>: 迭代次数，y 轴分量。</li>
+      <li><code class="language-plaintext highlighter-rouge">bins</code>: 取样间隔参数，<code class="language-plaintext highlighter-rouge">numpy.histogram()</code> 中用到的。 <em>**</em></li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">add_graph()</code>: 一般用于在训练前画出神经网络的<strong>图状结构</strong>。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">model</code>: 要画的模型，类型是 <code class="language-plaintext highlighter-rouge">torch.nn.Module</code></li>
+      <li><code class="language-plaintext highlighter-rouge">input_to_model=None</code>: （可选）输入模型的变量。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">add_mesh()</code>: <strong>三维点云</strong>。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">tag</code>: 表格标题。</li>
+      <li><code class="language-plaintext highlighter-rouge">vertices</code>: 顶点三维坐标的列表。</li>
+      <li><code class="language-plaintext highlighter-rouge">colors</code>: 顶点的颜色。</li>
+      <li><code class="language-plaintext highlighter-rouge">faces</code>: （可选）没看懂 (Indices of vertices within each triangle.)</li>
+      <li><code class="language-plaintext highlighter-rouge">config_dict</code>: 用于画图的 ThreeJS 的参数。</li>
+      <li><code class="language-plaintext highlighter-rouge">global_step</code>: 迭代次数。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">add_embeddding()</code>: 神经网络的输入一般是高维向量，此工具将高维数据<strong>投影到三维</strong>空间，然后画出图像，方便我们感知训练集内样本之间的关系。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">mat</code>: 一个矩阵，每一行都是一个要处理的向量。</li>
+      <li><code class="language-plaintext highlighter-rouge">metadata</code>: 标记文字，一般是列表。</li>
+      <li><code class="language-plaintext highlighter-rouge">label_img</code>: 标记图片，显示在每个数据点旁边的</li>
+      <li><code class="language-plaintext highlighter-rouge">global_step</code>: 迭代次数，一般没人用。</li>
+      <li><code class="language-plaintext highlighter-rouge">tag</code>: 图片标题。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">add_pr_curve()</code>: 准确率 (precision) -召回率 (call back) 曲线。准确率=真阳性/(真阳性+假阳性)，召回率=真阳性/(真阳性+假阴性)
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">tag</code>: 图片标题。</li>
+      <li><code class="language-plaintext highlighter-rouge">labels</code>: Ground truth 数据，每个数据点对应一个布尔值。</li>
+      <li><code class="language-plaintext highlighter-rouge">predictions</code>: 模型的输出，每个数据点对应一个 [0,1] 之间的实数。</li>
+      <li><code class="language-plaintext highlighter-rouge">global_step</code>: 迭代次数。</li>
+      <li><code class="language-plaintext highlighter-rouge">num_thresholds</code>:用于画出 PR 曲线的阈值的数目。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">add_hparams()</code>: 比较不同次运行之间的超参数。没太看懂。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">hparam_dict</code>: 超参数的名称和取值</li>
+      <li><code class="language-plaintext highlighter-rouge">metric_dict</code>: metric （不知道怎么翻译）的名称和取值</li>
+      <li><code class="language-plaintext highlighter-rouge">hparam_domain_discrete</code>: （可选）字典，超参数的名称和有限个可能的取值。</li>
+      <li><code class="language-plaintext highlighter-rouge">run_name</code>: 运行的名称，将会成为 <code class="language-plaintext highlighter-rouge">logdir</code> 的一部分。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">add_image()</code>: 在 IMAGES 选项卡中显示<strong>一张图片</strong>。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">tag</code>: 图片名称。</li>
+      <li><code class="language-plaintext highlighter-rouge">img_tensor</code>: 一个 <code class="language-plaintext highlighter-rouge">torch.Tensor</code> 或者 <code class="language-plaintext highlighter-rouge">numpy.array</code>，被显示的图片。对应于下面的 <code class="language-plaintext highlighter-rouge">dataformats</code> 参数。</li>
+      <li><code class="language-plaintext highlighter-rouge">global_step</code>: 迭代次数，没见有人在显示图片的时候用过。</li>
+      <li><code class="language-plaintext highlighter-rouge">dataformats=’CHW’</code>: 图片各维度的顺序。默认是“颜色-高度-宽度”。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">add_images()</code>: 并列显示<strong>多张图片</strong>。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">tag</code>: 图片组的标题。</li>
+      <li><code class="language-plaintext highlighter-rouge">img_tensor</code>: 一个 <code class="language-plaintext highlighter-rouge">torch.Tensor</code> 或者 <code class="language-plaintext highlighter-rouge">numpy.array</code>，被显示的图片。图片个维度的含义由 <code class="language-plaintext highlighter-rouge">datadormats</code> 给出。</li>
+      <li><code class="language-plaintext highlighter-rouge">global_step</code>: 迭代次数，没见有人在显示图片的时候用过。</li>
+      <li><code class="language-plaintext highlighter-rouge">datadormats=’NCHW’</code>: 图片各维度的顺序。默认为“图片序号-颜色-高度-宽度”。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">add_video()</code>: 略</li>
+  <li><code class="language-plaintext highlighter-rouge">add_audio()</code>: 略</li>
+  <li><code class="language-plaintext highlighter-rouge">add_text()</code>: 略</li>
+</ul>
+
+    </article>
+    <br/><br/><br/>
+  </div>
+  <div class="comment container paper card" style="margin-bottom: 10em;">
+    <h2>读者评论</h2><br>
+    <div class="center" style="margin: auto; width: 80%;">
+    <script src="https://giscus.app/client.js"
+            data-repo="MountAye/blog"
+            data-repo-id="R_kgDOGc3UIA"
+            data-category="Comments"
+            data-category-id="DIC_kwDOGc3UIM4CAI4h"
+            data-mapping="title"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-theme="light"
+            data-lang="zh-CN"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+    <!-- <div class="row">
+  <div class="col s8">
+    <ul class="tabs blue z-depth-1">
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4 active" href="#markdown">Markdown</a></li>
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4" href="#preview">Preview</a></li>
+    </ul>
+  </div>
+  <br><br><br>
+  <div id="markdown" class="col s8">
+    <div class="row">
+      <form class="col s12">
+        <div class="row blue-text">
+          <div class="input-field col s12">
+            <input id="first_name" type="text" class="validate materialize-textarea blue-text text-darken-3">
+            <label for="first_name" class="blue-text text-darken-3">Title</label>
+          </div>
+          <div class="input-field col s12 blue-text">
+            <textarea id="textarea1" class="materialize-textarea blue-text text-darken-3"></textarea>
+            <label for="textarea1" class="blue-text text-darken-3">Enter comment</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button class="blue darken-1 white-text text-darken-3 waves-effect waves-cyan waves-light btn" href="/"><i class="mdi-action-backup"></i> &nbsp; Log in to comment</button>
+  </div>
+  <div id="preview" class="col s12">
+    hhhh
+  </div>
+</div> -->
+    <br><br><br>
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
+<footer class="page-footer blue darken-2">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">social-links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="http://facebook.com/xSF.AzraeL/" target="_blank"><i class="mdi-social-person-add"></i> Facebook</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://plus.google.com/u/0/114363400342894379257/posts" target="_blank"><i class="mdi-social-plus-one"></i> Google+</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/naveenshaji/" target="_blank"><i class="mdi-notification-adb"></i> GitHub</a></li>
+        </ul>
+      </div>
+             
+      <div class="col l3 m6 s12">
+      <h5 class="white-text">where-i-live</h5>
+      <p class="grey-text text-lighten-4">TC 11/1827<br>West Cliff Gardens 35<br>Kowdiar, Trivandrum<br>&nbsp;</p>
+      </div>
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">contact-me</h5>
+        <p class="grey-text text-lighten-4">+91-9496-74-7070<br>naveen@pixelblenders.com<br>xsf.azrael@gmail.com</p>
+      </div>
+
+                         
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">MountAye</h5>
+        <p class="grey-text text-lighten-4">MountAye: A Blog</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2021 MountAye
+      <a class="grey-text text-lighten-4 right" href="http://mountaye.github.io/" target="_blank">MountAye</a>
+    </div>
+  </div>
+</footer> -->
+
+  </body>
+</html>

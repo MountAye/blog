@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!--
+Material HTML5 Template (https://naveenshaji.github.io/material)
+The MIT License (MIT)
+
+Copyright (c) 2015 Naveen Shaji
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- start of SEO by hand copying plugin results on Feb 5, 2022 -->
+    <title>.r | R语言入门笔记 | 阿掖山：一个博客</title>
+    <meta name="generator" content="Jekyll" />
+    <meta property="og:title" content=".r | R语言入门笔记" />
+    
+    
+    
+    
+      
+        <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2022-04-29 00:00:00 -0500" />
+        <meta property="article:modified_time" content="2022-04-29 00:00:00 -0500" />
+        <script type="application/ld+json">
+            {"headline":".r | R语言入门笔记","dateModified":"2022-04-29 00:00:00 -0500","datePublished":"2022-04-29 00:00:00 -0500,"url":"https://mountaye.github.io/blog/articles/R-install-and-simple-syntax","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/R-install-and-simple-syntax"},"author":{"@type":"Person","name":"MountAye"},"@type":"BlogPosting","description":"本文也是马克思·普朗克复杂物理研究所《非平衡态集体过程》第9讲的笔记。","@context":"https://schema.org"}
+        </script> 
+    
+
+    <meta property="og:locale" content="zh-cn" />
+    <meta name="author" content="MountAye" />
+    <meta name="description" content="本文也是马克思·普朗克复杂物理研究所《非平衡态集体过程》第9讲的笔记。" />
+    <meta property="og:description" content="本文也是马克思·普朗克复杂物理研究所《非平衡态集体过程》第9讲的笔记。" />
+    <link rel="canonical" href="https://mountaye.github.io/blog/articles/R-install-and-simple-syntax" />
+    <meta property="og:url" content="https://mountaye.github.io/blog/articles/R-install-and-simple-syntax" />
+    <meta name="og:site_name" content="阿掖山：一个博客" /> 
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content=".r | R语言入门笔记" />
+    <!-- end of SEO -->
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X9B5LN42L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3X9B5LN42L');
+    </script>
+    <!-- end of Google Analytics -->
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=0">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/blog/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="/blog/css/main.css">
+    <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/javascript" src="/blog/js/jquery.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.plus.js"></script>
+    <script src="/blog/js/velocity.min.js"></script>
+    <script src="/blog/js/skrollr.min.js"></script>
+    <script src="/blog/js/jquery.scrolline.js"></script>
+    <script type="text/javascript" src="/blog/js/modernizr.js"></script>
+    <script type="text/javascript" src="/blog/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/blog/js/main.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="阿掖山：一个博客" href="/blog/feed.xml" />
+    <link rel="shortcut icon" href="/blog/assets/img/favicon.ico" >
+</head>
+
+  <body class="yellow lighten-5"> 
+    <div class="preloader blue container-fluid row">
+      <div class="white-text text-darken-4 xpretext"><h4>阿掖山：一个博客</h4></div>
+      <div class="progress blue lighten-2 xpreloading">
+        <div class="indeterminate blue darken-3"></div>
+      </div>
+    </div> 
+    <header class="site-header">
+  <div class="navbar-fixed">
+    <nav class="blue darken-2 waves-effect waves-light">
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="/blog/" class="brand-logo">
+            <i class="mdi-communication-chat"></i>
+            阿掖山：一个博客
+          </a>
+          <ul id="nav-mobile" class="right side-nav">
+            <li><a href="/blog/History/">历史</a></li>
+            <li><a href="/blog/Topics/">分类</a></li>
+            <li><a href="/blog/Comments/">留言</a></li>
+            <li><a href="/blog/Links/">友链</a></li>
+            <li><a href="/blog/About/">关于</a></li>
+          </ul>
+          <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <a class="darken-2 scrollToTop btn-floating btn-large waves-effect waves-light blue"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+    <div id="page-wrap">
+      <div id="main-content">
+        <div id="guts">
+          <div class="container">
+            <div class="wrapper text-darken-3">
+              <div id="skrollr-body">
+  <div class="post container paper card" style="margin-top: 8em; margin-bottom: 5em;">
+    <header class="post-header">
+      <h1 class="post-title">.r | R语言入门笔记</h1>
+      <div class="post-meta" style="font-size: 1.5em">Apr 29, 2022</div>
+    </header>
+    <hr class="slender">
+    <article class="post-content">
+        <blockquote>
+  <p>本文也是马克思·普朗克复杂物理研究所《非平衡态集体过程》第9讲的笔记。</p>
+
+</blockquote>
+
+<p>最近在蹭一门数学系的读书课，题目叫“非线性时间序列分析”。本来以为会是数学系的人抢物理系动力学方向的饭碗用的（可能实际上也确实是，或者更有可能是反过来），但是老师在前几讲一直把重点放在何种定理如何证明上面。数学系的嘛，这种对公理化系统的喜爱可以理解。但是发现我们几个上课的对这些证明都不太感兴趣之后，<del>直接一个发卡弯漂移，教我们用 R 语言分析现实数据，现在新课还没上，不过可能是以股票数据做例子，我的老天鹅，这也太“经世济民”了吧……</del> 最后期末作业发现大家居然又都选择做 PPT 讲中心极限定理的证明，经世济民计划无疾而终。</p>
+
+<p>以下是为了新课程，我自己提前做的准备。</p>
+
+<h2 id="下载安装环境配置精神病版">下载、安装、环境配置（精神病版）</h2>
+
+<ul>
+  <li><a href="https://cloud.r-project.org/">https://cloud.r-project.org/</a></li>
+  <li>看这一个链接就够了：<a href="https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r">https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r</a></li>
+  <li><a href="https://github.com/randy3k/radian">https://github.com/randy3k/radian</a></li>
+  <li><a href="https://github.com/nx10/httpgd">https://github.com/nx10/httpgd</a></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">Fedora Linux</code> + <code class="language-plaintext highlighter-rouge">R</code> + <code class="language-plaintext highlighter-rouge">radian</code> + <code class="language-plaintext highlighter-rouge">vscode</code> + <code class="language-plaintext highlighter-rouge">R extension for vscode</code></p>
+
+<ol>
+  <li>在官网（<a href="https://cloud.r-project.org/">https://cloud.r-project.org/</a>）下载并安装 R <a href="https://python-interpreter">解释器</a>。</li>
+  <li>在命令行输入 <code class="language-plaintext highlighter-rouge">R</code> 打开解释器，在 R 中输入 <code class="language-plaintext highlighter-rouge">install.packages("languageserver")</code></li>
+  <li>在 vscode 的市场页面搜索 “R”，安装 R 语言插件。</li>
+  <li>安装 radian：
+    <ol>
+      <li>在合适的 python <a href="https://pyhton-virtualenv">虚拟环境</a> 里输入 <code class="language-plaintext highlighter-rouge">pip intall radian</code></li>
+      <li>用 radian 取代 R：编辑 <code class="language-plaintext highlighter-rouge">~/.bashrc</code> , 在其中加入一句<code class="language-plaintext highlighter-rouge">alias r="radian"</code> ，重启命令行</li>
+      <li>在 vscode 的设置中找到 <code class="language-plaintext highlighter-rouge">R&gt;Rterm: Linux</code>, 输入 radian 的安装路径（在命令行中输入 <code class="language-plaintext highlighter-rouge">which R</code> 可以找到）</li>
+    </ol>
+  </li>
+  <li>在 vscode 的市场页面搜索 “R debugger”，安装 <code class="language-plaintext highlighter-rouge">R debugger for vscode</code></li>
+  <li>在命令行输入 <code class="language-plaintext highlighter-rouge">R</code> 打开解释器，在 R 中输入 <code class="language-plaintext highlighter-rouge">install.packages("httpgd")</code>，安装可视化工具 <code class="language-plaintext highlighter-rouge">httpgd</code></li>
+</ol>
+
+<h2 id="简单语法">简单语法</h2>
+
+<p>来自马克思·普朗克复杂物理研究所《非平衡态集体过程》第9讲，这老师的讲课顺序简直了……</p>
+
+<p>R 的语法也简直了……</p>
+
+<h3 id="简单数据结构-some-data-types">简单数据结构 Some data types</h3>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># vector</span><span class="w">
+</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="kc">NA</span><span class="p">)</span><span class="w">
+</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"m"</span><span class="p">,</span><span class="s2">"f"</span><span class="p">,</span><span class="s2">"f"</span><span class="p">,</span><span class="s2">"m"</span><span class="p">)</span><span class="w">
+</span><span class="c1"># using a value</span><span class="w">
+</span><span class="n">b</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="w">
+
+</span><span class="c1"># list</span><span class="w">
+</span><span class="n">list.ab</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">gender</span><span class="o">=</span><span class="n">b</span><span class="p">)</span><span class="w">
+</span><span class="n">list.ab</span><span class="o">$</span><span class="n">number</span><span class="w">
+</span><span class="n">list.ab</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span><span class="w">
+
+</span><span class="c1"># factors (categorial variable)</span><span class="w">
+</span><span class="n">f</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w">
+</span><span class="n">f</span><span class="w">
+</span><span class="c1"># [1] m f f m f m m</span><span class="w">
+</span><span class="c1"># levels: f m</span><span class="w">
+</span><span class="n">levels</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"female"</span><span class="p">,</span><span class="w"> </span><span class="s2">"male"</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># dataframe (lists of vectors of the same length)</span><span class="w">
+</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span><span class="w">
+</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"aa"</span><span class="p">,</span><span class="s2">"bb"</span><span class="p">,</span><span class="s2">"cc"</span><span class="p">)</span><span class="w">
+</span><span class="n">z</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">first</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">second</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">third</span><span class="o">=</span><span class="n">z</span><span class="p">)</span><span class="w">
+</span><span class="n">View</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="w">
+</span><span class="c1"># |      | first | second | third |  </span><span class="w">
+</span><span class="c1"># |    1 |     2 |     aa |  TRUE |</span><span class="w">
+</span><span class="c1"># |    2 |     3 |     bb | FALSE |</span><span class="w">
+</span><span class="c1"># |    3 |     5 |     cc |  TRUE |</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="控制流-loops-conditional-statements">控制流 Loops, conditional statements</h3>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># for loop</span><span class="w">
+</span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="c1"># while loop</span><span class="w">
+</span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">finished</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="n">print</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="c1"># if statement</span><span class="w">
+</span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="n">print</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+	</span><span class="n">print</span><span class="p">(</span><span class="s2">"Not Hello"</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="函数-functions">函数 Functions</h3>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># calling a function</span><span class="w">
+</span><span class="n">rnorm</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">sd</span><span class="o">=</span><span class="m">1</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># defining a function</span><span class="w">
+</span><span class="n">mysum</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="n">mysum</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="复杂数据类型-datatable">复杂数据类型 <code class="language-plaintext highlighter-rouge">data.table</code></h3>
+
+<p>Some comparison:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">data.table</code>: R package, fast and memory efficient</li>
+  <li><code class="language-plaintext highlighter-rouge">python.pandas</code>: python implementation of data frames</li>
+  <li><code class="language-plaintext highlighter-rouge">dplyr</code>: highly popular, easy to learn</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">)</span><span class="w">
+</span><span class="n">dt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">as.data.table</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># read and write</span><span class="w">
+</span><span class="n">flights</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="s2">"path/to/your/flights.txt"</span><span class="p">)</span><span class="w">
+</span><span class="n">weather</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="s2">"path/tp/your/weather.txt"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Making data tidy can simplify the following analysis.</p>
+
+<ul>
+  <li>Every column is an observable.</li>
+  <li>Every row is an observation.</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># making data tidy</span><span class="w">
+</span><span class="n">melt</span><span class="p">(</span><span class="w"> </span><span class="n">dt</span><span class="p">,</span><span class="w">
+      </span><span class="n">id.vars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ID"</span><span class="p">,</span><span class="w">
+      </span><span class="n">value.name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"expression"</span><span class="p">,</span><span class="w">
+      </span><span class="n">variable.name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"cell"</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span><span class="c1"># making data messy</span><span class="w">
+</span><span class="n">dcast</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">cell</span><span class="o">+</span><span class="n">expression</span><span class="p">)</span><span class="w"> </span><span class="c1"># not understand</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Get item</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="p">]</span><span class="w"> </span><span class="c1"># take `d`, subset rows using `i`, then **calculate** `j` grouped by `by`</span><span class="w">
+</span><span class="c1"># examples</span><span class="w">
+</span><span class="n">planes</span><span class="p">[</span><span class="n">engines</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">4</span><span class="p">]</span><span class="w">
+
+</span><span class="c1"># slice the 2 columns</span><span class="w">
+</span><span class="n">planes</span><span class="p">[,</span><span class="w"> </span><span class="n">.</span><span class="p">(</span><span class="n">tailnum</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">)]</span><span class="w"> 
+</span><span class="c1"># groupby and calculate</span><span class="w">
+</span><span class="n">flights</span><span class="p">[,</span><span class="w"> </span><span class="n">.</span><span class="p">(</span><span class="n">mean_delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">dep_delay</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="nb">T</span><span class="p">)),</span><span class="w"> </span><span class="n">by</span><span class="o">=</span><span class="n">carrier</span><span class="p">]</span><span class="w">
+</span><span class="n">flights</span><span class="p">[</span><span class="n">time_hour</span><span class="o">&gt;</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">.</span><span class="p">(</span><span class="n">mean_delay</span><span class="o">=</span><span class="n">mean</span><span class="p">(</span><span class="n">dep_delay</span><span class="p">,</span><span class="n">na.rm</span><span class="o">=</span><span class="nb">T</span><span class="p">)),</span><span class="w"> </span><span class="n">by</span><span class="o">=</span><span class="n">.</span><span class="p">(</span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="n">origin</span><span class="p">)]</span><span class="w">
+</span><span class="c1"># math calculations</span><span class="w">
+</span><span class="n">flights</span><span class="p">[,</span><span class="w"> </span><span class="n">speed_kmh</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="m">60</span><span class="o">*</span><span class="m">1.61</span><span class="o">*</span><span class="n">distance</span><span class="o">/</span><span class="n">air_time</span><span class="p">]</span><span class="w">
+</span><span class="n">flights</span><span class="p">[,</span><span class="w"> </span><span class="n">resc_distance</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">distance</span><span class="o">/</span><span class="n">mean</span><span class="p">(</span><span class="n">distance</span><span class="p">),</span><span class="w"> </span><span class="n">by</span><span class="o">=</span><span class="n">carrier</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Merge 2 tables</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># left join</span><span class="w">
+</span><span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">all.x</span><span class="o">=</span><span class="nb">T</span><span class="p">)</span><span class="w">
+</span><span class="n">b</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="c1"># same as above</span><span class="w">
+
+</span><span class="c1"># right join</span><span class="w">
+</span><span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">all.y</span><span class="o">=</span><span class="nb">T</span><span class="p">)</span><span class="w">
+</span><span class="n">a</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="c1"># same as above</span><span class="w">
+
+</span><span class="c1"># inner join</span><span class="w">
+</span><span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">all</span><span class="o">=</span><span class="nb">F</span><span class="p">)</span><span class="w">
+</span><span class="n">a</span><span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">nomatch</span><span class="o">=</span><span class="m">0</span><span class="p">]</span><span class="w">
+
+</span><span class="c1"># full join</span><span class="w">
+</span><span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">all</span><span class="o">=</span><span class="nb">T</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Chaining operations</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># data.table way</span><span class="w">
+</span><span class="n">weather</span><span class="p">[,</span><span class="w"> </span><span class="n">ws_kmh</span><span class="o">:=</span><span class="m">1.61</span><span class="o">*</span><span class="n">wind_speed</span><span class="p">][,</span><span class="w"> </span><span class="n">.</span><span class="p">(</span><span class="n">mean_ws</span><span class="o">=</span><span class="n">mean</span><span class="p">(</span><span class="n">ws_kmh</span><span class="p">)),</span><span class="w"> </span><span class="n">by</span><span class="o">=</span><span class="n">month</span><span class="p">]</span><span class="w">
+</span><span class="c1"># use operator %&gt;% to take the result on the left as the 1st argument on the right</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">magrittr</span><span class="p">)</span><span class="w">
+</span><span class="n">weather</span><span class="p">[,</span><span class="w"> </span><span class="n">ws_kmh</span><span class="o">:=</span><span class="m">1.61</span><span class="o">*</span><span class="n">wind_speed</span><span class="p">]</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+</span><span class="n">.</span><span class="p">[,</span><span class="w"> </span><span class="n">.</span><span class="p">(</span><span class="n">mean_ws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">ws_kmh</span><span class="p">)),</span><span class="w"> </span><span class="n">by</span><span class="o">=</span><span class="n">month</span><span class="p">]</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+</span><span class="n">head</span><span class="p">()</span><span class="w">
+</span></code></pre></div></div>
+
+    </article>
+    <br/><br/><br/>
+  </div>
+  <div class="comment container paper card" style="margin-bottom: 10em;">
+    <h2>读者评论</h2><br>
+    <div class="center" style="margin: auto; width: 80%;">
+    <script src="https://giscus.app/client.js"
+            data-repo="MountAye/blog"
+            data-repo-id="R_kgDOGc3UIA"
+            data-category="Comments"
+            data-category-id="DIC_kwDOGc3UIM4CAI4h"
+            data-mapping="title"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-theme="light"
+            data-lang="zh-CN"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+    <!-- <div class="row">
+  <div class="col s8">
+    <ul class="tabs blue z-depth-1">
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4 active" href="#markdown">Markdown</a></li>
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4" href="#preview">Preview</a></li>
+    </ul>
+  </div>
+  <br><br><br>
+  <div id="markdown" class="col s8">
+    <div class="row">
+      <form class="col s12">
+        <div class="row blue-text">
+          <div class="input-field col s12">
+            <input id="first_name" type="text" class="validate materialize-textarea blue-text text-darken-3">
+            <label for="first_name" class="blue-text text-darken-3">Title</label>
+          </div>
+          <div class="input-field col s12 blue-text">
+            <textarea id="textarea1" class="materialize-textarea blue-text text-darken-3"></textarea>
+            <label for="textarea1" class="blue-text text-darken-3">Enter comment</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button class="blue darken-1 white-text text-darken-3 waves-effect waves-cyan waves-light btn" href="/"><i class="mdi-action-backup"></i> &nbsp; Log in to comment</button>
+  </div>
+  <div id="preview" class="col s12">
+    hhhh
+  </div>
+</div> -->
+    <br><br><br>
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
+<footer class="page-footer blue darken-2">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">social-links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="http://facebook.com/xSF.AzraeL/" target="_blank"><i class="mdi-social-person-add"></i> Facebook</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://plus.google.com/u/0/114363400342894379257/posts" target="_blank"><i class="mdi-social-plus-one"></i> Google+</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/naveenshaji/" target="_blank"><i class="mdi-notification-adb"></i> GitHub</a></li>
+        </ul>
+      </div>
+             
+      <div class="col l3 m6 s12">
+      <h5 class="white-text">where-i-live</h5>
+      <p class="grey-text text-lighten-4">TC 11/1827<br>West Cliff Gardens 35<br>Kowdiar, Trivandrum<br>&nbsp;</p>
+      </div>
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">contact-me</h5>
+        <p class="grey-text text-lighten-4">+91-9496-74-7070<br>naveen@pixelblenders.com<br>xsf.azrael@gmail.com</p>
+      </div>
+
+                         
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">MountAye</h5>
+        <p class="grey-text text-lighten-4">MountAye: A Blog</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2021 MountAye
+      <a class="grey-text text-lighten-4 right" href="http://mountaye.github.io/" target="_blank">MountAye</a>
+    </div>
+  </div>
+</footer> -->
+
+  </body>
+</html>

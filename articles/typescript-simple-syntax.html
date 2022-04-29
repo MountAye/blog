@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<!--
+Material HTML5 Template (https://naveenshaji.github.io/material)
+The MIT License (MIT)
+
+Copyright (c) 2015 Naveen Shaji
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- start of SEO by hand copying plugin results on Feb 5, 2022 -->
+    <title>.ts | TypeScript 入门笔记 | 阿掖山：一个博客</title>
+    <meta name="generator" content="Jekyll" />
+    <meta property="og:title" content=".ts | TypeScript 入门笔记" />
+    
+    
+    
+    
+      
+        <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2022-04-29 00:00:00 -0500" />
+        <meta property="article:modified_time" content="2022-04-29 00:00:00 -0500" />
+        <script type="application/ld+json">
+            {"headline":".ts | TypeScript 入门笔记","dateModified":"2022-04-29 00:00:00 -0500","datePublished":"2022-04-29 00:00:00 -0500,"url":"https://mountaye.github.io/blog/articles/typescript-simple-syntax","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/typescript-simple-syntax"},"author":{"@type":"Person","name":"MountAye"},"@type":"BlogPosting","description":"An introduction to Typescript and some simple syntax","@context":"https://schema.org"}
+        </script> 
+    
+
+    <meta property="og:locale" content="zh-cn" />
+    <meta name="author" content="MountAye" />
+    <meta name="description" content="An introduction to Typescript and some simple syntax" />
+    <meta property="og:description" content="An introduction to Typescript and some simple syntax" />
+    <link rel="canonical" href="https://mountaye.github.io/blog/articles/typescript-simple-syntax" />
+    <meta property="og:url" content="https://mountaye.github.io/blog/articles/typescript-simple-syntax" />
+    <meta name="og:site_name" content="阿掖山：一个博客" /> 
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content=".ts | TypeScript 入门笔记" />
+    <!-- end of SEO -->
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X9B5LN42L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3X9B5LN42L');
+    </script>
+    <!-- end of Google Analytics -->
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=0">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/blog/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="/blog/css/main.css">
+    <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/javascript" src="/blog/js/jquery.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.plus.js"></script>
+    <script src="/blog/js/velocity.min.js"></script>
+    <script src="/blog/js/skrollr.min.js"></script>
+    <script src="/blog/js/jquery.scrolline.js"></script>
+    <script type="text/javascript" src="/blog/js/modernizr.js"></script>
+    <script type="text/javascript" src="/blog/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/blog/js/main.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="阿掖山：一个博客" href="/blog/feed.xml" />
+    <link rel="shortcut icon" href="/blog/assets/img/favicon.ico" >
+</head>
+
+  <body class="yellow lighten-5"> 
+    <div class="preloader blue container-fluid row">
+      <div class="white-text text-darken-4 xpretext"><h4>阿掖山：一个博客</h4></div>
+      <div class="progress blue lighten-2 xpreloading">
+        <div class="indeterminate blue darken-3"></div>
+      </div>
+    </div> 
+    <header class="site-header">
+  <div class="navbar-fixed">
+    <nav class="blue darken-2 waves-effect waves-light">
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="/blog/" class="brand-logo">
+            <i class="mdi-communication-chat"></i>
+            阿掖山：一个博客
+          </a>
+          <ul id="nav-mobile" class="right side-nav">
+            <li><a href="/blog/History/">历史</a></li>
+            <li><a href="/blog/Topics/">分类</a></li>
+            <li><a href="/blog/Comments/">留言</a></li>
+            <li><a href="/blog/Links/">友链</a></li>
+            <li><a href="/blog/About/">关于</a></li>
+          </ul>
+          <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <a class="darken-2 scrollToTop btn-floating btn-large waves-effect waves-light blue"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+    <div id="page-wrap">
+      <div id="main-content">
+        <div id="guts">
+          <div class="container">
+            <div class="wrapper text-darken-3">
+              <div id="skrollr-body">
+  <div class="post container paper card" style="margin-top: 8em; margin-bottom: 5em;">
+    <header class="post-header">
+      <h1 class="post-title">.ts | TypeScript 入门笔记</h1>
+      <div class="post-meta" style="font-size: 1.5em">Apr 29, 2022</div>
+    </header>
+    <hr class="slender">
+    <article class="post-content">
+        <p>What is TypeScript:</p>
+
+<ul>
+  <li>static types</li>
+  <li>types from 3rd parties can be added with type definition</li>
+</ul>
+
+<p>Dynamic vs Static types</p>
+
+<ul>
+  <li>dynamic: types associated with run-time values, and not explicitly in code</li>
+  <li>static: explicitly assign types</li>
+</ul>
+
+<p>Pros and Cons</p>
+
+<ul>
+  <li>pros: more robust, debug, predictability</li>
+  <li>cons: more codes to write, requires compilation, <strong>not true typing</strong></li>
+</ul>
+
+<p>Compiling</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.ts</code> or <code class="language-plaintext highlighter-rouge">.tsx</code> extension</li>
+  <li><code class="language-plaintext highlighter-rouge">TSC</code> is used</li>
+  <li><code class="language-plaintext highlighter-rouge">tsconfig.json</code></li>
+</ul>
+
+<h1 id="hands-on">Hands on</h1>
+
+<h2 id="install">Install</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>npm i <span class="nt">-g</span> typescript
+tsc <span class="nt">-v</span>
+<span class="nb">touch </span>index.ts
+</code></pre></div></div>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">id</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">5</span> 
+<span class="nx">id</span> <span class="o">=</span> <span class="s2">`5`</span> <span class="c1">// error</span>
+
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tsc index
+tsc <span class="nt">--</span> watch index
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tsc <span class="nt">--init</span> <span class="c"># produces tsconfig.json</span>
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+	</span><span class="nl">"outDir"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./dist"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"rootDir"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/src"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="types">Types</h2>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">id</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="kd">let</span> <span class="nx">company</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Media</span><span class="dl">"</span>
+<span class="kd">let</span> <span class="nx">isPublished</span><span class="p">:</span> <span class="nx">boolean</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="kd">let</span> <span class="nx">x</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="kc">true</span> <span class="c1">// no errors</span>
+
+<span class="c1">// array</span>
+<span class="kd">let</span> <span class="nx">ids</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="nx">ids</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// error</span>
+
+<span class="kd">let</span> <span class="nx">arr</span><span class="p">:</span> <span class="kr">any</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">]</span>
+
+<span class="c1">//tuple</span>
+<span class="kd">let</span> <span class="nx">person</span><span class="p">:</span> <span class="p">[</span><span class="kr">number</span><span class="p">,</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">boolean</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Brad</span><span class="dl">'</span><span class="p">,</span> <span class="kc">true</span><span class="p">]</span>
+
+<span class="c1">// tuple array</span>
+<span class="kd">let</span> <span class="nx">employee</span><span class="p">:</span> <span class="p">[</span><span class="kr">number</span><span class="p">,</span> <span class="kr">string</span><span class="p">][]</span>
+<span class="nx">employee</span> <span class="o">=</span> <span class="p">[</span>
+	<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Brad</span><span class="dl">'</span><span class="p">],</span>
+	<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Sam</span><span class="dl">'</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="c1">// union</span>
+<span class="kd">let</span> <span class="nx">pid</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">22</span>
+
+<span class="c1">// enum</span>
+<span class="kr">enum</span> <span class="nx">Direction1</span> <span class="p">{</span>
+	<span class="nx">Up</span><span class="p">,</span> <span class="c1">// default is 0</span>
+	<span class="nx">Down</span><span class="p">,</span>
+	<span class="nx">Left</span><span class="p">,</span>
+	<span class="nx">Right</span>
+<span class="p">}</span>
+
+<span class="kr">enum</span> <span class="nx">Direction2</span> <span class="p">{</span>
+	<span class="nx">Up</span>   <span class="o">=</span> <span class="dl">"</span><span class="s2">Up</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// default is 0</span>
+	<span class="nx">Down</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Down</span><span class="dl">"</span><span class="p">,</span>
+	<span class="nx">Left</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Left</span><span class="dl">"</span><span class="p">,</span>
+	<span class="nx">Right</span><span class="o">=</span> <span class="dl">"</span><span class="s2">Right</span><span class="dl">"</span>
+<span class="p">}</span>
+
+<span class="c1">//objects</span>
+<span class="kd">const</span> <span class="nx">user</span><span class="p">:</span> <span class="p">{</span>
+	<span class="nl">id</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span>
+	<span class="nx">name</span><span class="p">:</span> <span class="kr">string</span>
+<span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+	<span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">John</span><span class="dl">'</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">id</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span>
+	<span class="na">name</span><span class="p">:</span> <span class="kr">string</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">user</span><span class="p">:</span> <span class="nx">User</span>
+
+<span class="c1">// type assertion</span>
+<span class="kd">let</span> <span class="nx">cid</span><span class="p">:</span> <span class="kr">any</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="kd">let</span> <span class="nx">customerId</span> <span class="o">=</span> <span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;</span>cid
+let customerId = cid as number
+
+</code></pre></div></div>
+
+<h2 id="function">function</h2>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">addNum</span><span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span><span class="nx">y</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span>
+<span class="p">}</span>
+<span class="c1">//void</span>
+
+<span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">:</span> <span class="kr">number</span> <span class="o">|</span> <span class="kr">string</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="interfaces">Interfaces</h2>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">UserInterface</span> <span class="p">{</span>
+	<span class="k">readonly</span> <span class="nx">id</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span>
+	<span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+	<span class="nx">age</span><span class="p">?:</span> <span class="kr">number</span> <span class="c1">// optional property</span>
+	<span class="nx">register</span><span class="p">():</span> <span class="kr">string</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">user1</span><span class="p">:</span> <span class="nx">UserInterface</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// error , read only</span>
+<span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">brad</span><span class="dl">"</span>
+<span class="p">}</span>
+
+<span class="nx">interfce</span> <span class="nx">MathFunc</span> <span class="p">{</span>
+	<span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">add</span><span class="p">:</span> <span class="nx">MathFunc</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="o">=&gt;</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span>
+</code></pre></div></div>
+
+<h2 id="class">Class</h2>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Person</span> <span class="k">implements</span> <span class="nx">UserInterface</span><span class="p">{</span>
+	<span class="k">private</span> <span class="nx">id</span><span class="p">:</span> <span class="kr">number</span>	 <span class="c1">// within the class</span>
+	<span class="k">protected</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span> <span class="c1">// within class or extended classes</span>
+	<span class="nx">salary</span><span class="p">:</span> <span class="kr">number</span>
+
+	<span class="kd">constructor</span><span class="p">(</span><span class="nx">id</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span>
+	<span class="p">}</span>
+	<span class="nx">register</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2"> is registered.`</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">brad</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="dl">'</span><span class="s1">Brad</span><span class="dl">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="subclass">Subclass</h2>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Employee</span> <span class="kd">extends</span> <span class="nx">Person</span> <span class="p">{</span>
+	<span class="nl">position</span><span class="p">:</span> <span class="kr">string</span>
+
+	<span class="kd">constructor</span><span class="p">(</span><span class="nx">id</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">position</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">super</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="nx">name</span><span class="p">)</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="nx">position</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">emp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="dl">"</span><span class="s2">Shawn</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">developer</span><span class="dl">"</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">emp</span><span class="p">.</span><span class="nx">register</span><span class="p">())</span>
+
+</code></pre></div></div>
+
+<h2 id="generics">Generics</h2>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getArray</span><span class="p">(</span><span class="nx">items</span><span class="p">:</span> <span class="kr">any</span><span class="p">[]):</span> <span class="kr">any</span><span class="p">[]</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">().</span><span class="nx">concat</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">numArray</span> <span class="o">=</span> <span class="nx">getArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="kd">let</span> <span class="nx">strArray</span> <span class="o">=</span> <span class="nx">getArray</span><span class="p">([</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">c</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">d</span><span class="dl">'</span><span class="p">])</span>
+
+<span class="nx">numArray</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// no error, but not what we want</span>
+
+<span class="kd">function</span> <span class="nx">getArray</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">items</span><span class="p">:</span> <span class="nx">T</span><span class="p">[]):</span> <span class="nx">T</span><span class="p">[]</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">().</span><span class="nx">concat</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">numArray</span> <span class="o">=</span> <span class="nx">getArray</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="nx">numArray</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// error</span>
+</code></pre></div></div>
+
+<h2 id="with-react">With React</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx create-react-app <span class="nb">.</span> <span class="nt">--template</span> typescript
+npm start
+<span class="nb">touch </span>header.tsx
+</code></pre></div></div>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">Props</span><span class="p">{</span>
+	<span class="nl">title</span><span class="p">:</span> <span class="kr">string</span>
+	<span class="nx">color</span><span class="p">?:</span> <span class="kr">string</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">Header</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">:</span> <span class="nx">Props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="p">(</span>
+		<span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
+			<span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="p">=&gt;</span>
+				<span class="si">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">title</span><span class="si">}</span>
+			<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+		<span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+	<span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+    </article>
+    <br/><br/><br/>
+  </div>
+  <div class="comment container paper card" style="margin-bottom: 10em;">
+    <h2>读者评论</h2><br>
+    <div class="center" style="margin: auto; width: 80%;">
+    <script src="https://giscus.app/client.js"
+            data-repo="MountAye/blog"
+            data-repo-id="R_kgDOGc3UIA"
+            data-category="Comments"
+            data-category-id="DIC_kwDOGc3UIM4CAI4h"
+            data-mapping="title"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-theme="light"
+            data-lang="zh-CN"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+    <!-- <div class="row">
+  <div class="col s8">
+    <ul class="tabs blue z-depth-1">
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4 active" href="#markdown">Markdown</a></li>
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4" href="#preview">Preview</a></li>
+    </ul>
+  </div>
+  <br><br><br>
+  <div id="markdown" class="col s8">
+    <div class="row">
+      <form class="col s12">
+        <div class="row blue-text">
+          <div class="input-field col s12">
+            <input id="first_name" type="text" class="validate materialize-textarea blue-text text-darken-3">
+            <label for="first_name" class="blue-text text-darken-3">Title</label>
+          </div>
+          <div class="input-field col s12 blue-text">
+            <textarea id="textarea1" class="materialize-textarea blue-text text-darken-3"></textarea>
+            <label for="textarea1" class="blue-text text-darken-3">Enter comment</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button class="blue darken-1 white-text text-darken-3 waves-effect waves-cyan waves-light btn" href="/"><i class="mdi-action-backup"></i> &nbsp; Log in to comment</button>
+  </div>
+  <div id="preview" class="col s12">
+    hhhh
+  </div>
+</div> -->
+    <br><br><br>
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
+<footer class="page-footer blue darken-2">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">social-links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="http://facebook.com/xSF.AzraeL/" target="_blank"><i class="mdi-social-person-add"></i> Facebook</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://plus.google.com/u/0/114363400342894379257/posts" target="_blank"><i class="mdi-social-plus-one"></i> Google+</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/naveenshaji/" target="_blank"><i class="mdi-notification-adb"></i> GitHub</a></li>
+        </ul>
+      </div>
+             
+      <div class="col l3 m6 s12">
+      <h5 class="white-text">where-i-live</h5>
+      <p class="grey-text text-lighten-4">TC 11/1827<br>West Cliff Gardens 35<br>Kowdiar, Trivandrum<br>&nbsp;</p>
+      </div>
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">contact-me</h5>
+        <p class="grey-text text-lighten-4">+91-9496-74-7070<br>naveen@pixelblenders.com<br>xsf.azrael@gmail.com</p>
+      </div>
+
+                         
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">MountAye</h5>
+        <p class="grey-text text-lighten-4">MountAye: A Blog</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2021 MountAye
+      <a class="grey-text text-lighten-4 right" href="http://mountaye.github.io/" target="_blank">MountAye</a>
+    </div>
+  </div>
+</footer> -->
+
+  </body>
+</html>

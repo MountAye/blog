@@ -350,9 +350,11 @@ npm start
 <span class="kd">const</span> <span class="nx">Header</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">:</span> <span class="nx">Props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="p">(</span>
 		<span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
-			<span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="p">=&gt;</span>
+		  
+			<span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="p">=</span><span class="si">{</span><span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="nx">prps</span><span class="p">.</span><span class="nx">color</span> <span class="p">?</span> <span class="nx">props</span><span class="p">.</span><span class="nx">color</span><span class="p">:</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span> <span class="p">}</span><span class="si">}</span><span class="p">&gt;</span>
 				<span class="si">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">title</span><span class="si">}</span>
 			<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+		  
 		<span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
 	<span class="p">)</span>
 <span class="p">}</span>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!--
+Material HTML5 Template (https://naveenshaji.github.io/material)
+The MIT License (MIT)
+
+Copyright (c) 2015 Naveen Shaji
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- start of SEO by hand copying plugin results on Feb 5, 2022 -->
+    <title>.nb | Mathematica 入门：免费正版、vscode、近似原生体验 | 阿掖山：一个博客</title>
+    <meta name="generator" content="Jekyll" />
+    <meta property="og:title" content=".nb | Mathematica 入门：免费正版、vscode、近似原生体验" />
+    
+    
+    
+    
+      
+        <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2022-06-19 00:00:00 -0500" />
+        <meta property="article:modified_time" content="2022-06-19 00:00:00 -0500" />
+        <script type="application/ld+json">
+            {"headline":".nb | Mathematica 入门：免费正版、vscode、近似原生体验","dateModified":"2022-06-19 00:00:00 -0500","datePublished":"2022-06-19 00:00:00 -0500,"url":"https://mountaye.github.io/blog/articles/mimic-mathematica-with-wolfram-engine-and-vscode","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/mimic-mathematica-with-wolfram-engine-and-vscode"},"author":{"@type":"Person","name":"MountAye"},"@type":"BlogPosting","description":"不用算号器，完全合法的免费手段搭建一个免费的 Wolfram Languange 运行环境，效果尽可能贴近 Mathematica。","@context":"https://schema.org"}
+        </script> 
+    
+
+    <meta property="og:locale" content="zh-cn" />
+    <meta name="author" content="MountAye" />
+    <meta name="description" content="不用算号器，完全合法的免费手段搭建一个免费的 Wolfram Languange 运行环境，效果尽可能贴近 Mathematica。" />
+    <meta property="og:description" content="不用算号器，完全合法的免费手段搭建一个免费的 Wolfram Languange 运行环境，效果尽可能贴近 Mathematica。" />
+    <link rel="canonical" href="https://mountaye.github.io/blog/articles/mimic-mathematica-with-wolfram-engine-and-vscode" />
+    <meta property="og:url" content="https://mountaye.github.io/blog/articles/mimic-mathematica-with-wolfram-engine-and-vscode" />
+    <meta name="og:site_name" content="阿掖山：一个博客" /> 
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content=".nb | Mathematica 入门：免费正版、vscode、近似原生体验" />
+    <!-- end of SEO -->
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X9B5LN42L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3X9B5LN42L');
+    </script>
+    <!-- end of Google Analytics -->
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=0">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/blog/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="/blog/css/main.css">
+    <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/javascript" src="/blog/js/jquery.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.plus.js"></script>
+    <script src="/blog/js/velocity.min.js"></script>
+    <script src="/blog/js/skrollr.min.js"></script>
+    <script src="/blog/js/jquery.scrolline.js"></script>
+    <script type="text/javascript" src="/blog/js/modernizr.js"></script>
+    <script type="text/javascript" src="/blog/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/blog/js/main.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="阿掖山：一个博客" href="/blog/feed.xml" />
+    <link rel="shortcut icon" href="/blog/assets/img/favicon.ico" >
+</head>
+
+  <body class="yellow lighten-5"> 
+    <div class="preloader blue container-fluid row">
+      <div class="white-text text-darken-4 xpretext"><h4>阿掖山：一个博客</h4></div>
+      <div class="progress blue lighten-2 xpreloading">
+        <div class="indeterminate blue darken-3"></div>
+      </div>
+    </div> 
+    <header class="site-header">
+  <div class="navbar-fixed">
+    <nav class="blue darken-2 waves-effect waves-light">
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="/blog/" class="brand-logo">
+            <i class="mdi-communication-chat"></i>
+            阿掖山：一个博客
+          </a>
+          <ul id="nav-mobile" class="right side-nav">
+            <li><a href="/blog/History/">历史</a></li>
+            <li><a href="/blog/Topics/">分类</a></li>
+            <li><a href="/blog/Comments/">留言</a></li>
+            <li><a href="/blog/Links/">友链</a></li>
+            <li><a href="/blog/About/">关于</a></li>
+          </ul>
+          <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <a class="darken-2 scrollToTop btn-floating btn-large waves-effect waves-light blue"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+    <div id="page-wrap">
+      <div id="main-content">
+        <div id="guts">
+          <div class="container">
+            <div class="wrapper text-darken-3">
+              <div id="skrollr-body">
+  <div class="post container paper card" style="margin-top: 8em; margin-bottom: 5em;">
+    <header class="post-header">
+      <h1 class="post-title">.nb | Mathematica 入门：免费正版、vscode、近似原生体验</h1>
+      <div class="post-meta" style="font-size: 1.5em">Jun 19, 2022</div>
+    </header>
+    <hr class="slender">
+    <article class="post-content">
+        <h2 id="mathematica-的原生体验暨山寨目标">Mathematica 的原生体验暨山寨目标</h2>
+
+<p>本科的时候老师总是跟我们念叨，让我们学点科学计算软件，可学的不多，不过 MatLab, Mathematica, Maple, Origin 和 Labview.  <del>作为编程语言的 MatLab 是世界上语法最垃圾的（没有之一）</del> ，Maple 实在是太小众了，Origin 和 Labview 不仅应用场景有限而且繁琐还有版权问题，于是 MMA 就成了我主要的折腾对象。不敢说拿手，起码是略懂。</p>
+
+<p>Wolfram 和 python 一样也是<a href="/blog/articles/python-interpreter-editor-virtualenv">动态语言和解释型语言</a>，而且默认的新建文件类型就是 <code class="language-plaintext highlighter-rouge">.nb</code> 笔记本文件，命令按块执行，输出结果直接显示在代码块下方，强烈怀疑 Jupyter Notebook 就是山寨了 Mathematica。当然另有一种 <code class="language-plaintext highlighter-rouge">.m</code> 文件，用于执行文件内的所有命令，适用于比较大型的独立应用。</p>
+
+<p><img src="/blog/assets/photos/2022-06-19-mathematica-notebook.gif" alt="" /></p>
+
+<p>虽然现在的学校给学生买了正版许可证，但是只能用在一台电脑上，所以笔记本上就安装不了。虽然百度贴吧的精华帖里有传统艺能算号器教程，但是现在 Wolfram 开放了免费的 Wolfram Engine，所以我们还是来点正大光明的，用完全合法的免费手段搭建一个免费的 Wolfram Languange 运行环境，效果尽可能贴近 Mathematica。</p>
+
+<p>需要用到的工具有：</p>
+
+<ul>
+  <li>Wolfram Engine</li>
+  <li>Wolfram Script</li>
+  <li>Wolfram Engine For Jupyter</li>
+  <li>jupyter</li>
+  <li>vscode</li>
+</ul>
+
+<h2 id="wolfram-engine-和-wolfram-script-下载和安装">Wolfram Engine 和 Wolfram Script 下载和安装</h2>
+
+<p>《How do I install Mathematica on Linux?》：<a href="https://support.wolfram.com/12453">https://support.wolfram.com/12453</a></p>
+
+<p>在 Google 上搜索“Wolfram Engine”后可以找到官网的下载地址：<a href="https://www.wolfram.com/engine/">https://www.wolfram.com/engine/</a></p>
+
+<p>根据自己的操作系统点击下载之后会弹出获取许可证的页面 (<a href="https://account.wolfram.com/access/wolfram-engine/free">https://account.wolfram.com/access/wolfram-engine/free</a>)，没有 Wolfram 账号的需要注册一个账号。</p>
+
+<p>完成之后在下载文件夹打开 terminal, 输入以下命令，其中 xyz 是下载文件名中的版本号：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">bash</span> <span class="n">WolframEngine_xxx</span><span class="p">.</span><span class="n">yy</span><span class="p">.</span><span class="n">zz_LINUX</span>
+</code></pre></div></div>
+
+<p>强烈建议按照默认设置完成安装，不做要任何个性化的调整，理由见下方引用块。</p>
+
+<blockquote>
+  <p>我把第二个选项，也就是 Wolfram Engine 可执行文件的路径设置成了自己 home 下安放一般独立软件的文件夹，结果激活过程出现了问题：输入 <code class="language-plaintext highlighter-rouge">wolframscript</code> 之后说找不到 WoflramEngine，填入自己的路径之后提示 Wolfram Engine 尚未激活，手动启动 <code class="language-plaintext highlighter-rouge">WolframEngine</code> 之后提示输入激活密钥 activation key，但是各处遍寻不得。
+解决方法来自以下 StackOverflow 回答：<a href="https://mathematica.stackexchange.com/questions/198822/the-wolfram-kernel-must-be-activated-for-wolframscript-to-use-it">https://mathematica.stackexchange.com/questions/198822/the-wolfram-kernel-must-be-activated-for-wolframscript-to-use-it</a>
+在wolfram官网登陆自己的账号之后，在一个新的标签页输入以下网址 <a href="https://www.wolframcloud.com/users/user-current/activationkeys">https://www.wolframcloud.com/users/user-current/activationkeys</a>，即可看到自己的 activation key，在 terminal 中打开 Wolfram Engine，根据提示把 activation key 复制粘贴到指定位置，即可完成激活。
+但是第二天配置好 vscode 和 Jupyter 之后，再次在命令行打开 WolframScript 的时候提示激活失败，重新按照上述方法操作后，显示 activation key 已被使用。即便是删除后按照默认设置重装，也依然会提示超过许可证限制。
+后来在官网给出的联系方式给客服发了消息，客服回信给了新的激活码。</p>
+
+</blockquote>
+
+<p>再下载 <a href="https://account.wolfram.com/products/downloads/wolframscript">WolframScript</a>，这是 Wolfram 的前端。然后按照各个操作系统自己的规矩安装 WolframScript，我的 fedora 就是双击 rpm 文件然后根据提示操作。完成后在命令行输入 <code class="language-plaintext highlighter-rouge">wolframscript</code>, 根据提示输入 Wolfram 账号和密码，Wolfram Engine 就会联网激活自己。</p>
+
+<p>激活成功之后，在 terminal 输入 <code class="language-plaintext highlighter-rouge">wolframscript</code>, 显示的结果如下，即说明 Wolfram Engine 和 Wolfram Script 配置成功。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Wolfram Language 13.0.1 Engine <span class="k">for </span>Linux x86 <span class="o">(</span>64-bit<span class="o">)</span>
+Copyright 1988-2022 Wolfram Research, Inc.
+
+In[1]:<span class="o">=</span>
+</code></pre></div></div>
+
+<p>在 <code class="language-plaintext highlighter-rouge">In[1]:=</code> 处输入 <code class="language-plaintext highlighter-rouge">Exit[]</code> 并按回车，即可退出 Wolfram 回到命令行。</p>
+
+<h2 id="将-wolfram-engine-设为-jupyter-的后端">将 Wolfram Engine 设为 Jupyter 的后端</h2>
+
+<p><a href="https://github.com/WolframResearch/WolframLanguageForJupyter">https://github.com/WolframResearch/WolframLanguageForJupyter</a></p>
+
+<p>根据上面网址的指示，将官方 repo 克隆到本地，因为我们的 python 分隔成了多个<a href="https://virtual.env">虚拟环境</a>，所以比官网教程多一步 <code class="language-plaintext highlighter-rouge">workon base</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>me@my_computer dev]<span class="nv">$ </span>git clone https://github.com/WolframResearch/WolframLanguageForJupyter.git
+<span class="c"># Cloning into 'WolframLanguageForJupyter'...</span>
+<span class="c"># remote: Enumerating objects: 649, done.</span>
+<span class="c"># remote: Counting objects: 100% (140/140), done.</span>
+<span class="c"># remote: Compressing objects: 100% (52/52), done.</span>
+<span class="c"># remote: Total 649 (delta 93), reused 126 (delta 88), pack-reused 509</span>
+<span class="c"># Receiving objects: 100% (649/649), 321.55 KiB | 2.23 MiB/s, done.</span>
+<span class="c"># Resolving deltas: 100% (411/411), done.</span>
+<span class="o">[</span>me@my_computer dev]<span class="nv">$ </span><span class="nb">cd </span>WolframLanguageForJupyter
+<span class="o">[</span>me@my_computer WolframLanguageForJupyter]<span class="nv">$ </span>workon base
+<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>me@my_computer WolframLanguageForJupyter]<span class="nv">$ </span>./configure-jupyter.wls add
+<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>me@my_computer WolframLanguageForJupyter]<span class="err">$</span>
+</code></pre></div></div>
+
+<h2 id="用法和效果">用法和效果</h2>
+
+<p>打开 vscode，按 <code class="language-plaintext highlighter-rouge">Ctrl+Shift+P</code> 呼出命令搜索框，找到 “Jupyter: Create Interactive Window”:</p>
+
+<p><img src="/blog/assets/photos/2022-06-19-jupyter-start.png" alt="" /></p>
+
+<p>单击 Jupyter 后端内核的图表（下图中右上角的”base(Python 3.9.12)”字样），把内核切换为 “Wolfram Language ##”</p>
+
+<p><img src="/blog/assets/photos/2022-06-19-switch-kernel.png" alt="" /></p>
+
+<p>等待后端内核切换完成，就可以输入 Mathematica 命令查看效果了：</p>
+
+<p><img src="/blog/assets/photos/2022-06-19-final-result.png" alt="" /></p>
+
+    </article>
+    <br/><br/><br/>
+  </div>
+  <div class="comment container paper card" style="margin-bottom: 10em;">
+    <h2>读者评论</h2><br>
+    <div class="center" style="margin: auto; width: 80%;">
+    <script src="https://giscus.app/client.js"
+            data-repo="MountAye/blog"
+            data-repo-id="R_kgDOGc3UIA"
+            data-category="Comments"
+            data-category-id="DIC_kwDOGc3UIM4CAI4h"
+            data-mapping="title"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-theme="light"
+            data-lang="zh-CN"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+    <!-- <div class="row">
+  <div class="col s8">
+    <ul class="tabs blue z-depth-1">
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4 active" href="#markdown">Markdown</a></li>
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4" href="#preview">Preview</a></li>
+    </ul>
+  </div>
+  <br><br><br>
+  <div id="markdown" class="col s8">
+    <div class="row">
+      <form class="col s12">
+        <div class="row blue-text">
+          <div class="input-field col s12">
+            <input id="first_name" type="text" class="validate materialize-textarea blue-text text-darken-3">
+            <label for="first_name" class="blue-text text-darken-3">Title</label>
+          </div>
+          <div class="input-field col s12 blue-text">
+            <textarea id="textarea1" class="materialize-textarea blue-text text-darken-3"></textarea>
+            <label for="textarea1" class="blue-text text-darken-3">Enter comment</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button class="blue darken-1 white-text text-darken-3 waves-effect waves-cyan waves-light btn" href="/"><i class="mdi-action-backup"></i> &nbsp; Log in to comment</button>
+  </div>
+  <div id="preview" class="col s12">
+    hhhh
+  </div>
+</div> -->
+    <br><br><br>
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
+<footer class="page-footer blue darken-2">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">social-links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="http://facebook.com/xSF.AzraeL/" target="_blank"><i class="mdi-social-person-add"></i> Facebook</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://plus.google.com/u/0/114363400342894379257/posts" target="_blank"><i class="mdi-social-plus-one"></i> Google+</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/naveenshaji/" target="_blank"><i class="mdi-notification-adb"></i> GitHub</a></li>
+        </ul>
+      </div>
+             
+      <div class="col l3 m6 s12">
+      <h5 class="white-text">where-i-live</h5>
+      <p class="grey-text text-lighten-4">TC 11/1827<br>West Cliff Gardens 35<br>Kowdiar, Trivandrum<br>&nbsp;</p>
+      </div>
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">contact-me</h5>
+        <p class="grey-text text-lighten-4">+91-9496-74-7070<br>naveen@pixelblenders.com<br>xsf.azrael@gmail.com</p>
+      </div>
+
+                         
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">MountAye</h5>
+        <p class="grey-text text-lighten-4">MountAye: A Blog</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2021 MountAye
+      <a class="grey-text text-lighten-4 right" href="http://mountaye.github.io/" target="_blank">MountAye</a>
+    </div>
+  </div>
+</footer> -->
+
+  </body>
+</html>

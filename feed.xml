@@ -5,12 +5,56 @@
     <description>智力活动是一种生活态度</description>
     <link>https://mountaye.github.io/blog/</link>
     <atom:link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 01 Jul 2022 15:54:16 -0500</pubDate>
-    <lastBuildDate>Fri, 01 Jul 2022 15:54:16 -0500</lastBuildDate>
+    <pubDate>Fri, 08 Jul 2022 11:29:51 -0500</pubDate>
+    <lastBuildDate>Fri, 08 Jul 2022 11:29:51 -0500</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
-        <title>第一篇·第八章《从“打倒陶铸”到反击“二月逆流”》</title>
+        <title>.py | python.subprocess执行bash命令</title>
+        <description>&lt;p&gt;笔记本的触摸屏被我摔了道裂纹，一开始还不影响使用，但是最近几周情况恶化，有时鼠标光标会突然暴走，不听指挥。所以需要禁用触摸屏作为输入设备。&lt;/p&gt;
+
+&lt;p&gt;在 xorg 的桌面环境之下，可以用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xinput list&lt;/code&gt; 显示出所有输入设备，以及对应的 id 号码。然后把找到的 id 填入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xinput disable ##&lt;/code&gt; 就可以了。一般来说这个 id 的数值是稳定的，所以我就直接把禁用命令写到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt; 里面去了。&lt;/p&gt;
+
+&lt;p&gt;然而，最近把吃灰很久的树莓派拿出来玩了，所以败家买了个60%布局的小机械键盘，小键盘往笔记本一插，诶，您猜怎么着，新买的键盘输完密码登陆之后就不能用了，着实吓了一跳。&lt;/p&gt;
+
+&lt;p&gt;所以需要每次检查一遍输入设备的 id，然后把和触摸屏有关的 id（不止一个）从 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xinput list&lt;/code&gt; 的输出里摘出来赋值给一个变量，然后把变量带入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xinput disable #&lt;/code&gt; 里面。这一套操作已经超出我的 bash 能力了，所以考虑用 python 完成中间步骤，也就是需要让 python 读 bash 的命令结果，写 bash 的命令语句。&lt;/p&gt;
+
+&lt;p&gt;Googles搜索给到了这个结果：&lt;a href=&quot;https://stackoverflow.com/questions/4256107/running-bash-commands-in-python&quot;&gt;https://stackoverflow.com/questions/4256107/running-bash-commands-in-python&lt;/a&gt;，稍微看了一下 subprocess 的官方文档，写了下面的一段，存到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/disable_touchscreen.py&lt;/code&gt;, 然后在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt; 里加一句 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python ~/disable_touchscreen.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;subprocess&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subprcess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xinput&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;list&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;capture_output&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;touchscreen&quot;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;device&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;partition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;id=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;partition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;disable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subprocess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xinput&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;disable&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;device&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;returncode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Successfully disabled touchscreen device &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;device&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Failed to disable touchscreen device &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;device&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;这段代码的核心是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;subprocess.run()&lt;/code&gt; ，第一个参数就是传给 bash 的命令，这是一个list，其中每个元素就是 bash 语句用空格分割开的每一部分。要想得到命令的执行结果，需要添加参数 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;capture_output=True&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;上面函数的返回值是一个特殊的数据结构，命令顺利执行的话，结果会写在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.stdout&lt;/code&gt; 里，这是一个二进制串 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b&apos;xxx...&apos;&lt;/code&gt;，所以需要 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.decode(&quot;utf-8&quot;)&lt;/code&gt; 转化成字符串。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如果只用bash的话，&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;我的 bash 水平可以做到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xinput list | grep &quot;touchscreen&quot;&lt;/code&gt;, 这里的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;|&lt;/code&gt; 是一个管道，也就是将前一条命令的输出传递给后一条作为输入。要想在 python 里使用管道，可以看这个问答：&lt;a href=&quot;https://stackoverflow.com/questions/13332268/how-to-use-subprocess-command-with-pipes&quot;&gt;https://stackoverflow.com/questions/13332268/how-to-use-subprocess-command-with-pipes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;上面管道的结果还需要裁剪出 id 号，也就是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;line.partition(&quot;id=&quot;)[2].partition(&quot;\t&quot;)[0]&lt;/code&gt;，估计需要用到 awk, 虽然难，但可以学，至少知道该学什么；&lt;/li&gt;
+  &lt;li&gt;但是把 id 号传递给一个变量，然后把这个变量填进 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xinput disable&lt;/code&gt;, 这一步就连该学什么也不知道了。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 08 Jul 2022 00:00:00 -0500</pubDate>
+        <link>https://mountaye.github.io/blog/articles/python-subprocess-run-bash</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/python-subprocess-run-bash</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>文革史笔记-1.8 | 从“打倒陶铸”到反击“二月逆流”</title>
         <description>&lt;h2 id=&quot;内容梗概&quot;&gt;内容梗概&lt;/h2&gt;
 
 &lt;p&gt;在对刘少奇发起总攻之前，需要剪除其党羽，本章就是对这一过程的描述：&lt;/p&gt;
@@ -2357,242 +2401,6 @@ Arrays
         <pubDate>Tue, 19 Apr 2022 00:00:00 -0500</pubDate>
         <link>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-6</link>
         <guid isPermaLink="true">https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-6</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>.py | TensorBoard 笔记（PyTorch 版）</title>
-        <description>&lt;ul&gt;
-  &lt;li&gt;官网教程：&lt;a href=&quot;https://pytorch.org/tutorials/intermediate/tensorboard_tutorial.html&quot;&gt;https://pytorch.org/tutorials/intermediate/tensorboard_tutorial.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;官方文档：&lt;a href=&quot;https://pytorch.org/docs/stable/tensorboard.html&quot;&gt;https://pytorch.org/docs/stable/tensorboard.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;TensorBoard 是 TensorFlow 团队开发的一款可视化工具，方便观察和调整机器学习的数据集、模型、超参数和训练结果等等。但是不知道为什么，PyTorch 调用 TensorBoard，要比 TensorFlow 方便简单得多，&lt;del&gt;这何尝不是一种 NTR&lt;/del&gt;……&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;用法和效果&quot;&gt;用法和效果&lt;/h2&gt;
-
-&lt;p&gt;一个使用了 TensorBoard 的 torch 项目的主文件一般是这样的（把和 TensorBoard 无关的部分都注释掉了）：&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# imports
-# import matplotlib.pyplot as plt
-# import numpy as np
-&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# import torch
-# import torchvision
-# import torchvision.transforms as transforms
-&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# import torch.nn as nn
-# import torch.nn.functional as F
-# import torch.optim as optim
-&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;torch.utils.tensorboard&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SummaryWriter&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# # transforms
-# transform = transforms.Compose(
-#     [transforms.ToTensor(),
-#     transforms.Normalize((0.5,), (0.5,))])
-&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# # datasets
-# trainset = torchvision.datasets.FashionMNIST(&apos;./data&apos;,
-#     download=True,
-#     train=True,
-#     transform=transform)
-# testset = torchvision.datasets.FashionMNIST(&apos;./data&apos;,
-#     download=True,
-#     train=False,
-#     transform=transform)
-&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# # dataloaders
-# trainloader = torch.utils.data.DataLoader(trainset, batch_size=4,
-#                                         shuffle=True, num_workers=2)
-# testloader = torch.utils.data.DataLoader(testset, batch_size=4,
-#                                         shuffle=False, num_workers=2)
-&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# # constant for classes
-# classes = (&apos;T-shirt/top&apos;, &apos;Trouser&apos;, &apos;Pullover&apos;, &apos;Dress&apos;, &apos;Coat&apos;,
-#         &apos;Sandal&apos;, &apos;Shirt&apos;, &apos;Sneaker&apos;, &apos;Bag&apos;, &apos;Ankle Boot&apos;)
-&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# class Net(nn.Module):
-#     def __init__(self):
-#         super(Net, self).__init__()
-#         self.conv1 = nn.Conv2d(1, 6, 5)
-#         self.pool = nn.MaxPool2d(2, 2)
-#         self.conv2 = nn.Conv2d(6, 16, 5)
-#         self.fc1 = nn.Linear(16 * 4 * 4, 120)
-#         self.fc2 = nn.Linear(120, 84)
-#         self.fc3 = nn.Linear(84, 10)
-#     def forward(self, x):
-#         x = self.pool(F.relu(self.conv1(x)))
-#         x = self.pool(F.relu(self.conv2(x)))
-#         x = x.view(-1, 16 * 4 * 4)
-#         x = F.relu(self.fc1(x))
-#         x = F.relu(self.fc2(x))
-#         x = self.fc3(x)
-#         return x
-# net = Net()
-&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# criterion = nn.CrossEntropyLoss()
-# optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
-&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# default `log_dir` is &quot;runs&quot; - we&apos;ll be more specific here
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;writer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SummaryWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;runs/fashion_mnist_experiment_1&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;running_loss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epoch&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# loop over the dataset multiple times
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trainloader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;# # get the inputs; data is a list of [inputs, labels]
-&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# inputs, labels = data
-&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;# # zero the parameter gradients
-&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# optimizer.zero_grad()
-&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;# # forward + backward + optimize
-&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# outputs = net(inputs)
-&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# loss = criterion(outputs, labels)
-&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# loss.backward()
-&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# optimizer.step()
-&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;# running_loss += loss.item()
-&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;999&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# every 1000 mini-batches...
-&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;# ...log the running loss
-&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;writer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_scalar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;training loss&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                            &lt;span class=&quot;n&quot;&gt;running_loss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                            &lt;span class=&quot;n&quot;&gt;epoch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trainloader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 注意这一行！
-# print(&apos;Finished Training&apos;)
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;正常情况下，使用了tensorboard 的项目在训练的过程中，可以用网页浏览器打开网址 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localhost:6006&lt;/code&gt;，应该可以看到和下图类似但不同的画面：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2022-04-08-tensorboard.png&quot; alt=&quot;tensorboard&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;下面来仔细分解。&lt;/p&gt;
-
-&lt;h2 id=&quot;代码分解&quot;&gt;代码分解&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;/blog/articles/python-import-script-module-package&quot;&gt;引入&lt;/a&gt; TensorBoard 需要下面一行代码：&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;torch.utils.tensorboard&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SummaryWriter&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;从名字就能看出来，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SummaryWriter&lt;/code&gt; 是一个 class。粗略用了一下文档页面的业内搜索，好像整个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;torch.utils.tensorboard&lt;/code&gt; 就只有这一个 class。&lt;/p&gt;
-
-&lt;p&gt;新建一个这个类的实例：&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;writer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SummaryWriter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;runs/fashion_mnist_experiment_1&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;这一步会在当前工作环境下新建一个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/runs&lt;/code&gt; 文件夹，&lt;/p&gt;
-
-&lt;p&gt;要想显示导航栏上的“SCALARS”、“IMAGES”等等选项卡，并且让自己想观察的数据显示在各自类别的选项卡里，需要调用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SummaryWriter&lt;/code&gt; 下面的各种方法，比如 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_scalar()&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_image()&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;各种方法&quot;&gt;各种方法&lt;/h3&gt;
-
-&lt;p&gt;用法和效果举例如下：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_scalar()&lt;/code&gt;: 在一张图中画出&lt;strong&gt;一个标量&lt;/strong&gt;指标随学习迭代的&lt;strong&gt;变化曲线&lt;/strong&gt;。
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tag&lt;/code&gt;: 图片的标题。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scalar_value&lt;/code&gt;: 指标的值，也就是纵坐标。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;global_step&lt;/code&gt;: 全局迭代次数，也就是横坐标。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_scalars()&lt;/code&gt;: 在一张图中同时画出&lt;strong&gt;多个指标&lt;/strong&gt;随学习迭代的&lt;strong&gt;变化曲线&lt;/strong&gt;。
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main_tag&lt;/code&gt;: 图片的标题&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tag_scalar_dict&lt;/code&gt;: 一个字典，字典的键是变量的名字，值是各个变量的纵坐标。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;global_step&lt;/code&gt;: 全局迭代次数，也就是横坐标。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_custome_scalars()&lt;/code&gt;: 没有用过，也没见到例子，不太明白。根据描述像是把之前 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_scalar()&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_scalars()&lt;/code&gt; 的结果重新组合，对 SCALARS 选项卡重新排版。每个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SummaryWriter&lt;/code&gt; 只能运行一次，可以在训练开始前运行，也可以在之后。
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;layout&lt;/code&gt;: 只有一个这参数，是一个字典，字典的键像是新图片/章节的名字，值是下一级字典或者是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_scalar()&lt;/code&gt; 出现过/将要出现的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tag&lt;/code&gt; 参数。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_figure()&lt;/code&gt;: 显示 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;matplotlib&lt;/code&gt; 画出的&lt;strong&gt;图表&lt;/strong&gt;。
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tag&lt;/code&gt;: 标题&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;figure&lt;/code&gt;: 图表，要求类型为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;matplotlib.pyplot.figure&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;global_step&lt;/code&gt;:迭代次数，效果如何 没试过。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_histogram()&lt;/code&gt;: 在一张图中画出一个样本的&lt;strong&gt;直方图&lt;/strong&gt;，以及这个直方图随迭代变化的规律。这是个三维图片，x 轴是直方图的取值范围，y 轴是迭代次数，z 轴是直方图的频率值。
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tag&lt;/code&gt;: 图片标题。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;values&lt;/code&gt;: 一个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;torch.Tensor&lt;/code&gt; 或者 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;numpy.array&lt;/code&gt; ，用于绘制直方图的样本.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;global_step&lt;/code&gt;: 迭代次数，y 轴分量。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bins&lt;/code&gt;: 取样间隔参数，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;numpy.histogram()&lt;/code&gt; 中用到的。 &lt;em&gt;**&lt;/em&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_graph()&lt;/code&gt;: 一般用于在训练前画出神经网络的&lt;strong&gt;图状结构&lt;/strong&gt;。
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;model&lt;/code&gt;: 要画的模型，类型是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;torch.nn.Module&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;input_to_model=None&lt;/code&gt;: （可选）输入模型的变量。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_mesh()&lt;/code&gt;: &lt;strong&gt;三维点云&lt;/strong&gt;。
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tag&lt;/code&gt;: 表格标题。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vertices&lt;/code&gt;: 顶点三维坐标的列表。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;colors&lt;/code&gt;: 顶点的颜色。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;faces&lt;/code&gt;: （可选）没看懂 (Indices of vertices within each triangle.)&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config_dict&lt;/code&gt;: 用于画图的 ThreeJS 的参数。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;global_step&lt;/code&gt;: 迭代次数。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_embeddding()&lt;/code&gt;: 神经网络的输入一般是高维向量，此工具将高维数据&lt;strong&gt;投影到三维&lt;/strong&gt;空间，然后画出图像，方便我们感知训练集内样本之间的关系。
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mat&lt;/code&gt;: 一个矩阵，每一行都是一个要处理的向量。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;metadata&lt;/code&gt;: 标记文字，一般是列表。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;label_img&lt;/code&gt;: 标记图片，显示在每个数据点旁边的&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;global_step&lt;/code&gt;: 迭代次数，一般没人用。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tag&lt;/code&gt;: 图片标题。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_pr_curve()&lt;/code&gt;: 准确率 (precision) -召回率 (call back) 曲线。准确率=真阳性/(真阳性+假阳性)，召回率=真阳性/(真阳性+假阴性)
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tag&lt;/code&gt;: 图片标题。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;labels&lt;/code&gt;: Ground truth 数据，每个数据点对应一个布尔值。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;predictions&lt;/code&gt;: 模型的输出，每个数据点对应一个 [0,1] 之间的实数。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;global_step&lt;/code&gt;: 迭代次数。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;num_thresholds&lt;/code&gt;:用于画出 PR 曲线的阈值的数目。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_hparams()&lt;/code&gt;: 比较不同次运行之间的超参数。没太看懂。
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hparam_dict&lt;/code&gt;: 超参数的名称和取值&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;metric_dict&lt;/code&gt;: metric （不知道怎么翻译）的名称和取值&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hparam_domain_discrete&lt;/code&gt;: （可选）字典，超参数的名称和有限个可能的取值。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;run_name&lt;/code&gt;: 运行的名称，将会成为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logdir&lt;/code&gt; 的一部分。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_image()&lt;/code&gt;: 在 IMAGES 选项卡中显示&lt;strong&gt;一张图片&lt;/strong&gt;。
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tag&lt;/code&gt;: 图片名称。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;img_tensor&lt;/code&gt;: 一个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;torch.Tensor&lt;/code&gt; 或者 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;numpy.array&lt;/code&gt;，被显示的图片。对应于下面的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dataformats&lt;/code&gt; 参数。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;global_step&lt;/code&gt;: 迭代次数，没见有人在显示图片的时候用过。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dataformats=’CHW’&lt;/code&gt;: 图片各维度的顺序。默认是“颜色-高度-宽度”。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_images()&lt;/code&gt;: 并列显示&lt;strong&gt;多张图片&lt;/strong&gt;。
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tag&lt;/code&gt;: 图片组的标题。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;img_tensor&lt;/code&gt;: 一个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;torch.Tensor&lt;/code&gt; 或者 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;numpy.array&lt;/code&gt;，被显示的图片。图片个维度的含义由 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datadormats&lt;/code&gt; 给出。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;global_step&lt;/code&gt;: 迭代次数，没见有人在显示图片的时候用过。&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datadormats=’NCHW’&lt;/code&gt;: 图片各维度的顺序。默认为“图片序号-颜色-高度-宽度”。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_video()&lt;/code&gt;: 略&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_audio()&lt;/code&gt;: 略&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_text()&lt;/code&gt;: 略&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Fri, 08 Apr 2022 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog/articles/tensorboard-on-pytorch</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/tensorboard-on-pytorch</guid>
         
         
       </item>

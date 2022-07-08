@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!--
+Material HTML5 Template (https://naveenshaji.github.io/material)
+The MIT License (MIT)
+
+Copyright (c) 2015 Naveen Shaji
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- start of SEO by hand copying plugin results on Feb 5, 2022 -->
+    <title>.py | python.subprocess执行bash命令 | 阿掖山：一个博客</title>
+    <meta name="generator" content="Jekyll" />
+    <meta property="og:title" content=".py | python.subprocess执行bash命令" />
+    
+    
+    
+    
+      
+        <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2022-07-08 00:00:00 -0500" />
+        <meta property="article:modified_time" content="2022-07-08 00:00:00 -0500" />
+        <script type="application/ld+json">
+            {"headline":".py | python.subprocess执行bash命令","dateModified":"2022-07-08 00:00:00 -0500","datePublished":"2022-07-08 00:00:00 -0500,"url":"https://mountaye.github.io/blog/articles/python-subprocess-run-bash","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/python-subprocess-run-bash"},"author":{"@type":"Person","name":"MountAye"},"@type":"BlogPosting","description":"让 python 读 bash 的命令结果，写 bash 的命令语句。","@context":"https://schema.org"}
+        </script> 
+    
+
+    <meta property="og:locale" content="zh-cn" />
+    <meta name="author" content="MountAye" />
+    <meta name="description" content="让 python 读 bash 的命令结果，写 bash 的命令语句。" />
+    <meta property="og:description" content="让 python 读 bash 的命令结果，写 bash 的命令语句。" />
+    <link rel="canonical" href="https://mountaye.github.io/blog/articles/python-subprocess-run-bash" />
+    <meta property="og:url" content="https://mountaye.github.io/blog/articles/python-subprocess-run-bash" />
+    <meta name="og:site_name" content="阿掖山：一个博客" /> 
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content=".py | python.subprocess执行bash命令" />
+    <!-- end of SEO -->
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X9B5LN42L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3X9B5LN42L');
+    </script>
+    <!-- end of Google Analytics -->
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=0">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/blog/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="/blog/css/main.css">
+    <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/javascript" src="/blog/js/jquery.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.plus.js"></script>
+    <script src="/blog/js/velocity.min.js"></script>
+    <script src="/blog/js/skrollr.min.js"></script>
+    <script src="/blog/js/jquery.scrolline.js"></script>
+    <script type="text/javascript" src="/blog/js/modernizr.js"></script>
+    <script type="text/javascript" src="/blog/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/blog/js/main.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="阿掖山：一个博客" href="/blog/feed.xml" />
+    <link rel="shortcut icon" href="/blog/assets/img/favicon.ico" >
+</head>
+
+  <body class="yellow lighten-5"> 
+    <div class="preloader blue container-fluid row">
+      <div class="white-text text-darken-4 xpretext"><h4>阿掖山：一个博客</h4></div>
+      <div class="progress blue lighten-2 xpreloading">
+        <div class="indeterminate blue darken-3"></div>
+      </div>
+    </div> 
+    <header class="site-header">
+  <div class="navbar-fixed">
+    <nav class="blue darken-2 waves-effect waves-light">
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="/blog/" class="brand-logo">
+            <i class="mdi-communication-chat"></i>
+            阿掖山：一个博客
+          </a>
+          <ul id="nav-mobile" class="right side-nav">
+            <li><a href="/blog/History/">历史</a></li>
+            <li><a href="/blog/Topics/">分类</a></li>
+            <li><a href="/blog/Comments/">留言</a></li>
+            <li><a href="/blog/Links/">友链</a></li>
+            <li><a href="/blog/About/">关于</a></li>
+          </ul>
+          <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <a class="darken-2 scrollToTop btn-floating btn-large waves-effect waves-light blue"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+    <div id="page-wrap">
+      <div id="main-content">
+        <div id="guts">
+          <div class="container">
+            <div class="wrapper text-darken-3">
+              <div id="skrollr-body">
+  <div class="post container paper card" style="margin-top: 8em; margin-bottom: 5em;">
+    <header class="post-header">
+      <h1 class="post-title">.py | python.subprocess执行bash命令</h1>
+      <div class="post-meta" style="font-size: 1.5em">Jul 8, 2022</div>
+    </header>
+    <hr class="slender">
+    <article class="post-content">
+        <p>笔记本的触摸屏被我摔了道裂纹，一开始还不影响使用，但是最近几周情况恶化，有时鼠标光标会突然暴走，不听指挥。所以需要禁用触摸屏作为输入设备。</p>
+
+<p>在 xorg 的桌面环境之下，可以用 <code class="language-plaintext highlighter-rouge">xinput list</code> 显示出所有输入设备，以及对应的 id 号码。然后把找到的 id 填入 <code class="language-plaintext highlighter-rouge">xinput disable ##</code> 就可以了。一般来说这个 id 的数值是稳定的，所以我就直接把禁用命令写到 <code class="language-plaintext highlighter-rouge">~/.bashrc</code> 里面去了。</p>
+
+<p>然而，最近把吃灰很久的树莓派拿出来玩了，所以败家买了个60%布局的小机械键盘，小键盘往笔记本一插，诶，您猜怎么着，新买的键盘输完密码登陆之后就不能用了，着实吓了一跳。</p>
+
+<p>所以需要每次检查一遍输入设备的 id，然后把和触摸屏有关的 id（不止一个）从 <code class="language-plaintext highlighter-rouge">xinput list</code> 的输出里摘出来赋值给一个变量，然后把变量带入 <code class="language-plaintext highlighter-rouge">xinput disable #</code> 里面。这一套操作已经超出我的 bash 能力了，所以考虑用 python 完成中间步骤，也就是需要让 python 读 bash 的命令结果，写 bash 的命令语句。</p>
+
+<p>Googles搜索给到了这个结果：<a href="https://stackoverflow.com/questions/4256107/running-bash-commands-in-python">https://stackoverflow.com/questions/4256107/running-bash-commands-in-python</a>，稍微看了一下 subprocess 的官方文档，写了下面的一段，存到 <code class="language-plaintext highlighter-rouge">~/disable_touchscreen.py</code>, 然后在 <code class="language-plaintext highlighter-rouge">~/.bashrc</code> 里加一句 <code class="language-plaintext highlighter-rouge">python ~/disable_touchscreen.py</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="n">check</span> <span class="o">=</span> <span class="n">subprcess</span><span class="p">.</span><span class="n">run</span><span class="p">([</span><span class="s">"xinput"</span><span class="p">,</span><span class="s">"list"</span><span class="p">],</span><span class="n">capture_output</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">check</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">).</span><span class="n">split</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s">"touchscreen"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">partition</span><span class="p">(</span><span class="s">"id="</span><span class="p">)[</span><span class="mi">2</span><span class="p">].</span><span class="n">partition</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">disable</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="n">run</span><span class="p">([</span><span class="s">"xinput"</span><span class="p">,</span><span class="s">"disable"</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">)])</span>
+        <span class="k">if</span> <span class="n">disable</span><span class="p">.</span><span class="n">returncode</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Successfully disabled touchscreen device </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Failed to disable touchscreen device </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>这段代码的核心是 <code class="language-plaintext highlighter-rouge">subprocess.run()</code> ，第一个参数就是传给 bash 的命令，这是一个list，其中每个元素就是 bash 语句用空格分割开的每一部分。要想得到命令的执行结果，需要添加参数 <code class="language-plaintext highlighter-rouge">capture_output=True</code></li>
+  <li>上面函数的返回值是一个特殊的数据结构，命令顺利执行的话，结果会写在 <code class="language-plaintext highlighter-rouge">.stdout</code> 里，这是一个二进制串 <code class="language-plaintext highlighter-rouge">b'xxx...'</code>，所以需要 <code class="language-plaintext highlighter-rouge">.decode("utf-8")</code> 转化成字符串。</li>
+</ul>
+
+<p>如果只用bash的话，</p>
+
+<ul>
+  <li>我的 bash 水平可以做到 <code class="language-plaintext highlighter-rouge">xinput list | grep "touchscreen"</code>, 这里的 <code class="language-plaintext highlighter-rouge">|</code> 是一个管道，也就是将前一条命令的输出传递给后一条作为输入。要想在 python 里使用管道，可以看这个问答：<a href="https://stackoverflow.com/questions/13332268/how-to-use-subprocess-command-with-pipes">https://stackoverflow.com/questions/13332268/how-to-use-subprocess-command-with-pipes</a></li>
+  <li>上面管道的结果还需要裁剪出 id 号，也就是 <code class="language-plaintext highlighter-rouge">line.partition("id=")[2].partition("\t")[0]</code>，估计需要用到 awk, 虽然难，但可以学，至少知道该学什么；</li>
+  <li>但是把 id 号传递给一个变量，然后把这个变量填进 <code class="language-plaintext highlighter-rouge">xinput disable</code>, 这一步就连该学什么也不知道了。</li>
+</ul>
+
+    </article>
+    <br/><br/><br/>
+  </div>
+  <div class="comment container paper card" style="margin-bottom: 10em;">
+    <h2>读者评论</h2><br>
+    <div class="center" style="margin: auto; width: 80%;">
+    <script src="https://giscus.app/client.js"
+            data-repo="MountAye/blog"
+            data-repo-id="R_kgDOGc3UIA"
+            data-category="Comments"
+            data-category-id="DIC_kwDOGc3UIM4CAI4h"
+            data-mapping="title"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-theme="light"
+            data-lang="zh-CN"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+    <!-- <div class="row">
+  <div class="col s8">
+    <ul class="tabs blue z-depth-1">
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4 active" href="#markdown">Markdown</a></li>
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4" href="#preview">Preview</a></li>
+    </ul>
+  </div>
+  <br><br><br>
+  <div id="markdown" class="col s8">
+    <div class="row">
+      <form class="col s12">
+        <div class="row blue-text">
+          <div class="input-field col s12">
+            <input id="first_name" type="text" class="validate materialize-textarea blue-text text-darken-3">
+            <label for="first_name" class="blue-text text-darken-3">Title</label>
+          </div>
+          <div class="input-field col s12 blue-text">
+            <textarea id="textarea1" class="materialize-textarea blue-text text-darken-3"></textarea>
+            <label for="textarea1" class="blue-text text-darken-3">Enter comment</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button class="blue darken-1 white-text text-darken-3 waves-effect waves-cyan waves-light btn" href="/"><i class="mdi-action-backup"></i> &nbsp; Log in to comment</button>
+  </div>
+  <div id="preview" class="col s12">
+    hhhh
+  </div>
+</div> -->
+    <br><br><br>
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
+<footer class="page-footer blue darken-2">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">social-links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="http://facebook.com/xSF.AzraeL/" target="_blank"><i class="mdi-social-person-add"></i> Facebook</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://plus.google.com/u/0/114363400342894379257/posts" target="_blank"><i class="mdi-social-plus-one"></i> Google+</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/naveenshaji/" target="_blank"><i class="mdi-notification-adb"></i> GitHub</a></li>
+        </ul>
+      </div>
+             
+      <div class="col l3 m6 s12">
+      <h5 class="white-text">where-i-live</h5>
+      <p class="grey-text text-lighten-4">TC 11/1827<br>West Cliff Gardens 35<br>Kowdiar, Trivandrum<br>&nbsp;</p>
+      </div>
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">contact-me</h5>
+        <p class="grey-text text-lighten-4">+91-9496-74-7070<br>naveen@pixelblenders.com<br>xsf.azrael@gmail.com</p>
+      </div>
+
+                         
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">MountAye</h5>
+        <p class="grey-text text-lighten-4">MountAye: A Blog</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2021 MountAye
+      <a class="grey-text text-lighten-4 right" href="http://mountaye.github.io/" target="_blank">MountAye</a>
+    </div>
+  </div>
+</footer> -->
+
+  </body>
+</html>

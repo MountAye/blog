@@ -186,26 +186,26 @@ cargo build <span class="nt">--release</span> <span class="c"># for production</
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch </span>src/print/rs
 </code></pre></div></div>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// in print.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// in print.rs</span>
 <span class="k">pub</span> <span class="k">fn</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">);</span>
-	<span class="c">// Basic formatting</span>
+	<span class="c1">// Basic formatting</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Number: {}"</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> 
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"{} is from {}"</span><span class="p">,</span><span class="s">"Brad"</span><span class="p">,</span><span class="s">"Mass"</span><span class="p">);</span>
-	<span class="c">// Positional arguments</span>
+	<span class="c1">// Positional arguments</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"{0} is from {1} and {0} likes to {2}."</span><span class="p">,</span><span class="s">"Brad"</span><span class="p">,</span><span class="s">"Mass"</span><span class="p">,</span><span class="s">"code"</span><span class="p">);</span>
-	<span class="c">// Named argument</span>
+	<span class="c1">// Named argument</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"{name} likes to play {activity}."</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"John"</span><span class="p">,</span> <span class="n">activity</span><span class="o">=</span><span class="s">"baseball"</span><span class="p">)</span>
-	<span class="c">//Placeholder traits</span>
+	<span class="c1">//Placeholder traits</span>
   <span class="nd">println!</span><span class="p">(</span><span class="s">"Binary: {:b} Hex: {:x} Octal: {:o}"</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
-	<span class="c">//Placeholder for debuging</span>
+	<span class="c1">//Placeholder for debuging</span>
   <span class="nd">println!</span><span class="p">(</span><span class="s">"{:?}"</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">True</span><span class="p">,</span><span class="s">"hello"</span><span class="p">));</span>
-	<span class="c">//Basic Math</span>
+	<span class="c1">//Basic Math</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"10+10={}"</span><span class="p">,</span><span class="mi">10</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// in main.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// in main.rs</span>
 <span class="k">mod</span> <span class="n">print</span><span class="p">;</span>
 
 <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -215,18 +215,18 @@ cargo build <span class="nt">--release</span> <span class="c"># for production</
 
 <h2 id="variable">Variable</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// var.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// var.rs</span>
 <span class="k">pub</span> <span class="k">fn</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
 	<span class="k">let</span> <span class="n">name</span><span class="o">=</span><span class="s">"Brad"</span><span class="p">;</span>
 	<span class="k">let</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
-  <span class="n">age</span> <span class="o">=</span> <span class="mi">38</span><span class="p">;</span> <span class="c">//cannot assign twice</span>
+  <span class="n">age</span> <span class="o">=</span> <span class="mi">38</span><span class="p">;</span> <span class="c1">//cannot assign twice</span>
 	<span class="k">let</span> <span class="k">mut</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
 	<span class="n">age</span> <span class="o">=</span> <span class="mi">38</span><span class="p">;</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"My name is {} and I am {}"</span><span class="p">,</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">);</span>
-	<span class="c">// constant</span>
+	<span class="c1">// constant</span>
 	<span class="k">const</span> <span class="n">ID</span><span class="p">:</span><span class="nb">i32</span> <span class="o">=</span> <span class="mi">001</span><span class="p">;</span>
 	<span class="nf">println</span><span class="p">(</span><span class="s">"ID: {}"</span><span class="p">,</span><span class="n">ID</span><span class="p">);</span>
-	<span class="c">// assign multiple variables</span>
+	<span class="c1">// assign multiple variables</span>
 	<span class="k">let</span> <span class="p">(</span> <span class="n">my_name</span><span class="p">,</span> <span class="n">my_age</span> <span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="s">"Brad"</span><span class="p">,</span> <span class="mi">37</span><span class="p">);</span>
 
 <span class="p">}</span>
@@ -234,7 +234,7 @@ cargo build <span class="nt">--release</span> <span class="c"># for production</
 
 <h2 id="primitive-types">Primitive Types</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// type.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// type.rs</span>
 <span class="cm">/*
 Primitive Types:
 Integers: u8,i8,u16,i16,...u128,i128
@@ -245,65 +245,65 @@ Tuples
 Arrays
 */</span>
 
-<span class="c">// Rust is a static type language, but compiles usually can infer</span>
+<span class="c1">// Rust is a static type language, but compiles usually can infer</span>
  
 <span class="k">pub</span> <span class="k">fn</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
-	<span class="c">// default is i32, f64</span>
+	<span class="c1">// default is i32, f64</span>
 	<span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> 
 	<span class="k">let</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">;</span>
 	<span class="k">let</span> <span class="n">z</span><span class="p">:</span> <span class="nb">i64</span> <span class="o">=</span> <span class="mi">454544445554</span><span class="p">;</span>
-	<span class="c">// find max size</span>
+	<span class="c1">// find max size</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Max i32:{}"</span><span class="p">,</span> <span class="nn">std</span><span class="p">::</span><span class="nn">i32</span><span class="p">::</span><span class="n">MAX</span><span class="p">);</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Max f64:{}"</span><span class="p">,</span> <span class="nn">std</span><span class="p">::</span><span class="nn">f64</span><span class="p">::</span><span class="n">MAX</span><span class="p">);</span>
-	<span class="c">// boolean</span>
+	<span class="c1">// boolean</span>
 	<span class="k">let</span> <span class="n">is_active</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
-	<span class="c">// get boolean from expression</span>
+	<span class="c1">// get boolean from expression</span>
 	<span class="k">let</span> <span class="n">is_greater</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">;</span>
-	<span class="c">// char</span>
-	<span class="k">let</span> <span class="n">a1</span> <span class="o">=</span> <span class="sc">'a'</span><span class="p">;</span> <span class="c">// has to be single quotes</span>
-	<span class="k">let</span> <span class="n">a2</span> <span class="o">=</span> <span class="nv">'ab</span><span class="err">'</span><span class="p">;</span> <span class="c">// error, can only be one character</span>
-	<span class="k">let</span> <span class="n">a3</span> <span class="o">=</span> <span class="err">'\</span><span class="n">u</span><span class="p">{</span><span class="mi">1</span><span class="n">F600</span><span class="p">}</span><span class="err">'</span><span class="p">;</span>
+	<span class="c1">// char</span>
+	<span class="k">let</span> <span class="n">a1</span> <span class="o">=</span> <span class="sc">'a'</span><span class="p">;</span> <span class="c1">// has to be single quotes</span>
+	<span class="k">let</span> <span class="n">a2</span> <span class="o">=</span> <span class="nv">'ab</span><span class="err">'</span><span class="p">;</span> <span class="c1">// error, can only be one character</span>
+	<span class="k">let</span> <span class="n">a3</span> <span class="o">=</span> <span class="sc">'\u{1F600}'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
 <h2 id="strings">Strings</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// string.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// string.rs</span>
 
-<span class="c">// primitive str = immutable fixedlength string</span>
-<span class="c">// String = growable heap-allocated data structure - use when I need to modify or own srtring data</span>
+<span class="c1">// primitive str = immutable fixedlength string</span>
+<span class="c1">// String = growable heap-allocated data structure - use when I need to modify or own srtring data</span>
 
 <span class="k">pub</span> <span class="k">fn</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
 	<span class="k">let</span> <span class="k">mut</span> <span class="n">hello</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"Hello "</span><span class="p">);</span>
-	<span class="c">//get length</span>
+	<span class="c1">//get length</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Length: {}"</span><span class="p">,</span> <span class="n">hello</span><span class="nf">.len</span><span class="p">());</span>
 	<span class="n">hello</span><span class="nf">.push</span><span class="p">(</span><span class="sc">'W'</span><span class="p">);</span>
 	<span class="n">hello</span><span class="nf">.push_str</span><span class="p">(</span><span class="s">"orld"</span><span class="p">);</span>
-	<span class="c">// immutable</span>
+	<span class="c1">// immutable</span>
 	<span class="k">let</span> <span class="n">hello2</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
-	<span class="c">// methods</span>
+	<span class="c1">// methods</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Capacity {}"</span><span class="p">,</span> <span class="n">hello</span><span class="nf">.capacity</span><span class="p">());</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Is empty {}"</span><span class="p">,</span> <span class="n">hello</span><span class="nf">.is_empty</span><span class="p">());</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Contains 'World' {}"</span><span class="p">,</span> <span class="n">hello</span><span class="nf">.contains</span><span class="p">(</span><span class="s">"World"</span><span class="p">));</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Replace {}"</span><span class="p">,</span> <span class="n">hello</span><span class="nf">.replace</span><span class="p">(</span><span class="s">"World"</span><span class="p">,</span><span class="s">"there"</span><span class="p">));</span>
-	<span class="c">// loop through string by whitespace</span>
-	<span class="k">for</span> <span class="n">word</span> <span class="n">in</span> <span class="n">hello</span><span class="nf">.split_whitespace</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// loop through string by whitespace</span>
+	<span class="k">for</span> <span class="n">word</span> <span class="k">in</span> <span class="n">hello</span><span class="nf">.split_whitespace</span><span class="p">()</span> <span class="p">{</span>
 		<span class="nd">println!</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="n">word</span><span class="p">);</span>
 	<span class="p">}</span>
-	<span class="c">// Create string with capacity</span>
+	<span class="c1">// Create string with capacity</span>
 	<span class="k">let</span> <span class="k">mut</span> <span class="n">s</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">with_capacity</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
 	<span class="n">s</span><span class="nf">.push</span><span class="p">(</span><span class="sc">'a'</span><span class="p">);</span>
 	<span class="n">s</span><span class="nf">.push</span><span class="p">(</span><span class="sc">'b'</span><span class="p">);</span>
-	<span class="c">// Assertion testing</span>
+	<span class="c1">// Assertion testing</span>
 	<span class="nd">assert_eq!</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">s</span><span class="nf">.len</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
 <h2 id="tuple">tuple</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">//tuples.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//tuples.rs</span>
 
-<span class="c">// can be different types</span>
+<span class="c1">// can be different types</span>
 <span class="k">pub</span> <span class="k">fn</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
 	<span class="k">let</span> <span class="n">person</span><span class="p">:</span> <span class="p">(</span><span class="o">&amp;</span><span class="nb">str</span><span class="p">,</span><span class="o">&amp;</span><span class="nb">str</span><span class="p">,</span><span class="nb">i8</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="s">"Brad"</span><span class="p">,</span><span class="s">"Mass"</span><span class="p">,</span><span class="mi">37</span><span class="p">);</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"{} is from {} and is {}"</span><span class="p">,</span> <span class="n">person</span><span class="na">.0</span><span class="p">,</span> <span class="n">person</span><span class="na">.1</span><span class="p">,</span> <span class="n">person</span><span class="na">.2</span><span class="p">);</span>	
@@ -312,21 +312,21 @@ Arrays
 
 <h2 id="array">Array</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// array.ts</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// array.ts</span>
 
 <span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="n">mem</span>
 
 <span class="k">pub</span> <span class="k">fn</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">let</span> <span class="n">numbers</span><span class="p">:</span> <span class="p">[</span><span class="nb">i32</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span> <span class="c">// length has to be exact</span>
+	<span class="k">let</span> <span class="n">numbers</span><span class="p">:</span> <span class="p">[</span><span class="nb">i32</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span> <span class="c1">// length has to be exact</span>
 	<span class="nd">println!</span><span class="p">({:</span><span class="o">?</span><span class="p">},</span><span class="n">numbers</span><span class="p">);</span>
-	<span class="c">// get single value</span>
+	<span class="c1">// get single value</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Single value{:?}"</span><span class="p">,</span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 	<span class="k">let</span> <span class="k">mut</span> <span class="n">numbers1</span><span class="p">:</span> <span class="p">[</span><span class="nb">i32</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span>
 	<span class="n">numbers1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Array length: {}"</span><span class="p">,</span> <span class="n">numbers1</span><span class="nf">.len</span><span class="p">());</span>
-	<span class="c">//arrays are static allocated</span>
+	<span class="c1">//arrays are static allocated</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Arry occupies {} bytes"</span><span class="p">,</span> <span class="nn">mem</span><span class="p">::</span><span class="nf">size_of_val</span><span class="p">(</span><span class="o">&amp;</span><span class="n">numbres1</span><span class="p">));</span>
-	<span class="c">// get slice</span>
+	<span class="c1">// get slice</span>
 	<span class="k">let</span> <span class="n">slice</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[</span><span class="nb">i32</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">numbres</span><span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">2</span><span class="p">];</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
 <span class="p">}</span>
@@ -334,22 +334,22 @@ Arrays
 
 <h2 id="vector">Vector</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">//vector.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//vector.rs</span>
 
-<span class="c">// vectors are resizable arrays</span>
+<span class="c1">// vectors are resizable arrays</span>
 <span class="k">pub</span> <span class="k">fn</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
 	<span class="k">let</span> <span class="k">mut</span> <span class="n">numbers</span><span class="p">:</span> <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">i32</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nd">Vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">];</span>
-	<span class="c">// add </span>
+	<span class="c1">// add </span>
 	<span class="n">numbers</span><span class="nf">.push</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 	<span class="n">numbers</span><span class="nf">.push</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
-	<span class="c">//pop off las values</span>
+	<span class="c1">//pop off las values</span>
 	<span class="n">numbres</span><span class="nf">.pop</span><span class="p">();</span>
-	<span class="c">// loop through vector values</span>
-	<span class="k">for</span> <span class="n">x</span> <span class="n">in</span> <span class="n">numbers</span><span class="nf">.iter</span><span class="p">(){</span>
+	<span class="c1">// loop through vector values</span>
+	<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">numbers</span><span class="nf">.iter</span><span class="p">(){</span>
 		<span class="nd">println!</span><span class="p">(</span><span class="s">"Number: {}"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
 	<span class="p">}</span>
-	<span class="k">for</span> <span class="n">x</span> <span class="n">in</span> <span class="n">numbers</span><span class="nf">.iter_mut</span><span class="p">(){</span>
-		<span class="o">*</span><span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span> <span class="c">// no idea what the 1st * does</span>
+	<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">numbers</span><span class="nf">.iter_mut</span><span class="p">(){</span>
+		<span class="o">*</span><span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// no idea what the 1st * does</span>
 		<span class="nd">println!</span><span class="p">(</span><span class="s">"Number: {}"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
@@ -357,14 +357,14 @@ Arrays
 
 <h2 id="conditional">conditional</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">//conditional.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//conditional.rs</span>
 
 <span class="k">pub</span> <span class="k">fn</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
 	<span class="k">let</span> <span class="n">age</span><span class="p">:</span> <span class="nb">u8</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
 	<span class="k">let</span> <span class="n">check_id</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 	<span class="k">let</span> <span class="n">knows_person_of_age</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 
-	<span class="c">// if/else</span>
+	<span class="c1">// if/else</span>
 	<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">21</span> <span class="o">&amp;&amp;</span> <span class="n">check_id</span> <span class="p">||</span> <span class="n">knows_person_of_age</span> <span class="p">{</span>
 		<span class="nd">println!</span><span class="p">(</span><span class="s">"Bartender: what would like to drink?"</span><span class="p">);</span>
 	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">21</span> <span class="o">&amp;&amp;</span> <span class="n">check_id</span> <span class="p">{</span>
@@ -373,7 +373,7 @@ Arrays
 		<span class="nd">println!</span><span class="p">(</span><span class="s">"Bartender: I'll need to see your ID."</span><span class="p">);</span>
 	<span class="p">}</span>
 
-	<span class="c">// short if</span>
+	<span class="c1">// short if</span>
 	<span class="k">let</span> <span class="n">is_of_age</span> <span class="o">=</span> <span class="k">if</span> <span class="n">age</span><span class="o">&gt;=</span><span class="mi">21</span> <span class="p">{</span><span class="k">true</span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span><span class="k">false</span><span class="p">};</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Is of age: {}"</span><span class="p">,</span> <span class="n">is_of_age</span><span class="p">);</span>
 <span class="p">}</span>
@@ -381,11 +381,11 @@ Arrays
 
 <h2 id="loop">loop</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">//loop.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//loop.rs</span>
 
 <span class="k">pub</span> <span class="k">fn</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
 	<span class="k">let</span> <span class="k">mut</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="c">//infinite loop</span>
+	<span class="c1">//infinite loop</span>
 	<span class="k">loop</span> <span class="p">{</span>
 		<span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
 		<span class="nd">println!</span><span class="p">(</span><span class="s">"Number: {}"</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
@@ -394,7 +394,7 @@ Arrays
 			<span class="k">break</span><span class="p">;</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-	<span class="c">// while loop (FizzBuzz)</span>
+	<span class="c1">// while loop (FizzBuzz)</span>
 	<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;=</span><span class="mi">100</span> <span class="p">{</span>
 		<span class="k">if</span> <span class="n">count</span><span class="o">%</span><span class="mi">15</span> <span class="o">===</span> <span class="mi">0</span> <span class="p">{</span>
 			<span class="nd">println!</span><span class="p">(</span><span class="s">"fizzbuzz"</span><span class="p">);</span>
@@ -407,22 +407,22 @@ Arrays
 		<span class="p">}</span>
 		<span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
 	<span class="p">}</span>	
-	<span class="c">// for loop</span>
-	<span class="k">for</span> <span class="n">x</span> <span class="n">in</span> <span class="mi">0</span><span class="o">..</span><span class="mi">100</span> <span class="p">{</span>
-		<span class="c">// ...</span>
+	<span class="c1">// for loop</span>
+	<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="mi">100</span> <span class="p">{</span>
+		<span class="c1">// ...</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
 <h2 id="function">function</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// function.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// function.rs</span>
 <span class="k">pub</span> <span class="k">fn</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nf">greeting</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">,</span><span class="s">"Jane"</span><span class="p">);</span>
 	<span class="k">let</span> <span class="n">get_sum</span> <span class="o">=</span> <span class="nf">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
-	<span class="c">//closure</span>
+	<span class="c1">//closure</span>
 	<span class="k">let</span> <span class="n">n3</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-	<span class="k">let</span> <span class="n">add_sums</span> <span class="o">=</span> <span class="p">|</span><span class="n">n1</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span> <span class="n">n2</span><span class="p">:</span> <span class="nb">i32</span><span class="p">|</span> <span class="n">n1</span><span class="o">+</span> <span class="n">n2</span> <span class="o">+</span> <span class="n">n3</span><span class="p">;</span> <span class="c">//need to find out more</span>
+	<span class="k">let</span> <span class="n">add_sums</span> <span class="o">=</span> <span class="p">|</span><span class="n">n1</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span> <span class="n">n2</span><span class="p">:</span> <span class="nb">i32</span><span class="p">|</span> <span class="n">n1</span><span class="o">+</span> <span class="n">n2</span> <span class="o">+</span> <span class="n">n3</span><span class="p">;</span> <span class="c1">//need to find out more</span>
 <span class="p">}</span>
 
 <span class="k">fn</span> <span class="nf">greeting</span> <span class="p">(</span><span class="n">greet</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="p">{</span>
@@ -430,20 +430,20 @@ Arrays
 <span class="p">}</span>
 
 <span class="k">fn</span> <span class="nf">add</span><span class="p">(</span><span class="n">n1</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span> <span class="n">n2</span><span class="p">:</span> <span class="nb">i32</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">i32</span> <span class="p">{</span>
-	<span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="c">// no semi-colum here</span>
+	<span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="c1">// no semi-colum here</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
 <h2 id="pointerreference">Pointer/Reference</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// pointer.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// pointer.rs</span>
 
 <span class="k">pub</span> <span class="k">fn</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
-	<span class="c">// primitive</span>
+	<span class="c1">// primitive</span>
 	<span class="k">let</span> <span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
 	<span class="k">let</span> <span class="n">arr2</span> <span class="o">=</span> <span class="n">arr1</span><span class="p">;</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Values: {:?}"</span><span class="p">,</span> <span class="p">(</span><span class="n">arr1</span><span class="p">,</span><span class="n">arr2</span><span class="p">));</span>
-	<span class="c">// with non-primitive, if you assign another variable to a piece of data, the 1st variable will no longer hold that value. You'll need to use a reference (&amp;) to point to the resource</span>
+	<span class="c1">// with non-primitive, if you assign another variable to a piece of data, the 1st variable will no longer hold that value. You'll need to use a reference (&amp;) to point to the resource</span>
 	<span class="k">let</span> <span class="n">vec1</span> <span class="o">=</span> <span class="nd">Vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
 	<span class="k">let</span> <span class="n">vec2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">vec1</span><span class="p">;</span>
 	<span class="nd">println!</span><span class="p">(</span><span class="s">"Values: {:?}"</span><span class="p">,</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">))</span>
@@ -452,11 +452,11 @@ Arrays
 
 <h2 id="struct">Struct</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// struct.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// struct.rs</span>
 
-<span class="c">// used to create custome data types</span>
+<span class="c1">// used to create custome data types</span>
 
-<span class="c">// traditional struct</span>
+<span class="c1">// traditional struct</span>
 <span class="k">struct</span> <span class="n">Person</span> <span class="p">{</span>
 	<span class="n">first_name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
 	<span class="n">last_name</span><span class="p">:</span> <span class="nb">String</span>
@@ -472,11 +472,11 @@ Arrays
 	<span class="k">fn</span> <span class="nf">full_name</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
 		<span class="nd">format!</span><span class="p">(</span><span class="s">"{} {}"</span><span class="p">,</span> <span class="k">self</span><span class="py">.first_name</span><span class="p">,</span> <span class="k">self</span><span class="py">.last_name</span><span class="p">)</span>
 	<span class="p">}</span>
-	<span class="c">// set last name</span>
+	<span class="c1">// set last name</span>
 	<span class="k">fn</span> <span class="nf">set_last_name</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">,</span> <span class="n">last</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">){</span>
 		<span class="k">self</span><span class="py">.last_name</span> <span class="o">=</span> <span class="n">last</span><span class="nf">.to_string</span><span class="p">();</span>
 	<span class="p">}</span>
-	<span class="c">// name to tuple</span>
+	<span class="c1">// name to tuple</span>
 	<span class="k">fn</span> <span class="nf">to_tuple</span><span class="p">(</span><span class="k">self</span><span class="p">)</span><span class="k">-&gt;</span><span class="p">(</span><span class="nb">String</span><span class="p">,</span><span class="nb">String</span><span class="p">){</span>
 		<span class="p">(</span><span class="k">self</span><span class="py">.first_name</span><span class="p">,</span><span class="k">self</span><span class="py">.last_name</span><span class="p">)</span>
 	<span class="p">}</span>
@@ -488,7 +488,7 @@ Arrays
 	<span class="n">blue</span><span class="p">:</span> <span class="nb">u8</span><span class="p">,</span>
 <span class="p">};</span>
 
-<span class="c">// tuple struct</span>
+<span class="c1">// tuple struct</span>
 <span class="k">struct</span> <span class="nf">ColorTuple</span><span class="p">(</span><span class="nb">u8</span><span class="p">,</span><span class="nb">u8</span><span class="p">,</span><span class="nb">u8</span><span class="p">);</span> 
 
 <span class="k">pub</span> <span class="k">fn</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
@@ -514,12 +514,12 @@ Arrays
 
 <h2 id="enumerate">enumerate</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">//enum.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//enum.rs</span>
 
-<span class="c">// enum is a type with a few definitive values</span>
+<span class="c1">// enum is a type with a few definitive values</span>
 
 <span class="k">enum</span> <span class="n">Movement</span> <span class="p">{</span>
-	<span class="c">// variants</span>
+	<span class="c1">// variants</span>
 	<span class="n">Up</span><span class="p">,</span> 
 	<span class="n">Down</span><span class="p">,</span>
 	<span class="nb">Left</span><span class="p">,</span> 
@@ -550,7 +550,7 @@ Arrays
 
 <h2 id="command-line-interface">Command line interface</h2>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// cli.rs</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// cli.rs</span>
 
 <span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="n">env</span><span class="p">;</span>
 

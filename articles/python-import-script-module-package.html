@@ -277,7 +277,13 @@ pip <span class="nb">install </span>sound
 
 <p>学过这篇笔记包含的内容，我才理解作者这样的安排。既然主文件 <del>很难</del> 没办法通过相对引用来找到工具代码，索性就把工具代码写成一个完整可安装的库，然后就像 <code class="language-plaintext highlighter-rouge">numpy</code>, <code class="language-plaintext highlighter-rouge">pandas</code> 一样在独立的 notebook 和 scripts 中引用。</p>
 
-<p>但是要让一个包可安装，需要创建并编辑 <code class="language-plaintext highlighter-rouge">setup.py</code> 这个文件。这篇文章已经够长了，所以这个话题还是下次再说吧。</p>
+<p>实际使用的时候，需要安装 <code class="language-plaintext highlighter-rouge">projectname</code> 下的代码：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>projectname
+pip <span class="nb">install</span> <span class="nt">-e</span> <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>要知道为什么这样做，需要理解 <code class="language-plaintext highlighter-rouge">setup.py</code> 这个文件。这篇文章已经够长了，所以这个话题还是下次再说吧。</p>
 
 <h2 id="参考链接">参考链接</h2>
 

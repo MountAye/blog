@@ -134,7 +134,7 @@ THE SOFTWARE.
       dataType: "JSON",
       success: function(msg){
         var quotes = msg;
-        var i = Math.floor( Math.random()*(quotes.length+1) );
+        var i = Math.floor( Math.random()*(quotes.length) );
         var quote = quotes[i];
         document.getElementById("quoteLine").innerHTML = quote.text;
         document.getElementById("quoteAuthor").innerHTML = quote.author;

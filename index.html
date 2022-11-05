@@ -134,7 +134,7 @@ THE SOFTWARE.
       dataType: "JSON",
       success: function(msg){
         var quotes = msg;
-        var i = Math.floor( Math.random()*(quotes.length+1) );
+        var i = Math.floor( Math.random()*(quotes.length) );
         var quote = quotes[i];
         document.getElementById("quoteLine").innerHTML = quote.text;
         document.getElementById("quoteAuthor").innerHTML = quote.author;
@@ -157,21 +157,32 @@ THE SOFTWARE.
       </div>
       
         
-        <a href="/blog/articles/say-her-name-mahsa-amini">  
+        <a href="/blog/articles/nhk-sakamoto-ryoma-den">  
           <div class="container-fluid paper card blue z-depth-2 waves-effect waves-light">
             
             <div class="card-action blue darken-2 white-text">
-              <div class="card-title"><h1>.doc | 说出她名字：Mahsa Amini</h1></div>
-              <p>Oct 6, 2022</p>
+              <div class="card-title"><h1>.mov | NHK大河剧《龙马传》观后</h1></div>
+              <p>Nov 5, 2022</p>
             </div>
             <div class="card-content blue white-text">
-              <p>A nation only deserves as much as its people have courage for.</p>
-              <!-- <button href="/blog/articles/say-her-name-mahsa-amini" class="blue darken-1 white-text text-darken-3 waves-effect waves-light btn">View Post</button>
+              <p>没有剧透预警——明知是观后感点进来，还因为剧透唧唧歪歪的，属于逻辑思维能力有问题，或者社会化教育不足，建议就医。</p>
+              <!-- <button href="/blog/articles/nhk-sakamoto-ryoma-den" class="blue darken-1 white-text text-darken-3 waves-effect waves-light btn">View Post</button>
               <button class="blue darken-1 white-text text-darken-3 waves-effect waves-light btn" href='#'>Bookmark!</button> -->
             </div>
           </div>
         </a>
 
+        
+        
+        <!-- scrolling effect wrong! -->
+          <a href="/blog/articles/say-her-name-mahsa-amini">  
+            <div class="container-fluid paper card blue darken-2 z-depth-2 waves-effect waves-light">
+              <div class="card-action white-text">
+                <div class="card-title"><h4>.doc | 说出她名字：Mahsa Amini</h4></div>
+                <p>Oct 6, 2022</p>
+              </div>
+            </div>
+          </a>
         
         
         <!-- scrolling effect wrong! -->
@@ -213,17 +224,6 @@ THE SOFTWARE.
               <div class="card-action white-text">
                 <div class="card-title"><h4>.doc | 也谈近代科学从西方起步</h4></div>
                 <p>Aug 22, 2022</p>
-              </div>
-            </div>
-          </a>
-        
-        
-        <!-- scrolling effect wrong! -->
-          <a href="/blog/articles/what-a-PyTorch-project-looks-like">  
-            <div class="container-fluid paper card blue darken-2 z-depth-2 waves-effect waves-light">
-              <div class="card-action white-text">
-                <div class="card-title"><h4>.py | 一个 PyTorch 机器学习项目长什么样</h4></div>
-                <p>Aug 17, 2022</p>
               </div>
             </div>
           </a>

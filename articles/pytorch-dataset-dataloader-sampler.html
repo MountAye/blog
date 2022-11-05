@@ -183,7 +183,7 @@ THE SOFTWARE.
 
 <h3 id="dataloader"><code class="language-plaintext highlighter-rouge">DataLoader</code></h3>
 
-<p><code class="language-plaintext highlighter-rouge">DataLoader</code> = <code class="language-plaintext highlighter-rouge">Dataset</code> + <code class="language-plaintext highlighter-rouge">Sampler</code>，因为一般的例题里只需要讲数据集进行简单随机划分，也就只用到了 <code class="language-plaintext highlighter-rouge">batch_size</code> 等等参数，用到 Sampler 的地方很少。</p>
+<p><code class="language-plaintext highlighter-rouge">DataLoader</code> = <code class="language-plaintext highlighter-rouge">Dataset</code> + <code class="language-plaintext highlighter-rouge">Sampler</code>，因为一般的教程里只需要讲数据集进行简单随机划分，也就只用到了 <code class="language-plaintext highlighter-rouge">batch_size</code> 等等参数，用到 Sampler 的地方很少。</p>
 
 <p>最常见的用例就是 <code class="language-plaintext highlighter-rouge">WeightedRandomSampler</code> 。训练分类器的时候，有时其中一个类别的数据远少于其他，那么训练器就更难判断出这一分类（因为只要无脑排除这个类别就能获得不错的正确率），所以需要平衡不同组别之间的权重。</p>
 
@@ -235,7 +235,7 @@ THE SOFTWARE.
         <span class="n">train</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">loss_function</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>需要注意的是，<code class="language-plaintext highlighter-rouge">for x,y in trainset</code> 的 x 和 y 的维度是单个数据的维度，最简单的情况就是是 P 和 Q 维向量，而此时的 <code class="language-plaintext highlighter-rouge">for x,y in trainloader</code> 中的 x 和 y 是维度分别为 (B,P) 和 (B,Q) 的矩阵, 其中 B 是 batch_size。<code class="language-plaintext highlighter-rouge">train()</code> 函数里面的计算要考虑到多出的这一个维度。</p>
+<p>需要注意的是，<code class="language-plaintext highlighter-rouge">for x,y in trainset</code> 的 x 和 y 的维度是单个数据的维度，最简单的情况就是是 P 和 Q 维向量，而此时如果把 batch_size 记作 B，<code class="language-plaintext highlighter-rouge">for x,y in trainloader</code> 中的 x 和 y 是维度分别为 (B,P) 和 (B,Q) 的矩阵。<code class="language-plaintext highlighter-rouge">train()</code> 函数里面的计算要考虑到多出的这一个维度。</p>
 
 <h2 id="参考链接">参考链接：</h2>
 

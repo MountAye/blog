@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<!--
+Material HTML5 Template (https://naveenshaji.github.io/material)
+The MIT License (MIT)
+
+Copyright (c) 2015 Naveen Shaji
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- start of SEO by hand copying plugin results on Feb 5, 2022 -->
+    <title>.ai | 神经网络中的卷积及其参数 | 阿掖山：一个博客</title>
+    <meta name="generator" content="Jekyll" />
+    <meta property="og:title" content=".ai | 神经网络中的卷积及其参数" />
+    
+    
+    
+    
+      
+        <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2022-12-29 00:00:00 -0600" />
+        <meta property="article:modified_time" content="2022-12-29 00:00:00 -0600" />
+        <script type="application/ld+json">
+            {"headline":".ai | 神经网络中的卷积及其参数","dateModified":"2022-12-29 00:00:00 -0600","datePublished":"2022-12-29 00:00:00 -0600,"url":"https://mountaye.github.io/blog/articles/parameters-in-convolution-in-neural-network-and-transposeconv","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/parameters-in-convolution-in-neural-network-and-transposeconv"},"author":{"@type":"Person","name":"MountAye"},"@type":"BlogPosting","description":"在读 PyTorch 的文档和源码的时候，发现写文档的人也不怎么解释啥是卷积，卷积的各个参数是什么意思，只在文档里扔了个链接就完事了……","@context":"https://schema.org"}
+        </script> 
+    
+
+    <meta property="og:locale" content="zh-cn" />
+    <meta name="author" content="MountAye" />
+    <meta name="description" content="在读 PyTorch 的文档和源码的时候，发现写文档的人也不怎么解释啥是卷积，卷积的各个参数是什么意思，只在文档里扔了个链接就完事了……" />
+    <meta property="og:description" content="在读 PyTorch 的文档和源码的时候，发现写文档的人也不怎么解释啥是卷积，卷积的各个参数是什么意思，只在文档里扔了个链接就完事了……" />
+    <link rel="canonical" href="https://mountaye.github.io/blog/articles/parameters-in-convolution-in-neural-network-and-transposeconv" />
+    <meta property="og:url" content="https://mountaye.github.io/blog/articles/parameters-in-convolution-in-neural-network-and-transposeconv" />
+    <meta name="og:site_name" content="阿掖山：一个博客" /> 
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content=".ai | 神经网络中的卷积及其参数" />
+    <!-- end of SEO -->
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X9B5LN42L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3X9B5LN42L');
+    </script>
+    <!-- end of Google Analytics -->
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=0">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/blog/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="/blog/css/main.css">
+    <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/javascript" src="/blog/js/jquery.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.min.js"></script>
+    <script src="/blog/js/jquery.nicescroll.plus.js"></script>
+    <script src="/blog/js/velocity.min.js"></script>
+    <script src="/blog/js/skrollr.min.js"></script>
+    <script src="/blog/js/jquery.scrolline.js"></script>
+    <script type="text/javascript" src="/blog/js/modernizr.js"></script>
+    <script type="text/javascript" src="/blog/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/blog/js/main.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="阿掖山：一个博客" href="/blog/feed.xml" />
+    <link rel="shortcut icon" href="/blog/assets/img/favicon.ico" >
+</head>
+
+  <body class="yellow lighten-5"> 
+    <header class="site-header">
+  <div class="navbar-fixed">
+    <nav class="blue darken-2 waves-effect waves-light">
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="/blog/" class="brand-logo">
+            <i class="mdi-communication-chat"></i>
+            阿掖山：一个博客
+          </a>
+          <ul id="nav-mobile" class="right side-nav">
+            <li><a href="/blog/feed.xml">RSS</a></li>
+            <li><a href="/blog/History/">历史</a></li>
+            <li><a href="/blog/Topics/">分类</a></li>
+            <li><a href="/blog/Comments/">留言</a></li>
+            <li><a href="/blog/Links/">友链</a></li>
+            <li><a href="/blog/About/">关于</a></li>
+          </ul>
+          <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <a class="darken-2 scrollToTop btn-floating btn-large waves-effect waves-light blue"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+    <div id="page-wrap">
+      <div id="main-content">
+        <div id="guts">
+          <div class="container">
+            <div class="wrapper text-darken-3">
+              <div id="skrollr-body">
+  <div class="post container paper card" style="margin-top: 8em; margin-bottom: 5em;">
+    <header class="post-header">
+      <h1 class="post-title">.ai | 神经网络中的卷积及其参数</h1>
+      <div class="post-meta" style="font-size: 1.5em">Dec 29, 2022</div>
+    </header>
+    <hr class="slender">
+    <article class="post-content">
+        <p>在读 PyTorch 的文档和源码的时候，发现写文档的人也不怎么解释啥是卷积，卷积的各个参数是什么意思，只在文档里扔了个链接就完事了，链接那头是一个 GitHub 上的动图演示仓库，是一篇论文《A guide to convolution arithmetic for deep learning》（链接在文末）的附件。于是这篇文章，基本上就是论文的读书笔记了。</p>
+
+<h2 id="数学的卷积连续-vs-离散">数学的卷积：连续 vs. 离散</h2>
+
+<h3 id="定义">定义</h3>
+
+<p>连续的情况，两个单变量函数 \(f(\cdot)\) 和 \(g(\cdot)\) 的卷积，定义为：</p>
+
+\[\left(f*g\right)(x):=\int_{-\infty}^{\infty}f(\tau)g(x-\tau)d\tau\]
+
+<p>离散的情况，两个向量（也就是一阶张量） \(\vec f\) 和 \(\vec g\) 的卷积，定义为：</p>
+
+\[\left(\vec f * \vec g\right)_i := \sum_{j=-\infty}^{\infty} f_j g_{i-j}\]
+
+<p>多变量函数/高阶张量的情况，只需要多加几重积分/求和号就可以类推了。</p>
+
+<p>看这两个定义——</p>
+
+<p>只看等号左边的话，可以把卷积看作是一种特殊的乘法，也就是一种<strong>运算。</strong>f 和 g 的地位是平等的，卷积甚至还满足交换律，你甚至可以把两者的顺序变一变；</p>
+
+<p>但是看等号右边的话，卷积就应该被看作是一种<strong>变换</strong>。f 和 g 的地位不再平等，f 是被变换的函数/向量，g 是变换的核 (kernel)。函数的情况里，g 把定义在 \(\tau\) 空间里的函数 f 变换成了 x 空间里的另一个函数；向量的情况里，g 把一个 J (j 所有可能取值的数量) 维向量 f 变换成了一个 I (i 所有可能取值的数量) 维向量。</p>
+
+<p>神经网络中的卷积，<strong>借用</strong>的主要是第二种<strong>理解</strong>。</p>
+
+<h3 id="手算一个例子">手算一个例子</h3>
+
+<p>例如 \(\vec f = (1,2,3,4)\), \(\vec g = (1,2,3)\)，而且约定下标从 0 开始的话——</p>
+
+<p>  \((\vec f*\vec g)_0 = f_0g_0 = 1\)</p>
+
+<p>  \((\vec f*\vec g)_1 = f_0g_1 + f_1g_0  = 4\)</p>
+
+<p>  \((\vec f*\vec g)_2 = f_0g_2 + f_1g_1 + f_2g_0 = 10\)</p>
+
+<p>  \((\vec f*\vec g)_3 = f_1g_2 + f_2g_1 + f_3g_0 = 16\)</p>
+
+<p>  \((\vec f*\vec g)_4 = f_2g_2 + f_3g_1 = 17\)</p>
+
+<p>  \((\vec f*\vec g)_5 = f_3g_2 = 12\)</p>
+
+<p>不想手算？</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+<span class="n">signal</span><span class="p">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]),</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<h3 id="形象化表示">形象化表示</h3>
+
+<p>上面的计算过程，可以看作是——</p>
+
+<ol>
+  <li>把 g 向量的<strong>顺序反过来；</strong></li>
+  <li>把 g 的最右一个元素和 f 的最左元素对齐，</li>
+  <li>上下两行都有数字的列相乘（也就是把没有数字的地方看作 0），然后把所有乘积相加，得到 f*g 的第一项；</li>
+  <li>把 g 向右移动一格</li>
+  <li>重复第3、4步</li>
+  <li>直到 g 的最左项移动到 f 的最右一个元素。</li>
+</ol>
+
+<p>形如下列各表：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>f</th>
+      <th> </th>
+      <th> </th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+    <tr>
+      <th>g</th>
+      <th>3</th>
+      <th>2</th>
+      <th>1</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(f*g)(0) = 1</td>
+      <td> </td>
+      <td> </td>
+      <td>1</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="slender" />
+
+<table>
+  <thead>
+    <tr>
+      <th>f</th>
+      <th> </th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+    <tr>
+      <th>g</th>
+      <th>3</th>
+      <th>2</th>
+      <th>1</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(f*g)(1) = 4</td>
+      <td> </td>
+      <td>2</td>
+      <td>2</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="slender" />
+
+<table>
+  <thead>
+    <tr>
+      <th>f</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>g</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>(f*g)(2) = 10</td>
+      <td>3</td>
+      <td>4</td>
+      <td>3</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="slender" />
+
+<table>
+  <thead>
+    <tr>
+      <th>f</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+    <tr>
+      <th>g</th>
+      <th> </th>
+      <th>3</th>
+      <th>2</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(f*g)(3) = 16</td>
+      <td> </td>
+      <td>6</td>
+      <td>6</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="slender" />
+
+<table>
+  <thead>
+    <tr>
+      <th>f</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th> </th>
+    </tr>
+    <tr>
+      <th>g</th>
+      <th> </th>
+      <th> </th>
+      <th>3</th>
+      <th>2</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(f*g)(4) = 17</td>
+      <td> </td>
+      <td> </td>
+      <td>9</td>
+      <td>8</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="slender" />
+
+<table>
+  <thead>
+    <tr>
+      <th>f</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+    <tr>
+      <th>g</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th>3</th>
+      <th>2</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(f*g)(5) = 12</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>12</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="机器学习的卷积是卷积吗">机器学习的卷积，是卷积吗？</h2>
+
+<p>看论文给出的图 Figure 1.1，在卷积核是灰色 3*3 矩阵的情况下，对蓝色 5*5 矩阵的卷积就是直接把核对齐到蓝色矩阵上，<strong>并没有把核的元素顺序颠倒过来</strong>。</p>
+
+<p>这玩意能叫卷积吗？</p>
+
+<p><img src="/blog/assets/photos/2022-12-29-convolution.png" alt="convolution" /></p>
+
+<p>有人强行挽尊，说我们画图示的时候已经把核给颠倒过来了，想知道卷积核就把灰色小矩阵再颠倒回去——</p>
+
+<p>但是，不颠倒就对齐相乘的运算也是有名字的，叫 cross correlation。核有没有颠倒，convolution 还是 cross correlation 一组合，可以带来升维打击般的混乱，堪比高中化学的“还原剂被氧化，氧化剂被还原”……所以，对于计算机专业的数学水平，不予置评～</p>
+
+<p>（你这样纠缠有意思吗？.jpg）</p>
+
+<h2 id="卷积torchnnconv-及其各个参数">卷积<code class="language-plaintext highlighter-rouge">torch.nn.Conv</code> 及其各个参数</h2>
+
+<h3 id="in_channels--out_channels"><code class="language-plaintext highlighter-rouge">in_channels</code> &amp; <code class="language-plaintext highlighter-rouge">out_channels</code></h3>
+
+<p>“卷积”的意义在于用一种比较省内存的方式，考虑输入张量中各个元素，和空间上相近的邻居元素之间的关系。所以只需要在真的存在空间关系的维度做卷积，其他维度可以留着不动。</p>
+
+<p>比如一张彩色图片，是一个 (颜色<em>高度</em>宽度) 的 3 阶张量，我们只需要对高度和宽度两个维度做卷积，颜色就是不参与“卷积”的 channel。</p>
+
+<p><code class="language-plaintext highlighter-rouge">in_channel</code> 就是被“卷积”的张量的 channel 数，<code class="language-plaintext highlighter-rouge">out_channel</code> 是“卷积”结果的 channel 数。比如我们想从一张 RGB 三色图片中分辨出前景和背景两种不同区域，<code class="language-plaintext highlighter-rouge">in_channel=3</code>, <code class="language-plaintext highlighter-rouge">out_channel=2</code>。</p>
+
+<p>而 <code class="language-plaintext highlighter-rouge">in_channel</code> 如何能够与 <code class="language-plaintext highlighter-rouge">out_channel</code> 取值不同，原理见 Figure 1.3。我们使用 <code class="language-plaintext highlighter-rouge">out_channel</code> 个不含 channel 维度的“卷积”核，每一个核都与每一个 in channel 做卷积，得到图中的蓝、紫色小矩阵，然后直接把不同的 in channel 暴力求和，得到的结果分别作为卷积结果的 out channel。（这个暴力求和与我以前想得不一样，我以为是什么每一元素都做了一个<code class="language-plaintext highlighter-rouge">in_channel</code>*<code class="language-plaintext highlighter-rouge">out_channel</code> 的全联通层）</p>
+
+<p><img src="/blog/assets/photos/2022-12-29-channels.png" alt="channels" /></p>
+
+<p>PyTorch 的习惯，对于一个 N 阶“卷积”，参与卷积的是张量的最后 N 阶，<code class="language-plaintext highlighter-rouge">in_channel</code> 和 <code class="language-plaintext highlighter-rouge">out_channel</code> 也就是被卷张量和卷积结果的 <code class="language-plaintext highlighter-rouge">Tensor.shape[-(N+1)]</code></p>
+
+<p>后面图示的例子都没有考虑 <code class="language-plaintext highlighter-rouge">in_channel</code> 和 <code class="language-plaintext highlighter-rouge">out_channel</code> 的数量，也就是都当作 1 了。</p>
+
+<h3 id="kernel_size"><code class="language-plaintext highlighter-rouge">kernel_size</code></h3>
+
+<p>就是灰色矩阵“卷积”核，每边有几个数字。如果不同方向的边长不一，该参数就需要用一个 tuple 来表示。Figure 1.1 的灰色卷积核，<code class="language-plaintext highlighter-rouge">kernel_size=(3,3)</code></p>
+
+<p><img src="/blog/assets/photos/2022-12-29-kernel.png" alt="kernel" /></p>
+
+<h3 id="padding--padding_mode"><code class="language-plaintext highlighter-rouge">padding</code> &amp; <code class="language-plaintext highlighter-rouge">padding_mode</code></h3>
+
+<p>前面手算例子的时候很鸡贼地把 0 作为向量下标的起点。如果采用日常 1 开头的下标来算，第 1 项结果为零，整个卷积结果的长度会长很多，而且多出来的后面几项也都是零。</p>
+
+<p>而且在这个过程中，我们实际上是把一个有限长度的向量，看作了一个以所有整数 \(\Z\) 为定义域的函数，除了那有限的几项之外，其余地方都定义函数值为 0。</p>
+
+<p>用计算机计算的话显然没法如此奢侈地谈“无限多个”，例子中实际用到的，在 \(\vec f\) 左右两边各需要 2 个 0，也就是说 <code class="language-plaintext highlighter-rouge">padding=2</code>, <code class="language-plaintext highlighter-rouge">padding_mode='zeros'</code></p>
+
+<p>Figure 1.2 表示的就是 <code class="language-plaintext highlighter-rouge">padding=(1,1)</code> 的情况（蓝色是被卷张量，白色是 padding，灰色是卷积核，绿色是卷积结果）：</p>
+
+<p><img src="/blog/assets/photos/2022-12-29-padding.png" alt="padding" /></p>
+
+<p>既然神经网络中的卷积并不是真正的卷积，所以他们索性不装了——</p>
+
+<p>正常卷积的结果往往比被卷张量大一圈（具体大多少取决于  <code class="language-plaintext highlighter-rouge">kernel_size</code>, <code class="language-plaintext highlighter-rouge">padding</code>, <code class="language-plaintext highlighter-rouge">stride</code> 多个参数），但是图像处理的时候经常希望输出图片和输入图片一样大，此时可以用字符串 <code class="language-plaintext highlighter-rouge">“same”</code> 作为 <code class="language-plaintext highlighter-rouge">padding</code> 的参数，自动计算 padding 的大小。<code class="language-plaintext highlighter-rouge">“strict”</code> 则表示 <code class="language-plaintext highlighter-rouge">padding=0</code>, 这样输出图片尺寸会变小，但是没有 padding，也就没有往图片里掺杂研究者对图片边缘以外信息的臆测。</p>
+
+<p>同时 <code class="language-plaintext highlighter-rouge">padding_mode</code> 参数表示往被卷张量四周填充的数字也不一定是 0。比如对于图片，0 往往表示纯黑，而绝大多数图片的视野之外，往往是和图片边缘像素值相差不大的值。所以 <code class="language-plaintext highlighter-rouge">padding_mode</code> 除了 <code class="language-plaintext highlighter-rouge">zeros</code> 之外，还接受以下取值：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">reflect</code>: 以图片边缘为镜面，把边缘附近的像素值对陈反射出去；</li>
+  <li><code class="language-plaintext highlighter-rouge">replicate</code>: 只取边缘的像素值作为常数，直接向外延拓；</li>
+  <li><code class="language-plaintext highlighter-rouge">circular</code>: 类似于物理中的周期性边界条件，取对边附近的像素值作为 padding 内容。</li>
+</ul>
+
+<h3 id="stride"><code class="language-plaintext highlighter-rouge">stride</code></h3>
+
+<p>前面手算卷积的第4步，把卷积核向右移动了1格，如果每次移动超过1格，就需要这个参数指定移动步长。如果不同方向的步长不同，也是用 tuple 来表示。</p>
+
+<p>Figure 1.4 表示的就是 <code class="language-plaintext highlighter-rouge">stride=(2,2)</code> 的情况（蓝色是被卷张量，蓝色中的深色块是卷积核，绿色是卷积结果）：</p>
+
+<p><img src="/blog/assets/photos/2022-12-29-stride.png" alt="stride" /></p>
+
+<h3 id="dilation"><code class="language-plaintext highlighter-rouge">dilation</code></h3>
+
+<p>这个参数把“卷积”核撑开，也就相当于在“卷积”核的相邻元素之间加 0。Figure 1.5 表示的就是 <code class="language-plaintext highlighter-rouge">dilation=(1,1)</code> 的情况（蓝色是被卷张量，蓝色中的深色块是卷积核，绿色是卷积结果）：</p>
+
+<p><img src="/blog/assets/photos/2022-12-29-dilation.png" alt="dilation" /></p>
+
+<p>比如 <code class="language-plaintext highlighter-rouge">dilation=1</code> 时，(1,2,3) 的卷积核就相当于 (1,0,2,0,3)</p>
+
+<p>比如 <code class="language-plaintext highlighter-rouge">dilation=2</code> 时，(1,2,3) 的卷积核就相当于 (1,0,0,2,0,0,3)</p>
+
+<p>这样可以让卷积核在尺寸比较小的情况下，覆盖到更大面积的被卷张量。当然具体实现时，不可能直接补 0 这么浪费内存。</p>
+
+<h3 id="groups"><code class="language-plaintext highlighter-rouge">groups</code></h3>
+
+<p>该参数必须是 <code class="language-plaintext highlighter-rouge">in_channel</code> 和 <code class="language-plaintext highlighter-rouge">out_channel</code> 的公约数，当其不为 1 时，就相当于同时做 <code class="language-plaintext highlighter-rouge">groups</code> 个卷积，其中每个卷积的 <code class="language-plaintext highlighter-rouge">in_channel=in_channel/groups</code>, <code class="language-plaintext highlighter-rouge">out_channel=out_channel/groups</code></p>
+
+<h3 id="bias"><code class="language-plaintext highlighter-rouge">bias</code></h3>
+
+<p>该参数是一个布尔值，卷积类似于一种高维空间里的乘法，这个参数就决定是否要拟合 <code class="language-plaintext highlighter-rouge">y=kx+b</code> 中的 <code class="language-plaintext highlighter-rouge">b</code></p>
+
+<h2 id="卷积的逆运算-transposeconv">“卷积”的“逆运算”： <code class="language-plaintext highlighter-rouge">TransposeConv</code></h2>
+
+<p>卷积的结果比 padding 之后的被卷张量要小。尤其当“卷积”的 <code class="language-plaintext highlighter-rouge">stride</code> 约等于 <code class="language-plaintext highlighter-rouge">kernel_size</code> 时，卷积的就变成了某些池化 (pooling)（求最大值不是一种线性算子，所以最大值池化不能用卷积表示，但是平均值池化可以）。</p>
+
+<p>那么在类似 U-net 这样的模型里，右半边的数据升维（下图中的绿箭头），就需要一种“卷积”的“逆运算”。有人把这种运算叫做 deconvolution，有人叫做 transposed convolution，还有人叫做 convolution with fractional strides。</p>
+
+<p><img src="/blog/assets/photos/2022-12-29-unet.png" alt="Unet" /></p>
+
+<p>PyTorch 取的是第二种名字。论文解释了为什么这么取名字，笔记以后有时间再补上把……</p>
+
+<p>因为这个与运算本身就是作为“卷积”的逆运算出现的，所以 PyTorch 的文档里这么说：</p>
+
+<blockquote>
+  <p>This is set so that when a <code class="language-plaintext highlighter-rouge">Conv2d</code> and a <code class="language-plaintext highlighter-rouge">ConvTranspose2d</code> are initialized with same parameters, they are inverses of each other in regard to the input and output shapes.</p>
+
+</blockquote>
+
+<p>也就是说，把 <code class="language-plaintext highlighter-rouge">ConvTranspose</code> 的输入和输出反过来，然后按照 <code class="language-plaintext highlighter-rouge">Conv</code> 的规则确定各个参数，填入 <code class="language-plaintext highlighter-rouge">ConvTranspose</code> 的括号里就可以了，除了 <code class="language-plaintext highlighter-rouge">output_padding</code></p>
+
+<h3 id="output_padding"><code class="language-plaintext highlighter-rouge">output_padding</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">ConvTranspose</code> 的输出就是对应 <code class="language-plaintext highlighter-rouge">Conv</code> 的输入。看 Figure 2.7：</p>
+
+<p><img src="/blog/assets/photos/2022-12-29-output-padding.png" alt="padding_output" /></p>
+
+<p>当 \((input+2*padding)/stride\) 不能整除的时候，最右的几列最下的几行就被卷积核忽略掉了。那么在逆运算 <code class="language-plaintext highlighter-rouge">TransposeConv</code> 中，这就意味着同一个输入可能对应着 \(stride-1\) 种可能的输出。<code class="language-plaintext highlighter-rouge">output_padding</code>参数就可以消除这种歧义，调整 <code class="language-plaintext highlighter-rouge">TransposeConv</code> 输出张量的尺寸。</p>
+
+<h2 id="参考链接">参考链接</h2>
+
+<ul>
+  <li>给卷积正名: <a href="https://www.kaggle.com/general/225375">https://www.kaggle.com/general/225375</a></li>
+  <li>PyTorch Conv2d 源码: <a href="https://pytorch.org/docs/stable/_modules/torch/nn/modules/conv.html#_ConvNd">https://pytorch.org/docs/stable/_modules/torch/nn/modules/conv.html#_ConvNd</a></li>
+  <li>论文: <a href="https://arxiv.org/abs/1603.07285">https://arxiv.org/abs/1603.07285</a></li>
+  <li>动图演示: <a href="https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md">https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md</a></li>
+  <li>U-net: <a href="https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/">https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/</a></li>
+  <li>PyTorch TransposeConv 文档: <a href="https://pytorch.org/docs/stable/generated/torch.nn.ConvTranspose2d.html">https://pytorch.org/docs/stable/generated/torch.nn.ConvTranspose2d.html</a></li>
+</ul>
+
+    </article>
+    <br/><br/><br/>
+  </div>
+  <div class="comment container paper card" style="margin-bottom: 10em;">
+    <h2>读者评论</h2><br>
+    <div class="center" style="margin: auto; width: 80%;">
+  <script src="https://giscus.app/client.js"
+          data-repo="MountAye/blog"
+          data-repo-id="R_kgDOGc3UIA"
+          data-category="Comments"
+          data-category-id="DIC_kwDOGc3UIM4CAI4h"
+          data-mapping="title"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+
+    <!-- <div class="row">
+  <div class="col s8">
+    <ul class="tabs blue z-depth-1">
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4 active" href="#markdown">Markdown</a></li>
+      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4" href="#preview">Preview</a></li>
+    </ul>
+  </div>
+  <br><br><br>
+  <div id="markdown" class="col s8">
+    <div class="row">
+      <form class="col s12">
+        <div class="row blue-text">
+          <div class="input-field col s12">
+            <input id="first_name" type="text" class="validate materialize-textarea blue-text text-darken-3">
+            <label for="first_name" class="blue-text text-darken-3">Title</label>
+          </div>
+          <div class="input-field col s12 blue-text">
+            <textarea id="textarea1" class="materialize-textarea blue-text text-darken-3"></textarea>
+            <label for="textarea1" class="blue-text text-darken-3">Enter comment</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button class="blue darken-1 white-text text-darken-3 waves-effect waves-cyan waves-light btn" href="/"><i class="mdi-action-backup"></i> &nbsp; Log in to comment</button>
+  </div>
+  <div id="preview" class="col s12">
+    hhhh
+  </div>
+</div> -->
+    <br><br><br>
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
+<footer class="page-footer blue darken-2">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">social-links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="http://facebook.com/xSF.AzraeL/" target="_blank"><i class="mdi-social-person-add"></i> Facebook</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://plus.google.com/u/0/114363400342894379257/posts" target="_blank"><i class="mdi-social-plus-one"></i> Google+</a></li>
+          <li><a class="grey-text text-lighten-3" href="http://github.com/naveenshaji/" target="_blank"><i class="mdi-notification-adb"></i> GitHub</a></li>
+        </ul>
+      </div>
+             
+      <div class="col l3 m6 s12">
+      <h5 class="white-text">where-i-live</h5>
+      <p class="grey-text text-lighten-4">TC 11/1827<br>West Cliff Gardens 35<br>Kowdiar, Trivandrum<br>&nbsp;</p>
+      </div>
+      
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">contact-me</h5>
+        <p class="grey-text text-lighten-4">+91-9496-74-7070<br>naveen@pixelblenders.com<br>xsf.azrael@gmail.com</p>
+      </div>
+
+                         
+      <div class="col l3 m6 s12">
+        <h5 class="white-text">MountAye</h5>
+        <p class="grey-text text-lighten-4">MountAye: A Blog</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2021 MountAye
+      <a class="grey-text text-lighten-4 right" href="http://mountaye.github.io/" target="_blank">MountAye</a>
+    </div>
+  </div>
+</footer> -->
+
+  </body>
+</html>

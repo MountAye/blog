@@ -5,9 +5,1797 @@
     <description>智力活动是一种生活态度</description>
     <link>https://mountaye.github.io/blog/</link>
     <atom:link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 03 Mar 2023 23:24:22 -0600</pubDate>
-    <lastBuildDate>Fri, 03 Mar 2023 23:24:22 -0600</lastBuildDate>
+    <pubDate>Mon, 13 Mar 2023 00:13:10 -0500</pubDate>
+    <lastBuildDate>Mon, 13 Mar 2023 00:13:10 -0500</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>.tex | Notes during APS March Meeting 2023 in Las Vegas</title>
+        <description>&lt;p&gt;Some interesting sessions:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-12-5FB0A373-E7B7-45FF-97A5-81F9392CBB02.jpeg&quot; alt=&quot;5FB0A373-E7B7-45FF-97A5-81F9392CBB02.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-12-E35F718E-38ED-432D-AC00-44E8D8893CC6.jpeg&quot; alt=&quot;E35F718E-38ED-432D-AC00-44E8D8893CC6.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-12-A44D0789-44CC-42F5-85D1-E0CA93952712.jpeg&quot; alt=&quot;A44D0789-44CC-42F5-85D1-E0CA93952712.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-12-7E0D2844-3BC8-4BEF-BABA-2818EEBA2C15.jpeg&quot; alt=&quot;7E0D2844-3BC8-4BEF-BABA-2818EEBA2C15.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-12-A727558B-D110-48A1-B125-67A7067BFBD5.jpeg&quot; alt=&quot;A727558B-D110-48A1-B125-67A7067BFBD5.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-12-B635604C-B9BD-4A34-9767-AD7338A80765.jpeg&quot; alt=&quot;B635604C-B9BD-4A34-9767-AD7338A80765.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;network-theory-and-application-to-complex-systems&quot;&gt;Network theory and application to complex systems&lt;/h2&gt;
+
+&lt;p&gt;1st talk: &lt;strong&gt;Avalanches Dynamics&lt;/strong&gt; and its critical points, cortes dynamics, very long, missed first ~10 minutes, hard to follow, coarse grained 朗道-金斯堡 theory&lt;/p&gt;
+
+&lt;p&gt;Fokker-Planck equation, Fourier expansions, use as parameters of &lt;em&gt;__&lt;/em&gt;, choose a closure to solve&lt;/p&gt;
+
+&lt;h2 id=&quot;machine-learning-in-complex-systems&quot;&gt;Machine learning in complex systems&lt;/h2&gt;
+
+&lt;p&gt;Fractional nn for continuous modeling of complex fluids: Caputo method for fractional derivative&lt;/p&gt;
+
+&lt;p&gt;Inferring forces in many-particle systems using physics tailored ml: Chinese student with Ilya from Emory. Bruckner 2021 PNAS, cell. His work, dusty plasma, non reciprocal. Mutual Interactions, with environment, linear damping. not clear details of the nn&lt;/p&gt;
+
+&lt;p&gt;Echo state network: Arizona state, Chinese student. A branch of reservoir learning. Switching states not always successful. Bad presentation. Don’t even know what question he is learning with this nn. Could be Lorenz system&lt;/p&gt;
+
+&lt;p&gt;Hopper Flow: particles passing a narrow gate in 2d. Classify problem: flow, clogging, clogged, empty arch. Direct interpretability: linear SVM.&lt;/p&gt;
+
+&lt;p&gt;Committer of Reactive Events in and out of equilibrium: UCB. Variational methods for time-dependent backward Kolmogorov equation. decompose rate into contributions from different degrees of freedom.&lt;/p&gt;
+
+&lt;p&gt;Predict Microfluid properties with ML: oil droplets into water, predict the droplet size. Monodispensed phse, poly  (jetting). Pretty small network and small dataset. nice GUI&lt;/p&gt;
+
+&lt;p&gt;ML for inverse design of metameterial. Combinatory/Discrete, imbalance. building block → unit cell → metamaterial. Ogliomodes&lt;/p&gt;
+
+&lt;p&gt;Long-term behavior with liearn regression. Moody 1944 moody diagram. Studied Lorenz system. Use short trajetories to predict long term properties. Period orbit theory&lt;/p&gt;
+
+&lt;h2 id=&quot;quantitative-cell-physiology-i---shape-and-size&quot;&gt;Quantitative cell physiology I - shape and size&lt;/h2&gt;
+
+&lt;p&gt;missed 1st talk for breakfast.&lt;/p&gt;
+
+&lt;h3 id=&quot;beyond-g1s-regulation-how-cell-size-homeostasis-is-tightly-controlled-throughout-the-cell-cycle&quot;&gt;Beyond G1/S regulation: how cell size homeostasis is tightly controlled throughout the cell cycle?&lt;/h3&gt;
+
+&lt;p&gt;G1/S not the main control cell size variation; CV reduces across cell cycle&lt;/p&gt;
+
+&lt;p&gt;rate positively correlated to size, but not exponential. this should lead to different mass density, but it is maintained tightly stable.&lt;/p&gt;
+
+&lt;h3 id=&quot;cell-cycle-dependent-growth-regulation-in-bacteria&quot;&gt;Cell cycle dependent growth regulation in bacteria.&lt;/h3&gt;
+
+&lt;p&gt;data  show that E. Coli cell growth is super-exponential.&lt;/p&gt;
+
+&lt;p&gt;model: ribonsome growth is exponential,&lt;/p&gt;
+
+&lt;p&gt;B. Subtilis growth rate is not monotonic&lt;/p&gt;
+
+&lt;p&gt;Scott, M, 2014 Mol Sys Bio&lt;/p&gt;
+
+&lt;p&gt;tome averaged mass function and allocation function are equivalent.&lt;/p&gt;
+
+&lt;p&gt;A model, but didn’t see how it’s correlated to cell-cycle&lt;/p&gt;
+
+&lt;h3 id=&quot;e-coli-coordination-of-cell-dimensions-to-preserve-macromolecular-densities-between-compartments&quot;&gt;E. Coli coordination of cell dimensions to preserve macromolecular densities between compartments&lt;/h3&gt;
+
+&lt;p&gt;shape is also important, not just dimensions.&lt;/p&gt;
+
+&lt;p&gt;periplasm is the region between inner and outer membrane of E. Coli. Its colume fraction scales differently with the width and length of the cell&lt;/p&gt;
+
+&lt;p&gt;measure periplasm density by shocking and destroying the outer membrane and measure protein amount&lt;/p&gt;
+
+&lt;p&gt;cell aspect ratio is relatively controlled by changing periplasm biomass fraction and average cell width. Testified in multiple mutants&lt;/p&gt;
+
+&lt;p&gt;Growth rate is not a control parameter&lt;/p&gt;
+
+&lt;h3 id=&quot;molecular-noise-on-cellular-growth&quot;&gt;Molecular noise on cellular growth&lt;/h3&gt;
+
+&lt;p&gt;standard model of size homeostasis: timer, adder, sizer&lt;/p&gt;
+
+&lt;p&gt;consider noise, get lower bound of size&lt;/p&gt;
+
+&lt;h3 id=&quot;dynamic-proteome-trade-offs-regulate-cell-size-and-growth-in-fluctuating-nutrient-conditions&quot;&gt;Dynamic proteome trade-offs regulate cell size and growth in fluctuating nutrient conditions&lt;/h3&gt;
+
+&lt;p&gt;growth rate and size control; in fluctuating nutritions, there is overshoot&lt;/p&gt;
+
+&lt;p&gt;assums: cell maximize flux; division protein co-regulated with metabolic sector&lt;/p&gt;
+
+&lt;p&gt;model predicts cells prioritize division over biomass accumulation durign downshift&lt;/p&gt;
+
+&lt;h3 id=&quot;simulation-about-mechanical-properties-of-peptidoglycan-pg&quot;&gt;Simulation about mechanical properties of Peptidoglycan (PG)&lt;/h3&gt;
+
+&lt;p&gt;University of Jena, Balance of the Microverse. Very technical, very detailed&lt;/p&gt;
+
+&lt;h3 id=&quot;teichoic-acids-as-organizing-center-of-growth-in-b-subtilis&quot;&gt;Teichoic acids as organizing center of growth in B. Subtilis&lt;/h3&gt;
+
+&lt;p&gt;inhibiting its synthesis immediately loses the cells’ rod shape; fluorescent images are uniform across the whole cell.&lt;/p&gt;
+
+&lt;p&gt;perturbing synthesis causes growth rate shutdown after loss of rod shape&lt;/p&gt;
+
+&lt;p&gt;PonA mediated crosslinking is required for growth in the absence of wall teichoic acids&lt;/p&gt;
+
+&lt;p&gt;proposed a model, not quantitative, seems not testified.&lt;/p&gt;
+
+&lt;h3 id=&quot;coarse-grained-cell-wall-simulation&quot;&gt;coarse grained cell wall simulation&lt;/h3&gt;
+
+&lt;p&gt;turgor pressure: 膨胀压&lt;/p&gt;
+
+&lt;p&gt;anisotropic deformability&lt;/p&gt;
+
+&lt;p&gt;surface evolver&lt;/p&gt;
+
+&lt;h3 id=&quot;nanostrctural-changes-of-peptidoglycan&quot;&gt;Nanostrctural changes of Peptidoglycan&lt;/h3&gt;
+
+&lt;p&gt;Penicillin binds enzymes with the last step of PG synthesis.&lt;/p&gt;
+
+&lt;p&gt;treat with mecillinam; use AFM, changes local molecule orientation &amp;amp; PG organization&lt;/p&gt;
+
+&lt;p&gt;gaps in the PG network, not orientation, caused the death&lt;/p&gt;
+
+&lt;h3 id=&quot;robustness-and-fragility-in-yeast&quot;&gt;Robustness and Fragility in Yeast&lt;/h3&gt;
+
+&lt;p&gt;Umap for metabolome data&lt;/p&gt;
+
+&lt;h3 id=&quot;how-type-1-fimbriae-help-e-coli-adhere-to-interfaces&quot;&gt;How Type 1 Fimbriae Help E. coli Adhere to Interfaces?&lt;/h3&gt;
+
+&lt;p&gt;What is a fimbriae in bacteria?&lt;/p&gt;
+
+&lt;p&gt;Thin,  hairlike appendages, 1 to 20 microns in length and often occurring in large numbers, present on the cells of gram-negative bacteria, particularly Enterobacteriaceae and Neisseria.&lt;/p&gt;
+
+&lt;p&gt;they contruct mutants and can both adhere and swim.&lt;/p&gt;
+
+&lt;h3 id=&quot;zno-kills-bacteria&quot;&gt;ZnO kills bacteria&lt;/h3&gt;
+
+&lt;p&gt;Hypothezes: metal ion production, generation of reactive oxide&lt;/p&gt;
+
+&lt;h2 id=&quot;march-7-2023-ecological-dynamics&quot;&gt;March 7, 2023 Ecological Dynamics&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Spatial drug heterogeneity:&lt;/strong&gt; a row of multiple wells, some of them have drugs. Mean field survival criterion: &lt;strong&gt;\(L=\pi\sqrt{}\)&lt;/strong&gt;, and beyond mean field (some purtubation theory borrowed from quantum to reaction diffusion equation).&lt;/p&gt;
+
+&lt;h3 id=&quot;evo-adaptation-on-cell-shape-by-katie&quot;&gt;Evo adaptation on cell shape by Katie&lt;/h3&gt;
+
+&lt;p&gt;mechanical factors give same-fitness cells different growth rates in a colony. cells labels with 2 colors of fluorescence and grow in a mixed colony&lt;/p&gt;
+
+&lt;p&gt;mechanical forces slows down natural selection, both directions&lt;/p&gt;
+
+&lt;p&gt;used yeasts and grow for 10 days. select edge and center and continue growing. center still similar, but edge cells become elongated. “The elongation is a mechanism to get out of nitrogen starvation”(?)&lt;/p&gt;
+
+&lt;p&gt;sequenced ancester, center, and edge cells. Found 9 genes&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;The fate of beneficial and deleterious mutations in range expansions driven by long-range dispersal:&lt;/strong&gt; luckiest better than fittest, spatial factors dominate.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Speciation at an expanding front&lt;/strong&gt;: superdiffusion → stepping stone model. Want to explain how homogeneous population evolve into species→ fitness model&lt;/p&gt;
+
+&lt;h3 id=&quot;f13-emerging-principles-and-new-developments-in-non-equilibrium-thermodynamics-natural-selection-and-chemical-reaction-networks---nonequilibrium-thermodynamics-of-chemical-reaction-networks&quot;&gt;F13: Emerging Principles and New Developments in Non-Equilibrium Thermodynamics, Natural Selection and Chemical Reaction Networks - Nonequilibrium thermodynamics of chemical reaction networks&lt;/h3&gt;
+
+&lt;p&gt;CRN: chemical reaction networks, and this is about&lt;/p&gt;
+
+&lt;p&gt;circuit theory for CRN: arxiv-2210.08035&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;modules do not share internal species&lt;/li&gt;
+  &lt;li&gt;emergent cycles and effective reactions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;203-cell-model&quot;&gt;203 cell model&lt;/h2&gt;
+
+&lt;h3 id=&quot;active-transport-and-cell-self-organization&quot;&gt;Active transport and Cell self organization&lt;/h3&gt;
+
+&lt;p&gt;A lot of microtubules&lt;/p&gt;
+
+&lt;p&gt;CCB-FL&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-12-214D3DB8-7A99-42AC-8C18-051171564D6D.jpeg&quot; alt=&quot;214D3DB8-7A99-42AC-8C18-051171564D6D.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Steam flows in large cells B. Corti 1741, fruit fly oocyte&lt;/p&gt;
+
+&lt;p&gt;Flows in organelle positioning. Zidovska PNAS 2013, 2018. Gatlin lab U Wy&lt;/p&gt;
+
+&lt;p&gt;Microscopic mechanisms about micro tubules is ill understood&lt;/p&gt;
+
+&lt;p&gt;aLENS a living ensemble simulator&lt;/p&gt;
+
+&lt;p&gt;1model: Cytoplasm as confined Newtonian fluid&lt;/p&gt;
+
+&lt;p&gt;Another model: coarse grained stokes force: fruit fly oogenesis&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-12-C622BD7E-E638-4194-A563-096F73209132.jpeg&quot; alt=&quot;C622BD7E-E638-4194-A563-096F73209132.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;skellySim&lt;/p&gt;
+
+&lt;h3 id=&quot;di-pierro-physical-genomics&quot;&gt;Di Pierro: physical genomics&lt;/h3&gt;
+
+&lt;p&gt;Nucleosome&lt;/p&gt;
+
+&lt;p&gt;but his title is &lt;strong&gt;Landscapes of Genomic Architecture Across Evolution&lt;/strong&gt;, which is not&lt;/p&gt;
+
+&lt;p&gt;ideal chromsome: every time  2 loci at genomic distance d come into contact there is a gain/loss of free energy \(\gamma(d)\)&lt;/p&gt;
+
+&lt;h3 id=&quot;stochastic-model-for-cell-survival-and-evolution&quot;&gt;Stochastic model for cell survival and evolution&lt;/h3&gt;
+
+&lt;p&gt;Single threshold and double threshold&lt;/p&gt;
+
+&lt;h2 id=&quot;metabolism-and-growth&quot;&gt;metabolism and growth&lt;/h2&gt;
+
+&lt;h3 id=&quot;adaptability-and-sensitivities-in-gene-regulation-out-of-equilibrium&quot;&gt;Adaptability and sensitivities in gene regulation out of equilibrium&lt;/h3&gt;
+
+&lt;p&gt;Spare able energy&lt;/p&gt;
+
+&lt;p&gt;Matrix tree theorem: inter alios&lt;/p&gt;
+
+&lt;h3 id=&quot;biofilm-electric-shocked&quot;&gt;biofilm electric shocked&lt;/h3&gt;
+
+&lt;p&gt;Bacteria use membrane potential to regulate bio processes: cell division, antibiotic resistance, metabolism&lt;/p&gt;
+
+&lt;p&gt;Electrical stimulation&lt;/p&gt;
+
+&lt;p&gt;Biofilm: B subtilis: motile cells and matrix forming cells&lt;/p&gt;
+
+&lt;p&gt;Accumulation of motile cells around electrodes&lt;/p&gt;
+
+&lt;p&gt;Proliferation or switch? Proliferate&lt;/p&gt;
+
+&lt;h3 id=&quot;self-organization-waves-on-huge-single-cell-living-on-light&quot;&gt;Self organization waves on huge single cell living on light&lt;/h3&gt;
+
+&lt;p&gt;external driving force main  reason?&lt;/p&gt;
+
+&lt;p&gt;Also internal limit cycle?&lt;/p&gt;
+
+&lt;h3 id=&quot;crisper-array-for-e-coli-under-antibiotic-exposure&quot;&gt;CRISPER array for E. coli under antibiotic exposure&lt;/h3&gt;
+
+&lt;p&gt;crisper cas 12-a&lt;/p&gt;
+
+&lt;p&gt;Beta Score , different in different media&lt;/p&gt;
+
+&lt;h3 id=&quot;zno-nano-particles-on-bacteria-in-magnetic-field&quot;&gt;ZnO Nano particles on bacteria in magnetic field&lt;/h3&gt;
+
+&lt;p&gt;Gram staining&lt;/p&gt;
+
+&lt;p&gt;Synopsys quantumatk&lt;/p&gt;
+
+&lt;h2 id=&quot;ecological-dynamics&quot;&gt;ecological dynamics&lt;/h2&gt;
+
+&lt;h3 id=&quot;design-microbial-community&quot;&gt;design microbial community&lt;/h3&gt;
+
+&lt;p&gt;Goal: metabolite production &amp;amp; degradation; pathogen inhibit&lt;/p&gt;
+
+&lt;p&gt;Emerge,&lt;/p&gt;
+
+&lt;p&gt;function as a design problem = f(composition)&lt;/p&gt;
+
+&lt;p&gt;Trivial idea: open the hood and see the interaction&lt;/p&gt;
+
+&lt;p&gt;Another way: borrow from molecular level: how sequences gives function&lt;/p&gt;
+
+&lt;p&gt;Statistical design: blue and red fluorescent proteins, separated by 13 amino acids, fit color as 13d binary&lt;/p&gt;
+
+&lt;p&gt;Success because landscape simple&lt;/p&gt;
+
+&lt;p&gt;Ecology: if one can predict function from presence absence of a strain&lt;/p&gt;
+
+&lt;p&gt;Absence =-1 not 0, for similarity with Frourier expansion&lt;/p&gt;
+
+&lt;p&gt;500 communities of 27 strains, predict production of a chemical&lt;/p&gt;
+
+&lt;p&gt;sampling a very small space but result good, (predict/true value diagram)&lt;/p&gt;
+
+&lt;p&gt;Also predicted biomass (OD)&lt;/p&gt;
+
+&lt;p&gt;Additive property is the key to success&lt;/p&gt;
+
+&lt;p&gt;Can get explained variance by the order of&lt;/p&gt;
+
+&lt;p&gt;Ruggedness/slope&lt;/p&gt;
+
+&lt;p&gt;Compare with Generalized Lotka-Volterra&lt;/p&gt;
+
+&lt;p&gt;Metabolic cascades makes landscape rugged.&lt;/p&gt;
+
+&lt;h3 id=&quot;connecting-global-patterns-to-ecological-processes&quot;&gt;connecting global patterns to ecological processes&lt;/h3&gt;
+
+&lt;p&gt;Global soil samples&lt;/p&gt;
+
+&lt;p&gt;Environmental filtering cannot explain some of their data&lt;/p&gt;
+
+&lt;p&gt;Emerges from interactions&lt;/p&gt;
+
+&lt;h3 id=&quot;mapping-prediction-error-versus-information-content-of-coarse-grained-descriptions-of-microbial-ecosystems&quot;&gt;Mapping prediction error versus information content of coarse-grained descriptions of microbial ecosystems&lt;/h3&gt;
+
+&lt;p&gt;Jacob moran&lt;/p&gt;
+
+&lt;p&gt;Framework to compare different coarse grained descriptions: partitioning, error-information diagram&lt;/p&gt;
+
+&lt;p&gt;To distinguish mechanisms of emergent simplicity: diversity in the partition&lt;/p&gt;
+
+&lt;h2 id=&quot;materials-that-work-by-themselves&quot;&gt;Materials that work by themselves&lt;/h2&gt;
+
+&lt;h3 id=&quot;biotic-and-abiotic&quot;&gt;biotic and abiotic&lt;/h3&gt;
+
+&lt;p&gt;Adaptive d spring&lt;/p&gt;
+
+&lt;h2 id=&quot;pattern-formation&quot;&gt;Pattern Formation&lt;/h2&gt;
+
+&lt;p&gt;missed 1st talk of 30 min&lt;/p&gt;
+
+&lt;h3 id=&quot;morphoelastic-growth-to-model-aortic-geometry&quot;&gt;Morphoelastic growth to model aortic geometry&lt;/h3&gt;
+
+&lt;p&gt;aortic 主动脉&lt;/p&gt;
+
+&lt;p&gt;integrated gaussian curvature&lt;/p&gt;
+
+&lt;p&gt;AI/ML needs a lot of data, so they need explicit models&lt;/p&gt;
+
+&lt;p&gt;NHLBI: National Heart, Lung, and Blood Institute&lt;/p&gt;
+
+&lt;h3 id=&quot;experimental-on-chaos-in-cardiac-tissue&quot;&gt;experimental on chaos in cardiac tissue&lt;/h3&gt;
+
+&lt;p&gt;kept in Tyrode solution&lt;/p&gt;
+
+&lt;p&gt;action potential duration + diastolic interval = period&lt;/p&gt;
+
+&lt;p&gt;TISEAN (a &lt;a href=&quot;https://www.pks.mpg.de/tisean/&quot;&gt;Nonlinear Time Series Analysis&lt;/a&gt; tool) to get Lyapunov exponent&lt;/p&gt;
+
+&lt;h3 id=&quot;excitability-at-interface&quot;&gt;excitability at interface&lt;/h3&gt;
+
+&lt;p&gt;2 bio-electric tissues, one only sodium channels, the other only potasium channels. so no spikes on their own. then shed laser on them.&lt;/p&gt;
+
+&lt;p&gt;A as fast variable, B as slow variable. A is x^3 shaped, whie B is -x shaped, then&lt;/p&gt;
+
+&lt;p&gt;can also exlpain BZ reaction with some sub-reactions separated, and lumberjack and forect and desert&lt;/p&gt;
+
+&lt;h3 id=&quot;light-induced-cortical-excitability&quot;&gt;light induced cortical excitability&lt;/h3&gt;
+
+&lt;p&gt;shape control strategy in meiotic starfish oocytes.&lt;/p&gt;
+
+&lt;p&gt;rho protein. part of some signaling pathway, kymographs&lt;/p&gt;
+
+&lt;p&gt;seems to be my competitor on postdoc project in MPI-PKS&lt;/p&gt;
+
+&lt;p&gt;pole to pole opto-GEF accumulation aymmetry&lt;/p&gt;
+
+&lt;p&gt;presentation overtimed, not well delievered&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Exploring regular, exotic and turbulent flow states in active fluids via the framework of Exact Coherent Structures&lt;/strong&gt;: too fast, totally lost. Who tm knows what is shadowing&lt;/p&gt;
+
+&lt;h3 id=&quot;pattern-plant-roots&quot;&gt;Pattern plant roots&lt;/h3&gt;
+
+&lt;p&gt;tropism 向性: gravitropism, phototropism&lt;/p&gt;
+
+&lt;p&gt;roots on obstacles: skewing, coiling, waving&lt;/p&gt;
+
+&lt;p&gt;numerical scheme: separation of timescles, derivatives of intrinsic curvature over time, against cross section growth rate gradient.&lt;/p&gt;
+
+&lt;p&gt;decoupling the tropic dynamics parallel and perpendicular to the slope.&lt;/p&gt;
+
+&lt;p&gt;each curing given an energy, can predict transition between states&lt;/p&gt;
+
+&lt;p&gt;skewing is different, seen in mutants. It’s the intrinsic twist&lt;/p&gt;
+
+&lt;h3 id=&quot;cdc42-mobility-changes-yeast-shape-and-survival&quot;&gt;cdc42 mobility changes yeast shape and survival&lt;/h3&gt;
+
+&lt;p&gt;As title says&lt;/p&gt;
+
+&lt;h3 id=&quot;jagged-ligand-improves-notch-signaling&quot;&gt;Jagged ligand improves notch signaling&lt;/h3&gt;
+
+&lt;p&gt;Notch, delta, jagged&lt;/p&gt;
+
+&lt;h2 id=&quot;synthetic-biology&quot;&gt;Synthetic biology&lt;/h2&gt;
+
+&lt;h3 id=&quot;stochastic-model-selex&quot;&gt;stochastic model SELEX&lt;/h3&gt;
+
+&lt;p&gt;to select aptamers with highest affinity : &lt;a href=&quot;https://www.basepairbio.com/what-is-an-aptamer/&quot;&gt;https://www.basepairbio.com/what-is-an-aptamer/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Optimal policy: A1 A2»T, T»1&lt;/p&gt;
+
+&lt;h3 id=&quot;cytoplasm-is-organized-crowding&quot;&gt;Cytoplasm is organized, crowding&lt;/h3&gt;
+
+&lt;p&gt;Crowded with macromolecules&lt;/p&gt;
+
+&lt;p&gt;Crowding of cell free gene expression change noise; simulations&lt;/p&gt;
+
+&lt;p&gt;Crowding gives attraction to membrane&lt;/p&gt;
+
+&lt;p&gt;Simulations&lt;/p&gt;
+
+&lt;p&gt;Impacts transcription and translation in cell-sized vesicles&lt;/p&gt;
+
+&lt;h3 id=&quot;elisa-from-cornell--titrable-in-vivo-cre-loxp-in-e-coli&quot;&gt;Elisa from Cornell : titrable in vivo Cre-loxP in E. coli&lt;/h3&gt;
+
+&lt;p&gt;Somatic differentiation&lt;/p&gt;
+
+&lt;p&gt;Er binding site, beta estradiol&lt;/p&gt;
+
+&lt;p&gt;DH10B RepOrter yfp&lt;/p&gt;
+
+&lt;h2 id=&quot;research-in-germany&quot;&gt;Research in Germany&lt;/h2&gt;
+
+&lt;h3 id=&quot;mpi&quot;&gt;MPI&lt;/h3&gt;
+
+&lt;p&gt;Write emails with info from website&lt;/p&gt;
+
+&lt;p&gt;humburg scholarship&lt;/p&gt;
+
+&lt;p&gt;6+2 years super generous funding enough to hire 2 postdoctoral, to early scholars&lt;/p&gt;
+
+&lt;p&gt;Foreigners 9 years after doctor degree has to be employed , so many leaves&lt;/p&gt;
+
+&lt;p&gt;University and Scores important, papers slow so not so important&lt;/p&gt;
+
+&lt;p&gt;DPG MEETING&lt;/p&gt;
+
+&lt;p&gt;140 directors, each has a way of sponsoring&lt;/p&gt;
+
+&lt;p&gt;Andrew Mackenzie&lt;/p&gt;
+
+&lt;p&gt;Go for Nobel prize, not professorship&lt;/p&gt;
+
+&lt;p&gt;Want to hire people with 20 yers of career left&lt;/p&gt;
+
+&lt;p&gt;Six months danger period, then 3 years safe&lt;/p&gt;
+
+&lt;h3 id=&quot;cell-fate-transition&quot;&gt;Cell fate transition&lt;/h3&gt;
+
+&lt;h3 id=&quot;cell-type-order-parameters&quot;&gt;cell type order parameters&lt;/h3&gt;
+
+&lt;p&gt;Saw last year&lt;/p&gt;
+
+&lt;p&gt;Order parameters:&lt;/p&gt;
+
+&lt;p&gt;scTop python package&lt;/p&gt;
+
+&lt;h3 id=&quot;class-iv-da-neurons-laval-development&quot;&gt;Class IV da neurons Laval development&lt;/h3&gt;
+
+&lt;p&gt;Macroscopic measurable: dendrite Densities, front velocity&lt;/p&gt;
+
+&lt;p&gt;Dendrite grow in stochastic manner&lt;/p&gt;
+
+&lt;p&gt;Mean field descriptions: grow, shrinking, stall states&lt;/p&gt;
+
+&lt;p&gt;master equations&lt;/p&gt;
+
+&lt;p&gt;Very in detail&lt;/p&gt;
+
+&lt;p&gt;Yale integrated graduate program in physical and engineering biology&lt;/p&gt;
+
+&lt;h3 id=&quot;synnotch-expression-in-fruit-fly&quot;&gt;synNotch expression in fruit fly&lt;/h3&gt;
+
+&lt;p&gt;Delta notch: contact based intercellular signaling&lt;/p&gt;
+
+&lt;p&gt;Vortex based model framework&lt;/p&gt;
+
+&lt;h2 id=&quot;intracellular-transport-and-organization&quot;&gt;Intracellular transport and organization&lt;/h2&gt;
+
+&lt;h3 id=&quot;super-resolution&quot;&gt;super resolution&lt;/h3&gt;
+
+&lt;p&gt;STORM, PALM, FPALM, all in 2006&lt;/p&gt;
+
+&lt;p&gt;Correlative live cell and super resolution microscopy&lt;/p&gt;
+
+&lt;p&gt;Post translation modification: Tyrosinated/detyrosinated, de- is important , sparse and stochastic&lt;/p&gt;
+
+&lt;p&gt;De- VASH interact with MT&lt;/p&gt;
+
+&lt;p&gt;Mean square displacement analysis&lt;/p&gt;
+
+&lt;p&gt;Simulation:&lt;/p&gt;
+
+&lt;h3 id=&quot;in-vitro-experiment-of-microtubules&quot;&gt;In vitro experiment of Microtubules&lt;/h3&gt;
+
+&lt;h2 id=&quot;switch-and-detach-at-intersections-of-microtubules&quot;&gt;switch and detach at intersections of microtubules&lt;/h2&gt;
+
+&lt;p&gt;diaplacement≤path length, from experiment&lt;/p&gt;
+
+&lt;h3 id=&quot;kinesin-123-bidirectional-transport&quot;&gt;Kinesin-1,2,3, bidirectional transport&lt;/h3&gt;
+
+&lt;p&gt;Different detect rate&lt;/p&gt;
+
+&lt;p&gt;Kinesin compete for dynesin in a tug of war&lt;/p&gt;
+
+&lt;p&gt;segment analysis of slow trace&lt;/p&gt;
+
+&lt;h3 id=&quot;motor&quot;&gt;motor&lt;/h3&gt;
+
+&lt;p&gt;MTOC, convergence and target scretion of granules&lt;/p&gt;
+
+&lt;p&gt;Natural killer cells&lt;/p&gt;
+
+&lt;h3 id=&quot;growth-of-axonal-caliber&quot;&gt;Growth of axonal caliber&lt;/h3&gt;
+
+&lt;p&gt;Axonal neurofilament as caliber modulators&lt;/p&gt;
+
+&lt;p&gt;Six state model Jung and Brown 2009, Li etc 2014&lt;/p&gt;
+
+&lt;h3 id=&quot;intracellular-drug-transport-in-single-cell&quot;&gt;intracellular drug transport in single cell&lt;/h3&gt;
+
+&lt;p&gt;Hoechst dye to measure effenciency&lt;/p&gt;
+
+&lt;h3 id=&quot;alien-proteomics-diffusion-through-nuclear-pore&quot;&gt;alien proteomics, diffusion through nuclear pore&lt;/h3&gt;
+
+&lt;p&gt;Nuclear pore complex&lt;/p&gt;
+
+&lt;p&gt;FG-nucleoporin (IDR)&lt;/p&gt;
+
+&lt;p&gt;Active transport vs passive diffusion&lt;/p&gt;
+
+&lt;p&gt;\Delta F(R)&lt;/p&gt;
+
+&lt;p&gt;Inject frog oocyte into E. coli&lt;/p&gt;
+
+&lt;h3 id=&quot;cone-shaped-hiv-capsid-through-nuclear-pore-complex&quot;&gt;cone shaped hiv capsid through nuclear pore complex&lt;/h3&gt;
+
+&lt;p&gt;Free energy of nuclear protein&lt;/p&gt;
+
+&lt;p&gt;Narrow end enter first&lt;/p&gt;
+
+&lt;h3 id=&quot;er-for-transport-calcium-ion&quot;&gt;ER for transport Calcium ion&lt;/h3&gt;
+
+&lt;p&gt;Ca bound to high capacity buffer proteins in ER&lt;/p&gt;
+
+&lt;p&gt;locally release in spikes&lt;/p&gt;
+
+&lt;p&gt;Reaction-diffusion model for calcium and buffer proteins&lt;/p&gt;
+
+&lt;p&gt;local cytoplasm concentration&lt;/p&gt;
+
+&lt;p&gt;in ER Lumen: proteins spread super diffusively; active runs along tubules, from single particle trajectories&lt;/p&gt;
+
+&lt;p&gt;altering morphology by morphogen expression: Rtn3 overexpression; Atlastin knockout&lt;/p&gt;
+
+&lt;h2 id=&quot;collective-behavior&quot;&gt;collective behavior&lt;/h2&gt;
+
+&lt;h3 id=&quot;biofilmcellsmatrix&quot;&gt;biofilm=cells+matrix&lt;/h3&gt;
+
+&lt;p&gt;SPP2389- emergent function of bacterial multicellularity&lt;/p&gt;
+
+&lt;p&gt;Ng bacteria&lt;/p&gt;
+
+&lt;h3 id=&quot;flow-dirven-cancer-cell-migration&quot;&gt;flow-dirven cancer cell migration&lt;/h3&gt;
+
+&lt;p&gt;autologous chemotaxis is a mechanis cancer cells fall onto XXX&lt;/p&gt;
+
+&lt;p&gt;chemotaxis vs. mechanosensing&lt;/p&gt;
+
+&lt;p&gt;chemotaxis fails at high cell density&lt;/p&gt;
+
+&lt;h3 id=&quot;motility-induced-phase-separation-of-deformable-cells&quot;&gt;motility induced phase separation of deformable cells&lt;/h3&gt;
+
+&lt;p&gt;所谓 phase separation，就是一筐红绿豆自己分成两堆&lt;/p&gt;
+
+&lt;p&gt;rigid particles aggregate and sort without adhesion&lt;/p&gt;
+
+&lt;p&gt;2d layer of deformable active brownian particles&lt;/p&gt;
+
+&lt;p&gt;simulation: high deformability easier to phase separation, shorter collision time&lt;/p&gt;
+
+&lt;p&gt;BioPACIFIC program at UCSB and UCLA&lt;/p&gt;
+
+&lt;h3 id=&quot;geometric-programming-of-collective-sensing-of-neural-cells&quot;&gt;Geometric programming of collective sensing of neural cells&lt;/h3&gt;
+
+&lt;p&gt;Oregon State University, Chinese speaker&lt;/p&gt;
+
+&lt;p&gt;a cross shaped titch, with five wells at 4 tips and 1 crossing, (infinitely peridic? not sure)&lt;/p&gt;
+
+&lt;p&gt;flow switch of GM and ATP&lt;/p&gt;
+
+&lt;p&gt;longer period leads to more well synchronized nodes. edge probability pattern&lt;/p&gt;
+
+&lt;h3 id=&quot;ear-hair-cells-tune-cochlea-to-criticality&quot;&gt;Ear, hair cells tune cochlea to criticality&lt;/h3&gt;
+
+&lt;p&gt;impedance&lt;/p&gt;
+
+&lt;p&gt;seems have heard last year&lt;/p&gt;
+
+&lt;p&gt;Bo Sun Gourp member?&lt;/p&gt;
+
+&lt;h2 id=&quot;social-interaction&quot;&gt;Social Interaction&lt;/h2&gt;
+
+&lt;p&gt;pretty big hall actually&lt;/p&gt;
+
+&lt;h3 id=&quot;the-use-of-laser-speckle-spectroscopy-for-subtle-detection-of-infantile-ants&quot;&gt;The Use of Laser Speckle Spectroscopy for Subtle Detection of Infantile Ants&lt;/h3&gt;
+
+&lt;p&gt;Geogeria tech&lt;/p&gt;
+
+&lt;p&gt;pixel photon intensity, not direct movies, to detect movements. also sounds like something last year.&lt;/p&gt;
+
+&lt;h3 id=&quot;density-functional-fluctuation-theory-to-model-basketball&quot;&gt;density functional fluctuation theory to model basketball&lt;/h3&gt;
+
+&lt;p&gt;NBA has position data every 40 ms!&lt;/p&gt;
+
+&lt;p&gt;50 feet x 50 feet heatmap of shots&lt;/p&gt;
+
+&lt;p&gt;postulates: location of ball changes player spatial tendencies, 2 types of player defense and offense&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-12-8795A615-E1CB-44C4-B02B-3AB5884AA384.jpeg&quot; alt=&quot;8795A615-E1CB-44C4-B02B-3AB5884AA384.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;forecast a play, evaluate a position, improving a player’s positioning.&lt;/p&gt;
+
+&lt;h3 id=&quot;honeycomb-formation-under-geometric-frustrations&quot;&gt;honeycomb formation under geometric frustrations&lt;/h3&gt;
+
+&lt;p&gt;decentralized division of labour, to build honeycomb&lt;/p&gt;
+
+&lt;p&gt;a lot of energy cost, not always on flat plane.&lt;/p&gt;
+
+&lt;p&gt;3d printing to prepare substrate for bees, for data repeatability. basically they make plastic cells of different sizes, and see how bees build upon them.&lt;/p&gt;
+
+&lt;p&gt;geometric frustrations: shifts, tilts, sizes&lt;/p&gt;
+
+&lt;p&gt;forcing smaller cell size → X-ray microscopy&lt;/p&gt;
+
+&lt;p&gt;some ~24% of the cells are filled with wax&lt;/p&gt;
+
+&lt;p&gt;larger cells → tilting of wax walls, can be 3x bees’ normal honeycomb cell size&lt;/p&gt;
+
+&lt;h3 id=&quot;winner-and-loser-emergence-in-zebrafish-fights&quot;&gt;winner and loser emergence in zebrafish fights&lt;/h3&gt;
+
+&lt;p&gt;what is a fight, what is a winner and dominance, how fights start and end.&lt;/p&gt;
+
+&lt;p&gt;6 pairs fo fish, 3 body points of 2 fish in 3d, experimental tracking&lt;/p&gt;
+
+&lt;p&gt;defining winner: post-fight position asymmetry&lt;/p&gt;
+
+&lt;p&gt;fight-bout micostructure to &lt;strong&gt;mesoscopic&lt;/strong&gt; fight-maneuvers.&lt;/p&gt;
+
+&lt;p&gt;phase space: \((\theta_W, \theta_L, D_{pp})\)&lt;/p&gt;
+
+&lt;h3 id=&quot;chimera-states-among-synchronous-fireflies&quot;&gt;Chimera states among synchronous fireflies&lt;/h3&gt;
+
+&lt;p&gt;Lewis and Cratsley Annu. Rev. Entomol. 2008. temporal patterns of different species&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://fireflyexperience.org&quot;&gt;https://fireflyexperience.org&lt;/a&gt;&lt;/p&gt;
+
+\[\dot\theta_i=\omega_i+\frac{K}{N}\sum_j\sin(\theta_j-\theta_i)\]
+
+&lt;p&gt;chimera states for couples oscillators: part of the agents are synchronized, some are not, they coexist&lt;/p&gt;
+
+&lt;p&gt;example: unihemisphere sleep in marine mammals&lt;/p&gt;
+
+&lt;p&gt;South carolina, Congaree National Park&lt;/p&gt;
+
+&lt;h3 id=&quot;synchronization-of-human-networks&quot;&gt;Synchronization of human networks&lt;/h3&gt;
+
+&lt;p&gt;Moti Fridman (Bar Ilan University)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-12-3790D8EF-864E-4107-9C44-2CD22D76AF8F.jpeg&quot; alt=&quot;3790D8EF-864E-4107-9C44-2CD22D76AF8F.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;previous works deal with the case where everyone sees everyone&lt;/p&gt;
+
+&lt;p&gt;violin players，但是成员互相看不到对方，one control position(? why need it)&lt;/p&gt;
+
+&lt;p&gt;bidirectional and delay&lt;/p&gt;
+
+&lt;p&gt;even number of plays give checker board out-of-phase pattern&lt;/p&gt;
+
+&lt;p&gt;odd number gives frustration, they need to ignore one of the plays, changing the connectivity of network, glass state&lt;/p&gt;
+
+&lt;p&gt;unidirectional network: humans change coupling strength at will when there is no delay&lt;/p&gt;
+
+&lt;h2 id=&quot;mechanics-of-cells-and-tissues&quot;&gt;Mechanics of cells and tissues&lt;/h2&gt;
+
+&lt;h3 id=&quot;division-and-differential-adhesion-drive-cell-self-segregation-during-embryo-morphogenesis&quot;&gt;division and differential adhesion drive cell self-segregation during embryo morphogenesis&lt;/h3&gt;
+
+&lt;p&gt;Voronoi cell model for cell monolayers&lt;/p&gt;
+
+&lt;p&gt;contact tension controls tissue structure&lt;/p&gt;
+
+&lt;h3 id=&quot;mechanosensing-breast-cancer-spheroids&quot;&gt;mechanosensing breast cancer spheroids&lt;/h3&gt;
+
+&lt;p&gt;another Bo Sun group member.&lt;/p&gt;
+
+&lt;p&gt;to segment and track the cells in 3d: PEN projection enhanced network, on top of a Cellpose 2d neural network.&lt;/p&gt;
+
+&lt;p&gt;classify cell shape phenotypes with SVM&lt;/p&gt;
+
+&lt;p&gt;filopodia leads invasion&lt;/p&gt;
+
+&lt;h3 id=&quot;kinetics-of-cell-aggregation&quot;&gt;kinetics of cell aggregation&lt;/h3&gt;
+
+&lt;p&gt;cell-cell contacts: Guo et al Biophysics J. 2006&lt;/p&gt;
+
+&lt;p&gt;cell-substrate interactions:&lt;/p&gt;
+
+&lt;p&gt;感觉是个大杂烩，啥都有&lt;/p&gt;
+
+&lt;p&gt;matrix mediated mechanical interactions, so what does matrix mean?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ChatGPT:&lt;/p&gt;
+
+  &lt;p&gt;In biology, a matrix refers to a non-living or extracellular substance that provides structural support or serves as a medium for cellular interactions. The matrix can be made up of various components such as proteins, polysaccharides, and minerals, and it can be found in different biological contexts, such as bone, cartilage, connective tissue, and the extracellular matrix surrounding cells.&lt;/p&gt;
+
+  &lt;p&gt;For example, in bone tissue, the extracellular matrix provides support and rigidity to the bone and is primarily composed of collagen fibers and mineralized calcium phosphate. In cartilage, the matrix is composed of collagen and proteoglycans and serves as a cushion between bones in joints. In connective tissue, the matrix provides support and allows for the exchange of nutrients and waste products between cells.&lt;/p&gt;
+
+  &lt;p&gt;In summary, the matrix is an essential component of many biological tissues and provides structural support and a medium for cellular interactions.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;epithelia-tissues-as-hexnematic-liquid-cystals-and-instabilities&quot;&gt;epithelia tissues as hexnematic liquid cystals, and instabilities&lt;/h3&gt;
+
+&lt;p&gt;Heager et al,  J. Exp Med 2020&lt;/p&gt;
+
+&lt;p&gt;hexatics in a channel, momentum conservation and orientation dynamics&lt;/p&gt;
+
+&lt;p&gt;dispersion relation and unstabilities&lt;/p&gt;
+
+&lt;p&gt;very classical dynamics study, as classical as those on textbooks&lt;/p&gt;
+
+&lt;h3 id=&quot;multiscale-measurements-of-mechanical-stress-in-3d-co-cultures-using-a-deformable-micro-device&quot;&gt;Multiscale measurements of mechanical stress in 3D co-cultures using a deformable micro-device&lt;/h3&gt;
+
+&lt;p&gt;巴斯德研究所&lt;/p&gt;
+
+&lt;p&gt;cell level reponse to tissue level mechanical xxx&lt;/p&gt;
+
+&lt;p&gt;mechanic stress on each cell depends on position and neighbors; global deformation is accumulation of local stressees.&lt;/p&gt;
+
+&lt;h3 id=&quot;mechanoregulation-of-biofilm-homeostasis&quot;&gt;Mechanoregulation of biofilm homeostasis&lt;/h3&gt;
+
+&lt;p&gt;EPFL, Lausanne, Switzerland&lt;/p&gt;
+
+&lt;p&gt;biofilm in hydrogels&lt;/p&gt;
+
+&lt;p&gt;size control hypotheses: mechanical, growth rate, cell death&lt;/p&gt;
+
+&lt;h3 id=&quot;mechanosensing-of-embedded-spheroids-and-cell-invasion&quot;&gt;mechanosensing of embedded spheroids and cell invasion&lt;/h3&gt;
+
+&lt;p&gt;inserted in a fibrous network consisting of collagen, and other proteins&lt;/p&gt;
+
+&lt;p&gt;3d &lt;strong&gt;vertex models&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/ZhangTao-SJTU/tvm&quot;&gt;https://github.com/ZhangTao-SJTU/tvm&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;density-variation-of-fibroblasts-near-topological-defects&quot;&gt;density variation of fibroblasts near topological defects&lt;/h3&gt;
+
+&lt;p&gt;ridges to introduce topological defects, ridge height as proxy for ridge strength&lt;/p&gt;
+
+&lt;p&gt;shape dependent rate of division as the mechanism&lt;/p&gt;
+
+&lt;p&gt;cell density changes&lt;/p&gt;
+
+&lt;h3 id=&quot;slicing-softly-with-paper&quot;&gt;slicing softly with paper&lt;/h3&gt;
+
+&lt;p&gt;paper cutting machine to use paper cutting into gels&lt;/p&gt;
+
+&lt;p&gt;small angle, thickness: buckling → cutting → indention&lt;/p&gt;
+
+&lt;p&gt;larger angle, only buckling → indention&lt;/p&gt;
+
+&lt;p&gt;appled stress must exceed critical threshold, but below buckling threshold&lt;/p&gt;
+
+&lt;p&gt;dangerous thickness: 65 microns&lt;/p&gt;
+
+&lt;h3 id=&quot;vasculogenesis&quot;&gt;Vasculogenesis&lt;/h3&gt;
+
+&lt;p&gt;cardiovascular system is 1st organ system to form in a vertebrate embryo. 2 steps: vasculogenesis and angiogenesis&lt;/p&gt;
+
+&lt;p&gt;then totally lost&lt;/p&gt;
+
+&lt;h3 id=&quot;cell-shape-and-fate-changes-in-3d-model-of-mammalian-hair-follicle-development&quot;&gt;Cell shape and fate changes in 3D model of mammalian hair follicle development&lt;/h3&gt;
+
+&lt;p&gt;3d vertex model&lt;/p&gt;
+
+&lt;p&gt;2 hypotheses: 1. changing cell autonomous properties; 2. extrinsic force. model 2 wins&lt;/p&gt;
+
+&lt;p&gt;WTH is E15.5 morphology&lt;/p&gt;
+
+&lt;p&gt;Lisa Manning group&lt;/p&gt;
+
+&lt;h3 id=&quot;emergent-chirality-in-active-solid-rotation-of-pancreas-spheres&quot;&gt;Emergent chirality in active solid rotation of pancreas spheres&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;ChatPDF and Humata.ai&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;ChatPDF is almost unusable, there is no context, and cannot break lines. They even answered in French first&lt;/p&gt;
+
+  &lt;p&gt;Humata.ai: The paper investigates the rotational dynamics of spherical tissues using murine pancreas-derived organoids as a model system. The study uses an active &lt;strong&gt;vertex model&lt;/strong&gt; to demonstrate how the interplay between traction force and polarity alignment can account for distinct rotational dynamics. The study also investigates the emergence of chiral symmetry breaking in multicellular systems using experiments and simulations of rotating pancreas spheres. The authors propose that topological defects in the polarity field underlie the symmetry breaking. The article discusses the role of geometry in the behavior and properties of epithelial tissues, including cell division, patterning, and left-right symmetry breaking.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;语速还挺快&lt;/p&gt;
+
+&lt;p&gt;geometric constrains&lt;/p&gt;
+
+&lt;p&gt;3D上皮 collective dynamics, mouse pancres self organize into a sphere, inside filled with lumen&lt;/p&gt;
+
+&lt;p&gt;distinct rotational modes: rotation, rotation arrest, drift in rotation axis → mechanism?&lt;/p&gt;
+
+&lt;p&gt;active certex model: force balance, polarity dynamics&lt;/p&gt;
+
+&lt;p&gt;solid rotation, or fluid exchange of neighbors. solid body rotation fraction.&lt;/p&gt;
+
+&lt;p&gt;rotation axis drift is reminiscent of yielding like transition&lt;/p&gt;
+
+&lt;p&gt;cell shape orientation is almost stable, not a uniform random distribution when there is rotation, but uniform random without rotation&lt;/p&gt;
+
+&lt;p&gt;polarity dynamics: 2 types of solutions&lt;/p&gt;
+
+&lt;p&gt;other structures: cubodal, compact, multi-lumen: &lt;strong&gt;this is the proposed future direction&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;collective-behavior-1&quot;&gt;collective behavior&lt;/h2&gt;
+
+&lt;h3 id=&quot;spying-on-bacteria-in-3d&quot;&gt;spying on bacteria in 3d&lt;/h3&gt;
+
+&lt;p&gt;Isolated cells:&lt;/p&gt;
+
+&lt;p&gt;Ball pit for E. coli cells for them to tumble&lt;/p&gt;
+
+&lt;p&gt;Active hopping and trapping&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;granular hydrogel matrix supports 3d printed colonies&lt;/p&gt;
+
+&lt;p&gt;Collective motion, not diffusion&lt;/p&gt;
+
+&lt;p&gt;Consumption and chemotaxis&lt;/p&gt;
+
+&lt;p&gt;How to keep front together: Change initial position. Chemostatic velocity&lt;/p&gt;
+
+&lt;p&gt;Sensing = F(c)&lt;/p&gt;
+
+&lt;h3 id=&quot;multicelluarity-w-differentiable-molecular-dynamics-simulations&quot;&gt;multicelluarity w/ Differentiable Molecular Dynamics Simulations&lt;/h3&gt;
+
+&lt;p&gt;Jax-MD: &lt;a href=&quot;http://github.com/google/jax-md&quot;&gt;github.com/google/jax-md&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;machanism for regulating division&lt;/p&gt;
+
+&lt;p&gt;“learned params consistently yield homogeneous growth”&lt;/p&gt;
+
+&lt;p&gt;don’t like this project very much. which part is done by the speaker?&lt;/p&gt;
+
+&lt;h3 id=&quot;collective-behavior-of-swimmers-in-intermediate-reynold-number&quot;&gt;collective behavior of swimmers in intermediate Reynold number&lt;/h3&gt;
+
+&lt;p&gt;model of dumbbell in fluid, 2D [torque and force] free&lt;/p&gt;
+
+&lt;p&gt;pair of dumbbells: puller and pusher&lt;/p&gt;
+
+&lt;h3 id=&quot;chemotactic-motility-induced-phase-separation&quot;&gt;Chemotactic motility-induced phase separation&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Chemotactic&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;student of the invited speaker of this session, award winner.&lt;/p&gt;
+
+&lt;p&gt;motility-induced phase separation: 抖豆子抖成堆&lt;/p&gt;
+
+&lt;p&gt;chemotaxis: directed motion in response to chemical gradient&lt;/p&gt;
+
+&lt;p&gt;particle volume fraction, chemoattractant concentration,&lt;/p&gt;
+
+&lt;p&gt;sets up an allowed region of phase separation&lt;/p&gt;
+
+&lt;p&gt;arxiv:2301.12345&lt;/p&gt;
+
+&lt;h3 id=&quot;anomalous-collective-dynamics-of-dividing-chemotactic-agents&quot;&gt;Anomalous collective dynamics of dividing chemotactic agents&lt;/h3&gt;
+
+&lt;p&gt;Chemotaxis + population dynamics&lt;/p&gt;
+
+&lt;p&gt;non-equilibrium continuous phase transition&lt;/p&gt;
+
+&lt;p&gt;some kind of reaction diffusion equations for \(\rho, c\)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;chemotactic&lt;/strong&gt; interactions can alter {} near critical point&lt;/p&gt;
+
+&lt;h3 id=&quot;crowds-with-large-pressures&quot;&gt;Crowds with large pressures&lt;/h3&gt;
+
+&lt;p&gt;non-equilibrium&lt;/p&gt;
+
+&lt;p&gt;microscopic: Vicsek model, Helbing-Molnar model; macroscopic: mechanical spectroscopy of insect swarms, equation of state&lt;/p&gt;
+
+&lt;p&gt;sys behave like equilibrium: Silverberg 2013 PRL&lt;/p&gt;
+
+&lt;p&gt;why works? difference of time scales: relaxation time » collision time.&lt;/p&gt;
+
+&lt;p&gt;agents packed: potential energt not equi-partition, but kinetic energy are.&lt;/p&gt;
+
+&lt;h3 id=&quot;phenotype-probability-distinguishes-mutants-from-wildtype-social-bacteria&quot;&gt;phenotype probability distinguishes mutants from wildtype social bacteria&lt;/h3&gt;
+
+&lt;p&gt;M. xanthus form persistent or not persistent dunes.&lt;/p&gt;
+
+&lt;h2 id=&quot;morphogenesis&quot;&gt;Morphogenesis&lt;/h2&gt;
+
+&lt;h3 id=&quot;tension-triangle&quot;&gt;tension triangle&lt;/h3&gt;
+
+&lt;p&gt;8:30-8:40&lt;/p&gt;
+
+&lt;p&gt;Order and anisotropic form coherent T1 that drive flow&lt;/p&gt;
+
+&lt;p&gt;A lot of UCSB, actually one group having 2 talks back to back&lt;/p&gt;
+
+&lt;p&gt;Tension isogonal decomposition&lt;/p&gt;
+
+&lt;p&gt;Could be applied to wing disk, neurolation,&lt;/p&gt;
+
+&lt;h3 id=&quot;from-gene-to-geometry&quot;&gt;from gene to geometry&lt;/h3&gt;
+
+&lt;p&gt;Cells → sheet → tube → cortex&lt;/p&gt;
+
+&lt;p&gt;multi view confocal, Bayesian based deconvolution, deep tissue imaging&lt;/p&gt;
+
+&lt;p&gt;Knockout and shape differs&lt;/p&gt;
+
+&lt;p&gt;TubLUAR: tube like surface Lagrangian analysis resource&lt;/p&gt;
+
+&lt;p&gt;How gene → calcium signaling → muscle contraction → endodem strains → organ shape&lt;/p&gt;
+
+&lt;h2 id=&quot;plant-biology&quot;&gt;plant Biology&lt;/h2&gt;
+
+&lt;h3 id=&quot;root-hair&quot;&gt;root hair&lt;/h3&gt;
+
+&lt;p&gt;self anchoring, 仿生根 robot, can dig into fake moon soil, for soil sampling and sensor implanting&lt;/p&gt;
+
+&lt;h3 id=&quot;heterogeneous-cellular-growth-in-root&quot;&gt;Heterogeneous cellular growth in root&lt;/h3&gt;
+
+&lt;p&gt;Directly connected to organismal shape&lt;/p&gt;
+
+&lt;p&gt;cell behavior to organisms&lt;/p&gt;
+
+&lt;p&gt;Discrete element simulation&lt;/p&gt;
+
+&lt;p&gt;Meristematic and elongation zone&lt;/p&gt;
+
+&lt;h3 id=&quot;turing-pattern-in-vegetation&quot;&gt;Turing pattern in vegetation&lt;/h3&gt;
+
+&lt;p&gt;Experiment: Australien fairy circles regenerated&lt;/p&gt;
+
+&lt;p&gt;WebGL and JavaScript&lt;/p&gt;
+
+&lt;h3 id=&quot;network-architecture-of-plant-pathogen-interactions&quot;&gt;network architecture of plant pathogen interactions&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-12-D185C1B7-F5EB-4629-B767-0ECF7F72C591.jpeg&quot; alt=&quot;D185C1B7-F5EB-4629-B767-0ECF7F72C591.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-12-03A05C17-8E19-4B30-B449-1A99D02093A9.jpeg&quot; alt=&quot;03A05C17-8E19-4B30-B449-1A99D02093A9.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Translation/degradation, xxx, xxx&lt;/p&gt;
+
+&lt;p&gt;Simple model. complex systems&lt;/p&gt;
+
+&lt;p&gt;Rockefeller U.&lt;/p&gt;
+
+&lt;h3 id=&quot;water-solubility-of-hydrophobic-xxx-with-phytoglycogenpg-nano-particles&quot;&gt;water solubility of hydrophobic xxx with phytoglycogen(PG) nano particles&lt;/h3&gt;
+
+&lt;p&gt;University of Guelph, in Canada&lt;/p&gt;
+
+&lt;p&gt;Astaxanthin-&lt;/p&gt;
+
+&lt;p&gt;Carotenoid solubilization strategy&lt;/p&gt;
+
+&lt;p&gt;OSA modification changes absorption spectra&lt;/p&gt;
+
+&lt;h2 id=&quot;emergent-behavior-in-biological-systems&quot;&gt;Emergent behavior in biological systems&lt;/h2&gt;
+
+&lt;h3 id=&quot;emergent-spatiotemporal-communication-patterns-in-insect-swarms&quot;&gt;Emergent Spatiotemporal Communication Patterns in Insect Swarms&lt;/h3&gt;
+
+&lt;p&gt;Chemical signaling (bees) and visual signaling (fireflies)&lt;/p&gt;
+
+&lt;p&gt;Worker bees scent to amplify the feromon of the queen to locate the queen&lt;/p&gt;
+
+&lt;p&gt;Also Happens in fed bees to locate food&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Visual signals by fireflies&lt;/p&gt;
+
+&lt;p&gt;非线性动力学的课本居然有 synchronization, slide 和之前看过的一样&lt;/p&gt;
+
+&lt;p&gt;Can only see a small portions of fireflies in the wild&lt;/p&gt;
+
+&lt;p&gt;Controlled environment&lt;/p&gt;
+
+&lt;p&gt;Talking to fireflies with LED&lt;/p&gt;
+
+&lt;h3 id=&quot;anatomy-of-e-coli-colony-expansion&quot;&gt;anatomy of E. coli colony expansion&lt;/h3&gt;
+
+&lt;p&gt;Height depends on glucose concentration&lt;/p&gt;
+
+&lt;h3 id=&quot;mechanical-information-processing-by-action-cytoskeleton&quot;&gt;mechanical information processing by action cytoskeleton&lt;/h3&gt;
+
+&lt;p&gt;Focal adhesion&lt;/p&gt;
+
+&lt;p&gt;Pretty biology heavy&lt;/p&gt;
+
+&lt;h3 id=&quot;cryoet&quot;&gt;CryoET&lt;/h3&gt;
+
+&lt;p&gt;Tomography&lt;/p&gt;
+
+&lt;p&gt;Capture topological features on sparse density data&lt;/p&gt;
+
+&lt;p&gt;Image voxels and compare with alpha fold candidates.&lt;/p&gt;
+
+&lt;p&gt;Is this risky for cyclic reasoning?&lt;/p&gt;
+
+&lt;h3 id=&quot;protein-assembly&quot;&gt;protein assembly&lt;/h3&gt;
+
+&lt;p&gt;最后一天，没有心气记笔记了……&lt;/p&gt;
+</description>
+        <pubDate>Sun, 12 Mar 2023 00:00:00 -0600</pubDate>
+        <link>https://mountaye.github.io/blog/articles/notes-during-APS-march-meeting-2023-Las-Vegas</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/notes-during-APS-march-meeting-2023-Las-Vegas</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>.tex | Notes during APS March Meeting 2022 in Chicago</title>
+        <description>&lt;h2 id=&quot;physical-of-artificial-system&quot;&gt;Physical of Artificial System&lt;/h2&gt;
+
+&lt;p&gt;some physical learning that does not have to be in equilibrium&lt;/p&gt;
+
+&lt;h2 id=&quot;cell-fate&quot;&gt;Cell fate&lt;/h2&gt;
+
+&lt;h3 id=&quot;xinhua-xings-talk&quot;&gt;Xinhua Xing’s talk&lt;/h3&gt;
+
+&lt;p&gt;intro to differential geometry: Kamien, Rev Mod Phys 74:953 (2002)&lt;/p&gt;
+
+&lt;p&gt;WeiKang Wang, in silico vector field analysis&lt;/p&gt;
+
+&lt;p&gt;Waddington landscape 1957&lt;/p&gt;
+
+&lt;p&gt;Joanathan Weissman Lab (WI, MIT)&lt;/p&gt;
+
+&lt;h3 id=&quot;marias-talk&quot;&gt;Maria’s Talk&lt;/h3&gt;
+
+&lt;p&gt;Boston U, Pankaj Mahta Group.&lt;/p&gt;
+
+&lt;p&gt;extension  of work from Lang et al PLoS comput bio (2014)&lt;/p&gt;
+
+&lt;p&gt;found an order parameter, better than UMAP&lt;/p&gt;
+
+&lt;h3 id=&quot;shubham-tripathis-talk&quot;&gt;Shubham Tripathi’s talk&lt;/h3&gt;
+
+&lt;p&gt;miimally frustrated topology&lt;/p&gt;
+
+&lt;h3 id=&quot;glassy-fluctuation-&quot;&gt;Glassy fluctuation …&lt;/h3&gt;
+
+&lt;p&gt;proten and mRNA noise levels are Boltzmann distributed.&lt;/p&gt;
+
+&lt;p&gt;spin glass: frustration&lt;/p&gt;
+
+&lt;p&gt;free energy&lt;/p&gt;
+
+&lt;p&gt;gene expression noise can store information&lt;/p&gt;
+
+&lt;h3 id=&quot;kraemer&quot;&gt;Kraemer&lt;/h3&gt;
+
+&lt;p&gt;cell types in multicellular organisms&lt;/p&gt;
+
+&lt;p&gt;master regulator as order parameter&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hopfield model&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;forward and backward conditional probabilities&lt;/p&gt;
+
+&lt;h3 id=&quot;logan-carpenter&quot;&gt;Logan Carpenter&lt;/h3&gt;
+
+&lt;p&gt;tissue homeostasis: birth and death&lt;/p&gt;
+
+&lt;p&gt;cellular Potts model&lt;/p&gt;
+
+&lt;p&gt;there is Hamiltonian!&lt;/p&gt;
+
+&lt;p&gt;CompuCell3D software&lt;/p&gt;
+
+&lt;p&gt;cell size distribution plot is very good&lt;/p&gt;
+
+&lt;h3 id=&quot;los-talk&quot;&gt;Lo’s talk&lt;/h3&gt;
+
+&lt;p&gt;UWashington&lt;/p&gt;
+
+&lt;p&gt;collision during cell cycle, replication and transcription&lt;/p&gt;
+
+&lt;p&gt;F-mean&lt;/p&gt;
+
+&lt;h3 id=&quot;lambertio&quot;&gt;Lambert.io&lt;/h3&gt;
+
+&lt;p&gt;bacterial persistence&lt;/p&gt;
+
+&lt;p&gt;CRISPER-dCas12a interference&lt;/p&gt;
+
+&lt;p&gt;massive parallel assay&lt;/p&gt;
+
+&lt;h3 id=&quot;arkansas-u-talk&quot;&gt;Arkansas U talk&lt;/h3&gt;
+
+&lt;p&gt;Reversibiliy and cell division dynamics of elongated Escherichia coli cells obtained at high pressure&lt;/p&gt;
+
+&lt;p&gt;a new cell division model&lt;/p&gt;
+
+&lt;p&gt;GCDM&lt;/p&gt;
+
+&lt;p&gt;continuous time Markov chain model?&lt;/p&gt;
+
+&lt;h3 id=&quot;vivek&quot;&gt;Vivek&lt;/h3&gt;
+
+&lt;p&gt;microbial colonizing and phenotypes&lt;/p&gt;
+
+&lt;p&gt;Danio rerio&lt;/p&gt;
+
+&lt;p&gt;virio Z20&lt;/p&gt;
+
+&lt;h3 id=&quot;louis-cortes&quot;&gt;Louis Cortes&lt;/h3&gt;
+
+&lt;p&gt;IPTG indeces lac operon&lt;/p&gt;
+
+&lt;p&gt;$f(t)=1-e^{-\frac{ln(2)}{t_{1/2}}(t-t_0)}$&lt;/p&gt;
+
+&lt;h3 id=&quot;jintao-li&quot;&gt;Jintao Li&lt;/h3&gt;
+
+&lt;p&gt;cell competition&lt;/p&gt;
+
+&lt;p&gt;homeostasis pressure&lt;/p&gt;
+
+&lt;h2 id=&quot;author--reference-session&quot;&gt;Author &amp;amp; Reference Session&lt;/h2&gt;
+
+&lt;h3 id=&quot;criteria&quot;&gt;criteria&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;significantly advance physics&lt;/li&gt;
+  &lt;li&gt;scientifically&lt;/li&gt;
+  &lt;li&gt;letter
+    &lt;ul&gt;
+      &lt;li&gt;advance in field&lt;/li&gt;
+      &lt;li&gt;open a new&lt;/li&gt;
+      &lt;li&gt;solve a problem&lt;/li&gt;
+      &lt;li&gt;be of great interest&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;for-authors&quot;&gt;for authors&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;identify audience&lt;/li&gt;
+  &lt;li&gt;take-home message&lt;/li&gt;
+  &lt;li&gt;adequate literature&lt;/li&gt;
+  &lt;li&gt;authorship &amp;amp; acknowledgment&lt;/li&gt;
+  &lt;li&gt;additional info
+    &lt;ul&gt;
+      &lt;li&gt;suggested reviewer&lt;/li&gt;
+      &lt;li&gt;conflicts of interest&lt;/li&gt;
+      &lt;li&gt;related paper&lt;/li&gt;
+      &lt;li&gt;PRL/X: justification for suitability exclusively to&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;referee&quot;&gt;referee&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;novel, interesting, original&lt;/li&gt;
+  &lt;li&gt;valid and reproducible&lt;/li&gt;
+  &lt;li&gt;well presented&lt;/li&gt;
+  &lt;li&gt;report
+    &lt;ul&gt;
+      &lt;li&gt;summary&lt;/li&gt;
+      &lt;li&gt;technical details&lt;/li&gt;
+      &lt;li&gt;decision explained&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;report requirements
+    &lt;ul&gt;
+      &lt;li&gt;substantiated&lt;/li&gt;
+      &lt;li&gt;a reasonable level of details&lt;/li&gt;
+      &lt;li&gt;no personal/self-serving remarks&lt;/li&gt;
+      &lt;li&gt;timeliness&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;joint-submissions&quot;&gt;joint submissions&lt;/h3&gt;
+
+&lt;h3 id=&quot;updated-physh&quot;&gt;updated PhySH&lt;/h3&gt;
+
+&lt;h2 id=&quot;k42-network-theory-and-applications-to-complex-systems&quot;&gt;K42: Network Theory and Applications to Complex Systems&lt;/h2&gt;
+
+&lt;h3 id=&quot;complex-contagion-unfolding-and-control&quot;&gt;Complex Contagion: Unfolding and Control&lt;/h3&gt;
+
+&lt;p&gt;Adilson E. Motter, Northwest University&lt;/p&gt;
+
+&lt;p&gt;contagion&lt;/p&gt;
+
+&lt;p&gt;whack-a-mole effect&lt;/p&gt;
+
+&lt;h3 id=&quot;physics-of-financial-networks&quot;&gt;Physics of financial networks&lt;/h3&gt;
+
+&lt;p&gt;mono-layer networks: a network of ownership, a network of credit contracts between financial institutes&lt;/p&gt;
+
+&lt;p&gt;multi-layer  networks:&lt;/p&gt;
+
+&lt;h2 id=&quot;non-equilibrium-i&quot;&gt;Non-equilibrium I&lt;/h2&gt;
+
+&lt;h3 id=&quot;success-landscape&quot;&gt;success landscape&lt;/h3&gt;
+
+&lt;h3 id=&quot;speed-fluctuation-of-bacterial-replisomes&quot;&gt;speed fluctuation of bacterial replisomes&lt;/h3&gt;
+
+&lt;h3 id=&quot;circadian-clocks-in-natural-environments&quot;&gt;circadian clocks in natural environments&lt;/h3&gt;
+
+&lt;p&gt;$\dot r = \alpha r(1-\frac{r^2}{R^2})$&lt;/p&gt;
+
+&lt;p&gt;$\dot \theta = \omega$&lt;/p&gt;
+
+&lt;p&gt;“decoder”&lt;/p&gt;
+
+&lt;p&gt;Leypunskiy 2017, Pittayakanchit 2018&lt;/p&gt;
+
+&lt;h2 id=&quot;physics-of-social-interactions-i&quot;&gt;Physics of social interactions I&lt;/h2&gt;
+
+&lt;h3 id=&quot;collective-sensing-in-slime-mold&quot;&gt;collective sensing in slime mold&lt;/h3&gt;
+
+&lt;p&gt;slime molds sense concentrations of fructose in environments&lt;/p&gt;
+
+&lt;p&gt;hypotheses:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;evenly distributed across the network. density be the only parameter&lt;/li&gt;
+  &lt;li&gt;at the growing tips&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;competition-for-fluctuating-resources-reproduces-statistics-of-species-abundance-over-time-across-wide-ranging-microbiotas&quot;&gt;&lt;a href=&quot;https://march.aps.org/sessions/M03/2&quot;&gt;Competition for fluctuating resources reproduces statistics of species abundance over time across wide-ranging microbiotas&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;consumer-resource model: species abundance is solely dependent on resource functuations&lt;/p&gt;
+
+&lt;p&gt;Taylor’s law: distribution of abundance change is fit by a power law.&lt;/p&gt;
+
+&lt;p&gt;“their model” coarse grained consumer-resource. can predict many kinds of , different resource competition regimes.&lt;/p&gt;
+
+&lt;h3 id=&quot;dog-congnition&quot;&gt;Dog Congnition&lt;/h3&gt;
+
+&lt;p&gt;Alexandra Horowitz.&lt;/p&gt;
+
+&lt;p&gt;Social play&lt;/p&gt;
+
+&lt;h2 id=&quot;predicting-nonlinear-and-complex-systems-with-machine-learning-i&quot;&gt;Predicting Nonlinear and Complex Systems with Machine Learning I&lt;/h2&gt;
+
+&lt;h3 id=&quot;building-deep-learning-architectures-for-physics-chemistry-and-biology-with-geometric-algebra&quot;&gt;Building Deep Learning Architectures for Physics, Chemistry, and Biology with Geometric Algebra&lt;/h3&gt;
+
+&lt;p&gt;finished soon after I arrived&lt;/p&gt;
+
+&lt;p&gt;vector institute&lt;/p&gt;
+
+&lt;h3 id=&quot;quantum-thermal-machine-with-ml&quot;&gt;Quantum thermal machine with ML&lt;/h3&gt;
+
+&lt;p&gt;BraXXXX, VQE&lt;/p&gt;
+
+&lt;p&gt;Finite time thermodynamics: compete between efficiency and power&lt;/p&gt;
+
+&lt;p&gt;energy change between two harmonic oscillators&lt;/p&gt;
+
+&lt;p&gt;differential programming, RL-like scheme&lt;/p&gt;
+
+&lt;p&gt;missed the flawed thermodynamic definition&lt;/p&gt;
+
+&lt;h3 id=&quot;clarkson-university-reservoir-computing&quot;&gt;Clarkson University: reservoir computing&lt;/h3&gt;
+
+&lt;p&gt;reservoir computer: a kind of neural network, for forecasting dynamical systems but most of the parameters are chosen randomly. cheap but works well.&lt;/p&gt;
+
+&lt;p&gt;ESN Jaeger 2001&lt;/p&gt;
+
+&lt;p&gt;classic representation theorem by WOLD theorem&lt;/p&gt;
+
+&lt;p&gt;works because time soaks randomness. equivalent to logical NVAR (non-linear vector autoregression)&lt;/p&gt;
+
+&lt;p&gt;enjoys universal approximation theorem, even linear with non-linear readout.&lt;/p&gt;
+
+&lt;p&gt;VAR: vector autoregression&lt;/p&gt;
+
+&lt;p&gt;VMA: vector moving average&lt;/p&gt;
+
+&lt;p&gt;DMD&lt;/p&gt;
+
+&lt;p&gt;macket-glass equation as its example&lt;/p&gt;
+
+&lt;h3 id=&quot;kims-recurrent-neural-programming-language&quot;&gt;Kim’s recurrent neural programming language&lt;/h3&gt;
+
+&lt;p&gt;also reservoir computer.&lt;/p&gt;
+
+&lt;p&gt;silicon computers represent with binary and compute sequentially.&lt;/p&gt;
+
+&lt;p&gt;neural computers use continuous symbols and compute distributedly&lt;/p&gt;
+
+&lt;p&gt;dRAM: dynamical random access memory&lt;/p&gt;
+
+&lt;p&gt;store a reservoir into another reservoir&lt;/p&gt;
+
+&lt;p&gt;another hot topic is Koopman’s theory&lt;/p&gt;
+
+&lt;h3 id=&quot;learn-complex-fluids-with-rheo&quot;&gt;Learn complex fluids with rheo&lt;/h3&gt;
+
+&lt;p&gt;RhINNs (PhysicsINNs): inform the NN with underlying physics/rheology&lt;/p&gt;
+
+&lt;p&gt;his model is called RhIGNet, and an improved “multi-fidelity RHIGNets”&lt;/p&gt;
+
+&lt;h3 id=&quot;data-driven-selection-of-rheology-informed-nn&quot;&gt;Data-driven selection of rheology-informed NN&lt;/h3&gt;
+
+&lt;p&gt;same group as previous one.&lt;/p&gt;
+
+&lt;p&gt;model works better as it goes more complex, while data wants model to be simpler.&lt;/p&gt;
+
+&lt;p&gt;we should prioritize data range over size&lt;/p&gt;
+
+&lt;h3 id=&quot;ml-for-robot-locomotion-in-flowable-materials&quot;&gt;ML for Robot Locomotion in Flowable Materials&lt;/h3&gt;
+
+&lt;p&gt;robot cars (RRP) climbing sand slopes&lt;/p&gt;
+
+&lt;h3 id=&quot;predicting-clogging&quot;&gt;Predicting Clogging&lt;/h3&gt;
+
+&lt;p&gt;hopper flow&lt;/p&gt;
+
+&lt;h3 id=&quot;analogical-reasoning-to-build-transferable-models&quot;&gt;Analogical Reasoning to build Transferable Models&lt;/h3&gt;
+
+&lt;p&gt;model manifold: for a given data sampling method, points in parameter space can be mapped to a sampling space&lt;/p&gt;
+
+&lt;p&gt;manifold boundary approximation method&lt;/p&gt;
+
+&lt;p&gt;supremum principle&lt;/p&gt;
+
+&lt;p&gt;Wnt signalling network&lt;/p&gt;
+
+&lt;h3 id=&quot;evidence-for-griffiths-phase-criticality-in-residual-neural-networks&quot;&gt;&lt;a href=&quot;https://march.aps.org/sessions/M09/12&quot;&gt;Evidence for Griffiths Phase Criticality in Residual Neural Networks&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;residual networks’ has Griffith phase, due to the design (sth.  and renormalization)&lt;/p&gt;
+
+&lt;h2 id=&quot;n08-systems-far-from-equilibrium&quot;&gt;N08: Systems Far from Equilibrium&lt;/h2&gt;
+
+&lt;h3 id=&quot;hopping-particles&quot;&gt;Hopping Particles&lt;/h3&gt;
+
+&lt;p&gt;math heavy&lt;/p&gt;
+
+&lt;p&gt;Doi representation, Jarzynski relation, Doi-Peliti field theory&lt;/p&gt;
+
+&lt;p&gt;generalized fluctuation-dissipition into non-equilibrium&lt;/p&gt;
+
+&lt;p&gt;no coarse graining or slow modes&lt;/p&gt;
+
+&lt;h3 id=&quot;a-topological-fluctuation-theorem&quot;&gt;&lt;a href=&quot;https://march.aps.org/sessions/N08/2&quot;&gt;A topological fluctuation theorem&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;$\Delta S_M = \frac{Q}{k_B T}n = \gamma n$&lt;/p&gt;
+
+&lt;p&gt;also math heavy&lt;/p&gt;
+
+&lt;p&gt;detailed TFT: symmetry of particle in vortex field is protected by topology&lt;/p&gt;
+
+&lt;h3 id=&quot;tur-in-langevan-processes&quot;&gt;TUR in Langevan processes&lt;/h3&gt;
+
+&lt;p&gt;TUR: thermodynamic uncertainty relation&lt;/p&gt;
+
+&lt;p&gt;$\frac{var(j)}j{}\ge \frac{2}{&amp;lt;\Sigma&amp;gt;}$&lt;/p&gt;
+
+&lt;p&gt;probability distribution → rate function. don’t know how&lt;/p&gt;
+
+&lt;p&gt;“caveat” seems an abused word, another is “ansatz”&lt;/p&gt;
+
+&lt;h3 id=&quot;reversal-symmetry-for-cyclic-paths-from-notre-dame&quot;&gt;reversal symmetry for cyclic paths from Notre Dame&lt;/h3&gt;
+
+&lt;p&gt;detailed balance implies a reversal symmetry&lt;/p&gt;
+
+&lt;p&gt;expressed as Markov process: $\frac{p_i}{p_j} = \frac{l(i,j)}{l(j,i)}$&lt;/p&gt;
+
+&lt;p&gt;his work is just cycles in non-equilibrium systems&lt;/p&gt;
+
+&lt;p&gt;fluctuation theorem for &lt;strong&gt;cycle counts&lt;/strong&gt;. PRE 2021&lt;/p&gt;
+
+&lt;h3 id=&quot;emergence-and-breaking-of-duality-symmetry-in-generalized-thermodynamic-relations-from-unc-chapel-hill&quot;&gt;emergence and breaking of duality symmetry in generalized thermodynamic relations from UNC chapel hill&lt;/h3&gt;
+
+&lt;p&gt;foundation of thermodynamics, statistical mechanics, can be further founded upon classical or quantum mechanics&lt;/p&gt;
+
+&lt;p&gt;three times of Legendre transforms of internal energy ought to give 0, which breaks the reversibility of Legendre transform.&lt;/p&gt;
+
+&lt;p&gt;T. Hill 1963: added some sub linear term&lt;/p&gt;
+
+&lt;p&gt;they used mean of finite measurements&lt;/p&gt;
+
+&lt;p&gt;their understanding of thermodynamics is “nothing more than theories of probability”&lt;/p&gt;
+
+&lt;h3 id=&quot;scaling-of-entropy-under-coarse-graining&quot;&gt;Scaling of entropy under coarse graining&lt;/h3&gt;
+
+&lt;p&gt;entropy production rate&lt;/p&gt;
+
+&lt;p&gt;in 1 dimension Derrida)&lt;/p&gt;
+
+&lt;p&gt;dimension matters and data reduction may have non-trivial effects.&lt;/p&gt;
+
+&lt;h3 id=&quot;kibble-zurek-effect-quench&quot;&gt;Kibble-Zurek effect, quench&lt;/h3&gt;
+
+&lt;p&gt;phase transitions&lt;/p&gt;
+
+&lt;h3 id=&quot;discrete-non-linear-schroedinger-equation-by-federico&quot;&gt;Discrete Non-Linear Schroedinger Equation by Federico&lt;/h3&gt;
+
+&lt;p&gt;phase transition again&lt;/p&gt;
+
+&lt;h3 id=&quot;anormalous-thermal-relaxation-in-unimolecular-chemical-reactions&quot;&gt;anormalous thermal relaxation in unimolecular chemical reactions&lt;/h3&gt;
+
+&lt;p&gt;Mpemba effect: hotter water freeze faster than cold water&lt;/p&gt;
+
+&lt;h3 id=&quot;perturbation-spreading-in-a-non-reciprocal-classical-isotropic-magnet&quot;&gt;&lt;a href=&quot;https://march.aps.org/sessions/N08/10&quot;&gt;Perturbation spreading in a non-reciprocal classical isotropic magnet&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;totally absent-minded&lt;/p&gt;
+
+&lt;h3 id=&quot;stefan-maxwell-diffusivities-of-gas-mixtures-and-liqiud-electrolytes-from-oxford&quot;&gt;Stefan-Maxwell diffusivities of gas mixtures and liqiud electrolytes from Oxford&lt;/h3&gt;
+
+&lt;p&gt;electrolytes, concentrated solution theory: Gibbs-Duhem relations&lt;/p&gt;
+
+&lt;p&gt;very math heavy, and words too small on slides. presentation visualization not so good.&lt;/p&gt;
+
+&lt;p&gt;extended DFN model&lt;/p&gt;
+
+&lt;p&gt;Onager’s regression&lt;/p&gt;
+
+&lt;h2 id=&quot;q04-non-equilibrium-thermodynamics-from-chemical-reaction-networks-to-natural-selection-ii&quot;&gt;Q04: Non-equilibrium Thermodynamics: From Chemical Reaction Networks to Natural Selection II&lt;/h2&gt;
+
+&lt;h3 id=&quot;free-energy-transduction-chemical-reaction-network&quot;&gt;Free energy transduction, chemical reaction network&lt;/h3&gt;
+
+&lt;p&gt;non-linear reaction: at least second order reaction&lt;/p&gt;
+
+&lt;p&gt;reactions → emergent cycles&lt;/p&gt;
+
+&lt;h3 id=&quot;scaling-relations-of-energy-dissipation-rate-in-non-quilibrium-reaction-systems&quot;&gt;Scaling relations of energy dissipation rate in non-quilibrium reaction systems&lt;/h3&gt;
+
+&lt;p&gt;state space renormalization group&lt;/p&gt;
+
+&lt;h3 id=&quot;algebra-on-biological-structures-caltech-and-cold-spring-harbor&quot;&gt;algebra on biological structures, Caltech and Cold Spring Harbor&lt;/h3&gt;
+
+&lt;p&gt;second quantization, field operators in multiparticle Fock space&lt;/p&gt;
+
+&lt;p&gt;classic particles in quantum language&lt;/p&gt;
+
+&lt;p&gt;the operation is the Wick contraction&lt;/p&gt;
+
+&lt;h3 id=&quot;decomposing-local-arrow-of-time-interacting-systems&quot;&gt;decomposing, local arrow of time, interacting systems&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\dot I = D_{KL}[P(x\rightarrow x’)&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;P(x’\rightarrow x)]$&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;“entropy production” again: Prigogine 1947, Shcnakenberg 1976, Skinner Dunkel 2021&lt;/p&gt;
+
+&lt;p&gt;observe k elements in the system: interaction irreversibility $\dot I^{(k)}_{int}=\dot I^{(k)} - \dot I^{(k-1)}$&lt;/p&gt;
+
+&lt;h3 id=&quot;information-transmission-by-heterogeneous-cell-populations&quot;&gt;information transmission by heterogeneous cell populations&lt;/h3&gt;
+
+&lt;p&gt;noise can ruin cellular info sensing&lt;/p&gt;
+
+&lt;p&gt;individual cell senses better than population(?) &lt;strong&gt;conditional mutual information&lt;/strong&gt; reflects this&lt;/p&gt;
+
+&lt;h3 id=&quot;functional-universality-microbial-thermodynamic-constraints&quot;&gt;functional universality, microbial, thermodynamic constraints&lt;/h3&gt;
+
+&lt;p&gt;energy-limited vs. nutrient limited&lt;/p&gt;
+
+&lt;h3 id=&quot;trade-off&quot;&gt;trade off:&lt;/h3&gt;
+
+&lt;p&gt;law of energy in biology; model organism being anaerobes B. theta&lt;/p&gt;
+
+&lt;p&gt;PPi (pyrophorsphate) as energy source&lt;/p&gt;
+
+&lt;h3 id=&quot;3d-diffusion-in-ecoli&quot;&gt;3D diffusion in E.coli&lt;/h3&gt;
+
+&lt;h2 id=&quot;physics-of-social-interactions-ii&quot;&gt;Physics of social interactions II&lt;/h2&gt;
+
+&lt;p&gt;firefly, one research about vocabulary, one about spatiotemporal pattern&lt;/p&gt;
+
+&lt;p&gt;bunblebees, SLEAP to identity action and track&lt;/p&gt;
+
+&lt;p&gt;ant, fire ant, BOBbots, multi-occupancy lattice gas, rule based model→observed result&lt;/p&gt;
+
+&lt;p&gt;social polarization: vector force, but how agents are embedded into this space? no answer&lt;/p&gt;
+
+&lt;p&gt;HKB system, third party induced bistability, symmetry breaking “HOW”!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Team formation&lt;/strong&gt;: &lt;a href=&quot;https://march.aps.org/sessions/S03/9&quot;&gt;Modeling the Catalysis of Collaboration at In-Person and Virtual Conferences&lt;/a&gt;: Non-linear memory model, scialog dataset&lt;/p&gt;
+
+&lt;p&gt;mirror game: no designated leader experts reach higher accuracy and velocities&lt;/p&gt;
+
+&lt;p&gt;Granger causality analysis: not so advertised. experiment with flow switch. Presentation not so well given.&lt;/p&gt;
+
+&lt;p&gt;Bacteria reshape their surroundings to enable migration: use bioprinting. different pore size in media. non-motile vs. motile. motile E.coli can escape tight pores&lt;/p&gt;
+
+&lt;h2 id=&quot;learning-dynamical-models-across-physical-systems&quot;&gt;&lt;strong&gt;Learning dynamical models across physical systems&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;learning-dominant-physical-processes-with-data-driven-balance-models-walking&quot;&gt;&lt;strong&gt;Learning dominant physical processes with data-driven balance models (walking)&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;obtain kinetics without markers
+    &lt;ul&gt;
+      &lt;li&gt;2d median filter, viterbi filter&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;anipose&lt;/strong&gt;: combination of  2d filters, triangulation, minimize spatiotemporal variation in limb length&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;feedback model
+    &lt;ul&gt;
+      &lt;li&gt;reflex model, central pattern generator&lt;/li&gt;
+      &lt;li&gt;tune the sensor neurons with laser&lt;/li&gt;
+      &lt;li&gt;proprioceptor model → state estimator → neural controller → (muscle model)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;knodes-to-learn-complex-dynamics-and-chaos-by-m-ani-hsieh-from-upenn&quot;&gt;KNODES to learn complex dynamics and chaos by M. Ani Hsieh from UPenn&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ocean data&lt;/li&gt;
+  &lt;li&gt;neural ordinary differential equation (NODE).
+    &lt;ul&gt;
+      &lt;li&gt;NeurIPS 6572-6583, 2018&lt;/li&gt;
+      &lt;li&gt;knowledge embedding enabled by NODEs. Knowledge-based learning of nonlinear dynamics and chaos. Chaos vol31. 2021&lt;/li&gt;
+      &lt;li&gt;applied to Hopf model, Stiff Can Der Pol model,&lt;/li&gt;
+      &lt;li&gt;inferring swarming dynamics from data&lt;/li&gt;
+      &lt;li&gt;deformable image registration&lt;/li&gt;
+      &lt;li&gt;model predictive control that controlled drones&lt;/li&gt;
+      &lt;li&gt;learning chaos&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;scalar.seas.upenn.edu&lt;/p&gt;
+
+&lt;h3 id=&quot;physics-of-behaviors-across-scales&quot;&gt;physics of behaviors across scales&lt;/h3&gt;
+
+&lt;p&gt;large scale behavior (trajectory): variation explained by exploration-exploitation&lt;/p&gt;
+
+&lt;p&gt;fine scale (posture): decompose into 5 primitive postures&lt;/p&gt;
+
+&lt;p&gt;connection:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;transfer operators → slow emergent variables, subsume nonlinear to linear&lt;/li&gt;
+  &lt;li&gt;use time series to max predict system to compensate missing d.o.f&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;“hopping dynamics” again&lt;/p&gt;
+
+&lt;p&gt;non-ergodic drives that prevent the dynamics from relaxing to the steady state within measurement time&lt;/p&gt;
+
+&lt;p&gt;the landscape the worms seeking food is also time dependent&lt;/p&gt;
+
+&lt;h3 id=&quot;ml-for-biomechanics&quot;&gt;ML for biomechanics&lt;/h3&gt;
+
+&lt;p&gt;this group’s interested is very scattered.&lt;/p&gt;
+
+&lt;p&gt;first part just missed: learn macroscopic params in hydrodynamics as fields&lt;/p&gt;
+
+&lt;p&gt;Unet to predict some cell protein density, identify relevant signals&lt;/p&gt;
+
+&lt;p&gt;model: Oakes et al, BioPhys J 2014&lt;/p&gt;
+
+&lt;p&gt;fruit fly tissue&lt;/p&gt;
+
+&lt;p&gt;physics-informed machine learning again&lt;/p&gt;
+
+&lt;h3 id=&quot;physics-informed-machine-learning-climate-modeling-and-covid-19-forecasting&quot;&gt;physics-informed machine learning: climate modeling and COVID 19 forecasting&lt;/h3&gt;
+
+&lt;p&gt;Unet also here. turbulent-flow net. basically a new network structure based on unet.&lt;/p&gt;
+
+&lt;p&gt;group equivariance leads to another net called Scale Equ-ResNet in order to retrieve symmetry&lt;/p&gt;
+
+&lt;p&gt;spatial-temporal neural p…: Baysian Active Learning&lt;/p&gt;
+
+&lt;h2 id=&quot;collective-behavior-in-biology&quot;&gt;Collective Behavior in Biology&lt;/h2&gt;
+
+&lt;h3 id=&quot;thermal-trp-channels-of-vipers&quot;&gt;thermal TRP channels of vipers&lt;/h3&gt;
+
+&lt;p&gt;1K sensitivity of a channel; 1mK sensitivity of neurons&lt;/p&gt;
+
+&lt;p&gt;independent channels, over time of several independent measurements&lt;/p&gt;
+
+&lt;p&gt;hypothesis: TRPA1 channels are embedded into a dynamical system near bifurcation. activated channels activates other channels&lt;/p&gt;
+
+&lt;p&gt;question: does coupling break the independence of measurements? single channel info is ~1&lt;/p&gt;
+
+&lt;h3 id=&quot;growth-difference-in-single-and-multicellular-organisms&quot;&gt;growth difference in single and multicellular organisms&lt;/h3&gt;
+
+&lt;p&gt;expanding epithelium,when the area grows linearly, the size only ~$\sqrt{a}$, does this feedback to cells?&lt;/p&gt;
+
+&lt;p&gt;cells divide at a smaller size&lt;/p&gt;
+
+&lt;p&gt;lower bound of cellular size might come from genome size. CCND1labels DNA demage&lt;/p&gt;
+
+&lt;p&gt;no mechanisms yet&lt;/p&gt;
+
+&lt;h3 id=&quot;collective-signal-oscillation&quot;&gt;collective signal oscillation&lt;/h3&gt;
+
+&lt;p&gt;a lot of models&lt;/p&gt;
+
+&lt;p&gt;key features not heard clearly. adaptive spiking&lt;/p&gt;
+
+&lt;h3 id=&quot;cellular-migration-on-substrate-with-topological-defects&quot;&gt;cellular migration on substrate with topological defects&lt;/h3&gt;
+
+&lt;p&gt;the way they defined topology number = -1 is not as my expectation&lt;/p&gt;
+
+&lt;p&gt;Francesca Serra group experiment&lt;/p&gt;
+
+&lt;p&gt;not too much work&lt;/p&gt;
+
+&lt;h3 id=&quot;synchrony-and-causality&quot;&gt;synchrony and causality&lt;/h3&gt;
+
+&lt;p&gt;Bo Sun again. granger causality again&lt;/p&gt;
+
+&lt;p&gt;used a famous model not written down. Sounded like Nagumo model&lt;/p&gt;
+
+&lt;h3 id=&quot;living-chiral-crystals&quot;&gt;living chiral crystals&lt;/h3&gt;
+
+&lt;p&gt;starfish embryos&lt;/p&gt;
+
+&lt;h3 id=&quot;central-nervous-system&quot;&gt;central nervous system&lt;/h3&gt;
+
+&lt;p&gt;gut motions and nerves in crafish&lt;/p&gt;
+
+&lt;p&gt;just using 5-HT is not enough to compensate the cutting of nerve&lt;/p&gt;
+
+&lt;h3 id=&quot;role-of-position-info-in-collcetive-gradient-sensing&quot;&gt;role of position info in collcetive gradient sensing&lt;/h3&gt;
+
+&lt;p&gt;Cramer-Rao bound by maximum likelihood estimation&lt;/p&gt;
+
+&lt;p&gt;benchmark was called tug-of-war model&lt;/p&gt;
+
+&lt;p&gt;contact inhibition of locomotion&lt;/p&gt;
+
+&lt;h3 id=&quot;self-tuned-criticality-amplifies-signals-in-bacterial-chemotaxis&quot;&gt;self-tuned criticality amplifies signals in bacterial chemotaxis&lt;/h3&gt;
+
+&lt;p&gt;E.coli chemosensing: high cooperativity, perfect adaptation, large noise&lt;/p&gt;
+
+&lt;p&gt;symmetric spreading of CheA&lt;/p&gt;
+
+&lt;h3 id=&quot;division-migration-cell-signaling&quot;&gt;division, migration, cell signaling&lt;/h3&gt;
+
+&lt;p&gt;MDCK monolayer&lt;/p&gt;
+
+&lt;p&gt;very biology heavy&lt;/p&gt;
+
+&lt;p&gt;a low fluctuation phase&lt;/p&gt;
+
+&lt;h3 id=&quot;criticality-in-cochlea&quot;&gt;criticality in Cochlea&lt;/h3&gt;
+
+&lt;p&gt;impedance = pressure/height, WKB approximation&lt;/p&gt;
+
+&lt;p&gt;hair cells are the sensors, undergo Hopf bifurcation&lt;/p&gt;
+
+&lt;h3 id=&quot;defining-success-for-pairwise-maximum-entropy-models&quot;&gt;defining success for pairwise maximum entropy models&lt;/h3&gt;
+
+&lt;p&gt;mouse brain hippocampus, 2000 neurons&lt;/p&gt;
+
+&lt;p&gt;in subgroups, swap 1/2 of the cells to minimize pairwise correlation coefficient&lt;/p&gt;
+
+&lt;h2 id=&quot;stoichastic-thermodynamics-and-biological-and-artificial-info-processing&quot;&gt;stoichastic thermodynamics and biological and artificial info processing&lt;/h2&gt;
+
+&lt;h3 id=&quot;entropy-generation-during-computation---is-it-really-avoidable-even-in-principle&quot;&gt;&lt;a href=&quot;https://march.aps.org/sessions/Y09/1&quot;&gt;Entropy generation during computation - is it really avoidable, even in principle?&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://march.aps.org/sessions/Y09/1&quot;&gt;Entropy generation during computation&lt;/a&gt;: Szilard’s argument&lt;/p&gt;
+
+&lt;p&gt;erase and copy operation of ribonsome works like a universal turing machine.&lt;/p&gt;
+
+&lt;p&gt;in theory, logically irreversible process can be thermodynamically reversible, like &lt;strong&gt;erasure&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;statistic-thermodynamics-of-communication-channels&quot;&gt;statistic thermodynamics of communication channels&lt;/h3&gt;
+
+&lt;p&gt;MIT media lab&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$\sigma(\vec x_f)\leftrightarrow DK(P(\vec x_f)&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;P(\vec x))$ KL Divergence&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;2 models, 3 by 3 nodes with some lines connecting some pairs, didn’ get what they mean.&lt;/p&gt;
+
+&lt;p&gt;they call the thing NESS (non equilibrium steady state).&lt;/p&gt;
+
+&lt;p&gt;takehome: dissipative not monotuned increasing as info transmission increases. some channel more efficient than others&lt;/p&gt;
+
+&lt;h3 id=&quot;fluid-intellengence-activities-from-learning-and-forgetting&quot;&gt;fluid intellengence: activities from learning and forgetting&lt;/h3&gt;
+
+&lt;p&gt;diameter variable particles as intelligent agents&lt;/p&gt;
+
+&lt;p&gt;diameter function $D(\vec p)$ symmetry determines symmetry of new distribution&lt;/p&gt;
+
+&lt;p&gt;policy optimization, reinforce learning to search behavior space&lt;/p&gt;
+
+&lt;h3 id=&quot;nonquilibrium-dynamics-of-temporally-responsive-single-molecular-automation&quot;&gt;nonquilibrium dynamics of temporally responsive, single molecular automation&lt;/h3&gt;
+
+&lt;p&gt;smart vs. inert: ability to perform temporal pattern recognition&lt;/p&gt;
+
+&lt;p&gt;a polymer that has multiple foldable positions.&lt;/p&gt;
+
+&lt;p&gt;dual scale master equation&lt;/p&gt;
+
+&lt;h3 id=&quot;thermodynamics-of-biological-signal-propagation&quot;&gt;thermodynamics of biological signal propagation&lt;/h3&gt;
+
+&lt;p&gt;information: $lim_{T\rightarrow \infin}\frac{1}{T}\int MI(I,O)dt$&lt;/p&gt;
+
+&lt;p&gt;diffusion of signal,some equations, etc, parameters include size of source and receiver&lt;/p&gt;
+
+&lt;p&gt;implications:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;cells don’t talk because they are too small&lt;/li&gt;
+  &lt;li&gt;E.coli phosphotases are close to ion channels (missed, not sure)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;dissipation-accuracy-speed-tradeoffs-in-computation-on-attice-self-assembly&quot;&gt;dissipation-accuracy-speed tradeoffs in computation on-;attice self-assembly&lt;/h3&gt;
+
+&lt;p&gt;Landauer principle&lt;/p&gt;
+
+&lt;p&gt;D. Woods. Nature 2019&lt;/p&gt;
+
+&lt;p&gt;diamond shape 2-in2-out tiles that&lt;/p&gt;
+
+&lt;h3 id=&quot;bayesian-mechanics-for-interacting-systems&quot;&gt;Bayesian mechanics for interacting systems&lt;/h3&gt;
+
+&lt;p&gt;Langevin equation&lt;/p&gt;
+
+&lt;p&gt;NESS again&lt;/p&gt;
+
+&lt;h3 id=&quot;wipe-a-bit-with-no-energy-cost-by-pypassing-liouville-theorem&quot;&gt;wipe a bit with no energy cost by pypassing Liouville theorem&lt;/h3&gt;
+
+&lt;p&gt;Liouville says Halmitonian system must be incompressible in phase space&lt;/p&gt;
+
+&lt;p&gt;$H_{ers} = H_0+gH_{contraction}$&lt;/p&gt;
+
+&lt;p&gt;micro-canonical energy shell&lt;/p&gt;
+
+&lt;h3 id=&quot;stochastic-thermodynamics-of-finite-automata&quot;&gt;&lt;strong&gt;Stochastic Thermodynamics of Finite Automata&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;not following, deterministic finite automata&lt;/p&gt;
+
+&lt;h3 id=&quot;nonequilibrium-thermodynamics-of-uncertain-stochastic-processes&quot;&gt;&lt;strong&gt;Nonequilibrium thermodynamics of uncertain stochastic processes&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;wanted to follow but failed&lt;/p&gt;
+
+&lt;h3 id=&quot;glycan-function-of-golgi-constrain-its-morphology&quot;&gt;glycan, function of Golgi constrain its morphology&lt;/h3&gt;
+
+&lt;p&gt;also used KL divergence here.&lt;/p&gt;
+
+&lt;p&gt;looks like there has been no experiment, maybe I missed it.&lt;/p&gt;
+
+&lt;h3 id=&quot;stochastic-thermodynamics-of-anomalous-diffusion-generated-by-scaled-and-fractional-brownian-motions&quot;&gt;&lt;strong&gt;Stochastic thermodynamics of anomalous diffusion generated by scaled and fractional Brownian motions&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;Stochastic thermodynamics: ST&lt;/p&gt;
+
+&lt;p&gt;fractional Brownian motion: fractional gaussian noise (no idea what)&lt;/p&gt;
+
+&lt;p&gt;fluctuation-dissipation is broken by memory in noise&lt;/p&gt;
+
+&lt;h3 id=&quot;optimality-in-biological-proofreading&quot;&gt;&lt;strong&gt;Optimality in biological proofreading&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;DNA replication error rate 10^-8 ~10^-10&lt;/p&gt;
+
+&lt;p&gt;experiment K_D/K_C = 10^-2, observed error rate 10^-3~10^-4, discrepancy&lt;/p&gt;
+
+&lt;p&gt;Pareto optimal fronts of kinetic proofreading&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;generalized Hopfield model&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;speed-dissipation trade off again&lt;/p&gt;
+
+&lt;h2 id=&quot;dynamics-in-evolution&quot;&gt;Dynamics in Evolution&lt;/h2&gt;
+
+&lt;h3 id=&quot;multicellular&quot;&gt;Multicellular&lt;/h3&gt;
+
+&lt;p&gt;Size→nutrition gradient→differentiation&lt;/p&gt;
+
+&lt;p&gt;Multicellular yeast! T yeast&lt;/p&gt;
+
+&lt;p&gt;Bozdag&lt;/p&gt;
+
+&lt;p&gt;Non-reformable→mechanical challenge&lt;/p&gt;
+
+&lt;p&gt;The aspect ratio increases significantly after the size grows&lt;/p&gt;
+
+&lt;p&gt;Aggregation not happening; Tangling spans the bulk&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.notion.so/f2d1d2aad90f47ffb3d7346e6f2ec0ee&quot;&gt;Schedule&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 12 Mar 2023 00:00:00 -0600</pubDate>
+        <link>https://mountaye.github.io/blog/articles/notes-during-APS-march-meeting-2022-Chicago</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/notes-during-APS-march-meeting-2022-Chicago</guid>
+        
+        
+      </item>
     
       <item>
         <title>.pdf | 《你的第一本哲学书》笔记（更新中）</title>
@@ -389,6 +2177,37 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;7-何种不平等是不公正的-justice&quot;&gt;7. 何种不平等是不公正的 (Justice)&lt;/h3&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;辩题&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;那些并不由受苦的人自己造成的不平等在何种程度上是件坏事呢？政府是否应当为此运用权力去减少这种不平等呢？&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;总结&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+&lt;span class=&quot;na&quot;&gt;正方&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;主义&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+  &lt;span class=&quot;na&quot;&gt;主张&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;论点&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;某些不平等是刻意强加的。种族歧视有意剥夺某些种族的人民工作，性别歧视把工作机会和特权都留给男人。这些不仅仅是运气问题，这种不平等是由于一些本不应当人民的基本权益的因素造成的。&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;论点&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;公平的做法是人人机会均等，有能力就能得到。如果政府努力促进这种机会的平等，是件好事。在刻意的歧视的情况下，造成不平等的原因是错误的，补救措施也就只是制止这种歧视而已。&lt;/span&gt; 
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;论点&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;反对非歧视下的不公，是因为我们反对仅仅由于社会经济通常运行机制的缘故，而让无辜的人一生下来就承受种种困境。补救措施要么干预这些原因本身，要么直接干预这些不平等的结果。&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;论点&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;对于社会地位差异造成的不公，如果政府要减少时代积累的、财产上不平等的发展趋势，可取的方案是间接干涉人们的经济生活，例如税收，要点是不让人们掌控全部的财富。国家税收提供健康、食品、住宅和教育方面的基本福利。&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;论点&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;对于能力造成的不平等，唯一可能的替代方案是中央集权的经济，由中央权力分配给人们工作，并且付给人们大致一样的薪金。&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;反驳&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;一些国家实施过这种经济体制，但是付出了高昂的代价。既牺牲了自由，又缺乏效率。&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;论点&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;要减少能力差异的不平等，同时保留自由竞争经济，只有改变不平等的结果。可以对高收入者课以重税，并对低收入者提供福利。&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;反驳&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;这些方式都只能减弱而不能完全摆脱不应有的不平等，并且任何一种税收体系都会对经济有其他影响，难以事先预测。&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;论点&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;从世界范围来说，问题还要复杂得多，因为缺乏可以征“世界税”并被监督有效使用的世界政府。如此很难说何种补救措施才是可行的。&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;反驳&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;不太可能有一个世界范围内的正义的政府，若有这样的政府，它可能在很多方面都是非常可怕的。&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;反方&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;主义&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+  &lt;span class=&quot;na&quot;&gt;主张&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;论点&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;如果没有刻意的种族或者性别歧视，在一般的情况下也会造成不平等的现象。对此我们很难指责什么。&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;反驳&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;内容&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;如果这些差别使得某些人的境况非常悲惨的话，这会令人非常不安。&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;论点&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;社会地位的差异，出生于富裕家庭的人会受到较好的教育，拥有较多的资源。即使在一个机会平等的社会里，对于自然天赋相同的人而言，如果某人生来就比别人占优势，最终也会比别人得到更多的收益。&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;论点&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;社会需要的自然天赋或才能上的差异，而自然天赋的不同造成的结果也会相当不同。&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;论点&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;再分配税是不合理的，除非人们做了错事，否则政府就不该干涉。&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;主张&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;  
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;论点&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;更应该反对社会经济造成的不平等，而非个人天赋或才能造成的不平等。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;8-死亡的本性-death&quot;&gt;8. 死亡的本性 (Death)&lt;/h3&gt;
 
@@ -4421,293 +6240,6 @@ cinity，他按说是咱们中国原创，但你仔细一看，里边它还是�
         <pubDate>Mon, 03 Oct 2022 00:00:00 -0500</pubDate>
         <link>https://mountaye.github.io/blog/articles/how-to-narrate</link>
         <guid isPermaLink="true">https://mountaye.github.io/blog/articles/how-to-narrate</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>文革史笔记-2.1 | 一条登上权力顶峰的“捷径”</title>
-        <description>&lt;h2 id=&quot;内容梗概&quot;&gt;内容梗概&lt;/h2&gt;
-
-&lt;p&gt;第二篇的开头两章，在本篇中当然是按照时间顺序从头开始讲，在整本书的作用则变成了插叙和追忆，记录林彪在文革之前政治地位崛起的过程。第一章是主升浪，第二章是一波小回调。&lt;/p&gt;
-
-&lt;p&gt;再次证明文革只不过是中共建党以及人民共和国建政以来的一系列政治运动中的普通一个，各个运动之间连续光滑且可导，《建国以来若干历史问题的决议》将之切割不过是一种修正主义和功利主义的临时修补，“前后两个三十年互不否定”才是历史唯物主义同中国革命的具体经验相结合的正确运用，毫不动摇地坚持和党的路线一起动摇才是一个共产主义者的本分和使命~&lt;/p&gt;
-
-&lt;p&gt;林副主席（的执笔秘书）的白话文水平也十分&lt;a href=&quot;https://www.youtube.com/watch?v=FhXdLIBVCMQ&quot;&gt;精湛(shèn)细腻&lt;/a&gt;，不落党八股的窠臼，比起某新华社长的“&lt;a href=&quot;https://www.dw.com/zh/%E6%96%B0%E8%8F%AF%E7%A4%BE%E6%8F%90%E4%B8%89%E5%80%8B%E4%B8%80%E5%88%86%E9%90%98%E5%B0%88%E5%AE%B6%E4%BA%8C%E5%8D%81%E5%A4%A7%E5%89%8D%E6%93%81%E7%BF%92/a-63018173&quot;&gt;三个一分钟&lt;/a&gt;”不知道高到哪里去了。“我们学习毛泽东思想，怎样学呢？我向同志们提议，主要是学习林彪同志的言论，这是学习毛泽东思想的捷径。”&lt;/p&gt;
-
-&lt;p&gt;林副主席永远健康！&lt;/p&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;h2 id=&quot;摘抄随想&quot;&gt;摘抄随想&lt;/h2&gt;
-
-&lt;p&gt;林彪吹捧毛泽东的言论大赏：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;他在军委扩大会议上说：“我们学习马克思列宁主义，怎样学呢？我向同志们提议，主要是学习毛泽东同志的著作。这是 学习马列主义的捷径。”&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“毛泽东同志全面地、创造性地发展了马克思列宁主义”&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“我们学毛泽东同志的著作容易学，学 了马上可以用，好好学习，是一本万利的事情，”&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;林彪在中国人民解放军内，多次号召全军“必须把毛泽东思想真正学到手”，“一定要把毛泽东思想学到手”。&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“带着问题学习毛泽东同志的著作，这种方法是有的放矢”&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“学习马列主义最好的方法，是学习毛主席的东西”&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;现在的马列主义“就是我们毛主席思想，它今夭在世界上是站在最高峰，站在现时代的顶峰”，“毛泽东思想是当代最高最活的马克思列宁主义”。&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;p&gt;“四个第一”以及“活思想”这一概念&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;林彪是简洁语言的创造者，普通人一次只会提出“一个第一”，而林彪却能提出“四个第一”，即所谓人的因素第一，政治工作第一，思想工作第一，活的思想第一。在二十世 纪六十年代，由于林彪的“创造”，在中国人中，几乎没有人不知道“活思想”这一概念。&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;p&gt;《关于加强军队政洽思想工作的决议》，粗体为笔记作者阿掖山所加。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;《决议》 指出，“毛泽东同志是当代伟大的马克思列宁主义者”，“毛泽东思想是中国人民革命和社会主义建设的指针，是反对帝国主义的强大的思想武器，是&lt;strong&gt;反对&lt;/strong&gt;修正主义和&lt;strong&gt;教条主义&lt;/strong&gt;的强大的思想武器”。《决议》强调要“高高地举起毛泽东思想的红旗，进一步用毛泽东思想武装全体指战员的头脑，坚持在一切 工作中用毛泽东思想挂帅。”《决议》还号召全军指战员“高举毛泽东思想红旗，把毛泽东思想真正学到手！”“&lt;strong&gt;读毛主席的书， 听毛主席的话，照毛主席的指示办事，做毛主席的好战士！&lt;/strong&gt;”&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;p&gt;林副主席真可以说是文采斐然，之前就已经感叹过了，这次忍不住再随喜赞叹一次，简体白话文学之光~&lt;/p&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;p&gt;“七千人大会”上勤王：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;中共中央召开扩大的工作会议。这次会议的主要任务，是对建国以来十二年的工 作，特别是对“大跃进”以来的工作经验和教训进行认真的总 结。参加这次会议的有中央、各中央局、各省市自治区党委以及地委、县委、重要厂矿企业和部队的负责干部七千多人，因此又称&lt;strong&gt;“七千人大会”&lt;/strong&gt;。
-当时毛泽东本人真心实意地号召大家发扬民主，要求大家把要讲的话都讲出来，“开出气会”。就在这样的情况下，林彪始终没有忘记要“走捷径”。他在这次大会的讲话中继续制 造“个人崇拜”，粉饰错误。他与众不同，他在总结“大跃进”以来的错误产生的原因时说，现在的困难，“恰恰是由于我们有许多事情没有按照毛主席的指示去做而造成的。如果按 照毛主席的指示去做，如都听毛主席的话，那么，困难会小得多，弯路会弯得小一些”。接着，他谈到了毛泽东，他说：“正确的东西，是唯物主义，是毛泽东思想。毛主席的优点是多方面的。我个人几十年来的体会，他的突出优点，是实际，总是与实际八九不离十，总在实际周围，围绕着实际，不脱离实际。”“过去的工作搞得好的时候，正是毛主席思想不受干扰的时侯。凡是毛主席的思想不受尊重，受到干扰时，就会出毛病。几十年的历史，就是这个历史”。&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;h2 id=&quot;时间线&quot;&gt;时间线&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1907年
-    &lt;ul&gt;
-      &lt;li&gt;林彪出生，比毛泽东小十四岁。【2.1.“个人崇拜”的发动者】&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1956年
-    &lt;ul&gt;
-      &lt;li&gt;中国共产党召开第八次全国代表大会，林彪当选为中央政治局委员。【2.1.“个人崇拜”的发动者】&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1959年
-    &lt;ul&gt;
-      &lt;li&gt;在中共中央政治局扩大会议和八届八中全会 后，全党展开了一场批判彭德怀、黄克诚、张闻天等人的所谓 “右倾机会主义”的斗争，彭德怀被免去了国防部长的职务， 林彪兼任国防部长并开始主持中共中央军委工作。林彪主持中央军委工作不久，便有目的、有步骤地制造对毛泽东的个人崇拜。【2.1.“个人崇拜”的发动者】&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1960年9月14日-1960年9月20日
-    &lt;ul&gt;
-      &lt;li&gt;林彪亲自主持军委扩大会议，通过了《关于加强军队政洽思想工作的决议》【2.1.有独特风格的崇拜语言】&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1960年10月1日
-    &lt;ul&gt;
-      &lt;li&gt;《毛泽东选集》第四卷出版了。林彪特地为之撰写了《中国人民革命战争的胜利是毛泽东思想的伟大胜利》的文章。【2.1.“彻头彻尾、彻里彻外的政治”】&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1961年1月
-    &lt;ul&gt;
-      &lt;li&gt;林彪在《关于加强部认政治思想工作的指示》中，又提出，对毛泽东的著作，要“带着问题学，活学活用，急用先学，立竿见影”。【2.1.“彻头彻尾、彻里彻外的政治”】&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1961年4月
-    &lt;ul&gt;
-      &lt;li&gt;林彪视察部队时指出，“部队的每一次政洽思想教育，都必须以毛主席的著作为思想指导”。同时，指示部队编辑出版毛泽东著作选读本，《解放军报》要经常选登毛泽东语录。【2.1.“彻头彻尾、彻里彻外的政治”】&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1961年5月
-    &lt;ul&gt;
-      &lt;li&gt;《解放军报》开始刊登毛泽东语录。【2.1.“彻头彻尾、彻里彻外的政治”】&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1961年6月
-    &lt;ul&gt;
-      &lt;li&gt;林彪对毛泽东一次又一次的赞颂引起了毛泽东的注意，毛泽东在北京的一次会议上赞扬了林彪在军队内的作法。林彪受郅毛泽东的赞扬后，更加注意宣传毛泽东个人了。第一次把“彻头彻 尾、彻里彻外”和“政治”概念联在一起，他强调“以毛泽东思想为指针搞好军事工作就是彻头彻尾、彻里彻外的政治。”【2.1.“彻头彻尾、彻里彻外的政治”】&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1962年1月11日-1962年2月7日
-    &lt;ul&gt;
-      &lt;li&gt;中共中央召开扩大的 工作会议。这次会议的主要任务，是对建国以来十二年的工 作，特别是对“大跃进”以来的工作经验和教训进行认真的总 结。参加这次会议的有中央、各中央局、各省市自治区党委以及地委、县委、重要厂矿企业和部队的负责干部七千多人，因此又称&lt;strong&gt;“七千人大会”&lt;/strong&gt;。【2.1.“彻头彻尾、彻里彻外的政治”】&lt;/li&gt;
-      &lt;li&gt;林彪在这次大会的讲话中继续制造“个人崇拜”，粉饰错误。【2.1.“彻头彻尾、彻里彻外的政治”】&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1963年11月6日
-    &lt;ul&gt;
-      &lt;li&gt;因为林彪等少数几个人没有在“七千人大会上”上“出气”，却在毛泽东本人权力和威望有所降低时，毫不动摇地对毛泽东本人给予了支持，毛泽东在给林彪等人的一封信中，充分肯定了林彪的工作。【2.1.“彻头彻尾、彻里彻外的政治”】&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1964年5月
-    &lt;ul&gt;
-      &lt;li&gt;解故军总政治部根据《解放军报》刊载过的语录，补充编纂成《毛主席语录》一书出版，并与林彪提倡选编的毛泽东著作选读本一起在军内大量发行。【2.1.“彻头彻尾、彻里彻外的政治”】&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;1964年2月
-    &lt;ul&gt;
-      &lt;li&gt;毛泽东在接见活动中再一次赞扬林彪说：“四个第一好。”【2.1.“彻头彻尾、彻里彻外的政治”】&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Tue, 06 Sep 2022 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-2-1</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-2-1</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>.py | PyTorch 数据处理方面的封装</title>
-        <description>&lt;h2 id=&quot;一般监督学习的数据结构和处理过程&quot;&gt;一般监督学习的数据结构和处理过程&lt;/h2&gt;
-
-&lt;h3 id=&quot;训练集验证集测试集&quot;&gt;训练集、验证集、测试集&lt;/h3&gt;
-
-&lt;p&gt;所有数据整体构成一个大集合，这个集合的每一个元素都包含一个输入和一个目标，分别记作 x 和 y。&lt;/p&gt;
-
-&lt;p&gt;把这个大集合分成互相没有交集的三个子集，分别是训练集 (training set)、验证集 (validation set)、测试集 (test set)。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;训练集和验证集在训练过程中使用。
-    &lt;ul&gt;
-      &lt;li&gt;训练集的数据带入模型时，模型处于训练模式，模型输出对参数的导数被记录。通过比较把“模型输出”和“训练目标 y”代入&lt;strong&gt;损失函数&lt;/strong&gt;的损失，更新模型的参数。同时记录“模型输出”和“训练目标 y”带入验证函数的结果，和验证集比较。&lt;/li&gt;
-      &lt;li&gt;验证集的数据代入模型时，模型处于求值模式，模型只根据输入计算输出，对参数的导数不记录。通过观察“模型输出”和“训练目标 y”带入&lt;strong&gt;验证函数&lt;/strong&gt;的结果，观察训练是否陷入“过拟合”。当训练集的验证函数结果不断下降，但是验证集的验证函数结果几乎不变时，可以认为模型过拟合。&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;测试集在训练完成之后使用，代入模型时，模型处于求值模式。用于评价训练结果的好坏。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;epoch-vs-batch&quot;&gt;epoch vs. batch&lt;/h3&gt;
-
-&lt;p&gt;如果把所有数据同时进行训练，所需要的空间一般都大于电脑内存。所以一般会将训练集随机分成若干批次 (batch)，一个批次的数据同时塞入模型进行训练，在一个 batch 里每一个模型输出对参数的导数累加在一起，整个 batch 结束后更新模型参数，同时导数清零。因为 batch 这个概念和内存有关，所以数值一般选择为 2 的指数。&lt;/p&gt;
-
-&lt;p&gt;将训练集所有的 batches 跑完一次称为而一个 epoch。一次训练一般需要很多 epochs，直到损失函数结果足够低，或验证集显示出现过拟合。&lt;/p&gt;
-
-&lt;h2 id=&quot;pytorch-对上述结构和处理过程的封装&quot;&gt;PyTorch 对上述结构和处理过程的封装&lt;/h2&gt;
-
-&lt;h3 id=&quot;dataset&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dataset&lt;/code&gt;&lt;/h3&gt;
-
-&lt;p&gt;前面已经说了，数据集包括输入和目标两部分，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dateset&lt;/code&gt; 及其子类的作用就是&lt;/p&gt;
-
-&lt;p&gt;如果在把数据装入 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dataset&lt;/code&gt; 之前就已经是规整的两个张量了的话——&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;torch&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;torch.utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# ...
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;zip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train_x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train_y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# do something with x and y
-&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;trainset&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TensorDataset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train_x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train_y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trainset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# do something with x and y
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;——这一步确实没什么意思。&lt;/p&gt;
-
-&lt;p&gt;有意思的地方在于可以自己写一个数据集类，继承 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dataset&lt;/code&gt;，然后重载 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;__getitem__()&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;__len__()&lt;/code&gt; 方法，这样可以把一些不适合用张量表示的数据塞进 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dataset&lt;/code&gt; 里面，对图像进行学习的话可以在此处加入图像增强的步骤，并进一步用于 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataLoader&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;dataloader&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataLoader&lt;/code&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataLoader&lt;/code&gt; = &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dataset&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Sampler&lt;/code&gt;，因为一般的教程里只需要讲数据集进行简单随机划分，也就只用到了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;batch_size&lt;/code&gt; 等等参数，用到 Sampler 的地方很少。&lt;/p&gt;
-
-&lt;p&gt;最常见的用例就是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WeightedRandomSampler&lt;/code&gt; 。训练分类器的时候，有时其中一个类别的数据远少于其他，那么训练器就更难判断出这一分类（因为只要无脑排除这个类别就能获得不错的正确率），所以需要平衡不同组别之间的权重。&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WeightedRandomSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weights&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num_samples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;replacement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# [4, 4, 1, 4, 5]
-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WeightedRandomSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weights&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num_samples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;replacement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# [0, 1, 4, 3, 2]
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;平衡完之后转化为 batch，搭配 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BatchSampler&lt;/code&gt;：&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BatchSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WeightedRandomSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weights&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num_samples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;replacement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;batch_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drop_last&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# [[4, 4], [1, 4], 5]
-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BatchSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WeightedRandomSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weights&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num_samples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;replacement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;batch_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drop_last&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# [[0, 1], [4, 3]]
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;汇总一下&quot;&gt;汇总一下&lt;/h3&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;torch&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;torch.utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;train_x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;train_y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;trainset&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TensorDataset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train_x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train_y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# either:
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trainloader&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataLoader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;trainset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;batch_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;drop_last&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;sampler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WeightedRandomSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;weights&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; 
-        &lt;span class=&quot;n&quot;&gt;num_samples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-        &lt;span class=&quot;n&quot;&gt;replacement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# or:
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trainloader&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataLoader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;trainset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;batch_sampler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BatchSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WeightedRandomSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;weights&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; 
-            &lt;span class=&quot;n&quot;&gt;num_samples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-            &lt;span class=&quot;n&quot;&gt;replacement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; 
-        &lt;span class=&quot;n&quot;&gt;batch_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-        &lt;span class=&quot;n&quot;&gt;drop_last&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epoch&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trainloader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loss_function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;需要注意的是，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for x,y in trainset&lt;/code&gt; 的 x 和 y 的维度是单个数据的维度，最简单的情况就是是 P 和 Q 维向量，而此时如果把 batch_size 记作 B，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for x,y in trainloader&lt;/code&gt; 中的 x 和 y 是维度分别为 (B,P) 和 (B,Q) 的矩阵。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;train()&lt;/code&gt; 函数里面的计算要考虑到多出的这一个维度。&lt;/p&gt;
-
-&lt;h2 id=&quot;参考链接&quot;&gt;参考链接：&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pytorch.org/tutorials/beginner/basics/data_tutorial.html&quot;&gt;https://pytorch.org/tutorials/beginner/basics/data_tutorial.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pytorch.org/tutorials/beginner/nn_tutorial.html&quot;&gt;https://pytorch.org/tutorials/beginner/nn_tutorial.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pytorch.org/tutorials/beginner/ptcheat.html&quot;&gt;https://pytorch.org/tutorials/beginner/ptcheat.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pytorch.org/docs/stable/data.html?highlight=dataset#torch.utils.data.Dataset&quot;&gt;https://pytorch.org/docs/stable/data.html?highlight=dataset#torch.utils.data.Dataset&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.DataLoader&quot;&gt;https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.DataLoader&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.Sampler&quot;&gt;https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.Sampler&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pytorch.org/docs/stable/_modules/torch/utils/data/dataset.html#Dataset&quot;&gt;https://pytorch.org/docs/stable/_modules/torch/utils/data/dataset.html#Dataset&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 01 Sep 2022 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog/articles/pytorch-dataset-dataloader-sampler</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/pytorch-dataset-dataloader-sampler</guid>
         
         
       </item>

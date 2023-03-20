@@ -5,9 +5,332 @@
     <description>智力活动是一种生活态度</description>
     <link>https://mountaye.github.io/blog/</link>
     <atom:link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 13 Mar 2023 00:13:10 -0500</pubDate>
-    <lastBuildDate>Mon, 13 Mar 2023 00:13:10 -0500</lastBuildDate>
+    <pubDate>Mon, 20 Mar 2023 17:30:53 -0500</pubDate>
+    <lastBuildDate>Mon, 20 Mar 2023 17:30:53 -0500</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>.tex | 基于物理的神经网络 (PINN) 综述笔记</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;本文是《&lt;a href=&quot;https://link.springer.com/article/10.1007/s10915-022-01939-z&quot;&gt;Scientific Machine Learning Through Physics–Informed Neural Networks: Where we are and What’s Next&lt;/a&gt;》这篇综述的读书笔记。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;年前，今年新入职的天文学方面的一位老师给我们群发邮件，宣传某国家实验室超算的 GPU 编程马拉松活动，他可以担任指导老师。于是毫不意外地，我报了名。该编程马拉松项目还需要专门申请，申请材料里要写清楚打算干什么，于是报名的五六个人七嘴八舌地想创意。基于物理的神经网络 PINN 就是天文老师的点子。&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;写到这里，我才意识到，老哥是不是想拿我们当免费劳动力啊&lt;/del&gt;~&lt;/p&gt;
+
+&lt;p&gt;神经网络可以看作是一个复杂的非线性函数，接受一个（一般来说维度很高的）向量作为输入，一番计算后输出另一个向量。训练神经网络，就是找到这个函数的参数，绝大多数找参数的方法涉及计算网络输出对参数的偏导数，因此神经网络计算框架的核心功能就是自动微分 (auto-differentiation)。&lt;/p&gt;
+
+&lt;p&gt;而很多物理问题，都可以用（偏）微分方程来描述，微分方程的解不是变量，而是函数，而且往往是复杂的非线性函数。所以基于物理的神经网络 (PINN) 就是以神经网络来表达这个函数，然后把这个函数带入到物理的微分方程中，把神经网络输出和真正的物理解之间的差距当作损失函数，反向传播回去来优化神经网络的参数。代入方程时的微分计算，正好可以利用现成框架的自动微分功能。&lt;/p&gt;
+
+&lt;p&gt;在以 GPT 为代表的 transformer 类神经网络模型出现之前，自然语言处理类的机器学习项目，往往要在网络之外，利用人类的语法知识，对语段进行语义分割等等“中间任务”。Transformer 一出，算力出奇迹，中间任务逐渐变得没有必要了。&lt;/p&gt;
+
+&lt;p&gt;在 GPT 崭露头角，并且越来越有迹象表明其将会涌现出通用人工智能的今天，这些基于物理的神经网络，会不会还未成熟就已过时？这种心情，就和《三体》第二卷开始，章北海和吴岳面对焊渍未漆的“唐”号航空母舰时差不多吧……&lt;/p&gt;
+
+&lt;hr class=&quot;slender&quot; /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Abstract
+    &lt;ul&gt;
+      &lt;li&gt;PINNs are neural networks that encode model equations. a NN must fit observed data while reducing a PDE residual.
+        &lt;ol&gt;
+          &lt;li&gt;Introduction&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;The “curse of dimensionality” was first described by Bellman in the context of optimal control problems. (Bellman R.: Dynamic Programming. Sci. 153(3731), 34-37 (1966))&lt;/li&gt;
+      &lt;li&gt;Early work: MLP (&lt;a href=&quot;https://en.wikipedia.org/wiki/Multilayer_perceptron&quot;&gt;multilayer perceptron&lt;/a&gt;) with few hidden layers to solve PDEs. (&lt;a href=&quot;https://doi.org/10.1109/72.712178&quot;&gt;https://doi.org/10.1109/72.712178&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;感觉可能更全面的一篇综述：&lt;a href=&quot;https://doi.org/10.1007/s12206-021-0342-5&quot;&gt;https://doi.org/10.1007/s12206-021-0342-5&lt;/a&gt;。该文关注 what deep NN is used, how physical knowledge is represented, how physical information is integrated，本文只关于 PINN, a 2017 framework。
+        &lt;ol&gt;
+          &lt;li&gt;What the PINNs are&lt;/li&gt;
+        &lt;/ol&gt;
+        &lt;ul&gt;
+          &lt;li&gt;PINNs solve problems involving PDEs:
+            &lt;ul&gt;
+              &lt;li&gt;approximates PDE solutions by training a NN to minimize a loss function&lt;/li&gt;
+              &lt;li&gt;includes terms reflecting the initial and boundary conditions&lt;/li&gt;
+              &lt;li&gt;and PDE residual at selected points in the domain (called &lt;strong&gt;collocation points&lt;/strong&gt;)&lt;/li&gt;
+              &lt;li&gt;given an input point in the integration domain, returns an estimated solution at that point.&lt;/li&gt;
+              &lt;li&gt;incorporates a &lt;a href=&quot;https://en.wikipedia.org/wiki/Residual_neural_network&quot;&gt;residual network&lt;/a&gt; that encodes the governing physical equations&lt;/li&gt;
+              &lt;li&gt;can be thought of as an &lt;strong&gt;unsupervised strategy&lt;/strong&gt; when they are trained solely with physical equations in forward problems, but &lt;strong&gt;supervised learning&lt;/strong&gt; when some properties are derived from data&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;Advantages:
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Meshfree_methods&quot;&gt;mesh-free&lt;/a&gt;? 但是我们给模型喂训练数据的时候往往已经暗含了 mesh 了吧&lt;/li&gt;
+              &lt;li&gt;on-demand computation after training&lt;/li&gt;
+              &lt;li&gt;forward and inverse problem using the same optimization, with minimal modification
+                &lt;ol&gt;
+                  &lt;li&gt;What this Review is About&lt;/li&gt;
+                &lt;/ol&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;提到了一个做综述找文章的方法：本文涉及的文章可以在 Scopus 上进行高级搜索：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;((physic* OR physical)) W/2 (informed OR constrained) W/2 “neural network”)&lt;/code&gt;
+            &lt;ol&gt;
+              &lt;li&gt;The Building Blocks of a PINN&lt;/li&gt;
+            &lt;/ol&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;question:&lt;/li&gt;
+    &lt;/ul&gt;
+
+\[F(u(z);\gamma)=f(z),\quad z\ \in\ \Omega \\ B(u(z))=g(z), \quad z\ \in\ \partial \Omega\]
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;solution:&lt;/p&gt;
+
+\[\hat u_{\theta}(z)\approx u(z)\\ \theta^* = \arg\min_{\theta}\left(\omega_F L_F(\theta)+\omega_BL_B(\theta)+\omega_{data}L_{data}(\theta)\right)\]
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;Neural Network Architecture
+        &lt;ul&gt;
+          &lt;li&gt;DNN (deep neural network) is an artificial neural network that is deeper than 2 layers.
+            &lt;ol&gt;
+              &lt;li&gt;Feed-Forward Neural Network:&lt;/li&gt;
+            &lt;/ol&gt;
+            &lt;ul&gt;
+              &lt;li&gt;
+\[u_{\theta}(x) = C_{K} \circ C_{k-1} ...\alpha \circ C_1(x),\quad C_k(x) = W_k x_k + b_k\]
+              &lt;/li&gt;
+              &lt;li&gt;Just change CNN from convolution to fully connected.&lt;/li&gt;
+              &lt;li&gt;Also known as multi-layer perceptrons (MLP)
+                &lt;ol&gt;
+                  &lt;li&gt;FFNN architectures&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;ul&gt;
+                  &lt;li&gt;Tartakovsky et al used 3 hidden layers, 50 units per layer,  and a hyperbolic tangent activation function. Other people use different numbers but of the same order of magnitude.&lt;/li&gt;
+                  &lt;li&gt;A comparison paper: &lt;em&gt;Blechschmidt, J., Ernst, O.G.: Three ways to solve partial differential equations with neural networks –A review. GAMM-Mitteilungen 44(2), e202100,006 (2021).&lt;/em&gt;
+      2. multiple FFNN: 2 phase &lt;a href=&quot;https://en.wikipedia.org/wiki/Stefan_problem&quot;&gt;Stephan problem&lt;/a&gt;.
+      3. shallow networks: for training costs
+      4. activation function: the swish function in the paper has a learnable parameter, so — &lt;a href=&quot;https://discuss.pytorch.org/t/how-could-i-create-a-module-with-learnable-parameters/28115&quot;&gt;how to add a learnable parameter in PyTorch&lt;/a&gt;
+                    &lt;ol&gt;
+                      &lt;li&gt;Convolutional Neural Networks:&lt;/li&gt;
+                    &lt;/ol&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;I am most familiar with this one.&lt;/li&gt;
+              &lt;li&gt;
+\[f_i(x_i;W_i)=\Phi_i(\alpha_i(C_i(W_i,x_i)))\]
+              &lt;/li&gt;
+              &lt;li&gt;performs well with multidimensional data such as images and speeches
+                &lt;ol&gt;
+                  &lt;li&gt;CNN architectures:&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;ul&gt;
+                  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PhyGeoNet&lt;/code&gt;: a physics-informed geometry-adaptive convolutional neural network. It uses a coordinate transformation to convert solution fields from irregular physical domains to rectangular reference domains.&lt;/li&gt;
+                  &lt;li&gt;According to Fang (&lt;a href=&quot;https://doi.org/10.1109/TNNLS.2021.3070878&quot;&gt;https://doi.org/10.1109/TNNLS.2021.3070878&lt;/a&gt;), a Laplacian operator can be discretized using the finite volume approach, and the procedures are equivalent to convolution. Padding data can serve as boundary conditions.
+      2. convolutional encoder-decoder network
+                    &lt;ol&gt;
+                      &lt;li&gt;Recurrent Neural Network&lt;/li&gt;
+                    &lt;/ol&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;\(f_i(h_{i-1})=\alpha\left(W\cdot h_{i-1}+U\cdot x_i+b\right)\), where f is the layer-wise function, x is the input, h is the hidden vector state, W is a hidden-to-hidden weight matrix, U is an input-to-hidden matrix and b is a bias vector. 我认为等号左边的 \(h_{i-1}\) 应当作为下标&lt;/li&gt;
+              &lt;li&gt;
+                &lt;p&gt;感觉有点像 hidden Markov model，只不过 Markov 中间的 hidden layers 好像与序号无关（记不清了），&lt;del&gt;RNN 看起来各个 W 和 H 似乎不同&lt;/del&gt;。&lt;strong&gt;RNN cell is actually the exact same one and reused throughout.&lt;/strong&gt; (from &lt;a href=&quot;https://blog.floydhub.com/a-beginners-guide-on-recurrent-neural-networks-with-pytorch/&quot;&gt;https://blog.floydhub.com/a-beginners-guide-on-recurrent-neural-networks-with-pytorch/&lt;/a&gt;). Cartoon from Wikipedia:&lt;/p&gt;
+
+                &lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-20-rnn-unit.png&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;p&gt;From &lt;a href=&quot;https://blog.floydhub.com/a-beginners-guide-on-recurrent-neural-networks-with-pytorch/&quot;&gt;https://blog.floydhub.com/a-beginners-guide-on-recurrent-neural-networks-with-pytorch/&lt;/a&gt;:&lt;/p&gt;
+
+                &lt;p&gt;&lt;img src=&quot;/blog/assets/photos/2023-03-20-rnn-types.png&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+
+            &lt;ol&gt;
+              &lt;li&gt;RNN architectures
+                &lt;ul&gt;
+                  &lt;li&gt;can be used to perform numerical Euler integration&lt;/li&gt;
+                  &lt;li&gt;基本上输出的第 i 项只与输入的第 i 和 i-1 项相关。&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;LSTM architectures
+                &lt;ul&gt;
+                  &lt;li&gt;比 RNN 多更多中间隐变量，至于怎么做到整合长期记忆的，技术细节现在可以先略过
+                    &lt;ol&gt;
+                      &lt;li&gt;other architectures for PINN&lt;/li&gt;
+                    &lt;/ol&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;Bayesian neural network: weights are distributions rather than deterministic values, and these distributions are learned using Bayesian inference. 只介绍了&lt;a href=&quot;https://doi.org/10.1016/j.jcp.2020.109913&quot;&gt;一篇文章&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;GAN architectures:
+                &lt;ul&gt;
+                  &lt;li&gt;two neural networks compete in a zero-sum game to deceive each other&lt;/li&gt;
+                  &lt;li&gt;physics-informed GAN uses automatic differentiation to embed the governing physical laws in stochastic differential equations. The discriminator in PI–GAN is represented by a basic FFNN, while the generators are a combination of FFNNs and a NN induced by the SDE&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;multiple PINNs&lt;/li&gt;
+            &lt;/ol&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Injection of Physical Laws
+        &lt;ul&gt;
+          &lt;li&gt;既然是要解常/偏微分方程，那么微分计算必不可少。四种方法：hand-coded, symbolic, numerical, auto-differentiation，最后一种显著胜出。所谓 auto-differentiation, 就是利用现成框架，框架自动给出原函数的导数的算法。&lt;/li&gt;
+          &lt;li&gt;Differential equation residual:
+            &lt;ul&gt;
+              &lt;li&gt;
+\[r_F[\hat u_\theta](z)=r_\theta(z):=F(\hat u_\theta(z);\gamma)-f\]
+              &lt;/li&gt;
+              &lt;li&gt;\(r_F[\hat u_\theta](z)=r_\theta(x,t)=\frac{\partial}{\partial t}\hat u_\theta(x,t)+F_x(\hat u_\theta(x,t))\): 原文给出了来源，但是从字面上看不出来与前式的等价性&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;Boundary condition residual: \(r_B[\hat u_\theta](z):=B(\hat u_\theta(z))-g(z)\)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Model Estimation by Learning Approaches
+        &lt;ol&gt;
+          &lt;li&gt;Observations about the Loss
+            &lt;ul&gt;
+              &lt;li&gt;\(\omega_F\) accounts for the fidelity of the PDE model. Setting it to 0 trains the network without knowledge of underlying physics.&lt;/li&gt;
+              &lt;li&gt;In general, the number of \(\theta\) is more than the measurements, so regularization is needed.&lt;/li&gt;
+              &lt;li&gt;The number and position of residual points matter a lot.&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;Soft and Hard Constraints
+            &lt;ul&gt;
+              &lt;li&gt;Soft: penalty terms. Bad:
+                &lt;ul&gt;
+                  &lt;li&gt;satisfying BC is not guaranteed&lt;/li&gt;
+                  &lt;li&gt;assignment of the weight of BC affects learning efficiency, no theory for this.&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;Hard: encoded into the network design. &lt;a href=&quot;https://doi.org/10.1007/s00466-020-01952-9&quot;&gt;Zhu et. al&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;Optimization methods
+            &lt;ul&gt;
+              &lt;li&gt;minibatch sampling using the Adam algorithm&lt;/li&gt;
+              &lt;li&gt;increased sample size with L-BFGS (limited-memory Broyden-Fletcher-Goldfarb-Shanno)&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Learning theory of PINN: roughly in DE, consistency + stability → convergence
+        &lt;ol&gt;
+          &lt;li&gt;convergence aspects: related to the number of parameters in NN&lt;/li&gt;
+          &lt;li&gt;statistical learning error analysis: use &lt;em&gt;risk&lt;/em&gt; to define &lt;em&gt;error&lt;/em&gt;
+            &lt;ul&gt;
+              &lt;li&gt;Empirical risk: \(\hat R[u_\theta]:=\frac{1}{N}\sum_{i=1}^N \left\|\hat u_{\theta}(z_i)-h_i\right\|^2\)&lt;/li&gt;
+              &lt;li&gt;Risk of using approximator: \(R[\hat u_{\theta}]:=\int_{\bar \Omega}(\hat u_{\theta}(z)-u(z))^2dz\)&lt;/li&gt;
+              &lt;li&gt;Optimization error: the difference between the local and global minimum, is still an open question for PINN. \(E_O:=\hat R[\hat u_{\theta}^*]-\inf_{\theta \in \Theta}\hat R[u_\theta]\)&lt;/li&gt;
+              &lt;li&gt;Generalization error: error when applied to unseen data. \(E_G:=\sup_{\theta \in \Theta}\left\|R[u_\theta]-\hat R[u_\theta]\right\|\)&lt;/li&gt;
+              &lt;li&gt;Approximation error: \(E_A:=\inf_{\theta \in \Theta}R[u_\theta]\)&lt;/li&gt;
+              &lt;li&gt;Global error between trained deep NN \(u^*_\theta\) and the correct solution is bounded: \(R[u^*_\theta]\le E_O+2E_G+E_A\)&lt;/li&gt;
+              &lt;li&gt;有点乱，本来说 error 是误差，结果最后还是用 risk 作为误差&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;error analysis results for PINN&lt;/li&gt;
+          &lt;li&gt;Differential Problems Dealt with PINNs：读来感觉这一部分意义不大，将来遇到需要解决的问题时，回来看看之前有没有人做过就行了——另一方面看，一类方程就需要一类特殊构造的神经网络来解，那么说明神经网络解方程的通用性并不好~&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Ordinary differential equations:
+        &lt;ul&gt;
+          &lt;li&gt;Neural ODE as learners, a continuous representation of &lt;strong&gt;ResNet&lt;/strong&gt;. [&lt;a href=&quot;https://doi.org/10.1016/j.jsv.2021.116196&quot;&gt;Lai et al&lt;/a&gt;], into 2 parts: a physics-informed term and an unknown discrepancy&lt;/li&gt;
+          &lt;li&gt;LSTM [&lt;a href=&quot;https://doi.org/10.1016/j.cma.2020.113226&quot;&gt;Zhang et al&lt;/a&gt;]&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://doi.org/10.1016/j.compstruc.2020.106458&quot;&gt;Directed graph models&lt;/a&gt; to implement ODE, and Euler RNN for numerical integration&lt;/li&gt;
+          &lt;li&gt;Symplectic Taylor neural networks in &lt;a href=&quot;https://doi.org/10.1016/j.jcp.2021.110325&quot;&gt;Tong et al&lt;/a&gt; use symplectic integrators&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Partial differential equations: steady/unsteady的区别就是是否含时
+        &lt;ol&gt;
+          &lt;li&gt;steady-state PDEs&lt;/li&gt;
+          &lt;li&gt;unsteady PDEs
+            &lt;ol&gt;
+              &lt;li&gt;Advection-diffusion-reaction problems
+                &lt;ol&gt;
+                  &lt;li&gt;diffusion problems&lt;/li&gt;
+                  &lt;li&gt;advection problems&lt;/li&gt;
+                &lt;/ol&gt;
+              &lt;/li&gt;
+              &lt;li&gt;Flow problems
+                &lt;ol&gt;
+                  &lt;li&gt;Navier-Stokes equations&lt;/li&gt;
+                  &lt;li&gt;hyperbolic equations&lt;/li&gt;
+                &lt;/ol&gt;
+              &lt;/li&gt;
+              &lt;li&gt;quantum problems&lt;/li&gt;
+            &lt;/ol&gt;
+          &lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Other problems
+        &lt;ol&gt;
+          &lt;li&gt;Differential equations of fractional order
+            &lt;ul&gt;
+              &lt;li&gt;automatic differentiation not applicable to fractional order → &lt;a href=&quot;https://doi.org/10.1515/fca-2019-0086&quot;&gt;L1 scheme&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;https://doi.org/10.1137/18M1229845&quot;&gt;numerical discretization for fractional operators&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;https://doi.org/10.1038/s43588-021-00158-0&quot;&gt;separate network to represent each fractional order&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;Uncertainty Estimation: &lt;a href=&quot;https://doi.org/10.1016/j.jcp.2020.109913&quot;&gt;Bayesian&lt;/a&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Solving a Differential Problem with PINN
+        &lt;ul&gt;
+          &lt;li&gt;1d non-linear Schrödinger equation&lt;/li&gt;
+          &lt;li&gt;dataset by simulation with MATLAB-based Chebfun open-source(?) software
+            &lt;ol&gt;
+              &lt;li&gt;PINNs: Data, Applications, and Software&lt;/li&gt;
+            &lt;/ol&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Data&lt;/li&gt;
+      &lt;li&gt;Applications
+        &lt;ol&gt;
+          &lt;li&gt;Hemodynamics&lt;/li&gt;
+          &lt;li&gt;Flows Problems&lt;/li&gt;
+          &lt;li&gt;Optics and Electromagnetic Applications&lt;/li&gt;
+          &lt;li&gt;Molecular Dynamics and Materials-Related Applications&lt;/li&gt;
+          &lt;li&gt;Geoscience and Elastiostatic Problems&lt;/li&gt;
+          &lt;li&gt;Industrial Application&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Software
+        &lt;ol&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DeepXDE&lt;/code&gt;: initial library by one of the vanilla PINN authors&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NeuroDiffEq&lt;/code&gt;: PyTorch based used at Harvard IACS&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Modulus&lt;/code&gt;: previously known as Nvidia SimNet&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SciANN&lt;/code&gt;: implementation of PINN as Keras wrapper&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PyDENs&lt;/code&gt;: heat and wave equations&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NeuralPDE.jl&lt;/code&gt;: part of SciML&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ADCME&lt;/code&gt;: extending TensorFlow&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nangs&lt;/code&gt;: stopped updates, but faster than PyDENs&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TensorDiffEq&lt;/code&gt;: TensorFlow for multi-worker distributed computing&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IDRLnet&lt;/code&gt;: a python toolbox inspired by Nvidia SimNet&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Elvet&lt;/code&gt;: coupled ODEs or PDEs, and variational problems about the minimization of a functional&lt;/li&gt;
+          &lt;li&gt;Other Packages&lt;/li&gt;
+          &lt;li&gt;PINN Future Challenges and Directions&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Overcoming Theoretical Difficulties in PINN&lt;/li&gt;
+      &lt;li&gt;Improving Implementation Aspects in PINN&lt;/li&gt;
+      &lt;li&gt;PINN in the SciML Framework&lt;/li&gt;
+      &lt;li&gt;PINN in the AI Framework
+        &lt;ol&gt;
+          &lt;li&gt;Conclusion&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 20 Mar 2023 00:00:00 -0500</pubDate>
+        <link>https://mountaye.github.io/blog/articles/physics-based-neural-network-review-note</link>
+        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/physics-based-neural-network-review-note</guid>
+        
+        
+      </item>
     
       <item>
         <title>.tex | Notes during APS March Meeting 2023 in Las Vegas</title>
@@ -1787,8 +2110,6 @@
 &lt;p&gt;The aspect ratio increases significantly after the size grows&lt;/p&gt;
 
 &lt;p&gt;Aggregation not happening; Tangling spans the bulk&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.notion.so/f2d1d2aad90f47ffb3d7346e6f2ec0ee&quot;&gt;Schedule&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 12 Mar 2023 00:00:00 -0600</pubDate>
         <link>https://mountaye.github.io/blog/articles/notes-during-APS-march-meeting-2022-Chicago</link>
@@ -4718,1528 +5039,6 @@ cinity，他按说是咱们中国原创，但你仔细一看，里边它还是�
         <pubDate>Thu, 06 Oct 2022 00:00:00 -0500</pubDate>
         <link>https://mountaye.github.io/blog/articles/say-her-name-mahsa-amini</link>
         <guid isPermaLink="true">https://mountaye.github.io/blog/articles/say-her-name-mahsa-amini</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>转载 | 《叙述》</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;近日在喷嚏网发现了一个讲如何写记叙文的系列，但是给出的链接已经过期，通过搜索引擎找到了豆瓣用户&lt;a href=&quot;https://www.douban.com/people/usernametoolong/&quot;&gt;username太长了&lt;/a&gt;的转载。(&lt;a href=&quot;https://www.douban.com/note/509996701&quot;&gt;https://www.douban.com/note/509996701&lt;/a&gt;)&lt;/p&gt;
-
-  &lt;p&gt;转载日期在 2015 年，豆瓣的发帖者称作者是 xilei, 给出的原文链接也来自喷嚏网，也已过期。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;h2 id=&quot;叙述-1厕所的故事&quot;&gt;【叙述-1】厕所的故事&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;xilei 发布于 2009-3-1 14:36:00&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;一&quot;&gt;（一）&lt;/h3&gt;
-
-&lt;p&gt;小时候，看电影的时候，我一直有一个疑问：为什么电影里的人从来不上厕所？&lt;/p&gt;
-
-&lt;p&gt;那时，我还是个8、9岁的小男孩。学校里还经常包场看电影。小孩子好动，看电影前总是乱跑。电影放到一半了，才想起好像应该去上厕所。&lt;/p&gt;
-
-&lt;p&gt;那时，好看的电影很多：《红孩子》、《地道战》、《平原游击队》、《闪闪的红星》还有《黑三角》。尿憋久了，忍不住就往电影院后面的厕所里跑。每次都是摸黑横穿过排椅，猫腰跑到最后，掀起左边的布帘，杀将进去。&lt;/p&gt;
-
-&lt;p&gt;有时，晚上也做梦，有人追。自己在前面跑啊，跑啊。怎么也找不到厕所。&lt;/p&gt;
-
-&lt;p&gt;白天的时候，回想起来。才觉得自己发现了一个天大的秘密：&lt;/p&gt;
-
-&lt;p&gt;自己从来没有在电影里看见有人上厕所。就是写有男、女的那种。&lt;/p&gt;
-
-&lt;p&gt;这念头只是一闪而过，觉得自己思想觉悟不高，有点低俗了。电影里都是革命英雄人物。他们每天都在忙正事。哪好意思象小屁孩那样，一天到晚没事，就想上厕所。&lt;/p&gt;
-
-&lt;p&gt;我想，电影里不谈厕所的事情，才是正常的事情。厕所都是无关紧要的事情，不好意思谈。&lt;/p&gt;
-
-&lt;p&gt;后来，看电影就习惯了。再也没想过那个问题：&lt;/p&gt;
-
-&lt;p&gt;为什么电影里的人从来不上厕所？&lt;/p&gt;
-
-&lt;h3 id=&quot;二&quot;&gt;（二）&lt;/h3&gt;
-
-&lt;p&gt;长大后，看《真实的谎言》。突然发现，电影里的人居然还是可以上厕所的。&lt;/p&gt;
-
-&lt;p&gt;电影里有这样一个情节：&lt;/p&gt;
-
-&lt;p&gt;有人要杀施瓦辛格，老施从容地走进厕所里，对着洗手间的镜子，从容地洗手。他预先把一个伪装成肥皂盒一样的袖珍摄影机对着门口。门外和他背后的人都干些什么，在他的特工眼镜里，一清二楚。&lt;/p&gt;
-
-&lt;p&gt;那个追踪过来的杀手，走到老施的身后，掏出枪来，指着老施的后脑勺，正好扣动扳机。说时迟，那时快，老施抢在子弹出来的前面，头一低。然后，反手给了杀手一家伙，把他就给解决了。&lt;/p&gt;
-
-&lt;p&gt;后来，又有人追杀过来。老施在厕所的隔间里，躲来躲去。杀手的子弹象水枪一样，一排排一阵阵扫过去。厕所里精彩的枪战定格在这样一个画面中：一位正在上厕所的老者，战战兢兢地打开隔间门。裤子还在脚下，他吓坏了。不知道发生了什么。&lt;/p&gt;
-
-&lt;p&gt;我这个乐啊：这老施太帅了。导演也太可爱了。可算看见电影里的人上厕所了。&lt;/p&gt;
-
-&lt;p&gt;这是我印象比较深的一次电影记忆。好比如说之前，你发现一些东西怎么从来没人碰过，你会以为：肯定那里面有什么禁忌和秘密。&lt;/p&gt;
-
-&lt;p&gt;结果，有一天，你发现：怎么就不能碰呢。看吧，就算是厕所，人家也可以用的那么好。&lt;/p&gt;
-
-&lt;p&gt;再一想，也很简单：既然在生活中就存在，为何就不能在电影中存在呢？&lt;/p&gt;
-
-&lt;h3 id=&quot;三&quot;&gt;（三）&lt;/h3&gt;
-
-&lt;p&gt;后来，电影看多了。才发现电影中的厕所，其实，跟生活中的厕所的用途不大一样。&lt;/p&gt;
-
-&lt;p&gt;生活中的厕所，就是生理意义上的用途。而电影，则是一种转折的秘密结构，或者是一种意外迭出的神秘角落。&lt;/p&gt;
-
-&lt;p&gt;在《疯狂的石头》中，那个假装断腿打上石膏骗自己父亲的儿子，在厕所里得意洋洋地打电话。他不知道外面正站着七窍生烟的老爸。这时的厕所，是一个很容易泄密的地方；&lt;/p&gt;
-
-&lt;p&gt;在《三峡好人》中，赵涛就是在洗手间墙上的海报上，了解到了情敌的秘密；&lt;/p&gt;
-
-&lt;p&gt;在《非诚勿扰》中，葛优用手抹去脸上的水，对着镜子，心里说：豁出去了。他走出洗手间，跟舒淇讲他过去的故事。&lt;/p&gt;
-
-&lt;p&gt;在导演们看来，厕所是这样的一种地方：&lt;/p&gt;
-
-&lt;p&gt;一个人面对自己，短暂休息的机会；&lt;/p&gt;
-
-&lt;p&gt;一个意外事件发生的秘密场所；&lt;/p&gt;
-
-&lt;p&gt;一个用来泄密，发生转折的时间和空间。&lt;/p&gt;
-
-&lt;p&gt;所以，重要的，是不是电影中的人要不要上厕所。而是，电影的故事需不需要他们上厕所。&lt;/p&gt;
-
-&lt;p&gt;如果软弱的人，需要面对自己，给自己打气的话，他们就上厕所；&lt;/p&gt;
-
-&lt;p&gt;如果有些事情不好交代，或者需要一个承上启下的引子的时候，他们就上厕所；&lt;/p&gt;
-
-&lt;p&gt;如果需要枪战的时候，有两个比较好的选择，一个是楼顶，另一个就是厕所。&lt;/p&gt;
-
-&lt;h3 id=&quot;四&quot;&gt;（四）&lt;/h3&gt;
-
-&lt;p&gt;有一次，儿子给我说：老师说，有些东西好写，比如说，一件最难忘的事情，或记一件好人好事，或者是某年的春天什么的，就好写。再比如说，让你写厕所，你怎么写呢？&lt;/p&gt;
-
-&lt;p&gt;估计大多数人都会写成：在厕所里发生的一件好人好事。某个同学生病了。其它的同学学习雷锋，自告奋勇，发扬互助精神，帮他完成任务。最后，得到了老师的表扬。&lt;/p&gt;
-
-&lt;p&gt;我说：“其实，写什么都可以。没有什么禁忌。关键在于你怎么写。你要明白你为何要写它。”&lt;/p&gt;
-
-&lt;p&gt;我就跟他讲了关于厕所的一些想法。“有时，事件发生的地点，是有特别的意义的。或者因为真实，或者因为叙述的逻辑需要。当你觉得一个东西，不便于直接书写的时候，你可以把它放在一连串的事件中来看。或许它什么都不是，只是一个架子，只是一个纽带或者转折。讲什么很重要，但如何讲也是非常重要的。你得抓住一些特别的东西，把它直接写下来就成。”&lt;/p&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;h2 id=&quot;叙述-2假如苏东坡和陶渊明来到现代&quot;&gt;【叙述-2】假如苏东坡和陶渊明来到现代&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;xilei 发布于 2009-3-8 15:03:00&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;一-1&quot;&gt;（一）&lt;/h3&gt;
-
-&lt;p&gt;本周末，儿子的家庭作业要写一篇作文。题目是：《假如苏东坡和陶渊明来到现代》。&lt;/p&gt;
-
-&lt;p&gt;我喜欢这样的题目：有挑战，也很有想象的空间。&lt;/p&gt;
-
-&lt;p&gt;早上起来的时候，我看见儿子已经在开始动笔了。我很想知道，他会写些什么呢。但是，我拿定主意，在他写完成之前，不要按奈不住自己，提前给他什么想法。&lt;/p&gt;
-
-&lt;p&gt;反过来，我给自己出了一个题：如果这是我的作业，我会怎么写呢？&lt;/p&gt;
-
-&lt;h3 id=&quot;二-1&quot;&gt;（二）&lt;/h3&gt;
-
-&lt;p&gt;首先，做一些随意的，但是适当的假设和推理：&lt;/p&gt;
-
-&lt;p&gt;苏东坡和陶渊明都是古代的人了。如果他们来到现代，肯定有多东西都没见过。&lt;/p&gt;
-
-&lt;p&gt;苏东坡会问陶渊明：家乐福是干什么的啊？什么东西叫法国啊？&lt;/p&gt;
-
-&lt;p&gt;陶渊明说：咱没见识过。走，去看看先。&lt;/p&gt;
-
-&lt;p&gt;…..&lt;/p&gt;
-
-&lt;p&gt;他们也没看过电影。放电影前，看见周围的人手里都拿个小盒子，凑在耳边说话。&lt;/p&gt;
-
-&lt;p&gt;电影放一半了，进入到卧室部分，苏轼说：世风日下啊，世风日下啊…..&lt;/p&gt;
-
-&lt;p&gt;…..&lt;/p&gt;
-
-&lt;p&gt;换了一部《后天》，陶渊明说：现代的人越来越不象话了，你看他们把气候搞成啥样了。能跟我悠然见南山的时候比吗？&lt;/p&gt;
-
-&lt;p&gt;…..&lt;/p&gt;
-
-&lt;p&gt;信马由缰后，罗列出一些素材，最简单的办法就是：想想这两个人会是什么性格，他们在现代的生活中，会有哪些不适应，会有哪些冲突，或者可以接受的地方。&lt;/p&gt;
-
-&lt;p&gt;接下来，就是把这些松散的东西，组合在一起。&lt;/p&gt;
-
-&lt;p&gt;换句话说，想归想。最终，你得把这些东西用一种形式串起来。给大家讲一个有点意思的故事。&lt;/p&gt;
-
-&lt;p&gt;讲故事，就是寻找一种叙述的结构：&lt;/p&gt;
-
-&lt;p&gt;你得有一种符合逻辑的讲述方式，把你认为重要的那点东西讲出来，让人们感觉是真的一样。&lt;/p&gt;
-
-&lt;p&gt;接下来，怎么做呢？&lt;/p&gt;
-
-&lt;h3 id=&quot;三-1&quot;&gt;（三）&lt;/h3&gt;
-
-&lt;p&gt;我打算借鉴或者说是山寨一下《非诚勿扰》的结构。&lt;/p&gt;
-
-&lt;p&gt;让我们换一种角度来看这部电影。如果我们现在是故事的讲述者，我们很容易发现故事的叙述逻辑。&lt;/p&gt;
-
-&lt;p&gt;简单的说，《非诚勿扰》分为三个部分：&lt;/p&gt;
-
-&lt;p&gt;第一部分【和谐终端机】是个引子。这部分主要的作用是解释秦奋相亲的缘由。就跟后面故事要安排笑笑为第三者一样，都是为了一个目的：叙述的合理性。&lt;/p&gt;
-
-&lt;p&gt;故事的讲述，首先要设置一些合理的背景，让人容易接受这样的假设，从而对故事的延续造成驱动的悬念。&lt;/p&gt;
-
-&lt;p&gt;故事的前提，如果设置的很好。读者的好奇心，就会自然而然地引发。而对于故事的叙述者来说，故事的主角在合理的背景中可以自己活动、讲话，展开故事。&lt;/p&gt;
-
-&lt;p&gt;第二部分【相亲】是一种相亲大集合。各种相亲的场合堆叠在一起，有一种现实的对应感，不乏幽默的细节。&lt;/p&gt;
-
-&lt;p&gt;在这样的部分中，细节和重复，是叙述的基本要素。&lt;/p&gt;
-
-&lt;p&gt;细节可以跟人留下真实、幽默等等愉悦的情感。而重复可以象多棱镜一样，折射出同一件事情的不同的侧面。&lt;/p&gt;
-
-&lt;p&gt;有时，重复也是一种衬托。为主线的叙述铺路。&lt;/p&gt;
-
-&lt;p&gt;冯小刚曾经说：《非诚勿扰》的第三部分【北海道】才是电影中最重要的部分。这部分流露出某种公路电影的气质，自然主义的写实的叙述，贯穿其中。&lt;/p&gt;
-
-&lt;p&gt;所以说，讲好一个故事，是不简单的事情。&lt;/p&gt;
-
-&lt;p&gt;你得有足够的细节，有简练而充分的交待和暗示。在叙述的过程中，有各种各样合理的花絮铺垫、转承。&lt;/p&gt;
-
-&lt;p&gt;不见得都是刻意为之，但是，为了避免叙述的平淡，你都找到很多方法，让叙述的吸引力一直牵着人走。&lt;/p&gt;
-
-&lt;h3 id=&quot;四-1&quot;&gt;（四）&lt;/h3&gt;
-
-&lt;p&gt;我们暂时不用考虑过于复杂的处理。不过，我们仍然可以借鉴到一些可用的东西。&lt;/p&gt;
-
-&lt;p&gt;让我这样来考虑《假如苏东坡和陶渊明来到现代》如何使用类似的结构：&lt;/p&gt;
-
-&lt;p&gt;我先要安排一个理由，说明苏东坡和陶渊明来到现代：他们怎么来的，来干什么。然后，自然牵连出后面的故事。&lt;/p&gt;
-
-&lt;p&gt;然后，就用重复的方法，写他们在不同的地方的不同经历：他们在家乐福怎么样；他们看电影怎么样，看见手机会怎么反应…..&lt;/p&gt;
-
-&lt;p&gt;最后，该如何收场呢：给他们一个选择，他们是会选择留在现代，还是古代呢？&lt;/p&gt;
-
-&lt;p&gt;我把整个这个构思的过程这样梳理一次：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;我们都某处获取了一个想法，或者一些素材，我们感觉有一个可写的主题，或者我们认为讲述本身能带来很多东西，我们有叙述的冲动，但是，可能不知道叙述会带我们到什么地方；&lt;/li&gt;
-  &lt;li&gt;寻找一种合理的结构，把之前的素材，串联起来。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;你要判断的是：是否来龙去脉讲清楚了。人家是否能接受这样叙述的逻辑，你所想要表达的情感强度，是否被合理地从线性的叙述中被释放出来。&lt;/p&gt;
-
-&lt;p&gt;什么地方不够充分，什么细节又该舍弃。&lt;/p&gt;
-
-&lt;p&gt;有时，故事中的人会带你到你想去的地方，甚至会超过你最初的想象。&lt;/p&gt;
-
-&lt;h3 id=&quot;五&quot;&gt;（五）&lt;/h3&gt;
-
-&lt;p&gt;到此为止，我并没有真正开始写这篇文章，我只是在说一种思路：怎么用一种简单的方法，把一些松散的素材连接在一起。&lt;/p&gt;
-
-&lt;p&gt;到中午的时候，儿子的作文写完了。我问他是怎么写的。&lt;/p&gt;
-
-&lt;p&gt;儿子说：“我是分开写的。先写的是苏东坡。”&lt;/p&gt;
-
-&lt;p&gt;“苏东坡去参加高考，一看试卷，他就乐坏了。难题都是文言文，这不都是送分嘛。还有几道题，考的就是他自己的文章。”&lt;/p&gt;
-
-&lt;p&gt;我说：“这很有趣。后来呢？”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“不过，苏东坡很惨。他没考上大学。他语文考满分，但是数理化，都不会。只是偏才。他跟教育部写信申述，没用。我想，苏东坡在现代社会肯定呆不下去。大学生毕业都找不到工作，还去卖猪肉。苏东坡肯定不愿意卖猪肉。”&lt;/p&gt;
-
-&lt;p&gt;我都听乐了：“好玩。说说陶渊明。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“陶渊明简单。他去超市买牛奶，去哪儿都抱怨：你们这是怎么搞的？又是三聚氰胺，又是特仑苏的……”&lt;/p&gt;
-
-&lt;p&gt;我说：“想法都挺好的。把你的作文拿来，我看看。”&lt;/p&gt;
-
-&lt;p&gt;看了一下，我跟儿子说：“你的想法，真的很棒。”&lt;/p&gt;
-
-&lt;p&gt;“写作文，能这样，已经不错了。不过，如果有时间的话，还可以写的更充分一点。最好的叙述是，把一些个想法，还原成一个故事。你去寻找一些简单可用的结构，把这些素材重新组织一下。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“什么是结构？”&lt;/p&gt;
-
-&lt;p&gt;我说：“你可以把它简单理解为一种容器。一种有逻辑、有形状的东西。很多人只所以有很多想法写不出来，是因为没有注意或者说是不知道一些基本的容器结构。这些结构有时会帮你把一些零碎的东西安排好，帮你梳理出其中的联系。”&lt;/p&gt;
-
-&lt;p&gt;早在09年到来之前，我就答应儿子，给他讲一些简单的写文字的方法。你不需要把自己变成作家，但是，你也不要认为写字有多么高深莫测。&lt;/p&gt;
-
-&lt;p&gt;我想把这些文字都放在一个栏目下，名字就叫做《叙述》。&lt;/p&gt;
-
-&lt;p&gt;我希望能讲出一些真正简单、实用的东西。我会讲：为什么大多数人都喜欢听故事，故事是如何写出来的；为何《读者文摘》总是从讲故事开始；discovery的叙述有什么特点；什么是马尔克斯的叙述；以及如何从看一部电影，或是听一部交响乐，一个奇怪的建筑中，获取结构的启示。&lt;/p&gt;
-
-&lt;p&gt;当然，我还是想告诉他：最重要的是忠实于自己的直觉，不要被流传已久的谬误所禁锢。很多东西，都是时间积累下来的。素材，或者情感，甚至所谓的技巧。保持对外部世界的敏感，保持自己独立的思考，比是否会写字更为重要。&lt;/p&gt;
-
-&lt;p&gt;我想告诉他：只有一个人有需要表达的动力，加之适当的合理的技巧，他就能感觉到叙述的快乐。各种各样的叙述方式，也会被合理的创造并使用起来。&lt;/p&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;h2 id=&quot;叙述-3为何我们需要从故事开始&quot;&gt;【叙述-3】为何我们需要从故事开始&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;xilei 发布于 2009-3-22 20:57:00&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;一-2&quot;&gt;（一）&lt;/h3&gt;
-
-&lt;p&gt;我从不给儿子买任何版本的作文精选，尤其是那种高考或者中考的满分作文选。我今天还在网上看见这么一篇博文，里面贴了几篇近几年的全国高考的满分作文。&lt;/p&gt;
-
-&lt;p&gt;我摘一些文字如下：&lt;/p&gt;
-
-&lt;p&gt;【摘选1】&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;他想起了周瑜。“小乔初嫁了，雄姿英发，羽扇纶巾，谈笑间樯橹灰飞烟灭。”他问自己难道自己不正是那东吴的督都吗？自己满腹经纶，胸中有的是治国平天下的笔墨，而此时？面对这一片漫漫江水，他陷入沉思。&lt;/p&gt;
-
-  &lt;p&gt;他的思绪像长了翅膀似的，继续飞扬，斟一杯酒，临江而酾，是祭奠那死去的英雄，也是祭奠自己的往昔。是啊！他清醒了：哀吾生之须臾倒不如托遗响于悲风，取山间之色，听江上清风之歌唱。他不再悲观，不再耿耿于怀。&lt;/p&gt;
-
-  &lt;p&gt;后来，他用自己的行动证实自己的顿悟。他在黄州兴修水利，奖励耕织，清廉从政。黄州的百姓感念这一位父母官。后来修了一祠庙来缅怀这一伟大的文人，知心的父母官。文学的殿堂里永远可以听见那《赤壁赋》华美的乐章。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;【摘选2】&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;古人说：“上有天堂，下有苏杭。”美丽的西湖承载了多少中国文人的梦，苏轼虽被贬至此，然而他没有悲怆，没有哭天地，没有愤愤不平，风雨任平生。他懂得了“为官一任，造福一方”的简单道理。于是，一道苏堤便横卧西湖。他要让西湖储藏的心灵，淹没他所有的痛苦，所有的忧伤。&lt;/p&gt;
-
-  &lt;p&gt;《明月几时有》一词道尽了诗人在外想家想人的心境。“不知天上宫阙，今夕是何年……”然而他也没有因此悲伤叹息，对生活失去勇气，失去信心。他让天上的明月传达自己对远在千里之外的故人、家人的思念。一句“但愿人长久，千里共婵娟”不仅让他的风雨一生得到升华，而且抚慰了多少中国人思乡思人的心灵。这个时候，他把其豁达的心交给了饱怀思念之情的人们。他要告诉他们――生活的风雨摧不倒我们，我们同在。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;【摘选3】&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;生命如风。&lt;/p&gt;
-
-  &lt;p&gt;好一个亘古的比喻。你也许感慨于它的来也匆匆，去也匆匆，不着一丝痕迹。我却跋山涉水，在时空里淘尽沙砾，找到了这个比喻的真谛：&lt;/p&gt;
-
-  &lt;p&gt;唯有风，可以穿越荆棘。&lt;/p&gt;
-
-  &lt;p&gt;狄金森把人生描绘成篱笆墙的内外，我们一层又一层地爬过，事实上，这层层篱笆缀满荆棘，我们通过时，往往遍体鳞伤，身心俱毁。这时，你看到，风在墙外千萦百折，不屈地呼啸而过，空气中凝结下壮观的痕迹。&lt;/p&gt;
-
-  &lt;p&gt;我们趋行在人生这个亘古的旅途，在坎坷中奔跑，在挫折里涅盘，忧愁缠满全身，痛苦飘洒一地。我们累，却无从止歇；我们苦，却无法回避。烈日暴雨来过，飞沙走石来过，我们布满伤痕，还要面对一片片荆棘的丛林。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;p&gt;我不知道是不是真的。如果这样的作文，能代表中学作文的高水平的话, 我只能说：这种小老头似的文风要不得。&lt;/p&gt;
-
-&lt;p&gt;貌似文采飞扬，不过是拾人牙慧，东拼西凑。所有的词语都是奇形怪状地堆砌在一起。内心空洞，毫无生气。&lt;/p&gt;
-
-&lt;p&gt;看着累不说，而且看过后给你留下了什么呢？空空荡荡，什么也没有留下。&lt;/p&gt;
-
-&lt;p&gt;不过，我敢说，很多语文老师，都喜欢这种。而且也希望学生们写成这种东西。&lt;/p&gt;
-
-&lt;p&gt;你打眼一看，觉得好有才气，其实不然。&lt;/p&gt;
-
-&lt;p&gt;文字的东西，才气不是这样表现的。而且，才气在文字里面根本就什么也不是。&lt;/p&gt;
-
-&lt;p&gt;如果你的文字根本就没有什么东西，什么样的才气都是空气。&lt;/p&gt;
-
-&lt;h3 id=&quot;二-2&quot;&gt;（二）&lt;/h3&gt;
-
-&lt;p&gt;我觉得现在的学校里面根本教不好孩子写字。&lt;/p&gt;
-
-&lt;p&gt;作文是从小学就开始了。小学生写记叙文，中学生写散文，或议论文。&lt;/p&gt;
-
-&lt;p&gt;这样的安排还给人一种错觉：散文、议论文比记叙文更高级。你看每年的高考，好像都是写议论文的。没有说写记叙文的。&lt;/p&gt;
-
-&lt;p&gt;但是，事实上：很多学生都不能完整地表达一件事情，完整地记录下一个属于自己的想法。&lt;/p&gt;
-
-&lt;p&gt;写记叙文，记一次春游，记一件难忘的事情，还是记一次雷锋活动。能不能记点别的？&lt;/p&gt;
-
-&lt;p&gt;写散文，老师就说：“散文就是形散而神不散”。&lt;/p&gt;
-
-&lt;p&gt;什么都是散的，最后，就只有散架。&lt;/p&gt;
-
-&lt;p&gt;老师说：你们要多背好字好句。写作文都会用上了。&lt;/p&gt;
-
-&lt;p&gt;所以，我们都看见了满分作文都是这么干的：词藻华丽无比，思想都是来自于课本。所有的口水都是用经典名言粘上的。最后，都成了应试的八股文。&lt;/p&gt;
-
-&lt;p&gt;这不是写字，这是报纸剪贴。&lt;/p&gt;
-
-&lt;h3 id=&quot;三-2&quot;&gt;（三）&lt;/h3&gt;
-
-&lt;p&gt;其实，对于学生来说，他们写作文真正困惑的是这样两件事情：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;不知道什么东西是应该写的；&lt;/li&gt;
-  &lt;li&gt;想写东西，但是不知道如何写。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;老师们给出的建议是：你要多读多看多背多写啊。这些话说了等于没说一样！&lt;/p&gt;
-
-&lt;p&gt;干什么事情，不需要勤奋啊。&lt;/p&gt;
-
-&lt;p&gt;其实，我们生活的世界如此丰富，很多时候，我们并没有真正用心去看，去发现。&lt;/p&gt;
-
-&lt;p&gt;有一次，儿子问我：“你怎么知道什么该写，什么不该写呢？”&lt;/p&gt;
-
-&lt;p&gt;我说：“你得明白人们为何要写。绝大多数人写东西的动机，其实，很简单。”&lt;/p&gt;
-
-&lt;p&gt;“比如说，你要矫正牙齿，我就得给老师写假条。我就得写明合理的原因。因为这时你是在解释，说明理由。你就必须简单明了。”&lt;/p&gt;
-
-&lt;p&gt;“我们在公司里面，也经常写东西。比如说，你去给客户讲解一个产品。你不能总是说：我们的东西好啊，赶快来买啊。这样做没人会理你。你得跟人家讲一个关于产品的故事。你们为什么要做这样一件产品，人们为何需要它，你们是如何做到的。人们为什么要相信你们。这种叙述的逻辑，是理所应当的，就是要和人家建立信任。”&lt;/p&gt;
-
-&lt;p&gt;“当然，很多人写文字，是为了自己。为自己留下一些记忆。因为每个人的一生中，都有很多这样的时刻。要么让人触动，要么让人反省。很多人想写下来，就是为了留住并传递那种难忘的感情。”&lt;/p&gt;
-
-&lt;p&gt;“你知道为什么人们喜欢唱歌吗？唱歌是一种宣泄，歌词和音乐，能把人内心的记忆、想象和憧憬，激发出来。它能帮助人释放能量，发现自我。文字也能做到这一点。”&lt;/p&gt;
-
-&lt;p&gt;“从来没有人规定，什么东西不可以写。但是，对于写的人一定要知道自己想写什么，这很重要。如果认为华丽的文字就是好的文字，这从根本上就错了。文字展示的不是关于词语的记忆，而是展示人的行为、情感，乃至心灵。”&lt;/p&gt;
-
-&lt;p&gt;“对学生来说，文字首先是一种沟通工具。写得结构简单，逻辑清晰，简单明了。是最起码的要求。”&lt;/p&gt;
-
-&lt;h3 id=&quot;四-2&quot;&gt;（四）&lt;/h3&gt;
-
-&lt;p&gt;我一直认为，学校里的作文课，应该教学生写故事。&lt;/p&gt;
-
-&lt;p&gt;先不要把故事想的很复杂，可以是很简单的那种，不是复杂到小说家写的那种。&lt;/p&gt;
-
-&lt;p&gt;我说应该这样做的五个理由：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;故事可以培养人的观察能力；&lt;/li&gt;
-  &lt;li&gt;故事可以训练人的逻辑结构的能力；&lt;/li&gt;
-  &lt;li&gt;故事可以让人习惯把握自己的思维和情感；&lt;/li&gt;
-  &lt;li&gt;故事不仅仅是关于文字的，也可以是图像的，音乐的。我们生活的世界中，有很多现成的例子，可以让我们自我习得。&lt;/li&gt;
-  &lt;li&gt;故事不光是属于文学家，不光是属于语文课。而是属于我们所有人，所有的事业和工作。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;五-1&quot;&gt;（五）&lt;/h3&gt;
-
-&lt;p&gt;要了解故事，首先要学习感受：什么样的故事是好故事。&lt;/p&gt;
-
-&lt;p&gt;这不需要任何人教。好的故事是有影响力的。它能让你笑，让你痛哭，让你沉思。不需要任何专家告诉你里面含有何种高深的理论。你的直觉和情感能告诉你一切。&lt;/p&gt;
-
-&lt;p&gt;让我们来看看好故事的能量。&lt;/p&gt;
-
-&lt;p&gt;春晚的小品《不差钱》是好故事。好故事能让人发笑，让人快乐；&lt;/p&gt;
-
-&lt;p&gt;加菲猫说：球状就是身材。这是语录，也是故事，也是广告。能对自我宽恕和幽默的故事，是好故事。哪怕这故事，只有一句。但是，它能引发一大堆人会心的微笑；&lt;/p&gt;
-
-&lt;p&gt;关于人性，巴菲特就爱跟投资的人经常讲一个故事：&lt;/p&gt;
-
-&lt;p&gt;有一个搞投资的人死了，去见上帝，要求上帝，安排他到天堂里去过。&lt;/p&gt;
-
-&lt;p&gt;上帝说：“天堂里都是你们这些搞投资的，都满了，只有地狱里还有空。”&lt;/p&gt;
-
-&lt;p&gt;那个人说：“那麻烦你跟他们说一句：地狱里有石油。”&lt;/p&gt;
-
-&lt;p&gt;过了一阵，天堂里的人都开始往地狱里跑。&lt;/p&gt;
-
-&lt;p&gt;上帝对那个人说：“你可以搬到天堂了。他们都下地狱了。”&lt;/p&gt;
-
-&lt;p&gt;那个人说：“不行，我也得去地狱看看，万一是真的呢。”&lt;/p&gt;
-
-&lt;p&gt;好的故事好像什么也没说，但是，该说的它都说了。&lt;/p&gt;
-
-&lt;p&gt;昨天晚上，我和儿子一起看了一个视频短片《世界构建》。这个短片讲述了这样的一个故事：&lt;/p&gt;
-
-&lt;p&gt;只剩下1个小时了。&lt;/p&gt;
-
-&lt;p&gt;一个男人，一跃而起。你看他在用手比划着什么。&lt;/p&gt;
-
-&lt;p&gt;你看见他3D建模一样复制楼房。雕刻窗户，建造银行、路灯和一切。他在建造梦想中的美丽的世界。那个世界里有古老的街道，美丽的花朵，还有温暖的阳光。&lt;/p&gt;
-
-&lt;p&gt;当他快建立好的时候，他把时间调到阳光明媚的时候。他跑进街道旁的一扇木门里躲了起来。&lt;/p&gt;
-
-&lt;p&gt;这时，风吹着旗子开始动起来。远处传来钟声。&lt;/p&gt;
-
-&lt;p&gt;一位美丽的女人打着赤脚，从街道的另一扇门出来，她惊喜地看着这一切。她突然转身向男人的方向走来。&lt;/p&gt;
-
-&lt;p&gt;男人看见屋顶有一块还没有上色，脸上掠过一丝焦虑。&lt;/p&gt;
-
-&lt;p&gt;女人走到盛开的花朵的面前，开心地笑了。在门后的男人，也释然了。&lt;/p&gt;
-
-&lt;p&gt;女人回望着街道上的一切，念念不舍的转过街道。离去。&lt;/p&gt;
-
-&lt;p&gt;男人从门后走出来。他听见风的声音，他听见破裂的声音，他的世界，被风吹走了。&lt;/p&gt;
-
-&lt;p&gt;男人伸手从空中攫取一张照片，照片上是那个美丽的女人，男人送上一个吻。他的脸上还有泪水。&lt;/p&gt;
-
-&lt;p&gt;画面变黑了。&lt;/p&gt;
-
-&lt;p&gt;男人推开病房的门。&lt;/p&gt;
-
-&lt;p&gt;他俯身亲吻没有知觉的妻子。&lt;/p&gt;
-
-&lt;p&gt;桌上放着一个水杯，杯里插着那朵梦境中的花朵。&lt;/p&gt;
-
-&lt;p&gt;我跟儿子都被这个故事所深深感动、震撼。美妙的感受，无法言语。&lt;/p&gt;
-
-&lt;p&gt;我跟儿子说：“这就是我心目中的好故事。有些故事，可以带给你生理上的愉悦。但是，有些故事能真正激发你内心崇高的情感。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“故事好像很简单，但是，好像又很多。”&lt;/p&gt;
-
-&lt;p&gt;我说：“这就是故事的魅力。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“为什么会这样呢？”&lt;/p&gt;
-
-&lt;p&gt;我说：“这本来是一个很老套的故事。但是这样的讲述，出乎人的意料。故事的结尾，才揭示出男人建造世界的秘密。让你看了，才觉得：这是个多么美好、温暖的世界。”&lt;/p&gt;
-
-&lt;h3 id=&quot;六&quot;&gt;（六）&lt;/h3&gt;
-
-&lt;p&gt;儿子说：“我可写不出这种故事。”&lt;/p&gt;
-
-&lt;p&gt;我说：“这里面有很高的技巧了。我们一时都达不到。但是不妨碍我们从这些故事里面学到一些有用的东西。”&lt;/p&gt;
-
-&lt;p&gt;“叙述是一种认知的流动。人的大脑很奇怪。你看，故事都是线性讲述的。但是，故事一旦讲完后，人们会在大脑里重新组合，并梳理出他们理解的逻辑。”&lt;/p&gt;
-
-&lt;p&gt;“好的故事是这样的：人们不需要被教育，需要的是被触动。”&lt;/p&gt;
-
-&lt;p&gt;“所以，写故事，不需要排比句。不需要花俏的东西。因为华丽的东西，没有情感的流动，那就是一张纸，单薄，没有体积，也没有温度。写字，不是炫耀，而是真诚地叙述。你得首先说服自己相信，你才能写好它。故事里面的场景，人物，始终有一种东西在里面流动。它会把写字的人带到该去的地方，也会把读者带到该去的地方。”&lt;/p&gt;
-
-&lt;p&gt;“所以，写好作文最简单的做法就是：先学习叙述一件事情。让叙述的过程来说明一切。”&lt;/p&gt;
-
-&lt;p&gt;“在写的过程中，你会看见自己曾经看见过什么，你记住了什么，什么东西对你很大的影响，什么东西是你一直不能面对的。什么东西是你不能忘记的。当然，最重要的是，你要写下来，当时的过程，或者一种情绪。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“我什么时候才能做到这点呢？”&lt;/p&gt;
-
-&lt;p&gt;我说：“现在就开始，你可以做到。”&lt;/p&gt;
-
-&lt;p&gt;我说：“你们老师让你们看《读者》文摘，你们总是记得抄句子。其实，《读者》的文章有个特点，你们却没有学。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“什么特点。”&lt;/p&gt;
-
-&lt;p&gt;我说：“就是讲故事。你看《读者》是不是都是这样的：讲一个故事，然后，说明一个道理。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“好像差不多都是这样。”&lt;/p&gt;
-
-&lt;p&gt;我说：“如果你仔细看，你会发现每个故事里面还是有很多细节上的不同。故事的讲述，有很多不同的技巧，你需要自己自己反复体会，你有故事，故事就象水一样，你让它从山上流下来，就是瀑布，让它绕着村庄走，它就是河流。有时，你的任务，就是得寻找适合的容器，把它盛起来。容器就是结构，下次我们就会讲到，到底有哪些常用的结构，可以让我们把水盛起来。”&lt;/p&gt;
-
-&lt;p&gt;“《读者》这类的文章，基本上是属于启发、教益类的故事。你会发现很多讲述是如此简单，只是需要足够的细节，足够的真实而已。不过，你想过没有：我们生活不就是这样吗？每天有太多这样那样的故事，我们从来没有时间写下来。我们觉得那都是小事，不值得写，或者说，谁会在乎呢。其实，只要你在乎，你就可以写下来。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“这跟我们的作文有啥不同呢？”&lt;/p&gt;
-
-&lt;p&gt;我说：“故事是一种平实的叙述，不需要言必名言名句。不需要排比句，不需要形容词。只需要老老实实地讲述。你要用真实的情感去带动你的文字，不要去在意它如何艰涩，不好看，而要在乎它是否在人的内心中有情绪的积淀，它是否是有重量，是否有温度。它是否忠实于你的个性，是否忠实于你的情感。是否有一种消融内心坚冰的力量。”&lt;/p&gt;
-
-&lt;p&gt;“故事就是写自己想说的话，那是一种精神的印记。如果你想放弃自己的想法，只是想什么是符合标准的做法，那么，可以肯定的是，你永远也不会知道如何开始。”&lt;/p&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;h2 id=&quot;叙述-4叙述的基本原理&quot;&gt;【叙述-4】叙述的基本原理&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;xilei 发布于 2009-3-29 17:55:00&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;一-3&quot;&gt;（一）&lt;/h3&gt;
-
-&lt;p&gt;每年的三月，儿子都会参加市上的电脑比赛。作品通过后，有一个技术的答辩会。答辩会的主要内容有两部分。第一部分是由作者自己讲解作品，第二部分是由老师提问。&lt;/p&gt;
-
-&lt;p&gt;我一直觉得讲解作品是参加竞赛中，最有价值的部分。孩子们在学习里，总是学太多的书面知识，有太多的书面作文、太多的书面考试。而面对很多人做口头讲演的机会却少之有少。&lt;/p&gt;
-
-&lt;p&gt;一个人，在大众面前演讲，向大家介绍自己和自己的作品，展示自己的思维，是一种非常重要的能力。这需要适当的思维的训练，需要养成构思、叙述、传达的循环反复的习惯过程。&lt;/p&gt;
-
-&lt;p&gt;我一直希望学校的语文课有口头语言表达的训练内容：它是一些可以参照的简单可用的基本构思框架，任何孩子一个都可以模仿和练习，任何人都可以用自己的话，运用素材，讲在众人面前述一个跟自己有关的故事。&lt;/p&gt;
-
-&lt;p&gt;这听起来有点难，或许就算是大人都不容易做到。因为在我们从小到大的课程中，没有人告诉过我们该如何做。&lt;/p&gt;
-
-&lt;h3 id=&quot;二-3&quot;&gt;（二）&lt;/h3&gt;
-
-&lt;p&gt;我至今还记得儿子小学六年级的时候，我第一次跟他讲这样的一课：如何介绍自己的作品。&lt;/p&gt;
-
-&lt;p&gt;我当初的想法是这样的：不仅要教会儿子如何完成这件事情，而且我要把思考的全部逻辑过程展示出来。让他以后遇到类似的事情，就知道该如何去做。&lt;/p&gt;
-
-&lt;p&gt;我跟儿子说：不论是文字，还是图像，还是口头表达，有一条重要的法则，要牢记：所有的叙述，都是向受众传递信息。&lt;/p&gt;
-
-&lt;p&gt;儿子说：“什么是受众？”&lt;/p&gt;
-
-&lt;p&gt;我说：“你去讲你的作品，你是讲给评委老师听，还是讲给下面的同学听呢？”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“当然是老师听了。”&lt;/p&gt;
-
-&lt;p&gt;我说：“老师就是受众。就是那些想听你话的人，或者说是你想讲给他听的人。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“明白了。”&lt;/p&gt;
-
-&lt;p&gt;我说：“受众确定了。那么，接下来，你就要想啊：老师想听我讲什么呢？”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“我怎么知道老师想听什么？”&lt;/p&gt;
-
-&lt;p&gt;我说：“如果是平时的话，你的确不知道。但是，现在不同。你要想你是干什么去了？”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“我是去答辩。”&lt;/p&gt;
-
-&lt;p&gt;我说：“老师呢？”&lt;/p&gt;
-
-&lt;p&gt;儿子：“老师是评委。”&lt;/p&gt;
-
-&lt;p&gt;我说：“对了。你做演讲有一个环境的因素在里面：就是要围绕你的作品来讲。老师来干什么来了？老师做两件事：第一件事是先听你说；第二件事是根据竞赛的规则提问、考核。第一件事就是我们现在正准备的，第二件事才真正是老师要做的。”&lt;/p&gt;
-
-&lt;p&gt;“好，我们现在换一个角度来看。我告诉你，如果我是你们的老师，我会怎么评审呢？”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“你怎么知道我们老师想什么呢？”&lt;/p&gt;
-
-&lt;p&gt;我说：“我仔细读过你们的电脑竞赛的要求，参赛标准。你来看看，老师想问什么，其实，这上面都有！”&lt;/p&gt;
-
-&lt;p&gt;我把网站上的参赛和答辩要求，都指给儿子看。&lt;/p&gt;
-
-&lt;p&gt;“这是主题要求。这就告诉我们，你给老师介绍的时候，要说明你的主题是符合要求的。”&lt;/p&gt;
-
-&lt;p&gt;“这是技术要求。这就告诉我们，你要给老师讲你的作品里面使用了哪些特别的电脑技术。”&lt;/p&gt;
-
-&lt;p&gt;“这是制作的过程介绍。这就告诉我们：你要给老师讲你的制作过程。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“我明白，是不是相当于要把这些都放在演讲的过程中？”&lt;/p&gt;
-
-&lt;p&gt;我说：“是的。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“可是这么多东西，我怎么才能把它串在一起，一口气讲下来呢？”&lt;/p&gt;
-
-&lt;p&gt;我说：“儿子，不急。刚才我们讲的是一个内容的分析过程。现在，我们知道了，老师可能想听哪些部分的内容，我们做的是一个内容的逻辑分析。但是，要口头演讲的话，要换一种方式，才能把所有的方式串起来。”&lt;/p&gt;
-
-&lt;p&gt;“首先，我们把整个内容的逻辑简单梳理一下，让它听起来是流畅、合理的。”&lt;/p&gt;
-
-&lt;p&gt;“当有很多主题，看起来比较散的时候，你又想把很多东西串起来。一个简单的办法，就是不要一个一个讲这些主题，而是讲述做事的过程。然后，把你想讲的东西再挂上去。”&lt;/p&gt;
-
-&lt;p&gt;“如果我是你，我就会这样给老师讲这样几个方面：&lt;/p&gt;
-
-&lt;p&gt;首先，我会讲我为何会做这个动画，我是如何想到的，我为何可以做这个动画；为什么要先讲这个呢？因为你和老师是初次见面。你是谁，老师也不知道。你怎么构思，怎么想，老师也不知道。&lt;/p&gt;
-
-&lt;p&gt;讲事情的起源，看起来是多余的，其实不是。很多叙述是一种认知的需要。你要打动人，说服人，最重要的是要让人知道你是什么样的人。&lt;/p&gt;
-
-&lt;p&gt;可是，老师不知道你是什么样的人。老师是从你说的话，做的事情中了解。&lt;/p&gt;
-
-&lt;p&gt;所以说，你给老师讲你做动画构思的过程，就是在传递这样的信息：我是怎样的一个牛人。&lt;/p&gt;
-
-&lt;p&gt;其次，我要讲在制作的过程中，我使用了何种技术，我是如何理解这种技术，如何使用它的，不去谈技术的细节，因为后面老师会考你的，你说的东西要简单明了，不要太复杂，复杂容易让自己偏离重点。&lt;/p&gt;
-
-&lt;p&gt;所以，你还是这个办法，讲你用什么技术解决了什么问题，讲你使用技术的体会。你做的东西，那种独特的感受，一定有。你就讲最关键的一、两个体会就行。&lt;/p&gt;
-
-&lt;p&gt;老师一听就明白了：你到了哪个层次。他心里基本上就有数了。&lt;/p&gt;
-
-&lt;p&gt;再三，我会重点讲一些制作过程中的细节。我如何收集材料，如何准备，如何付出努力去完成项目等等。细节会为作品强说服力，也会感染他人。”&lt;/p&gt;
-
-&lt;p&gt;我给儿子说：“演讲有两个屡试不爽的基本技巧：一是讲述一个关于自己的故事；二是讲述自己在做事的过程中，如何思考和行动。”&lt;/p&gt;
-
-&lt;p&gt;儿子根据我的建议，做了一份讲演稿：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;《我们的神舟》——演讲稿&lt;/p&gt;
-
-  &lt;p&gt;开始提示：声音大点、语速不宜太快，讲话时，给老师交流眼神&lt;/p&gt;
-
-  &lt;p&gt;各位老师们好！&lt;/p&gt;
-
-  &lt;p&gt;我是某某小学六年级学生某某，我的参赛作品是一个Flash动画，名字叫做《我们的神舟》。&lt;/p&gt;
-
-  &lt;p&gt;我为什么要做这个动画呢？&lt;/p&gt;
-
-  &lt;p&gt;因为在2005年，我在学校观看了神舟六号发射的现场直播。之后我就开始对神舟火箭的整个发射过程有了兴趣，所以我回到家马上就在网上查找神舟六号的相关资料，知道了什么是逃逸塔，什么是返回舱，而且对神州发射的整个过程都有了比较详细的了解。因为在当时，我刚好又在自学Flash，就趁着这个对神舟感兴趣的时期，我就做了第一个版本的神舟动画，大体上的过程都有了，但比较粗糙。尽管这样，但还是得到了家长与老师的鼓励与支持。&lt;/p&gt;
-
-  &lt;p&gt;1年多过去了，遇到这项比赛。第一，我还是挺喜欢神舟的；第二，我觉得自己的Flash水平也有所提高，所以我就又做了第二个版本的神舟动画，作为参赛作品。下面就请老师们观看我的第二个版本的神舟动画吧！&lt;/p&gt;
-
-  &lt;p&gt;……（开始播放动画）&lt;/p&gt;
-
-  &lt;p&gt;因为神舟构造本身就很复杂，所以我把火箭的许多部件做成一个一个的元件，便好组装、拆散；做元件的另一个优势是，神舟火箭不管怎么放大、缩小、旋转，都不会失真。&lt;/p&gt;
-
-  &lt;p&gt;我在场景上又加入了淡入淡出，这样，每个场景的背景都可以循环多用，并且看起来也非常紧凑、连贯。&lt;/p&gt;
-
-  &lt;p&gt;整个作品制作分成了三个阶段，第一个阶段是收集材料，花费了很多的业余时间：我自己上网站，查相关资料，反复看神州发射的录像。整个构思是在这一年中积累完成的，第二个阶段是元件制作，整个flash包含了上百个元件。最后第三个阶段是合成。第二个阶段和第三个阶段大约画了整整5天的时间。&lt;/p&gt;
-
-  &lt;p&gt;今年，我国将发射嫦娥号一号。我现在又在自学3DsMax，我希望自己能在电脑上展现这一过程。&lt;/p&gt;
-
-  &lt;p&gt;谢谢大家！&lt;/p&gt;
-
-  &lt;p&gt;……（技术操作+答辩）&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;这个演讲稿，儿子反复修改过好几次，又在口头上反复练习演讲了好多次。&lt;/p&gt;
-
-&lt;p&gt;这是一个经过精心设计的看起来很普通的演讲，但仔细读来，里面包含了丰富的信息和情感。&lt;/p&gt;
-
-&lt;h3 id=&quot;三-3&quot;&gt;（三）&lt;/h3&gt;
-
-&lt;p&gt;上面的演讲的设计过程，就是我教给儿子的关于叙述的基本原理的一次应用。&lt;/p&gt;
-
-&lt;p&gt;所谓叙述的基本原理，是我自己给出的一个思维基本框架的定义。&lt;/p&gt;
-
-&lt;p&gt;这个原理的核心内容如下：&lt;/p&gt;
-
-&lt;p&gt;任何目标导向的叙述过程的设计，都可以用一种如下的方式或者步骤来进行思考：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;内容分析：确定受众；&lt;/li&gt;
-  &lt;li&gt;逻辑设计：确定内容要素、梳理内容的逻辑结构；&lt;/li&gt;
-  &lt;li&gt;结构设计：在生活中寻找叙述的框架，最简单有效的方法就是讲述一个关于自己的故事，完成逻辑的基本诉求：把所有的要点元素或素材组织在一起，合理地放置在故事的背景中；&lt;/li&gt;
-  &lt;li&gt;情感设计：在讲述事件本身的同时，讲述态度、情感和方法；&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;文字只是叙述的一种表象。本质上说，叙述是一种思维的过程，只要通过合理地训练、反复地练习，久而久之，每个人都能获得这种人性的技巧。&lt;/p&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;h2 id=&quot;叙述-5海明威的叙述&quot;&gt;【叙述-5】海明威的叙述&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;xilei 发布于 2009-5-1 15:37:00&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;一-4&quot;&gt;（一）&lt;/h3&gt;
-
-&lt;p&gt;在很多年前，我读过一篇海明威的短篇故事，名字叫《三声枪响》。讲的是一个叫尼克的小孩跟随父亲在湖边度假时发生的故事。&lt;/p&gt;
-
-&lt;p&gt;故事一开始，就写尼克在帐篷里脱衣服，看见帐篷外父亲和叔父的影子在灯光的照耀下晃动。尼克为自己感到羞愧。&lt;/p&gt;
-
-&lt;p&gt;是什么事情让尼克感到羞愧呢？&lt;/p&gt;
-
-&lt;p&gt;接下来的文字开始转入正题。&lt;/p&gt;
-
-&lt;p&gt;原来，很多天前的一天傍晚，父亲和叔父要离开宿营地去远处的地方打猎。临走的时候，父亲跟尼克说：如果有什么事情，需要他们返回的话，就朝天放上三枪。&lt;/p&gt;
-
-&lt;p&gt;尼克看见：父亲把船往湖里推，叔父坐在船头。过了一阵，尼克听见叔父开始唱歌，也听见父亲划桨的声音。&lt;/p&gt;
-
-&lt;p&gt;尼克开始往回走，周围的黑暗迫使他尽快返回。&lt;/p&gt;
-
-&lt;p&gt;尼克返回营地，在帐篷里躺下，怎么也睡不着。他不时听见很多声音，但是，他不能确定那些声音到底是不是猫头鹰的声音。&lt;/p&gt;
-
-&lt;p&gt;尼克干脆坐起来看书，他强迫自己不去想其他的事情。尼克看书，直到天亮。&lt;/p&gt;
-
-&lt;p&gt;直到后来的某天晚上，尼克听到从森林的远处传来了一种怪异的声音，他马上拿起了猎枪，对着天放了三枪。&lt;/p&gt;
-
-&lt;p&gt;等尼克的父亲和叔父回来的时候，他们看见尼克已经睡着了。&lt;/p&gt;
-
-&lt;p&gt;叔父说：看吧，我说没事的。这小家伙就是胆小罢了。&lt;/p&gt;
-
-&lt;p&gt;尼克的父亲说：他还小。毕竟是孩子呢。&lt;/p&gt;
-
-&lt;p&gt;第二天早上尼克起来后，父亲带他到外面。父亲让他意识到，晚上听见的声音，可能是风刮到树枝发出的。&lt;/p&gt;
-
-&lt;p&gt;所以，这天晚上，尼克躲在帐篷里，感到羞愧。&lt;/p&gt;
-
-&lt;p&gt;然后，故事回到开始的部分。&lt;/p&gt;
-
-&lt;p&gt;故事结尾的时候，是这样的：父亲叫尼克赶快穿上衣服，对他说：我们一起出去。&lt;/p&gt;
-
-&lt;h3 id=&quot;二-4&quot;&gt;（二）&lt;/h3&gt;
-
-&lt;p&gt;昨天晚上，我跟儿子讲《三声枪响》，我还找出原文让他自己看了一遍。儿子看完的时候，还又往后翻了一页。&lt;/p&gt;
-
-&lt;p&gt;我说：没有了。他的结尾有点突然。戛然而止。&lt;/p&gt;
-
-&lt;p&gt;儿子点了点头。&lt;/p&gt;
-
-&lt;p&gt;我说：你有什么感觉没有？&lt;/p&gt;
-
-&lt;p&gt;儿子说：他写了尼克的害怕。但是，居然在故事里面几乎没有提到过“害怕”这个词。&lt;/p&gt;
-
-&lt;p&gt;我说：对的。他没有说，但是你看过后，就是感觉到眼前自然就有那种画面，那种感觉可以直达你这里。&lt;/p&gt;
-
-&lt;p&gt;儿子使劲点了点头。&lt;/p&gt;
-
-&lt;p&gt;我说：换了是你们，你们会写成什么呢？你们肯定会写：我害怕，我很害怕，我害怕得毛骨悚然，我非常非常害怕。然后，举例说哪个古人或者名人曾经在哪个角落里说过孤独、害怕之类的话。你说是不是？&lt;/p&gt;
-
-&lt;p&gt;第一段A名人的名言名句，第二段B古人的经典诗句。第三段本大人的总结发言，得出关于害怕的意义。&lt;/p&gt;
-
-&lt;p&gt;儿子几乎笑倒。&lt;/p&gt;
-
-&lt;p&gt;不过，我不是信口雌黄。现在的中学生作文里面充斥着这样的作文思路。&lt;/p&gt;
-
-&lt;p&gt;比如很多的中学生最佳作文，一般都是这样的：满篇都是格言名句，充满了华丽而空洞的形容词。一段段的排比句，貌似看起来很有气势和文采。&lt;/p&gt;
-
-&lt;p&gt;我跟儿子说：这种写法，只能败坏一个人的感觉。一个人老是想着别人说过的话，那他不可能相信自己的眼睛，他也不敢写出自己的真实情感。如果是这样的话，写文字成了什么？炫耀记忆和词藻的游戏？&lt;/p&gt;
-
-&lt;p&gt;儿子问：按你的说法，记忆好词好句的做法，是不对的？&lt;/p&gt;
-
-&lt;p&gt;我说：做摘要，没有错。但是，不能那么用。你要写东西的时候，最好先把别人的东西忘掉。你要首先想的是：我要表达一个什么，我要传递一个什么感觉，或者想法。&lt;/p&gt;
-
-&lt;p&gt;我跟儿子说，我可以证明：不用名言名句，不用排比句，一样可以写出非常棒的文字。&lt;/p&gt;
-
-&lt;p&gt;那个时候，我想到了海明威的《三声枪响》。&lt;/p&gt;
-
-&lt;h3 id=&quot;三-4&quot;&gt;（三）&lt;/h3&gt;
-
-&lt;p&gt;你可以把《三声枪响》，看成是海明威写的一篇假期的游记作文。&lt;/p&gt;
-
-&lt;p&gt;海明威可能就是那个尼克，一个跟父亲和叔父出去外面打猎度假的小孩。&lt;/p&gt;
-
-&lt;p&gt;海明威没有写度假的那个地方风景如何的优美，因为优美的风景太多，以至于小孩总是忘乎所以，根本没有时间来欣赏美景。美景太多了，小孩只是高兴，不需要象大人那样热爱抒情。&lt;/p&gt;
-
-&lt;p&gt;小孩有小孩担心的事情，比如说害怕，或者死亡。&lt;/p&gt;
-
-&lt;p&gt;海明威想写一个独特一点的东西：他在自己的头脑里，寻找自己作为孩子时的独特感受。或许，有一天，他发现了一个小秘密：每个孩子都有害怕的经历。那种感觉，常被大人忽略，其实，却常常隐藏在孩子心里。&lt;/p&gt;
-
-&lt;p&gt;海明威决定写一个关于尼克的故事，故事的主题是：害怕。那个时候，他还没有想好作文题目，该起一个什么样的名字。&lt;/p&gt;
-
-&lt;p&gt;海明威想：我要怎样才能写出一个关于“害怕”的故事呢？&lt;/p&gt;
-
-&lt;p&gt;海明威没有去用google搜索，那个时候，还没有互联网。海明威也没去图书馆找。他不喜欢去翻别人说过的话，他也不喜欢用很多的形容词。他喜欢站着写作，因为这样，他能写得简短，快些写完，才好休息。&lt;/p&gt;
-
-&lt;p&gt;在海明威的头脑里，“害怕”不是那样一个被压扁的形容词，而是由一个又一个有形状能刺激人想象的场景：&lt;/p&gt;
-
-&lt;p&gt;他不觉得非要说出那个词，才能表现出那样的效果。他认为环境、人的动作和对话，会泄露出很多的秘密。&lt;/p&gt;
-
-&lt;p&gt;比如说：你可以想象一下，在伸手不见五指的夜晚，你一个人在回家的路上。突然身后，传来了细碎的脚步声。那声音跟你的脚步的节奏一样，人走的时候，那声音在，人不走的时候，那声音也停止了。&lt;/p&gt;
-
-&lt;p&gt;环境会改变一个人的心理感受，人的内心的想象也会助长那种你想要的暗示。&lt;/p&gt;
-
-&lt;p&gt;你可以想象：一个小孩独自穿过漆黑的森林返回帐篷时的心情。他的脚踩在路上干燥的树叶上发出的声音，周围猫头鹰的叫声，有一声没一声。&lt;/p&gt;
-
-&lt;p&gt;如果是你，你会怎样？&lt;/p&gt;
-
-&lt;p&gt;为了抵御某种内心的情绪，一个人会采取很多行为来抵制，或者反抗。&lt;/p&gt;
-
-&lt;p&gt;尼克躺在帐篷里，怎么也睡不着。他只能爬起来看书，让自己什么也不去想。&lt;/p&gt;
-
-&lt;p&gt;海明威并不把所有的东西都记录下来，他只是在陈述，一个动作接着一个动作。动作之间的逻辑关联，他认为读者其实完全可以想到的。无须详细一一描述。&lt;/p&gt;
-
-&lt;p&gt;他相信：文字的张力是靠读者的想象去完成的。&lt;/p&gt;
-
-&lt;p&gt;海明威写了一个孩子在黑夜中的挣扎：先是努力去分辨各种声音，然后，爬起来读书。最后，实在忍无可忍，尼克还是爬起来，朝天上放了三枪。&lt;/p&gt;
-
-&lt;p&gt;看，到这里，你终于明白了，海明威为何把作文题目叫《三声枪响》了。&lt;/p&gt;
-
-&lt;p&gt;尼克的父亲和叔父的对话，简单明了。寥寥数语，人物的性格和态度栩栩如生。&lt;/p&gt;
-
-&lt;p&gt;但这一切都不是写作者说出来的，而是从故事中人物的言语中自然渗透出来的。&lt;/p&gt;
-
-&lt;h3 id=&quot;四-3&quot;&gt;（四）&lt;/h3&gt;
-
-&lt;p&gt;我跟儿子说：一般来说，写文字和其他的任何创作和设计，没有任何不同。你不要认为，写作和设计都是一拍脑袋，就什么都有了。其实不是，基本的过程是有章法可循的。&lt;/p&gt;
-
-&lt;p&gt;比如说，你要写一个东西。可能是因为某个触动和感觉在你心里蕴藏很久了，或者你有一种希望表述的愿望，让你有了一种想要捕捉的愿望。&lt;/p&gt;
-
-&lt;p&gt;一般来说，很多创作的起点，都是来源于灵感或想法的。&lt;/p&gt;
-
-&lt;p&gt;接下来的是，如何用一系列的手术刀似的方法，来捕捉这种创意。很多时候，你会发现，你开始的想法或许是不完整的，甚至会导出相反的感觉。&lt;/p&gt;
-
-&lt;p&gt;接下来的工作是搜集材料，收集很多素材。围绕主题的，或者跟主题相反的材料。然后，做归纳、过滤、剔除。&lt;/p&gt;
-
-&lt;p&gt;你要确定的是这些材料对于叙述的主题是否是有益的和互补的。&lt;/p&gt;
-
-&lt;p&gt;接下来，要寻找一种把主要材料组织在一起的结构。&lt;/p&gt;
-
-&lt;p&gt;创造任何一个东西，结构都是非常重要的。因为文字如同建筑，你没有构造的话，再好的素材，都是一遍散沙。&lt;/p&gt;
-
-&lt;p&gt;我们经常会看见很多简单的故事，因为结构的妙用，变得很容易让人理解。&lt;/p&gt;
-
-&lt;p&gt;比如说：《平民窟的百万富翁》，用《开心辞典》的方式，把主角成长的片段很方便地串联起来。这种结构，重点突出，详略得当。根本不需要中间的过渡。因为这种娱乐问答的方式，自己本身就是允许跳跃的。&lt;/p&gt;
-
-&lt;p&gt;再比如说：《海角七号》也是同样的道理。那七封情书，是一个多么温暖的线索，把所有的元素，串在一起。如果没有这根线。你得花多大的力气，把那么多的场景和素材，放在一起，而不感觉凌乱？&lt;/p&gt;
-
-&lt;p&gt;接下来是安排场景，安排段落之间的逻辑。&lt;/p&gt;
-
-&lt;p&gt;海明威写尼克害怕，段落之间是有非常明显的逻辑推演的。&lt;/p&gt;
-
-&lt;p&gt;尼克看见父亲推船下湖，他看见叔父坐在船头。他听见歌声和船桨划动的声音。他的周围弥散着夜晚的气息。&lt;/p&gt;
-
-&lt;p&gt;他回家的路上，一种情绪开始弥漫。&lt;/p&gt;
-
-&lt;p&gt;他想听清，到底是什么动物在叫。&lt;/p&gt;
-
-&lt;p&gt;他睡不着，从床上爬起来看书。&lt;/p&gt;
-
-&lt;p&gt;后来的一天晚上，他实在是无法肯定，拿起枪对天空放了三枪。&lt;/p&gt;
-
-&lt;p&gt;海明威知道：这世界上有一种很厉害的结构，就叫因果关系。你只需要把它一层一层地撕开，无须多言，每个人都会有真切的体验。&lt;/p&gt;
-
-&lt;h3 id=&quot;五-2&quot;&gt;（五）&lt;/h3&gt;
-
-&lt;p&gt;我建议儿子把《三声枪响》多读几次，甚至可以学着模仿这种写法。我告诉他，以后写作文的时候，不要觉得自己什么都没有，也不需要靠什么好词好句。&lt;/p&gt;
-
-&lt;p&gt;我说：我不相信，你没有自己熟悉的东西。你的生活中，有很多细节的东西存在。你只是没有仔细想过。比如说，我经常听说你们中午打饭很热闹。那么，你为何不回忆一下有那些细节，让你有如此体会。你为何不把这些画面，用最简单的方式写下来呢？&lt;/p&gt;
-
-&lt;p&gt;儿子想了想，马上很激动的说：我们中午送饭过来时，盆子下面有油。大家抢饭的时候，不小心，总会把油蹭在衣服上……&lt;/p&gt;
-
-&lt;p&gt;我说：对了。这就是细节，这就是画面啊。你只需要简单的回忆，用简单明了的话，把你看到的东西描写下来。就已经是很棒的素材了。为什么不这样写呢。为什么要想象看不见的古人，而不是先从自己的身边下手呢？&lt;/p&gt;
-
-&lt;p&gt;我把《三声枪响》讲完后，帮儿子做了一个总结：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;睁开眼睛，相信自己内心是有东西可写的
- 首先，写文章的时候，要相信自己的内心的感觉，要确定自己到底要表达一个什么感受或者观点；
- 一次只表达一个感受，或一个观点；&lt;/li&gt;
-  &lt;li&gt;观点明了、逻辑清晰、结构易懂
- 写的时候，要挑选素材，然后寻找一个简单的结构，确定好段落的逻辑。
- 用自己的话写，只要逻辑上没有问题。
- 任何文字是为内容服务的。所以，对一个初学者来说，重要的不是文笔好不好，而是首先要写清楚。只有写清楚，读者才知道你在说什么。&lt;/li&gt;
-  &lt;li&gt;海明威的叙述
- 如果你肯定的话，别人早就知道的事情，你可以不写。
- 你只写事情浮现的部分。就如同那些气势磅礴的冰山，我们虽然看见的只是浮出海面的八分之一，而剩下的部分，通过想象就可以顺利完成。
- 忘掉形容词，忘掉格言名句。当你根本没有什么可依靠的时候，你的眼睛就会睁开。你的能力就会自然而然地生长出来。
- 做任何事情，最重要的是要树立信心。写字也是一样。
- 一个对自己有信心的人，简洁不是一种叙述的形式，它就是叙述本身，它就是叙述的动力和方向。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;h2 id=&quot;叙述-6结构因果和重复&quot;&gt;【叙述-6】结构:因果和重复&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;xilei 发布于 2009-5-21 17:11:00&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;一-5&quot;&gt;（一）&lt;/h3&gt;
-
-&lt;p&gt;现在，每到周末，我都要求儿子写一篇钢笔字。&lt;/p&gt;
-
-&lt;p&gt;他握笔的姿势不好，整个笔是竖起来的，写字象鸡啄米。遇到作业多的时候，力气用到最后，字都是东倒西歪的。&lt;/p&gt;
-
-&lt;p&gt;我说：背打直了。手放在桌子上，吊在外面着怎么能写呢。&lt;/p&gt;
-
-&lt;p&gt;儿子听着，有时会很不耐烦地挪挪屁股，象征性地动一下。&lt;/p&gt;
-
-&lt;p&gt;有一天，作业的书写太乱了，简直都看不下去了。我大光其火。&lt;/p&gt;
-
-&lt;p&gt;我说：这样可不行。你写的字，别人都看不清楚。你得花时间练习练习写字。&lt;/p&gt;
-
-&lt;p&gt;我让他先注意写字的姿势，然后，给他说了一个练习写字的办法。&lt;/p&gt;
-
-&lt;p&gt;我的要求很简单：我不要求你写成一个书法家，但是，你起码要把字形写清楚。&lt;/p&gt;
-
-&lt;p&gt;我找了一本字帖，翻到其中的一页，拿了一张纸，让儿子先临摹了一排。&lt;/p&gt;
-
-&lt;p&gt;儿子写了一排。比划着写，怎么也不赖。&lt;/p&gt;
-
-&lt;p&gt;写好后，我把字帖拿开，让他自己写一排。字象弹簧一样，立马回到从前。&lt;/p&gt;
-
-&lt;p&gt;我说：你知道你的字，为何跟刚才的字不一样吗？&lt;/p&gt;
-
-&lt;p&gt;儿子在发愣，不知道该怎么办。&lt;/p&gt;
-
-&lt;p&gt;我说：我跟你说一个写字的技巧。你马上就会改进很多。我们先不谈什么笔锋，你看看你的字形结构！&lt;/p&gt;
-
-&lt;p&gt;我指着纸上的一个“仁”字，我在字上面各自画了一个长方形，把字分割看。&lt;/p&gt;
-
-&lt;p&gt;“你先不把字看成是字，而是一幅画。那么‘仁’这幅画，包含了左右两个部分。我们用方形把它们圈起来。你注意感受人家写字时，这两个部分的相对大小。还有块与块之间的位置。”&lt;/p&gt;
-
-&lt;p&gt;“写字首先，是要横平竖直。你看看你的单“仁”旁，你左边的这个竖，都是歪的。站直了，别趴下！”&lt;/p&gt;
-
-&lt;p&gt;“你看看右边的方形的位置，相对于左边，大概是在什么位置。这是一种的平衡的感觉。你多看看别人起笔的位置，多体会，自己写一写。”&lt;/p&gt;
-
-&lt;p&gt;“同样，象这个‘音’字，是上下结构，上面的立，是一个扁平的长方形，下面的日，可以写成竖立着的长方形结构。如果你写成同样的形状，感觉就象压扁了一样。竖立的形状，才能撑得住。”&lt;/p&gt;
-
-&lt;p&gt;挨着把一排字的结构，和儿子的字做了对比和分析。每个字，写了几十个。&lt;/p&gt;
-
-&lt;p&gt;儿子把字重新写了一遍，象换了个人写的一样。&lt;/p&gt;
-
-&lt;p&gt;我说：一个字的字形有很多变化。但是，刚开始，学一种就行。重要的是，你要先学会看懂人家是怎么结字的，然后，才好模仿。模仿好了，就可以加入自己的特色。那个字，也变成你的风格了。&lt;/p&gt;
-
-&lt;p&gt;我认为对于初学者来说，写字的关键，在于识别字形结构。&lt;/p&gt;
-
-&lt;p&gt;写字是这样，其他任何领域里的学习都是一样。&lt;/p&gt;
-
-&lt;p&gt;记住：不论你干什么，你首先要了解其中的结构。&lt;/p&gt;
-
-&lt;h3 id=&quot;二-5&quot;&gt;（二）&lt;/h3&gt;
-
-&lt;p&gt;举一个例子来说明。&lt;/p&gt;
-
-&lt;p&gt;在《读库》0804里面有这样一篇文字：《电影编剧的秘密》。里面讲了这么一个故事：说的是老外怎么写西部片。&lt;/p&gt;
-
-&lt;p&gt;在老外眼里，西部片是一种类型电影。&lt;/p&gt;
-
-&lt;p&gt;什么是类型电影？就是电影的故事结构，已经模式化了。凡是这种电影，结构都这么写。&lt;/p&gt;
-
-&lt;p&gt;美国西部片的结构通常是这样的：&lt;/p&gt;
-
-&lt;p&gt;【故事开始】&lt;/p&gt;
-
-&lt;p&gt;1.英雄来到了小镇；
-2.小镇被恶势力控制，小镇人民无力反抗；
-3.英雄初露本色，有超强本领，打破小镇平静；&lt;/p&gt;
-
-&lt;p&gt;【故事中间】&lt;/p&gt;
-
-&lt;p&gt;4.英雄与恶势力发生冲突；
-5.小镇人民不理解英雄；
-6.英雄与恶势力冲突升级，因为得不到支持，英雄受到磨难；
-7.英雄在频临绝境时，凭个人智勇杀入重围，消灭恶势力；&lt;/p&gt;
-
-&lt;p&gt;【故事结尾】&lt;/p&gt;
-
-&lt;p&gt;8.小镇人民挽留英雄，为英雄拒绝；
-9.英雄离开小镇。&lt;/p&gt;
-
-&lt;p&gt;仔细想想，好像是这样。&lt;/p&gt;
-
-&lt;p&gt;我们明明知道美国电影很有模式化，也明明知道很多是假的，但是，我们还是乐意去看，我们乐意上当！&lt;/p&gt;
-
-&lt;p&gt;为什么我们总是愿意相信这样的一种“偏见”：美国电影的故事比中国电影的好看？&lt;/p&gt;
-
-&lt;p&gt;答案很简单：&lt;/p&gt;
-
-&lt;p&gt;美国的各种类型电影积累了很多千锤百炼的叙述方式，它的故事的结构满足了人性的基本需求，也符合人的认知心理。&lt;/p&gt;
-
-&lt;p&gt;因为经典结构能很好地沿着受众的认知的路径，一步一步释放信息，跟受众达成了一种沟通的默契。&lt;/p&gt;
-
-&lt;p&gt;在这种结构的约束下叙述，整体的基础是稳定的。&lt;/p&gt;
-
-&lt;h3 id=&quot;三-5&quot;&gt;（三）&lt;/h3&gt;
-
-&lt;p&gt;上周周末，儿子他们布置的作文内容是：给某名人写一个短小的墓志铭和写一篇关于李白的小传，老师从网上下载了李白的文字资料，让他们参考。&lt;/p&gt;
-
-&lt;p&gt;墓志铭上周曾经写过一次，老师还把班上同学写的好的文字打印出来给大家分享。&lt;/p&gt;
-
-&lt;p&gt;有些写的真不错，但是，有一些文字，我一看就笑了，感觉不妥。&lt;/p&gt;
-
-&lt;p&gt;我马上在网上挑选了一些墓志铭，让儿子看。&lt;/p&gt;
-
-&lt;p&gt;我说：“文体的真实性，很重要。墓志铭是写给死去的人，重点是对一个人的总结或评价。不能成了作者的抒情描写，这是喧宾夺主啊。这样写，对死者缺乏尊重。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“反正也是练笔，又不是真的墓志铭。”&lt;/p&gt;
-
-&lt;p&gt;我说：“不行。你得当真的来写。你明明是写的就是墓志铭，你却写成了抒情散文诗。方向都偏了。”&lt;/p&gt;
-
-&lt;p&gt;儿子还在等我后面的话。&lt;/p&gt;
-
-&lt;p&gt;我说：“你这样理解吧：你打算写一个请假条给老师，本来写清楚就行了。结果，却写成了抒情诗。老师看了后，猜了半天，也没有搞清楚，你到底要干什么。”&lt;/p&gt;
-
-&lt;p&gt;“所以，不能乱来。文体的真实性，很重要。你的文字用途不同，你叙述的结构就不同。”&lt;/p&gt;
-
-&lt;p&gt;我一下意识到，学生的作文训练缺少必要的结构训练：&lt;/p&gt;
-
-&lt;p&gt;把什么东西都写成了散文，是要不得的。&lt;/p&gt;
-
-&lt;h3 id=&quot;四-4&quot;&gt;（四）&lt;/h3&gt;
-
-&lt;p&gt;因为前面的事情，晚些时候，我还专门看了看儿子写的小传，眉头又皱紧了。&lt;/p&gt;
-
-&lt;p&gt;“怎么都写成了排比句。你不觉得这样很单薄吗？你这样写东西，结构都有问题，文章都不成形。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“我们班上都是这样写的。”&lt;/p&gt;
-
-&lt;p&gt;我不知道从什么时候开始，中学作文的文字都变成了抒情散文。不论是男生和女生，都在写这种软绵绵的东西。&lt;/p&gt;
-
-&lt;p&gt;我在网上，找了一篇别人写的“鲁迅小传”。我给儿子分析，别人是怎么写的。&lt;/p&gt;
-
-&lt;p&gt;我说：我觉得它这个结构，你是可以借鉴的。他的写法是这样的：分成是三个大的部分。第一大部分，是对鲁迅的一个总的概述，第二段按照他的生平时间来写，只写重点的事件。最后的部分是对鲁迅的评价。&lt;/p&gt;
-
-&lt;p&gt;我说：你写李白的小传，也可以拿来主义，分成三部分。第一部分，对李白做一个总结性描述。第二部分，也是按照生平时间来写，写他的生平经历。最后部分，因为他是伟大的诗人，当然要对他的诗歌做一些评价。&lt;/p&gt;
-
-&lt;p&gt;儿子按我的话去做了，很快写好了。&lt;/p&gt;
-
-&lt;p&gt;我看了看，“整体的结构是没什么问题了。第一部分和第三部分，都没有什么问题。在第二部分，有点乱。”&lt;/p&gt;
-
-&lt;p&gt;“第二段，我们的目标是写李白的生平。好的，我们把我们认为的事件，都写出来。但是，这不能搞成排比的方式。在这种事件的挑选中，我们要做的是：你选出的事情，要让它呈现出一定的逻辑关系。它不应该是一堆无关紧要的东西，随便堆放在一起。”&lt;/p&gt;
-
-&lt;p&gt;我说：“我为什么反对用过多的排比句？因为排比句，过于重视词语的优美，而忽略了叙述的逻辑。如果你前面有很多的叙述铺垫，你可以用。但是，如此简单的重复，留给读者常常是空洞的感觉。因为华丽的词语本身需要让读者去想，而不是自然感受到。这会破坏语言的感觉，也会影响到阅读的流畅。”&lt;/p&gt;
-
-&lt;p&gt;“所以，好的做法是沿着设计好的结构的轨道跑。好的故事形状，会带来很美妙的感受。”&lt;/p&gt;
-
-&lt;p&gt;“好了，我们回过头来说，怎么写第二部分。我们怎么去寻找第二部分的叙述逻辑。一个很简单的办法，就是依据事实，自己提问。”&lt;/p&gt;
-
-&lt;p&gt;“李白是个很自负的人，16岁前就云游四方。那我们就要问了，他为何要去云游？他为何要自负？他想干什么？答案是：李白对自己有一个很高的期待，希望自己在仕途上，能一展抱负。”&lt;/p&gt;
-
-&lt;p&gt;“接下来才有李白进京。他自己希望得到唐太宗的赏识，不过，皇上看中的只是他的诗才。在皇帝眼里，他不过是一个用来娱乐的工具而已。”&lt;/p&gt;
-
-&lt;p&gt;“如果你是李白会怎么样？你肯定会很失落。”&lt;/p&gt;
-
-&lt;p&gt;“所以，李白才写下了‘抽刀断水水更流，借酒浇愁愁更愁’的诗句。他在表达自己内心的郁闷。”&lt;/p&gt;
-
-&lt;p&gt;“李白在宫廷里不受重用，刚直不阿的性格，就会带来麻烦，最后，他肯定是得罪了不少权贵。离开了皇宫。”&lt;/p&gt;
-
-&lt;p&gt;“你看我说的这么干巴巴的。但我把整个叙述的线索拉出来了。我这么做是为了在素材中寻找叙述的逻辑。你在阅读李白的材料的时候，也要做同样的事情，在脑子里面一定要去寻找可以把素材联系起来的因果关系。这样，你写下的东西，才会非常的结实。”&lt;/p&gt;
-
-&lt;p&gt;“因果关系是一种重要和常见的结构。也是一种没有任何认知障碍的逻辑结构。一旦你在素材中梳理或找到了这种关系，基本上，剩下的问题是写的问题了。你在下笔之前，你的眼睛已经看见了远方。虽然你还不完全知道过程的细节，但是，你知道自己的文字会带你到哪儿。你的文字是有方向感的，它自己不会乱跑，不会散架，更不会崩溃。”&lt;/p&gt;
-
-&lt;p&gt;儿子花了些时间，重写了第二部分。&lt;/p&gt;
-
-&lt;p&gt;文字上还有问题。但我能确定的是：总体的结构对了。&lt;/p&gt;
-
-&lt;p&gt;我不能确定的是：用完全不使用排比句的方式写作文，儿子在考试的时候，会被判一个什么样的分数呢？&lt;/p&gt;
-
-&lt;p&gt;文字的逻辑好解决，而生活的逻辑，却很难很难。&lt;/p&gt;
-
-&lt;h3 id=&quot;五-3&quot;&gt;（五）&lt;/h3&gt;
-
-&lt;p&gt;再补充一点：&lt;/p&gt;
-
-&lt;p&gt;排比句的用途在于：不断重复，增加层次感。但是，如果通篇都只是在词语上做排比功夫，则会呈现出一种华丽而虚伪的文字。&lt;/p&gt;
-
-&lt;p&gt;其实，本文的结构，也是：重复。我依赖故事的主题重合来表达。没有用排比句来重复，而是依次讲了几个看起来不一样的故事。&lt;/p&gt;
-
-&lt;p&gt;有时，简单的故事比豪华的句子更有质感。它的感受性更自然一些。因为故事的叙述往往是从容的，符合人的心理感知。&lt;/p&gt;
-
-&lt;p&gt;我们以后会提到叙述的多声部手法。那是一种象音乐“排比句”的叙述结构。&lt;/p&gt;
-
-&lt;p&gt;我们可以看到很多好的作品，如何把简单的重复，运用得如多棱镜一样，绚丽夺目。&lt;/p&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;h2 id=&quot;叙述-7一味地抒情没有力量&quot;&gt;【叙述-7】一味地抒情没有力量&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;xilei 发布于 2009-6-14 20:32:00&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;一-6&quot;&gt;（一）&lt;/h3&gt;
-
-&lt;p&gt;周末的时候，我和儿子去小区周围的书店，买《读者文摘》。学校的老师要求他们经常看这个杂志。我经常看儿子他们做一些摘抄的笔记。&lt;/p&gt;
-
-&lt;p&gt;我们买了杂志出来，儿子跟我说：爸爸，我发现了一个秘密。&lt;/p&gt;
-
-&lt;p&gt;我说是什么。&lt;/p&gt;
-
-&lt;p&gt;儿子说：我刚才付款的地方，放了一排的影碟。都是《变形金刚》、《终结者》之类的。&lt;/p&gt;
-
-&lt;p&gt;我说：哦，这说明了什么呢？&lt;/p&gt;
-
-&lt;p&gt;儿子说：我猜是因为新的《星际迷航》要上映了。商家就把这同类的电影，摆放出来，让大家看。&lt;/p&gt;
-
-&lt;p&gt;我说：有道理。商家是在做营销。&lt;/p&gt;
-
-&lt;p&gt;儿子：什么是营销？&lt;/p&gt;
-
-&lt;p&gt;我说：就是商家想一些办法来帮助推销商品给顾客。比如说《星际迷航》的新电影要上映了，商家就找一些同类的书、影碟和杂志，摆放在一起让大家选。他们就是想办法，让人能顺便多买一点。&lt;/p&gt;
-
-&lt;p&gt;儿子说：原来他们是这样想的！&lt;/p&gt;
-
-&lt;p&gt;我说：那当然，他们是动了脑子的。&lt;/p&gt;
-
-&lt;p&gt;儿子说：哪还有没有其他促销的办法呢？&lt;/p&gt;
-
-&lt;p&gt;我说：有啊。刚才这种，叫同类促销。还有一种，貌似没有关系，但实质上，有关系。&lt;/p&gt;
-
-&lt;p&gt;我说：曾经有超市在卖小孩纸尿裤的地方，也摆放啤酒。结果，这两种东西都同时卖得很好。&lt;/p&gt;
-
-&lt;p&gt;儿子说：我不明白。&lt;/p&gt;
-
-&lt;p&gt;我说：看起来两件东西没有关系是不是？其实，如果这样想，就很容易理解：妈妈在家里带小孩，爸爸到超市买纸尿裤，顺便买点啤酒犒劳自己。&lt;/p&gt;
-
-&lt;p&gt;儿子说：原来是这样。但是，他们是怎么知道的呢？&lt;/p&gt;
-
-&lt;p&gt;我说：是的，这只是一种猜测。比较合理的猜测。其实，没有人一开始就知道会出现这个结果。&lt;/p&gt;
-
-&lt;p&gt;儿子说：那谁会知道？&lt;/p&gt;
-
-&lt;p&gt;我说：电脑。我们去家乐福购物，你到出口的地方付款。收银员扫描货物，那些销售商品的数据就汇集在一起。数据会发现很多人在做同样的事情：买了纸尿裤的人，同时也买了啤酒。&lt;/p&gt;
-
-&lt;p&gt;我说：是电脑数据在提示人该怎么做，可以更方便卖出更多的东西。他们也会根据自己的需要，经常调整货物摆放的位置。&lt;/p&gt;
-
-&lt;p&gt;儿子说：难怪上次，我发现卖文具的地方挪了地方，我在里面转了一大圈才找到。&lt;/p&gt;
-
-&lt;p&gt;我说：你进去后，会重新定位。有很新鲜的感觉，也会发现旁边有不同的东西，可以选。&lt;/p&gt;
-
-&lt;p&gt;晚上的时候，儿子要写作文了，还没有题目。我就说白天，我们聊的事情，可以写一写。&lt;/p&gt;
-
-&lt;p&gt;儿子说：就是一些想法。也可以写吗？&lt;/p&gt;
-
-&lt;p&gt;我说：那当然。这是一个真实的事情，为什么不能写？&lt;/p&gt;
-
-&lt;h3 id=&quot;二-6&quot;&gt;（二）&lt;/h3&gt;
-
-&lt;p&gt;我对现在学校里的语文课，基本上不抱过高的希望。尤其是作文课。&lt;/p&gt;
-
-&lt;p&gt;初中生，应该写一些说理性的文字了，很多时候，老师还在强调学生写抒情文字。&lt;/p&gt;
-
-&lt;p&gt;我倒不觉得抒情的东西不能写，关键看你如何抒情。没事乱哼哼，写很多肉麻的排比句。太恐怖。&lt;/p&gt;
-
-&lt;p&gt;我不知道现在是不是一个抒情时代，是不是现在学校的老师都是阴盛阳衰，不过，我觉得男孩子如果在课外推荐阅读的只是三毛作品，写一些软绵绵的抒情文字，真的是太恐怖。&lt;/p&gt;
-
-&lt;p&gt;有时，我看儿子摘抄《读者文摘》的时候，就忍不住说：乱弹琴！&lt;/p&gt;
-
-&lt;p&gt;我跟儿子说：其实，《读者文摘》最大的好处，不是里面的单个句子。语言，或者词语是有环境的。你这个词放在这里很好，放在其他地方就未必合适。词语可以在不同的语境下，呈现出不同的含义。&lt;/p&gt;
-
-&lt;p&gt;儿子茫然。&lt;/p&gt;
-
-&lt;p&gt;我说：不知你发现没有，《读者文摘》里面的文章，一般来说，最大的特点是什么？&lt;/p&gt;
-
-&lt;p&gt;儿子摇头。&lt;/p&gt;
-
-&lt;p&gt;我说：最大的特点就是，很多文字，都是这样的模式：讲一个故事，得出一个结论。&lt;/p&gt;
-
-&lt;p&gt;儿子说：这样写，难道不是很简单？&lt;/p&gt;
-
-&lt;p&gt;我说：简单又没有错。复杂往往才容易出错。很多人都用这样的简单技巧：讲一个故事，作一个启发，引导出一个结论。&lt;/p&gt;
-
-&lt;p&gt;我说：华尔街日报的文章里面，也有一个很常见的叙述技巧：每次文字开头的时候，写一个具体的人物，或者场景。有点象电影里的处理：用一个近景聚焦，话题引出后，然后，再拉开来。最后，在结尾的地方，有可能的话，又再回到具体的场景中。&lt;/p&gt;
-
-&lt;p&gt;他们为什么会一而再，再而三地这样做呢？经验证明，这样很有效。符合人的认知习惯。&lt;/p&gt;
-
-&lt;p&gt;人的大脑从来都是很容易理解故事的。故事本身具有一种可感知的形状，比任何华丽的词语都更有形状。你想，故事是一个自然展开的链条：能帮助读者逐渐融入到叙述中，让他们理解信息、激发他们判断和发现的本能。&lt;/p&gt;
-
-&lt;p&gt;因为人的认知有一个启动的过程。过于突兀的东西，会造成认知上的困惑。人对自己无法理解的东西，不能产生应有的情感。&lt;/p&gt;
-
-&lt;p&gt;如果是这样的话，那么，那种一开头就用排比句来轰炸读者的做法，其实，相当愚蠢：给人对词语的炫耀以外，没有任何意义。&lt;/p&gt;
-
-&lt;p&gt;也就是说，人的情绪没有任何准备，你一下就把情绪掀起得老高的，这种做法很突兀。如果你一直这么做，也不解释，人家很难理解。&lt;/p&gt;
-
-&lt;p&gt;你自己也可以感受一下，就会明白：排比句中填充了很多抽象、压缩的词语，这些词破坏了语言本身的流畅感觉，而且要让人使劲去想它到底想表达什么。这样会造成认知的迟疑。很多时候，给人的感觉是，在阅读的过程中，依稀感觉到一些听令框框的干硬的东西，相互碰撞，但是，完全不能理解到底说了些什么。&lt;/p&gt;
-
-&lt;p&gt;文字就是这样的：如果你组织的东西，人不能把握，你就等于什么也没说。一味地抒情没有力量。&lt;/p&gt;
-
-&lt;h3 id=&quot;三-6&quot;&gt;（三）&lt;/h3&gt;
-
-&lt;p&gt;后来，我跟儿子讲德波顿的《旅行的艺术》。因为我想给他做一个示范，让他理解一本书可能是怎样构思出来的。&lt;/p&gt;
-
-&lt;p&gt;我假设我自己就是作者，我被老师布置了一堂作文课，写一些关于以旅行为主题的文字。&lt;/p&gt;
-
-&lt;p&gt;我不想写这样的文字：我去了某个地方旅行，然后，看见了一些风景，我有一些感想。&lt;/p&gt;
-
-&lt;p&gt;我是一个哲学系的学生，这样写旅行为主题的文字，感觉上的确是还不够独特。所以，我想加入一点思考，写一些更有普遍意义一点的东西。&lt;/p&gt;
-
-&lt;p&gt;我问自己的第一个问题：什么是旅行？&lt;/p&gt;
-
-&lt;p&gt;我去 google 查了一下，上面有一个很好的答案：旅行，就是为了某个目的，从一个地方到另外一个地方。&lt;/p&gt;
-
-&lt;p&gt;我马上明白：旅行的移动，需要一个工具。&lt;/p&gt;
-
-&lt;p&gt;我知道：乘坐汽车、火车、飞机，有一种不同的感觉。我想起汽车的加油站、火车前进时，树木缓缓加速离开的情景，我在黑夜中，看见窗外玻璃中的自己。我看见飞机机翼下面的白云。那种不同工具下的体验，是一种旅行的独特体验。&lt;/p&gt;
-
-&lt;p&gt;我想，每个人旅行的原因都不同：公干、游乐。人们总是向往一个远离自己地方，仿佛奔向梦想之地。&lt;/p&gt;
-
-&lt;p&gt;人们为何总是喜欢那种异国情调的感觉？&lt;/p&gt;
-
-&lt;p&gt;旅行，又会不会是一种逃离现实的办法？&lt;/p&gt;
-
-&lt;p&gt;我发现，在一些文字中，也能发现旅行的痕迹：故国神游–思维从一个地方，到另外一个地方。&lt;/p&gt;
-
-&lt;p&gt;好了，我想了很多，我从中发现了关于旅行的普遍含义，可以有这样的一些关键要素：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;对旅行工具的不同感受；&lt;/li&gt;
-  &lt;li&gt;人们在种异国情调的感觉面前，会有怎样的感受；&lt;/li&gt;
-  &lt;li&gt;思想的旅行也是一种旅行。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;……&lt;/p&gt;
-
-&lt;p&gt;当然，德波顿可能不是这样想的。我只是用了一个反向思维试图来理解书的结构。&lt;/p&gt;
-
-&lt;p&gt;作为一个阅读者，如果发现了这种结构，那么，书就算看懂了。&lt;/p&gt;
-
-&lt;p&gt;作为一个写作者，如果完成了这种结构，那么，书的骨架也基本完成了。&lt;/p&gt;
-
-&lt;p&gt;这种逻辑结构，使得每个段落中的情节，前后关联，互有意义，浑然天成。&lt;/p&gt;
-
-&lt;p&gt;任何叙述的难点，不在于叙述的词语，而在于叙述的角度、逻辑。是不是值得，是不是有它本身的意义。它有没有自己的思索，有没有自己的声音。&lt;/p&gt;
-
-&lt;p&gt;其实，这是一个基本的方法。&lt;/p&gt;
-
-&lt;p&gt;我跟儿子说：观察，然后提问，多问几个为什么，试着想办法回答它。把思考的过程和分析的过程、结果写下来。&lt;/p&gt;
-
-&lt;p&gt;我说:写文字简单地说，就是确定一个主题，寻找一个结构，用好的细节或故事形式来表达。如此反复。&lt;/p&gt;
-
-&lt;p&gt;如果你这样想过，这样做过。很多的东西，就会源源不断地冒出来。你根本不用担心，要用什么词语写。你能控制好内容，词语自然就如泉水一样涌出来。&lt;/p&gt;
-
-&lt;p&gt;我们的身边有很多这样的素材，如开头的部分，我们提到的关于营销的对话。&lt;/p&gt;
-
-&lt;p&gt;你无须写出象德波顿那样复杂的文字，但是，思考的原理，本质上是完全相同的。&lt;/p&gt;
-
-&lt;p&gt;其实，这就是思考的力量，逻辑的力量。&lt;/p&gt;
-
-&lt;p&gt;文字的叙述，无论如何表现，其背后都有一种思考的过程。只有那种内在的逻辑的表达，才能让读者知道你想说什么。&lt;/p&gt;
-
-&lt;p&gt;你看见一些现象，你问到底是为什么。你去寻找那个驱动向前的逻辑力量。你就可以找到文字，找到答案。&lt;/p&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;h2 id=&quot;叙述-8叙述的态度&quot;&gt;【叙述-8】叙述的态度&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;xilei 发布于 2009-10-27 13:42:00&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;一-7&quot;&gt;（一）&lt;/h3&gt;
-
-&lt;p&gt;10月1日上午，在家里看了今年的阅兵式。&lt;/p&gt;
-
-&lt;p&gt;以前的两次大阅兵也看过，“小平您好”的那次最有记忆和感触。&lt;/p&gt;
-
-&lt;p&gt;今年的阅兵怎么说呢？一种说不出的味道：看起来很热闹，感觉却很拘谨，不舒服。&lt;/p&gt;
-
-&lt;p&gt;过了两天，就在网上看见了一个卫报记者做的几分钟的照片和影片的剪辑合成。这个精彩的片段，给我们提供了另外的一种视角。&lt;/p&gt;
-
-&lt;p&gt;我看见了一种cctv从来没有展示的一些细节：阳光透过云层在天安门洒下游动的阴影；在微风中舒展的红旗；战士们整齐的步伐在舒缓的音乐中形成一种反差；游行队伍里人们舞动的手臂，他们的面容；还有孩子骑在父亲的头上在队伍中走过….&lt;/p&gt;
-
-&lt;p&gt;作为一个旁观者的角度，卫报记者配了一个冷峻的音乐。于是，网上有很多人在骂，说这个片子不怀好意。&lt;/p&gt;
-
-&lt;p&gt;一个热闹的欢腾的场面，为什么不是锣鼓喧天呢？&lt;/p&gt;
-
-&lt;p&gt;又过了几天，我在网上下了一个凤凰卫视版的阅兵视频下来。我看了一段，马上就明白那种不舒服的感觉来自哪儿了。&lt;/p&gt;
-
-&lt;p&gt;这种感觉就如同当初看NBC制作的北京奥运会转播一样：任何东西，只有通过对比，才能发现，同样的事情，用不同的方式讲述，其品质的差异会很大。&lt;/p&gt;
-
-&lt;p&gt;所以，有网友批评cctv是：一流的设备，二流的解说，三流的摄影，不入流的导播。&lt;/p&gt;
-
-&lt;p&gt;其实，cctv的问题不在于其专业水平，而在于其叙事美学的选择不同。&lt;/p&gt;
-
-&lt;p&gt;cctv已经习惯于一种宣讲、致敬的美学。其美学特征为：字正腔圆、句式标准规范、场面宏大、激情澎湃。&lt;/p&gt;
-
-&lt;p&gt;凤凰卫视则提供了另外的一种平民美学的范本，其美学特征为：基于沟通和理解的讲述方式，关注细节，语气是舒缓、亲切的。&lt;/p&gt;
-
-&lt;p&gt;凤凰卫视的国庆阅兵有很多值得回味的细节：&lt;/p&gt;
-
-&lt;p&gt;主持人会事先告诉观众，整个庆典仪式是怎么一个流程。每个流程中有什么看点。国外的媒体关注什么重点。&lt;/p&gt;
-
-&lt;p&gt;整个庆典有现场报道，主持人会讲到一些有趣的佚闻：胡总从天安门层楼的某号电梯下去阅兵的；游行的人群中有人的鞋掉了，光着脚走过了检阅区；每个彩车里面还藏有很多人，万一车子出故障了，就用人推….&lt;/p&gt;
-
-&lt;p&gt;丰富的细节，并不会给人揭丑的感觉，反而感觉到温暖。一种体量的叙述，会让人有一种可以亲近的参与感。&lt;/p&gt;
-
-&lt;p&gt;当士兵列队走过的时候，主持人会请主持嘉宾介绍他们手中的各种武器。&lt;/p&gt;
-
-&lt;p&gt;阅兵有阅兵的主题。&lt;/p&gt;
-
-&lt;p&gt;听了凤凰卫视的国庆阅兵解说，我终于有了一回人民当家作主的感觉。&lt;/p&gt;
-
-&lt;h3 id=&quot;二-7&quot;&gt;（二）&lt;/h3&gt;
-
-&lt;p&gt;有一天，儿子从学校拿回了一摞同学的作文本。&lt;/p&gt;
-
-&lt;p&gt;儿子的作文，总是只得了40多分（总分：60）。老师不喜欢他实话实说的写字方式，说他的文字没有感染力。&lt;/p&gt;
-
-&lt;p&gt;老师直接推荐了班上写得很好的同学的作文，让儿子学习。&lt;/p&gt;
-
-&lt;p&gt;儿子给我推荐了一篇，叫《风声》。老师说这篇特别具有“哲学”气质。&lt;/p&gt;
-
-&lt;p&gt;这篇作文得了56分。&lt;/p&gt;
-
-&lt;p&gt;文章的开篇是这样的一段话：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;我如泥一般烂在沙发上，四周都是疯狂涌入的笛鸣。静止的空气，囚禁的心灵。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;老师在旁边打了一个很大的五角星。五角星表示：good,very good!&lt;/p&gt;
-
-&lt;p&gt;文中还有很多这样类似的五角星句子：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;哪个男儿，在红日烈风下，不心生豪情，哪个男儿，在啸风中，不欲定天下。&lt;/p&gt;
-
-  &lt;p&gt;即使此刻立即化为灰烬，也要对酒当歌，与风合吟。&lt;/p&gt;
-
-  &lt;p&gt;好个狂气的风声，撩我发髻，夺我衣衫。&lt;/p&gt;
-
-  &lt;p&gt;好个放肆的风声，湮灭我的声音，同化我的灵魂。好个自由的风声，吹断了我的枷锁，笑塌了我与尘世的隔阂。&lt;/p&gt;
-
-  &lt;p&gt;我是风的信徒，我是自由的奴隶。我不求长生不死。我只愿跪拜于这风声中直至消亡。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;儿子问我：“什么感觉？”&lt;/p&gt;
-
-&lt;p&gt;我说：“我很高兴，你没有写成这样。看了半天，我还不知道，他到底在说什么。”&lt;/p&gt;
-
-&lt;p&gt;我说：“看了第一段，就看不下去了。我对这种文风，只有六个字的评价。”&lt;/p&gt;
-
-&lt;p&gt;儿子停下手中的作业，望着我。&lt;/p&gt;
-
-&lt;p&gt;我说：“这就叫：抒情败坏叙述。我并不是说，任何抒情都不可以，而是，你得讲求基本的叙述逻辑。”&lt;/p&gt;
-
-&lt;p&gt;“叙述，是一种沟通的过程。你要传递信息，你要选择什么信息，如何组织和结构。你不能一站上来，就扯开嗓子喊，一个人在哪里莫名其妙地抒情。这一点没有任何哲学气质，完全是发神经的做法。”&lt;/p&gt;
-
-&lt;p&gt;“你看这些作文都写成什么样子了：一上来就用排比句，而且是大段大段的排比。然后呢，把所谓的名人名言切割、包装，整理成段，也不管他逻辑上跟文字有没有关系，就往上搭理。简直就是收破烂的。这些写，迟早要把脑子给写废了。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“老师说，如果这种文章能写的话，以后什么文章都可以写了。”&lt;/p&gt;
-
-&lt;p&gt;我说：“这简直就是在误人子弟！你们都在看余华的《活着》，你们看作品中，也没有，动不动就乱排比的，乱抒情的。”&lt;/p&gt;
-
-&lt;p&gt;儿子说：“就是。老师让我们找好字好句，结果，我们找了好久都没有找到。”&lt;/p&gt;
-
-&lt;p&gt;我说：“其实，你们有一个同学写的挺好的。他写他在乡下和奶奶在一起的时候的一些小事。我觉得很真实，至少我知道他在告诉我值得记忆的是什么东西。可惜，老师让他重写。我觉得越写越差了。为什么不相信哪些真实的细节，而要去追求哪些虚无缥缈的形容词呢？”&lt;/p&gt;
-
-&lt;p&gt;这位同学在重写之前，在本子上写了自己的“罪状”：语言太没有感染力了。&lt;/p&gt;
-
-&lt;p&gt;这位同学重写了一篇。在文章的开头，他写了一段这样的话：（此处为排比句）。老师给了个大大的问号。&lt;/p&gt;
-
-&lt;p&gt;我想：这也是同学无声的抗议吧。&lt;/p&gt;
-
-&lt;p&gt;我把其他同学的作文也很快翻了一下。没有办法看下去，都是写成了一个模子，都跟打了鸡血一样。&lt;/p&gt;
-
-&lt;p&gt;我跟儿子说：“有空，我推荐你看看卫报记者和凤凰卫视的国庆阅兵。”&lt;/p&gt;
-
-&lt;p&gt;“cctv版的解说，就跟你们的作文一样，打了鸡血一样。你回过头来，看看不同的叙述方式。你会发现，叙述其实，就是一个沟通和理解的过程。”&lt;/p&gt;
-
-&lt;p&gt;“如果你不想让人家理解，你只管自己在哪里嚎就是了。没人理你，因为，你也不想让人家理解你！”&lt;/p&gt;
-
-&lt;p&gt;“可是，如果你想和人家沟通。那你就要想好了：我想表达什么，我该如何表达得真实、贴切和有亲和力。”&lt;/p&gt;
-
-&lt;p&gt;“你们同学的《风声》的这种写法是根本要不得的：基本上属于逻辑混乱，词不达意。这种矫揉造作的文风在现在的学校里备受推崇，而且很容易在考试中得高分。但是，这些真的是垃圾啊！”&lt;/p&gt;
-
-&lt;p&gt;“我宁愿你仍然写成现在的样子：关注自己的观点和感受，然后，思考如何把它表达清楚。文字上的技巧，可以慢慢来。”&lt;/p&gt;
-
-&lt;p&gt;“我们宁愿真实一点，笨拙一点，也不要胡言乱语。如果一个人脑子坏了，就没法弄了。如果脑子还好，傻一点也没关系。”&lt;/p&gt;
-
-&lt;h3 id=&quot;三-7&quot;&gt;（三）&lt;/h3&gt;
-
-&lt;p&gt;有什么样的社会，就会有什么样的文本。&lt;/p&gt;
-
-&lt;p&gt;我的移动硬盘上有一个10多个G的NBC剪辑的北京奥运会开幕式。我最喜欢的是那个好莱坞似的片头。&lt;/p&gt;
-
-&lt;p&gt;每次我看到那些画面的时候，我真的想到了四个字：山河壮丽。&lt;/p&gt;
-
-&lt;p&gt;可是，我也看过cctv的版本：插播了很多无关紧要的领导的画面。很多美轮美奂的细节都牺牲掉了。&lt;/p&gt;
-
-&lt;p&gt;最让人无法忍受的是耳朵里充满了打鸡血一样的解说的声音。这些声音老是让我想起了朝鲜人民的新闻联播。&lt;/p&gt;
-
-&lt;p&gt;从今年的阅兵式后，我得出了一个结论：如果以后有类似的转播，最好不要听cctv的解说。&lt;/p&gt;
-
-&lt;p&gt;有什么样的态度，就有什么样的叙述。&lt;/p&gt;
-
-&lt;hr class=&quot;slender&quot; /&gt;
-
-&lt;h2 id=&quot;叙述-9好莱坞电影的秘密&quot;&gt;【叙述-9】好莱坞电影的秘密&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;xilei 发布于 2010-1-18 14:48:00&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;一-8&quot;&gt;（一）&lt;/h3&gt;
-
-&lt;p&gt;要到期末考试了。儿子他们开始准备“万能作文”。&lt;/p&gt;
-
-&lt;p&gt;第一次听说“万能作文”的时候，我是大吃一惊。&lt;/p&gt;
-
-&lt;p&gt;还在想：怎么写，作文才能写成万能的啊？&lt;/p&gt;
-
-&lt;p&gt;儿子把作文题目给我看，我才明白，原来“万能”是另外一种意思。&lt;/p&gt;
-
-&lt;p&gt;比如说，作文题目是这样的：带着….出发。&lt;/p&gt;
-
-&lt;p&gt;我想：这种题目当然是万能。&lt;/p&gt;
-
-&lt;p&gt;我问儿子：可不可以写“带着怀疑出发…”&lt;/p&gt;
-
-&lt;p&gt;儿子说：不能。老师说了，一般都写这种，“带着感动出发”、“带着回忆出发”…..&lt;/p&gt;
-
-&lt;p&gt;卖糕得，原来万能也不是真的万能的。&lt;/p&gt;
-
-&lt;p&gt;我说：可不可以写“带着锤子出发…..”&lt;/p&gt;
-
-&lt;p&gt;儿子说：为什么？&lt;/p&gt;
-
-&lt;p&gt;我说：我们这里公交经常自燃….&lt;/p&gt;
-
-&lt;p&gt;儿子在一边笑弯了腰。&lt;/p&gt;
-
-&lt;p&gt;“那肯定是一篇很牛逼的零分作文。”&lt;/p&gt;
-
-&lt;h3 id=&quot;二-8&quot;&gt;（二）&lt;/h3&gt;
-
-&lt;p&gt;儿子上中学后，语文就改写散文了。不写记叙文了。&lt;/p&gt;
-
-&lt;p&gt;我问他：为什么呢？&lt;/p&gt;
-
-&lt;p&gt;儿子说：老师说的，记叙文，只能用第一人称来写。&lt;/p&gt;
-
-&lt;p&gt;我说：这很容易。下次，你开篇第一句就写：我是某某某。接下来，就用第一人称写。&lt;/p&gt;
-
-&lt;p&gt;儿子跟我说：这个寒假，他们老师要他们多读满分作文。&lt;/p&gt;
-
-&lt;p&gt;那些满分作文，上百度就可以搜到。&lt;/p&gt;
-
-&lt;p&gt;儿子和我，都认为，这些作文，大部分都惨不忍睹。（其实，我想说:大部分都是垃圾！）&lt;/p&gt;
-
-&lt;p&gt;我说：等你考试完后，马上去看《阿凡达》。另外，我还推荐你看两部电影：《心灵捕手》和《大鱼》。&lt;/p&gt;
-
-&lt;p&gt;好多次，我跟儿子说过：好莱坞的电影，会教给你很多东西。&lt;/p&gt;
-
-&lt;h3 id=&quot;三-8&quot;&gt;（三）&lt;/h3&gt;
-
-&lt;p&gt;在我看来，很多好莱坞的电影，其实，讲的是同一个故事。&lt;/p&gt;
-
-&lt;p&gt;经典的好莱坞的故事一般都是这样的：&lt;/p&gt;
-
-&lt;p&gt;一个有理想但有缺陷的主人公，遇到一个突然降临的事件或动机，他面临着克服自己的弱点，展现出面对困难所需要的勇气和信心。经过一系列的痛苦、坚持和奋斗，他终于做回了自己–一个有点害羞的大英雄。同时，伴随着正义战胜了邪恶的大结局。&lt;/p&gt;
-
-&lt;p&gt;我们拿两部电影来看。&lt;/p&gt;
-
-&lt;p&gt;在《功夫熊猫》里，阿宝是个胖子，他的梦想是当功夫高手。阴差阳错的，他被选为神龙大侠。但是，他的师傅不待见他。他自己也曾经心灰意冷。但是，后来太郎出来了，这就是一个转折点。所有正义的一方没有选择的机会了。他的师傅接受了乌龟大师的批评教育，改变了想法，教给大宝功夫。阿宝也在关键时刻领悟到自我的力量。阿宝，最终打败了太郎。&lt;/p&gt;
-
-&lt;p&gt;同样的，在《2012》用另外的元素，把故事重新讲了一次。&lt;/p&gt;
-
-&lt;p&gt;主人公是一个在现实中不太走运小说家。他面临工作和家庭的双重困难：含辛茹苦写的科幻小说只卖了500本，而自己跟妻子离异，自己的儿子跟前妻的男友打得火热。他不知到底该如何面对现实和梦想的距离。&lt;/p&gt;
-
-&lt;p&gt;这时，2012到了，地球开始毁灭了。小说家迎来了转机。&lt;/p&gt;
-
-&lt;p&gt;他隐藏在平常现实里的聪明才智和勇气，有了向亲人展示的机会。&lt;/p&gt;
-
-&lt;p&gt;爱、自由和责任，把这个渺小的凡人，变成了一个伟大的拯救行动的化身。&lt;/p&gt;
-
-&lt;p&gt;最后，连导演都帮了他的忙，帮他在逃亡的途中，让事故消灭了他的情敌。他重新赢回了家庭和尊严。&lt;/p&gt;
-
-&lt;p&gt;好莱坞的经典故事莫不如此：《变形金刚》如此，《阿凡达》也是如此。&lt;/p&gt;
-
-&lt;h3 id=&quot;四-5&quot;&gt;（四）&lt;/h3&gt;
-
-&lt;p&gt;那为什么同样的故事模式，无论重复多少次，人们都爱看？&lt;/p&gt;
-
-&lt;p&gt;大概可以有如下的几个理由：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;人类天生喜欢故事；
- 一切叙述的本质就是沟通。而好的故事模式具有好的沟通模式。
- 好莱坞电影跟观众的沟通堪称典范：
- 它由巧妙的结构、鲜明的动机，以及一系列观众容易理解的事件前后因果联系所构成。&lt;/li&gt;
-  &lt;li&gt;人类的好奇心；
- 对真实性、对细节的渴望，源于人的本能。
- 人类喜欢惊悚、恐怖，或酷爱遥远的宇宙，都是出于人的本能。
- 即便在虚拟的空间中，人也追求感觉上的真实一体性。
- 人可以理解在一种假想环境中的真实，但是，他们还是需要逻辑的连贯性。否则，他们会产生质疑。&lt;/li&gt;
-  &lt;li&gt;人类存在对高尚情感的追求
- 人在现实中，不能获得的正义感，需要一个感情的出口。
- 人类的普世价值，在电影中，可以用一种有距离的现实来观察、呈现，并引起共鸣。
- 谁要是不承认普世价值，带他去看《阿凡达》就好了……&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;五-4&quot;&gt;（五）&lt;/h3&gt;
-
-&lt;p&gt;好莱坞电影，其实，可以告诉我们如何叙述。&lt;/p&gt;
-
-&lt;p&gt;首先，你要想清楚，你到底要表达什么。&lt;/p&gt;
-
-&lt;p&gt;其次，叙述必须要有一个用来沟通的结构，或者逻辑。&lt;/p&gt;
-
-&lt;p&gt;接下来准备或挑选素材中，你想呈现的因果联系。你的细节最好能感觉故事比较真实、准确、足够丰富。&lt;/p&gt;
-
-&lt;p&gt;当然，现实中的叙述的冲动，可能是这样产生的：&lt;/p&gt;
-
-&lt;p&gt;你看见了一个素材，触发了你的一个想法。然后，你才想，我到底要表达什么，然后，再去想如何弄。&lt;/p&gt;
-
-&lt;p&gt;因此，不管你做任何叙述，还是创造其他的什么玩意。&lt;/p&gt;
-
-&lt;p&gt;重要的是思维的过程要是正常的。如果思维的过程都不正确，那怎么弄都是瞎弄。&lt;/p&gt;
-
-&lt;p&gt;当然，还有更重要的一点：&lt;/p&gt;
-
-&lt;p&gt;你必须忠实于自己的内心，你不可能用一种黑灯瞎火的方式去写出一个伟大的故事。&lt;/p&gt;
-
-&lt;h3 id=&quot;六-1&quot;&gt;（六）&lt;/h3&gt;
-
-&lt;p&gt;现在学校里的教作文的方式，是让我真正开了眼的。&lt;/p&gt;
-
-&lt;p&gt;有老师这么教孩子写作文的：&lt;/p&gt;
-
-&lt;p&gt;作文分三段，第一段写100字，第二段写200字，第三段写100字。&lt;/p&gt;
-
-&lt;p&gt;这就是我说的：黑灯瞎火的方式。不知道在干嘛。&lt;/p&gt;
-
-&lt;p&gt;你教孩子给段落写个小标题，不很好吗？字数能表明段落的逻辑吗？&lt;/p&gt;
-
-&lt;p&gt;当然了，还有比这个更让人头大的。&lt;/p&gt;
-
-&lt;p&gt;据说，有人送小孩回国读小学。小孩写了春天，说春天是潮湿的。&lt;/p&gt;
-
-&lt;p&gt;老师就把作文给毙了，让小孩重写。春天都是温暖的，怎么能是潮湿的呢….&lt;/p&gt;
-
-&lt;p&gt;家长吓得内牛满面。赶紧给小孩退学了。&lt;/p&gt;
-
-&lt;h3 id=&quot;七&quot;&gt;（七）&lt;/h3&gt;
-
-&lt;p&gt;有一天，我在家收拾抽屉，发现儿子小学军训时写的日记。&lt;/p&gt;
-
-&lt;p&gt;其中有一段，写他早上起来喝牛奶。美滋滋的感觉，跃然纸上。&lt;/p&gt;
-
-&lt;p&gt;儿子上中学后，就没有写过这样的文字了。&lt;/p&gt;
-
-&lt;p&gt;他们成天听写汉字、背古文，看满分作文。写字的时候，感觉和信心全无。&lt;/p&gt;
-
-&lt;p&gt;学校是非常重视数理化，也貌似非常重视逻辑，但是，写出来的作文大多是没有逻辑的。&lt;/p&gt;
-
-&lt;p&gt;这是为什么呢？&lt;/p&gt;
-
-&lt;p&gt;我想了好久，终于明白了：你这也不能弄，那也不能弄。怎么可能有逻辑呢？&lt;/p&gt;
-
-&lt;p&gt;如果有，那逻辑也多半是精神分裂、言不由衷，自断经脉的。&lt;/p&gt;
-
-&lt;p&gt;没有人性，就没有情趣，更谈不上什么逻辑。没有人性，也不会有好的故事或叙述。&lt;/p&gt;
-
-&lt;p&gt;就是这样。W&lt;/p&gt;
-
-&lt;p&gt;那好吧！&lt;/p&gt;
-
-&lt;p&gt;把作文书扔一边去，让孩子去看好莱坞的电影吧！&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.dapenti.com/blog/more.asp?name=xilei&amp;amp;id=25936&quot;&gt;http://www.dapenti.com/blog/more.asp?name=xilei&amp;amp;id=25936&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Mon, 03 Oct 2022 00:00:00 -0500</pubDate>
-        <link>https://mountaye.github.io/blog/articles/how-to-narrate</link>
-        <guid isPermaLink="true">https://mountaye.github.io/blog/articles/how-to-narrate</guid>
         
         
       </item>

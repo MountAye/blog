@@ -149,17 +149,21 @@ THE SOFTWARE.
 <ul>
   <li>Abstract
     <ul>
-      <li>PINNs are neural networks that encode model equations. a NN must fit observed data while reducing a PDE residual.
-        <ol>
-          <li>Introduction</li>
-        </ol>
-      </li>
+      <li>PINNs are neural networks that encode model equations. a NN must fit observed data while reducing a PDE residual.</li>
+    </ul>
+  </li>
+</ul>
+
+<ol>
+  <li>Introduction
+    <ul>
       <li>The “curse of dimensionality” was first described by Bellman in the context of optimal control problems. (Bellman R.: Dynamic Programming. Sci. 153(3731), 34-37 (1966))</li>
       <li>Early work: MLP (<a href="https://en.wikipedia.org/wiki/Multilayer_perceptron">multilayer perceptron</a>) with few hidden layers to solve PDEs. (<a href="https://doi.org/10.1109/72.712178">https://doi.org/10.1109/72.712178</a>)</li>
-      <li>感觉可能更全面的一篇综述：<a href="https://doi.org/10.1007/s12206-021-0342-5">https://doi.org/10.1007/s12206-021-0342-5</a>。该文关注 what deep NN is used, how physical knowledge is represented, how physical information is integrated，本文只关于 PINN, a 2017 framework。
-        <ol>
-          <li>What the PINNs are</li>
-        </ol>
+      <li>感觉可能更全面的一篇综述：<a href="https://doi.org/10.1007/s12206-021-0342-5">https://doi.org/10.1007/s12206-021-0342-5</a>。该文关注 what deep NN is used, how physical knowledge is represented, how physical information is integrated，本文只关于 PINN, a 2017 framework。</li>
+    </ul>
+
+    <ol>
+      <li>What the PINNs are
         <ul>
           <li>PINNs solve problems involving PDEs:
             <ul>
@@ -175,79 +179,80 @@ THE SOFTWARE.
             <ul>
               <li><a href="https://en.wikipedia.org/wiki/Meshfree_methods">mesh-free</a>? 但是我们给模型喂训练数据的时候往往已经暗含了 mesh 了吧</li>
               <li>on-demand computation after training</li>
-              <li>forward and inverse problem using the same optimization, with minimal modification
-                <ol>
-                  <li>What this Review is About</li>
-                </ol>
-              </li>
+              <li>forward and inverse problem using the same optimization, with minimal modification</li>
             </ul>
-          </li>
-          <li>提到了一个做综述找文章的方法：本文涉及的文章可以在 Scopus 上进行高级搜索：<code class="language-plaintext highlighter-rouge">((physic* OR physical)) W/2 (informed OR constrained) W/2 “neural network”)</code>
-            <ol>
-              <li>The Building Blocks of a PINN</li>
-            </ol>
           </li>
         </ul>
       </li>
+      <li>What this Review is About
+        <ul>
+          <li>提到了一个做综述找文章的方法：本文涉及的文章可以在 Scopus 上进行高级搜索：<code class="language-plaintext highlighter-rouge">((physic* OR physical)) W/2 (informed OR constrained) W/2 “neural network”)</code></li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>The Building Blocks of a PINN
+    <ul>
       <li>question:</li>
     </ul>
 
 \[F(u(z);\gamma)=f(z),\quad z\ \in\ \Omega \\ B(u(z))=g(z), \quad z\ \in\ \partial \Omega\]
 
     <ul>
-      <li>
-        <p>solution:</p>
+      <li>solution:</li>
+    </ul>
 
 \[\hat u_{\theta}(z)\approx u(z)\\ \theta^* = \arg\min_{\theta}\left(\omega_F L_F(\theta)+\omega_BL_B(\theta)+\omega_{data}L_{data}(\theta)\right)\]
-      </li>
-    </ul>
 
     <ol>
       <li>Neural Network Architecture
         <ul>
-          <li>DNN (deep neural network) is an artificial neural network that is deeper than 2 layers.
-            <ol>
-              <li>Feed-Forward Neural Network:</li>
-            </ol>
+          <li>DNN (deep neural network) is an artificial neural network that is deeper than 2 layers.</li>
+        </ul>
+
+        <ol>
+          <li>Feed-Forward Neural Network:
             <ul>
               <li>
 \[u_{\theta}(x) = C_{K} \circ C_{k-1} ...\alpha \circ C_1(x),\quad C_k(x) = W_k x_k + b_k\]
               </li>
               <li>Just change CNN from convolution to fully connected.</li>
-              <li>Also known as multi-layer perceptrons (MLP)
-                <ol>
-                  <li>FFNN architectures</li>
-                </ol>
+              <li>Also known as multi-layer perceptrons (MLP)</li>
+            </ul>
+
+            <ol>
+              <li>FFNN architectures
                 <ul>
                   <li>Tartakovsky et al used 3 hidden layers, 50 units per layer,  and a hyperbolic tangent activation function. Other people use different numbers but of the same order of magnitude.</li>
-                  <li>A comparison paper: <em>Blechschmidt, J., Ernst, O.G.: Three ways to solve partial differential equations with neural networks –A review. GAMM-Mitteilungen 44(2), e202100,006 (2021).</em>
-      2. multiple FFNN: 2 phase <a href="https://en.wikipedia.org/wiki/Stefan_problem">Stephan problem</a>.
-      3. shallow networks: for training costs
-      4. activation function: the swish function in the paper has a learnable parameter, so — <a href="https://discuss.pytorch.org/t/how-could-i-create-a-module-with-learnable-parameters/28115">how to add a learnable parameter in PyTorch</a>
-                    <ol>
-                      <li>Convolutional Neural Networks:</li>
-                    </ol>
-                  </li>
+                  <li>A comparison paper: <em>Blechschmidt, J., Ernst, O.G.: Three ways to solve partial differential equations with neural networks –A review. GAMM-Mitteilungen 44(2), e202100,006 (2021).</em></li>
                 </ul>
               </li>
+              <li>multiple FFNN: 2 phase <a href="https://en.wikipedia.org/wiki/Stefan_problem">Stephan problem</a>.</li>
+              <li>shallow networks: for training costs</li>
+              <li>activation function: the swish function in the paper has a learnable parameter, so — <a href="https://discuss.pytorch.org/t/how-could-i-create-a-module-with-learnable-parameters/28115">how to add a learnable parameter in PyTorch</a></li>
+            </ol>
+          </li>
+          <li>Convolutional Neural Networks:
+            <ul>
               <li>I am most familiar with this one.</li>
               <li>
 \[f_i(x_i;W_i)=\Phi_i(\alpha_i(C_i(W_i,x_i)))\]
               </li>
-              <li>performs well with multidimensional data such as images and speeches
-                <ol>
-                  <li>CNN architectures:</li>
-                </ol>
+              <li>performs well with multidimensional data such as images and speeches</li>
+            </ul>
+
+            <ol>
+              <li>CNN architectures:
                 <ul>
                   <li><code class="language-plaintext highlighter-rouge">PhyGeoNet</code>: a physics-informed geometry-adaptive convolutional neural network. It uses a coordinate transformation to convert solution fields from irregular physical domains to rectangular reference domains.</li>
-                  <li>According to Fang (<a href="https://doi.org/10.1109/TNNLS.2021.3070878">https://doi.org/10.1109/TNNLS.2021.3070878</a>), a Laplacian operator can be discretized using the finite volume approach, and the procedures are equivalent to convolution. Padding data can serve as boundary conditions.
-      2. convolutional encoder-decoder network
-                    <ol>
-                      <li>Recurrent Neural Network</li>
-                    </ol>
-                  </li>
+                  <li>According to Fang (<a href="https://doi.org/10.1109/TNNLS.2021.3070878">https://doi.org/10.1109/TNNLS.2021.3070878</a>), a Laplacian operator can be discretized using the finite volume approach, and the procedures are equivalent to convolution. Padding data can serve as boundary conditions.</li>
                 </ul>
               </li>
+              <li>convolutional encoder-decoder network</li>
+            </ol>
+          </li>
+          <li>Recurrent Neural Network
+            <ul>
               <li>\(f_i(h_{i-1})=\alpha\left(W\cdot h_{i-1}+U\cdot x_i+b\right)\), where f is the layer-wise function, x is the input, h is the hidden vector state, W is a hidden-to-hidden weight matrix, U is an input-to-hidden matrix and b is a bias vector. 我认为等号左边的 \(h_{i-1}\) 应当作为下标</li>
               <li>
                 <p>感觉有点像 hidden Markov model，只不过 Markov 中间的 hidden layers 好像与序号无关（记不清了），<del>RNN 看起来各个 W 和 H 似乎不同</del>。<strong>RNN cell is actually the exact same one and reused throughout.</strong> (from <a href="https://blog.floydhub.com/a-beginners-guide-on-recurrent-neural-networks-with-pytorch/">https://blog.floydhub.com/a-beginners-guide-on-recurrent-neural-networks-with-pytorch/</a>). Cartoon from Wikipedia:</p>
@@ -270,13 +275,13 @@ THE SOFTWARE.
               </li>
               <li>LSTM architectures
                 <ul>
-                  <li>比 RNN 多更多中间隐变量，至于怎么做到整合长期记忆的，技术细节现在可以先略过
-                    <ol>
-                      <li>other architectures for PINN</li>
-                    </ol>
-                  </li>
+                  <li>比 RNN 多更多中间隐变量，至于怎么做到整合长期记忆的，技术细节现在可以先略过</li>
                 </ul>
               </li>
+            </ol>
+          </li>
+          <li>other architectures for PINN
+            <ol>
               <li>Bayesian neural network: weights are distributions rather than deterministic values, and these distributions are learned using Bayesian inference. 只介绍了<a href="https://doi.org/10.1016/j.jcp.2020.109913">一篇文章</a></li>
               <li>GAN architectures:
                 <ul>
@@ -287,7 +292,7 @@ THE SOFTWARE.
               <li>multiple PINNs</li>
             </ol>
           </li>
-        </ul>
+        </ol>
       </li>
       <li>Injection of Physical Laws
         <ul>
@@ -346,9 +351,12 @@ THE SOFTWARE.
             </ul>
           </li>
           <li>error analysis results for PINN</li>
-          <li>Differential Problems Dealt with PINNs：读来感觉这一部分意义不大，将来遇到需要解决的问题时，回来看看之前有没有人做过就行了——另一方面看，一类方程就需要一类特殊构造的神经网络来解，那么说明神经网络解方程的通用性并不好~</li>
         </ol>
       </li>
+    </ol>
+  </li>
+  <li>Differential Problems Dealt with PINNs：读来感觉这一部分意义不大，将来遇到需要解决的问题时，回来看看之前有没有人做过就行了——另一方面看，一类方程就需要一类特殊构造的神经网络来解，那么说明神经网络解方程的通用性并不好~
+    <ol>
       <li>Ordinary differential equations:
         <ul>
           <li>Neural ODE as learners, a continuous representation of <strong>ResNet</strong>. [<a href="https://doi.org/10.1016/j.jsv.2021.116196">Lai et al</a>], into 2 parts: a physics-informed term and an unknown discrepancy</li>
@@ -394,13 +402,13 @@ THE SOFTWARE.
       <li>Solving a Differential Problem with PINN
         <ul>
           <li>1d non-linear Schrödinger equation</li>
-          <li>dataset by simulation with MATLAB-based Chebfun open-source(?) software
-            <ol>
-              <li>PINNs: Data, Applications, and Software</li>
-            </ol>
-          </li>
+          <li>dataset by simulation with MATLAB-based Chebfun open-source(?) software</li>
         </ul>
       </li>
+    </ol>
+  </li>
+  <li>PINNs: Data, Applications, and Software
+    <ol>
       <li>Data</li>
       <li>Applications
         <ol>
@@ -426,20 +434,20 @@ THE SOFTWARE.
           <li><code class="language-plaintext highlighter-rouge">IDRLnet</code>: a python toolbox inspired by Nvidia SimNet</li>
           <li><code class="language-plaintext highlighter-rouge">Elvet</code>: coupled ODEs or PDEs, and variational problems about the minimization of a functional</li>
           <li>Other Packages</li>
-          <li>PINN Future Challenges and Directions</li>
-        </ol>
-      </li>
-      <li>Overcoming Theoretical Difficulties in PINN</li>
-      <li>Improving Implementation Aspects in PINN</li>
-      <li>PINN in the SciML Framework</li>
-      <li>PINN in the AI Framework
-        <ol>
-          <li>Conclusion</li>
         </ol>
       </li>
     </ol>
   </li>
-</ul>
+  <li>PINN Future Challenges and Directions
+    <ol>
+      <li>Overcoming Theoretical Difficulties in PINN</li>
+      <li>Improving Implementation Aspects in PINN</li>
+      <li>PINN in the SciML Framework</li>
+      <li>PINN in the AI Framework</li>
+    </ol>
+  </li>
+  <li>Conclusion</li>
+</ol>
 
     </article>
     <br/><br/><br/>

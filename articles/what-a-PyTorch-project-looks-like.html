@@ -1,133 +1,85 @@
-<!DOCTYPE html>
-<!--
-Material HTML5 Template (https://naveenshaji.github.io/material)
-The MIT License (MIT)
-
-Copyright (c) 2015 Naveen Shaji
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
--->
-
-<html>
+<!doctype html>
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- start of SEO by hand copying plugin results on Feb 5, 2022 -->
-    <title>.py | 一个 PyTorch 机器学习项目长什么样 | 阿掖山：一个博客</title>
-    <meta name="generator" content="Jekyll" />
-    <meta property="og:title" content=".py | 一个 PyTorch 机器学习项目长什么样" />
-    
-    
-    
-    
-      
-        <meta property="og:type" content="article" />
-        <meta property="article:published_time" content="2022-08-17 00:00:00 -0500" />
-        <meta property="article:modified_time" content="2022-08-17 00:00:00 -0500" />
-        <script type="application/ld+json">
-            {"headline":".py | 一个 PyTorch 机器学习项目长什么样","dateModified":"2022-08-17 00:00:00 -0500","datePublished":"2022-08-17 00:00:00 -0500,"url":"https://mountaye.github.io/blog/articles/what-a-PyTorch-project-looks-like","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/what-a-PyTorch-project-looks-like"},"author":{"@type":"Person","name":"MountAye"},"@type":"BlogPosting","description":"官网的一个pytorch教程的笔记，原文先按照第一性原理，尽量用原生 python 写了一遍，然后一步一步重构成接近生产环境的代码。这里我把顺序反过来，先放出重构之后的最终结果","@context":"https://schema.org"}
-        </script> 
-    
-
-    <meta property="og:locale" content="zh-cn" />
-    <meta name="author" content="MountAye" />
-    <meta name="description" content="官网的一个pytorch教程的笔记，原文先按照第一性原理，尽量用原生 python 写了一遍，然后一步一步重构成接近生产环境的代码。这里我把顺序反过来，先放出重构之后的最终结果" />
-    <meta property="og:description" content="官网的一个pytorch教程的笔记，原文先按照第一性原理，尽量用原生 python 写了一遍，然后一步一步重构成接近生产环境的代码。这里我把顺序反过来，先放出重构之后的最终结果" />
-    <link rel="canonical" href="https://mountaye.github.io/blog/articles/what-a-PyTorch-project-looks-like" />
-    <meta property="og:url" content="https://mountaye.github.io/blog/articles/what-a-PyTorch-project-looks-like" />
-    <meta name="og:site_name" content="阿掖山：一个博客" /> 
-    <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content=".py | 一个 PyTorch 机器学习项目长什么样" />
-    <!-- end of SEO -->
 
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X9B5LN42L"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-3X9B5LN42L');
-    </script>
-    <!-- end of Google Analytics -->
-    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=0">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="/blog/css/materialize.min.css" media="screen,projection" />
-    <link rel="stylesheet" href="/blog/css/main.css">
-    <script type="text/javascript" async
-    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
-    <script type="text/javascript" src="/blog/js/jquery.min.js"></script>
-    <script src="/blog/js/jquery.nicescroll.min.js"></script>
-    <script src="/blog/js/jquery.nicescroll.plus.js"></script>
-    <script src="/blog/js/velocity.min.js"></script>
-    <script src="/blog/js/skrollr.min.js"></script>
-    <script src="/blog/js/jquery.scrolline.js"></script>
-    <script type="text/javascript" src="/blog/js/modernizr.js"></script>
-    <script type="text/javascript" src="/blog/js/materialize.min.js"></script>
-    <script type="text/javascript" src="/blog/js/main.js"></script>
-    <link rel="alternate" type="application/rss+xml" title="阿掖山：一个博客" href="/blog/feed.xml" />
-    <link rel="shortcut icon" href="/blog/assets/img/favicon.ico" >
-</head>
+<title>.py | 一个 PyTorch 机器学习项目长什么样 | 阿掖山：一个博客</title>
+<link rel="canonical" href="http://localhost:4000/blog/articles/what-a-PyTorch-project-looks-like" />
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta name="author" content="MountAye" />
+<meta name="description" content="官网的一个pytorch教程的笔记，原文先按照第一性原理，尽量用原生 python 写了一遍，然后一步一步重构成接近生产环境的代码。这里我把顺序反过来，先放出重构之后的最终结果" />
+<meta property="og:title" content=".py | 一个 PyTorch 机器学习项目长什么样" />
+<meta property="og:locale" content="zh-CN" />
+<meta property="og:description" content="" />
+<meta property="og:url" content="http://localhost:4000/blog/articles/what-a-PyTorch-project-looks-like" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-17 00:00:00 -0500" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content=".py | 一个 PyTorch 机器学习项目长什么样" />
+<script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MountAye"},"dateModified":"","datePublished":"2022-08-17","description":"官网的一个pytorch教程的笔记，原文先按照第一性原理，尽量用原生 python 写了一遍，然后一步一步重构成接近生产环境的代码。这里我把顺序反过来，先放出重构之后的最终结果","headline":"官网的一个pytorch教程的笔记，原文先按照第一性原理，尽量用原生 python 写了一遍，然后一步一步重构成接近生产环境的代码。这里我把顺序反过来，先放出重构之后的最终结果","mainEntityOfPage":{"@type":"WebPage","@id":""},"url":"http://localhost:4000/blog/articles/what-a-PyTorch-project-looks-like"}
+</script>
 
-  <body class="yellow lighten-5"> 
-    <header class="site-header">
-  <div class="navbar-fixed">
-    <nav class="blue darken-2 waves-effect waves-light">
-      <div class="nav-wrapper">
-        <div class="container">
-          <a href="/blog/" class="brand-logo">
-            <i class="mdi-communication-chat"></i>
-            阿掖山：一个博客
-          </a>
-          <ul id="nav-mobile" class="right side-nav">
-            <li><a href="/blog/feed.xml">RSS</a></li>
-            <li><a href="/blog/History/">历史</a></li>
-            <li><a href="/blog/Topics/">分类</a></li>
-            <li><a href="/blog/Comments/">留言</a></li>
-            <li><a href="/blog/Links/">友链</a></li>
-            <li><a href="/blog/About/">关于</a></li>
-          </ul>
-          <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
+     crossorigin="anonymous"></script>
 
-    <a class="darken-2 scrollToTop btn-floating btn-large waves-effect waves-light blue"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
-    <div id="page-wrap">
-      <div id="main-content">
-        <div id="guts">
-          <div class="container">
-            <div class="wrapper text-darken-3">
-              <div id="skrollr-body">
-  <div class="post container paper card" style="margin-top: 8em; margin-bottom: 5em;">
-    <header class="post-header">
-      <h1 class="post-title">.py | 一个 PyTorch 机器学习项目长什么样</h1>
-      <div class="post-meta" style="font-size: 1.5em">Aug 17, 2022</div>
+    <link rel="stylesheet" href="/blog/assets/css/style.css?v=">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/blog/assets/js/main.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <header>
+      <h1>阿掖山：一个博客</h1>
+      <p>智力活动是一种生活态度</p>
     </header>
-    <hr class="slender">
-    <article class="post-content">
-        <p>自学，或者说一切学习和教学，本质就是在已经掌握的知识和未知的目标知识之间修路。路有两种修法，一是理论或者说是第一性原理路线，从不证自明的公理或者已经掌握的知识出发，通过逻辑推理一步步得到新的知识；另一种是实践或者说工程师路线，拿到一个已经可以工作的产品，划分成各个子系统，通过输入的改变来观察输出的不同，直到子系统简化到自己可以理解的地步，不再是黑箱，借此了解整个系统的功能。</p>
+    <div id="banner">
+      <span id="logo"></span>
+      <span class="button fork">
+        <a href="/blog/articles/what-a-PyTorch-project-looks-like"><strong>汉</strong></a> | 
+        <a href="/blog/en/articles/what-a-PyTorch-project-looks-like"><strong>En</strong></a>
+      </span>
+      <div class="downloads">
+        <span></span>
+        <ul>
+          <li><a href="/blog/history" class="button">历史</a></li>
+          <li><a href="/blog/topics" class="button">分类</a></li>
+          <li><a href="/blog/about" class="button">关于</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section id="ad-head"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
+     crossorigin="anonymous"></script>
+<!-- blog-header -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1920275466226790"
+     data-ad-slot="4291489170"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></section>
+<section class="outlined">
+  <h1>.py | 一个 PyTorch 机器学习项目长什么样</h1>
+  <p style="text-indent: 0;">2022 年 8 月 17 日 </p>
+  <p style="text-indent: 0;"><code>.md</code><code>.py</code><code>.ai</code></p>
+  
+  <hr>
+  <p>自学，或者说一切学习和教学，本质就是在已经掌握的知识和未知的目标知识之间修路。路有两种修法，一是理论或者说是第一性原理路线，从不证自明的公理或者已经掌握的知识出发，通过逻辑推理一步步得到新的知识；另一种是实践或者说工程师路线，拿到一个已经可以工作的产品，划分成各个子系统，通过输入的改变来观察输出的不同，直到子系统简化到自己可以理解的地步，不再是黑箱，借此了解整个系统的功能。</p>
 
 <p>但是当学习的对象复杂到一定程度之后，凭借一个人的自学能力，只用其中一种方法往往难以钻透。又或者两种方法学到的路线并非同一条路。对于机器学习，理论路线就是“让输入数据通过一个带有超多参数的函数，根据函数返回值和输出数据之间的差别修正参数，直到函数能够近似输入数据和输出数据之间的关系”；实践中代码往往会使用很多库作者封装好的函数，只读源码往往一头雾水。</p>
 
@@ -135,47 +87,47 @@ THE SOFTWARE.
 
 <p>原文先按照第一性原理，尽量用原生 python 写了一遍，然后一步一步重构成接近生产环境的代码。这里我把顺序反过来，先放出重构之后的最终结果：</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">pickle</span>
-<span class="kn">import</span> <span class="nn">gzip</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="n">F</span>
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">optim</span>
-<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">TensorDataset</span><span class="p">,</span><span class="n">DataLoader</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="n">requests</span>
+<span class="kn">import</span> <span class="n">pickle</span>
+<span class="kn">import</span> <span class="n">gzip</span>
+<span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="n">torch</span>
+<span class="kn">import</span> <span class="n">torch.nn.functional</span> <span class="k">as</span> <span class="n">F</span>
+<span class="kn">from</span> <span class="n">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">from</span> <span class="n">torch</span> <span class="kn">import</span> <span class="n">optim</span>
+<span class="kn">from</span> <span class="n">torch.utils.data</span> <span class="kn">import</span> <span class="n">TensorDataset</span><span class="p">,</span><span class="n">DataLoader</span>
 
 <span class="c1"># Using GPU
 </span>
-<span class="k">print</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">cuda</span><span class="p">.</span><span class="n">is_available</span><span class="p">())</span>
-<span class="n">dev</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">device</span><span class="p">(</span><span class="s">"cuda"</span><span class="p">)</span> <span class="k">if</span> <span class="n">torch</span><span class="p">.</span><span class="n">cuda</span><span class="p">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="n">torch</span><span class="p">.</span><span class="n">device</span><span class="p">(</span><span class="s">"cpu"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">cuda</span><span class="p">.</span><span class="nf">is_available</span><span class="p">())</span>
+<span class="n">dev</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">device</span><span class="p">(</span><span class="s">"cuda"</span><span class="p">)</span> <span class="k">if</span> <span class="n">torch</span><span class="p">.</span><span class="n">cuda</span><span class="p">.</span><span class="nf">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="n">torch</span><span class="p">.</span><span class="nf">device</span><span class="p">(</span><span class="s">"cpu"</span><span class="p">)</span>
 
 <span class="c1"># Wrapping DataLoader
 # https://pytorch.org/tutorials/beginner/basics/data_tutorial.html?highlight=dataloader
 # https://pytorch.org/tutorials/beginner/data_loading_tutorial.html?highlight=dataloader
 </span>
 <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">).</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">),</span> <span class="n">y</span><span class="p">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="nf">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">).</span><span class="nf">to</span><span class="p">(</span><span class="n">dev</span><span class="p">),</span> <span class="n">y</span><span class="p">.</span><span class="nf">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">valid_ds</span><span class="p">,</span> <span class="n">bs</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span>
-        <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">bs</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
-        <span class="n">DataLoader</span><span class="p">(</span><span class="n">valid_ds</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">bs</span> <span class="o">*</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="nf">return </span><span class="p">(</span>
+        <span class="nc">DataLoader</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">bs</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+        <span class="nc">DataLoader</span><span class="p">(</span><span class="n">valid_ds</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">bs</span> <span class="o">*</span> <span class="mi">2</span><span class="p">),</span>
     <span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">WrappedDataLoader</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dl</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">dl</span> <span class="o">=</span> <span class="n">dl</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">dl</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">dl</span> <span class="o">=</span> <span class="n">dl</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
 
-    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">dl</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">dl</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">batches</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">dl</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">batches</span> <span class="o">=</span> <span class="nf">iter</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">dl</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">batches</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">b</span><span class="p">))</span>
+            <span class="nf">yield </span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">b</span><span class="p">))</span>
 
 <span class="c1"># Define the neural network model to be trained
 </span>
@@ -184,81 +136,81 @@ THE SOFTWARE.
 </span>
 <span class="c1"># generally the model is a class that inherites nn.Module and implements forward()
 </span><span class="k">class</span> <span class="nc">Mnist_Logistic</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">()</span>
         <span class="c1"># self.weights = nn.Parameter(torch.randn(784, 10) / math.sqrt(784))
 </span>        <span class="c1"># self.bias = nn.Parameter(torch.zeros(10))
-</span>        <span class="bp">self</span><span class="p">.</span><span class="n">lin</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">lin</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Linear</span><span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xb</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">xb</span><span class="p">):</span>
         <span class="c1"># return xb @ self.weights + self.bias
-</span>        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">lin</span><span class="p">(</span><span class="n">xb</span><span class="p">)</span>
+</span>        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">lin</span><span class="p">(</span><span class="n">xb</span><span class="p">)</span>
 
 <span class="c1"># Define the training pipeline in fit()
 </span>
 <span class="k">def</span> <span class="nf">loss_batch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loss_func</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_func</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">xb</span><span class="p">),</span> <span class="n">yb</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="nf">loss_func</span><span class="p">(</span><span class="nf">model</span><span class="p">(</span><span class="n">xb</span><span class="p">),</span> <span class="n">yb</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">opt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">loss</span><span class="p">.</span><span class="n">backward</span><span class="p">()</span>
-        <span class="n">opt</span><span class="p">.</span><span class="n">step</span><span class="p">()</span>
-        <span class="n">opt</span><span class="p">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="p">.</span><span class="nf">backward</span><span class="p">()</span>
+        <span class="n">opt</span><span class="p">.</span><span class="nf">step</span><span class="p">()</span>
+        <span class="n">opt</span><span class="p">.</span><span class="nf">zero_grad</span><span class="p">()</span>
 
-    <span class="k">return</span> <span class="n">loss</span><span class="p">.</span><span class="n">item</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="n">xb</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">loss</span><span class="p">.</span><span class="nf">item</span><span class="p">(),</span> <span class="nf">len</span><span class="p">(</span><span class="n">xb</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_func</span><span class="p">,</span> <span class="n">opt</span><span class="p">,</span> <span class="n">train_dl</span><span class="p">,</span> <span class="n">valid_dl</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
-        <span class="n">model</span><span class="p">.</span><span class="n">train</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+        <span class="n">model</span><span class="p">.</span><span class="nf">train</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span> <span class="ow">in</span> <span class="n">train_dl</span><span class="p">:</span>
-            <span class="n">loss_batch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loss_func</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="nf">loss_batch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loss_func</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
 
-        <span class="n">model</span><span class="p">.</span><span class="nb">eval</span><span class="p">()</span>
-        <span class="k">with</span> <span class="n">torch</span><span class="p">.</span><span class="n">no_grad</span><span class="p">():</span>
-            <span class="n">losses</span><span class="p">,</span> <span class="n">nums</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span>
-                <span class="o">*</span><span class="p">[</span><span class="n">loss_batch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loss_func</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">)</span> <span class="k">for</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span> <span class="ow">in</span> <span class="n">valid_dl</span><span class="p">]</span>
+        <span class="n">model</span><span class="p">.</span><span class="nf">eval</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="p">.</span><span class="nf">no_grad</span><span class="p">():</span>
+            <span class="n">losses</span><span class="p">,</span> <span class="n">nums</span> <span class="o">=</span> <span class="nf">zip</span><span class="p">(</span>
+                <span class="o">*</span><span class="p">[</span><span class="nf">loss_batch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loss_func</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">)</span> <span class="k">for</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span> <span class="ow">in</span> <span class="n">valid_dl</span><span class="p">]</span>
             <span class="p">)</span>
-        <span class="n">val_loss</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">losses</span><span class="p">,</span> <span class="n">nums</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="n">val_loss</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">multiply</span><span class="p">(</span><span class="n">losses</span><span class="p">,</span> <span class="n">nums</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
 
-        <span class="k">print</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
 
 <span class="c1"># __main()__:
 </span>
 <span class="c1"># data
-</span><span class="n">DATA_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">"data"</span><span class="p">)</span>
+</span><span class="n">DATA_PATH</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="s">"data"</span><span class="p">)</span>
 <span class="n">PATH</span> <span class="o">=</span> <span class="n">DATA_PATH</span> <span class="o">/</span> <span class="s">"mnist"</span>
 
-<span class="n">PATH</span><span class="p">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">PATH</span><span class="p">.</span><span class="nf">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="n">URL</span> <span class="o">=</span> <span class="s">"https://github.com/pytorch/tutorials/raw/master/_static/"</span>
 <span class="n">FILENAME</span> <span class="o">=</span> <span class="s">"mnist.pkl.gz"</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="n">exists</span><span class="p">():</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="n">FILENAME</span><span class="p">).</span><span class="n">content</span>
-        <span class="p">(</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="nb">open</span><span class="p">(</span><span class="s">"wb"</span><span class="p">).</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">gzip</span><span class="p">.</span><span class="nb">open</span><span class="p">((</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="n">as_posix</span><span class="p">(),</span> <span class="s">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="p">((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">),</span> <span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"latin-1"</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="nf">exists</span><span class="p">():</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="n">FILENAME</span><span class="p">).</span><span class="n">content</span>
+        <span class="p">(</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="nf">open</span><span class="p">(</span><span class="s">"wb"</span><span class="p">).</span><span class="nf">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">gzip</span><span class="p">.</span><span class="nf">open</span><span class="p">((</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="nf">as_posix</span><span class="p">(),</span> <span class="s">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="p">((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">),</span> <span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"latin-1"</span><span class="p">)</span>
 
-<span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span>
+<span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span>
     <span class="n">torch</span><span class="p">.</span><span class="n">tensor</span><span class="p">,</span> <span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">)</span>
 <span class="p">)</span>
 
-<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">valid_dataset</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">)</span>
-<span class="n">train_dataloader</span><span class="p">,</span> <span class="n">valid_dataloader</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">valid_ds</span><span class="p">,</span> <span class="n">bs</span><span class="p">)</span>
-<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">WrappedDataLoader</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">)</span>
-<span class="n">valid_dataloader</span> <span class="o">=</span> <span class="n">WrappedDataLoader</span><span class="p">(</span><span class="n">valid_dataloader</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">)</span>
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="nc">TensorDataset</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">valid_dataset</span> <span class="o">=</span> <span class="nc">TensorDataset</span><span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">)</span>
+<span class="n">train_dataloader</span><span class="p">,</span> <span class="n">valid_dataloader</span> <span class="o">=</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">valid_ds</span><span class="p">,</span> <span class="n">bs</span><span class="p">)</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="nc">WrappedDataLoader</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">)</span>
+<span class="n">valid_dataloader</span> <span class="o">=</span> <span class="nc">WrappedDataLoader</span><span class="p">(</span><span class="n">valid_dataloader</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">)</span>
 
 <span class="c1"># hyperparameters/model
 </span><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="n">epochs</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">loss_function</span> <span class="o">=</span> <span class="n">F</span><span class="p">.</span><span class="n">cross_entropy</span> <span class="c1"># loss function
-</span><span class="n">model</span> <span class="o">=</span> <span class="n">Mnist_CNN</span><span class="p">()</span>
-<span class="n">model</span><span class="p">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="p">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span> <span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+</span><span class="n">model</span> <span class="o">=</span> <span class="nc">Mnist_CNN</span><span class="p">()</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="p">.</span><span class="nc">SGD</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="nf">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span> <span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
 
 <span class="c1"># training
-</span><span class="n">fit</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_function</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">valid_dataloader</span><span class="p">)</span>
+</span><span class="nf">fit</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_function</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">valid_dataloader</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>可以看到，一个项目主干可以分成4部分：</p>
@@ -276,21 +228,21 @@ THE SOFTWARE.
 
 <h3 id="重构之前">重构之前</h3>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DATA_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">"data"</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DATA_PATH</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="s">"data"</span><span class="p">)</span>
 <span class="n">PATH</span> <span class="o">=</span> <span class="n">DATA_PATH</span> <span class="o">/</span> <span class="s">"mnist"</span>
 
-<span class="n">PATH</span><span class="p">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">PATH</span><span class="p">.</span><span class="nf">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="n">URL</span> <span class="o">=</span> <span class="s">"https://github.com/pytorch/tutorials/raw/master/_static/"</span>
 <span class="n">FILENAME</span> <span class="o">=</span> <span class="s">"mnist.pkl.gz"</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="n">exists</span><span class="p">():</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="n">FILENAME</span><span class="p">).</span><span class="n">content</span>
-        <span class="p">(</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="nb">open</span><span class="p">(</span><span class="s">"wb"</span><span class="p">).</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">gzip</span><span class="p">.</span><span class="nb">open</span><span class="p">((</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="n">as_posix</span><span class="p">(),</span> <span class="s">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="p">((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">),</span> <span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"latin-1"</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="nf">exists</span><span class="p">():</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="n">FILENAME</span><span class="p">).</span><span class="n">content</span>
+        <span class="p">(</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="nf">open</span><span class="p">(</span><span class="s">"wb"</span><span class="p">).</span><span class="nf">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">gzip</span><span class="p">.</span><span class="nf">open</span><span class="p">((</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="nf">as_posix</span><span class="p">(),</span> <span class="s">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="p">((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">),</span> <span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"latin-1"</span><span class="p">)</span>
 
-<span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span>
+<span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span>
     <span class="n">torch</span><span class="p">.</span><span class="n">tensor</span><span class="p">,</span> <span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="n">n</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">.</span><span class="n">shape</span>
@@ -303,67 +255,67 @@ THE SOFTWARE.
 # https://pytorch.org/tutorials/beginner/data_loading_tutorial.html?highlight=dataloader
 </span>
 <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">).</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">),</span> <span class="n">y</span><span class="p">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="nf">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">).</span><span class="nf">to</span><span class="p">(</span><span class="n">dev</span><span class="p">),</span> <span class="n">y</span><span class="p">.</span><span class="nf">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">valid_ds</span><span class="p">,</span> <span class="n">bs</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span>
-        <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">bs</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
-        <span class="n">DataLoader</span><span class="p">(</span><span class="n">valid_ds</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">bs</span> <span class="o">*</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="nf">return </span><span class="p">(</span>
+        <span class="nc">DataLoader</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">bs</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+        <span class="nc">DataLoader</span><span class="p">(</span><span class="n">valid_ds</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">bs</span> <span class="o">*</span> <span class="mi">2</span><span class="p">),</span>
     <span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">WrappedDataLoader</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dl</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">dl</span> <span class="o">=</span> <span class="n">dl</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">dl</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">dl</span> <span class="o">=</span> <span class="n">dl</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
 
-    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">dl</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">dl</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">batches</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">dl</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">batches</span> <span class="o">=</span> <span class="nf">iter</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">dl</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">batches</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">b</span><span class="p">))</span>
+            <span class="nf">yield </span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">b</span><span class="p">))</span>
 </code></pre></div></div>
 
 <h2 id="2-定义模型">2. 定义模型</h2>
 
 <h3 id="重构之前-1">重构之前</h3>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">weights</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">784</span><span class="p">)</span>
-<span class="n">weights</span><span class="p">.</span><span class="n">requires_grad_</span><span class="p">()</span>
-<span class="n">bias</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">weights</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">randn</span><span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="mi">784</span><span class="p">)</span>
+<span class="n">weights</span><span class="p">.</span><span class="nf">requires_grad_</span><span class="p">()</span>
+<span class="n">bias</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">log_softmax</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="p">.</span><span class="n">exp</span><span class="p">().</span><span class="nb">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="n">log</span><span class="p">().</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="p">.</span><span class="nf">exp</span><span class="p">().</span><span class="nf">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nf">log</span><span class="p">().</span><span class="nf">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">xb</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">log_softmax</span><span class="p">(</span><span class="n">xb</span> <span class="o">@</span> <span class="n">weights</span> <span class="o">+</span> <span class="n">bias</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nf">log_softmax</span><span class="p">(</span><span class="n">xb</span> <span class="o">@</span> <span class="n">weights</span> <span class="o">+</span> <span class="n">bias</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">nll</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-    <span class="k">return</span> <span class="o">-</span><span class="nb">input</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">target</span><span class="p">].</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">return</span> <span class="o">-</span><span class="nb">input</span><span class="p">[</span><span class="nf">range</span><span class="p">(</span><span class="n">target</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">target</span><span class="p">].</span><span class="nf">mean</span><span class="p">()</span>
 <span class="n">loss_func</span> <span class="o">=</span> <span class="n">nll</span>
 
 <span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">yb</span><span class="p">):</span>
-    <span class="n">preds</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">preds</span> <span class="o">==</span> <span class="n">yb</span><span class="p">).</span><span class="nb">float</span><span class="p">().</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">preds</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">argmax</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nf">return </span><span class="p">(</span><span class="n">preds</span> <span class="o">==</span> <span class="n">yb</span><span class="p">).</span><span class="nf">float</span><span class="p">().</span><span class="nf">mean</span><span class="p">()</span>
 </code></pre></div></div>
 
 <h3 id="重构以后-1">重构以后</h3>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># If the model is simple:
-</span><span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="nc">Linear</span><span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
 <span class="c1"># generally the model is a class that inherites nn.Module and implements forward()
 </span><span class="k">class</span> <span class="nc">Mnist_Logistic</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">()</span>
         <span class="c1"># self.weights = nn.Parameter(torch.randn(784, 10) / math.sqrt(784))
 </span>        <span class="c1"># self.bias = nn.Parameter(torch.zeros(10))
-</span>        <span class="bp">self</span><span class="p">.</span><span class="n">lin</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">lin</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="nc">Linear</span><span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xb</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">xb</span><span class="p">):</span>
         <span class="c1"># return xb @ self.weights + self.bias
-</span>        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">lin</span><span class="p">(</span><span class="n">xb</span><span class="p">)</span>
+</span>        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="nf">lin</span><span class="p">(</span><span class="n">xb</span><span class="p">)</span>
 
 </code></pre></div></div>
 
@@ -374,51 +326,51 @@ THE SOFTWARE.
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lr</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># learning rate
 </span><span class="n">epochs</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># how many epochs to train for
 </span>
-<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">bs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">bs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="c1">#         set_trace()
 </span>        <span class="n">start_i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">bs</span>
         <span class="n">end_i</span> <span class="o">=</span> <span class="n">start_i</span> <span class="o">+</span> <span class="n">bs</span>
         <span class="n">xb</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="n">start_i</span><span class="p">:</span><span class="n">end_i</span><span class="p">]</span>
         <span class="n">yb</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="n">start_i</span><span class="p">:</span><span class="n">end_i</span><span class="p">]</span>
-        <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">xb</span><span class="p">)</span>
-        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_func</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">yb</span><span class="p">)</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="nf">model</span><span class="p">(</span><span class="n">xb</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="nf">loss_func</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">yb</span><span class="p">)</span>
 
-        <span class="n">loss</span><span class="p">.</span><span class="n">backward</span><span class="p">()</span>
-        <span class="k">with</span> <span class="n">torch</span><span class="p">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="n">loss</span><span class="p">.</span><span class="nf">backward</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="p">.</span><span class="nf">no_grad</span><span class="p">():</span>
             <span class="n">weights</span> <span class="o">-=</span> <span class="n">weights</span><span class="p">.</span><span class="n">grad</span> <span class="o">*</span> <span class="n">lr</span>
             <span class="n">bias</span> <span class="o">-=</span> <span class="n">bias</span><span class="p">.</span><span class="n">grad</span> <span class="o">*</span> <span class="n">lr</span>
-            <span class="n">weights</span><span class="p">.</span><span class="n">grad</span><span class="p">.</span><span class="n">zero_</span><span class="p">()</span>
-            <span class="n">bias</span><span class="p">.</span><span class="n">grad</span><span class="p">.</span><span class="n">zero_</span><span class="p">()</span>
+            <span class="n">weights</span><span class="p">.</span><span class="n">grad</span><span class="p">.</span><span class="nf">zero_</span><span class="p">()</span>
+            <span class="n">bias</span><span class="p">.</span><span class="n">grad</span><span class="p">.</span><span class="nf">zero_</span><span class="p">()</span>
 </code></pre></div></div>
 
 <h3 id="重构以后-2">重构以后</h3>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">def</span> <span class="nf">loss_batch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loss_func</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_func</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">xb</span><span class="p">),</span> <span class="n">yb</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="nf">loss_func</span><span class="p">(</span><span class="nf">model</span><span class="p">(</span><span class="n">xb</span><span class="p">),</span> <span class="n">yb</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">opt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">loss</span><span class="p">.</span><span class="n">backward</span><span class="p">()</span>
-        <span class="n">opt</span><span class="p">.</span><span class="n">step</span><span class="p">()</span>
-        <span class="n">opt</span><span class="p">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="p">.</span><span class="nf">backward</span><span class="p">()</span>
+        <span class="n">opt</span><span class="p">.</span><span class="nf">step</span><span class="p">()</span>
+        <span class="n">opt</span><span class="p">.</span><span class="nf">zero_grad</span><span class="p">()</span>
 
-    <span class="k">return</span> <span class="n">loss</span><span class="p">.</span><span class="n">item</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="n">xb</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">loss</span><span class="p">.</span><span class="nf">item</span><span class="p">(),</span> <span class="nf">len</span><span class="p">(</span><span class="n">xb</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_func</span><span class="p">,</span> <span class="n">opt</span><span class="p">,</span> <span class="n">train_dl</span><span class="p">,</span> <span class="n">valid_dl</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
-        <span class="n">model</span><span class="p">.</span><span class="n">train</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+        <span class="n">model</span><span class="p">.</span><span class="nf">train</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span> <span class="ow">in</span> <span class="n">train_dl</span><span class="p">:</span>
-            <span class="n">loss_batch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loss_func</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+            <span class="nf">loss_batch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loss_func</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
 
-        <span class="n">model</span><span class="p">.</span><span class="nb">eval</span><span class="p">()</span>
-        <span class="k">with</span> <span class="n">torch</span><span class="p">.</span><span class="n">no_grad</span><span class="p">():</span>
-            <span class="n">losses</span><span class="p">,</span> <span class="n">nums</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span>
-                <span class="o">*</span><span class="p">[</span><span class="n">loss_batch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loss_func</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">)</span> <span class="k">for</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span> <span class="ow">in</span> <span class="n">valid_dl</span><span class="p">]</span>
+        <span class="n">model</span><span class="p">.</span><span class="nf">eval</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="p">.</span><span class="nf">no_grad</span><span class="p">():</span>
+            <span class="n">losses</span><span class="p">,</span> <span class="n">nums</span> <span class="o">=</span> <span class="nf">zip</span><span class="p">(</span>
+                <span class="o">*</span><span class="p">[</span><span class="nf">loss_batch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loss_func</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">)</span> <span class="k">for</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span> <span class="ow">in</span> <span class="n">valid_dl</span><span class="p">]</span>
             <span class="p">)</span>
-        <span class="n">val_loss</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">losses</span><span class="p">,</span> <span class="n">nums</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="n">val_loss</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">multiply</span><span class="p">(</span><span class="n">losses</span><span class="p">,</span> <span class="n">nums</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
 
-        <span class="k">print</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
 </code></pre></div></div>
 
@@ -427,7 +379,7 @@ THE SOFTWARE.
 <h3 id="重构之前-3">重构之前</h3>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># __main()__:
-</span><span class="k">print</span><span class="p">(</span><span class="n">loss_func</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">xb</span><span class="p">),</span> <span class="n">yb</span><span class="p">),</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">xb</span><span class="p">),</span> <span class="n">yb</span><span class="p">))</span>
+</span><span class="nf">print</span><span class="p">(</span><span class="nf">loss_func</span><span class="p">(</span><span class="nf">model</span><span class="p">(</span><span class="n">xb</span><span class="p">),</span> <span class="n">yb</span><span class="p">),</span> <span class="nf">accuracy</span><span class="p">(</span><span class="nf">model</span><span class="p">(</span><span class="n">xb</span><span class="p">),</span> <span class="n">yb</span><span class="p">))</span>
 </code></pre></div></div>
 
 <h3 id="重构以后-3">重构以后</h3>
@@ -435,143 +387,84 @@ THE SOFTWARE.
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># __main()__:
 </span>
 <span class="c1"># data
-</span><span class="n">DATA_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">"data"</span><span class="p">)</span>
+</span><span class="n">DATA_PATH</span> <span class="o">=</span> <span class="nc">Path</span><span class="p">(</span><span class="s">"data"</span><span class="p">)</span>
 <span class="n">PATH</span> <span class="o">=</span> <span class="n">DATA_PATH</span> <span class="o">/</span> <span class="s">"mnist"</span>
 
-<span class="n">PATH</span><span class="p">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">PATH</span><span class="p">.</span><span class="nf">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="n">URL</span> <span class="o">=</span> <span class="s">"https://github.com/pytorch/tutorials/raw/master/_static/"</span>
 <span class="n">FILENAME</span> <span class="o">=</span> <span class="s">"mnist.pkl.gz"</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="n">exists</span><span class="p">():</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="n">FILENAME</span><span class="p">).</span><span class="n">content</span>
-        <span class="p">(</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="nb">open</span><span class="p">(</span><span class="s">"wb"</span><span class="p">).</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">gzip</span><span class="p">.</span><span class="nb">open</span><span class="p">((</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="n">as_posix</span><span class="p">(),</span> <span class="s">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="p">((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">),</span> <span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"latin-1"</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="nf">exists</span><span class="p">():</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="n">FILENAME</span><span class="p">).</span><span class="n">content</span>
+        <span class="p">(</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="nf">open</span><span class="p">(</span><span class="s">"wb"</span><span class="p">).</span><span class="nf">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">gzip</span><span class="p">.</span><span class="nf">open</span><span class="p">((</span><span class="n">PATH</span> <span class="o">/</span> <span class="n">FILENAME</span><span class="p">).</span><span class="nf">as_posix</span><span class="p">(),</span> <span class="s">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="p">((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">),</span> <span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="n">pickle</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"latin-1"</span><span class="p">)</span>
 
-<span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span>
+<span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="nf">map</span><span class="p">(</span>
     <span class="n">torch</span><span class="p">.</span><span class="n">tensor</span><span class="p">,</span> <span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">)</span>
 <span class="p">)</span>
 
-<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">valid_dataset</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">)</span>
-<span class="n">train_dataloader</span><span class="p">,</span> <span class="n">valid_dataloader</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">valid_ds</span><span class="p">,</span> <span class="n">bs</span><span class="p">)</span>
-<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">WrappedDataLoader</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">)</span>
-<span class="n">valid_dataloader</span> <span class="o">=</span> <span class="n">WrappedDataLoader</span><span class="p">(</span><span class="n">valid_dataloader</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">)</span>
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="nc">TensorDataset</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">valid_dataset</span> <span class="o">=</span> <span class="nc">TensorDataset</span><span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">y_valid</span><span class="p">)</span>
+<span class="n">train_dataloader</span><span class="p">,</span> <span class="n">valid_dataloader</span> <span class="o">=</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">valid_ds</span><span class="p">,</span> <span class="n">bs</span><span class="p">)</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="nc">WrappedDataLoader</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">)</span>
+<span class="n">valid_dataloader</span> <span class="o">=</span> <span class="nc">WrappedDataLoader</span><span class="p">(</span><span class="n">valid_dataloader</span><span class="p">,</span> <span class="n">preprocess</span><span class="p">)</span>
 
 <span class="c1"># hyperparameters/model
 </span><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="n">epochs</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">loss_function</span> <span class="o">=</span> <span class="n">F</span><span class="p">.</span><span class="n">cross_entropy</span> <span class="c1"># loss function
-</span><span class="n">model</span> <span class="o">=</span> <span class="n">Mnist_CNN</span><span class="p">()</span>
-<span class="n">model</span><span class="p">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="p">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span> <span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+</span><span class="n">model</span> <span class="o">=</span> <span class="nc">Mnist_CNN</span><span class="p">()</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="p">.</span><span class="nc">SGD</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="nf">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span> <span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
 
 <span class="c1"># training
-</span><span class="n">fit</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_function</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">valid_dataloader</span><span class="p">)</span>
+</span><span class="nf">fit</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_function</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">valid_dataloader</span><span class="p">)</span>
 </code></pre></div></div>
 
-    </article>
-    <br/><br/><br/>
-  </div>
-  <div class="comment container paper card" style="margin-bottom: 10em;">
-    <h2>读者评论</h2><br>
-    <div class="center" style="margin: auto; width: 80%;">
+  <hr>
+</section>
+<section id="ad-tail"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
+     crossorigin="anonymous"></script>
+<!-- blog-header -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1920275466226790"
+     data-ad-slot="4291489170"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></section>
+<section id="comments">
   <script src="https://giscus.app/client.js"
-          data-repo="MountAye/blog"
-          data-repo-id="R_kgDOGc3UIA"
-          data-category="Comments"
-          data-category-id="DIC_kwDOGc3UIM4CAI4h"
-          data-mapping="title"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="bottom"
-          data-theme="light"
-          data-lang="zh-CN"
-          crossorigin="anonymous"
-          async>
-  </script>
-</div>
+        data-repo="MountAye/comments"
+        data-repo-id="R_kgDOJe4FmQ"
+        data-category="BLOG"
+        data-category-id="DIC_kwDOJe4Fmc4CWQuC"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="1"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
 
-    <!-- <div class="row">
-  <div class="col s8">
-    <ul class="tabs blue z-depth-1">
-      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4 active" href="#markdown">Markdown</a></li>
-      <li class="waves-effect tab col s3 blue darken-1"><a class="white-text text-darken-4" href="#preview">Preview</a></li>
-    </ul>
-  </div>
-  <br><br><br>
-  <div id="markdown" class="col s8">
-    <div class="row">
-      <form class="col s12">
-        <div class="row blue-text">
-          <div class="input-field col s12">
-            <input id="first_name" type="text" class="validate materialize-textarea blue-text text-darken-3">
-            <label for="first_name" class="blue-text text-darken-3">Title</label>
-          </div>
-          <div class="input-field col s12 blue-text">
-            <textarea id="textarea1" class="materialize-textarea blue-text text-darken-3"></textarea>
-            <label for="textarea1" class="blue-text text-darken-3">Enter comment</label>
-          </div>
-        </div>
-      </form>
-    </div>
-    <button class="blue darken-1 white-text text-darken-3 waves-effect waves-cyan waves-light btn" href="/"><i class="mdi-action-backup"></i> &nbsp; Log in to comment</button>
-  </div>
-  <div id="preview" class="col s12">
-    hhhh
-  </div>
-</div> -->
-    <br><br><br>
-  </div>
-</div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- 
-<footer class="page-footer blue darken-2">
-  <div class="container">
-    <div class="row">
-      
-      <div class="col l3 m6 s12">
-        <h5 class="white-text">social-links</h5>
-        <ul>
-          <li><a class="grey-text text-lighten-3" href="http://facebook.com/xSF.AzraeL/" target="_blank"><i class="mdi-social-person-add"></i> Facebook</a></li>
-          <li><a class="grey-text text-lighten-3" href="https://plus.google.com/u/0/114363400342894379257/posts" target="_blank"><i class="mdi-social-plus-one"></i> Google+</a></li>
-          <li><a class="grey-text text-lighten-3" href="http://github.com/naveenshaji/" target="_blank"><i class="mdi-notification-adb"></i> GitHub</a></li>
-        </ul>
-      </div>
-             
-      <div class="col l3 m6 s12">
-      <h5 class="white-text">where-i-live</h5>
-      <p class="grey-text text-lighten-4">TC 11/1827<br>West Cliff Gardens 35<br>Kowdiar, Trivandrum<br>&nbsp;</p>
-      </div>
-      
-      <div class="col l3 m6 s12">
-        <h5 class="white-text">contact-me</h5>
-        <p class="grey-text text-lighten-4">+91-9496-74-7070<br>naveen@pixelblenders.com<br>xsf.azrael@gmail.com</p>
-      </div>
-
-                         
-      <div class="col l3 m6 s12">
-        <h5 class="white-text">MountAye</h5>
-        <p class="grey-text text-lighten-4">MountAye: A Blog</p>
-      </div>
-
+</section>
 
     </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-      © 2021 MountAye
-      <a class="grey-text text-lighten-4 right" href="http://mountaye.github.io/" target="_blank">MountAye</a>
-    </div>
-  </div>
-</footer> -->
+    <footer>
+      <p><small>Hosted on GitHub Pages
+            <br>Theme by <a href="https://twitter.com/mattgraham">mattgraham</a>
+            <br>Modified by <a href="https://www.github.com/MountAye">MountAye</a>
+      </small></p>
+    </footer>
 
   </body>
 </html>
+
+  

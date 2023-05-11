@@ -584,7 +584,7 @@ table {
 }
 
 body {
-  font: 18px/24px "Source Han Serif CN", "Quattrocento Sans", "Helvetica Neue", Helvetica, Arial, serif;
+  font: 18px/24px "Source Han Serif SC", "Quattrocento Sans", "Helvetica Neue", Helvetica, Arial, SimSun, serif;
   color: #2b2b2b;
   font-weight: 500;
   margin: 0px;
@@ -663,7 +663,7 @@ section img {
   max-width: 100%;
 }
 
-section a {
+section > a {
   top: 0;
   bottom: 0;
   left: 0;

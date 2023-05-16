@@ -961,7 +961,7 @@ footer {
     border: 1px solid #e5e5e5;
     border-width: 1px 0;
     padding: 20px 0;
-    margin: 10px auto 20px;
+    margin: auto;
     max-width: 700px;
   }
   footer {
@@ -1029,9 +1029,6 @@ footer {
   }
   div.wrapper {
     margin-top: 0px;
-  }
-  section {
-    margin-top: 5px;
   }
   #banner {
     display: none;

@@ -1,4 +1,178 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-05-19T21:41:30-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.doc | OPT 申请手续笔记</title><link href="https://mountaye.github.io/blog/articles/OPT-workshop-notes" rel="alternate" type="text/html" title=".doc | OPT 申请手续笔记" /><published>2023-05-19T00:00:00-05:00</published><updated>2023-05-19T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/OPT-workshop-notes</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/OPT-workshop-notes"><![CDATA[<p>OPT 是 Optional Practical Training 的缩写，指的是在美国完成学业期间或者之后，允许有一段实习时间，可以工作。但是此时这个人的身份依然是学生，不是工作签证，更不是移民签证。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-06-17T22:19:29-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.tex | 什么是智能≠智能是什么</title><link href="https://mountaye.github.io/blog/articles/what-is-intelligence-not-same-as-intelligence-is-what" rel="alternate" type="text/html" title=".tex | 什么是智能≠智能是什么" /><published>2023-06-17T00:00:00-05:00</published><updated>2023-06-17T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/what-is-intelligence-not-same-as-intelligence-is-what</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/what-is-intelligence-not-same-as-intelligence-is-what"><![CDATA[<h2 id="0">0</h2>
+
+<p>这是一篇酬和之作。</p>
+
+<p>徵文标题说的是：</p>
+
+<blockquote>
+  <p><strong>機器會製造「內涵」嗎？</strong></p>
+
+</blockquote>
+
+<p>但是正文提出的问题是：</p>
+
+<blockquote>
+  <p>AI透過程式組合出回答你問題的文字組合，有「涵義」嗎？</p>
+
+</blockquote>
+
+<p>可是，「內涵」和「涵義」两个词的——内涵/涵义——就不完全一样啊……</p>
+
+<p>“内涵”(connotation) 通常指词语或表达方式所隐含的情感、态度、暗示或附加的意义。它涉及到词语或表达方式所引起的情感、联想或隐含的观点。也就是弦外之音。</p>
+
+<p>而“涵义”(meaning) 一般指词语、表达方式或行为所传达的字面意义或字面上的定义。它强调的是直接的、明确的意义。</p>
+
+<p>看热闹不嫌事大，那我们再把问题搞复杂一点——在逻辑学里也有一个“内涵”(intension)，和“外延”(extension) 相对应。用<strong>面向对象编程</strong>的说法来理解，一个类里面定义的所有状态量和内部方法的集合，就构成这个类的“<strong>内涵</strong>”；所有（已经和将来能够）从这个类实例化出来的对象的集合，就构成这个类的“<strong>外延</strong>”。</p>
+
+<p>所以看起来，征文者想问的是日常“内涵”也就是言外之意，但是怕杠精（比如我）用有严格定义的逻辑“内涵”解构掉，所以换了“涵义”一词。</p>
+
+<p>这个问题很显然是因应最近大语言模型掀起的这一波 AI 浪潮。这个问题往前再问一句，就是“大语言模型是智能体/有智能吗？”</p>
+
+<ul>
+  <li>前两年 DeepMind 的 AlphaGo/AlphaZero 系列 AI 在围棋中击败人类棋手时，人们也在问这个问题。</li>
+  <li>上世纪四五十年代专家系统 (expert system) 刚刚开发的时候，人们也在问这个问题。</li>
+  <li>从电子计算机往前追溯到机械计算机，甚至是巴比奇的差分机的时候，人们就已经开始问这样的问题了。</li>
+</ul>
+
+<p>这些问题求并集，然后在问题数量趋近于无穷下的极限，就是“什么是智能”。</p>
+
+<p>这样的问题每每得不到回答，是因为它的逆问题“智能是什么”没有答案。我们并没有智能的准确定义，只能一事一论。而之前的智能和非智能体的区别太明显，以至于作出判断也不能对智能的定义有所启发。</p>
+
+<h2 id="1">1</h2>
+
+<p>而对“智能是什么”的探究，哲学、逻辑学、计算机科学、生物学、管理学，不同领域的研究者有着不同的思路。</p>
+
+<h3 id="古哲学洞穴之壁与理念世界">古哲学·洞穴之壁与理念世界</h3>
+
+<p>古希腊哲学家柏拉图在《理想国》里提到了“洞穴之壁”的寓言故事。</p>
+
+<p>有一群被囚禁在一个深洞的囚徒，从出生开始就被束缚在这个洞穴里，脖子和腿都被铁链锁住，没办法转身或离开。囚徒身后的洞穴入口处有一道火焰，火焰后有人持物体走过，物体的投射在洞穴内的墙壁上形成了影子。囚徒们就以为这些影子就是唯一的存在。</p>
+
+<p>这里的囚徒代表着人类，洞穴代表着世界，影子则代表着我们对于现象世界的感知和观念。人们的知识和信念往往受限于自己的经验和感知，就像囚徒们只看到了洞穴墙壁上的影子，而在影子之外还存在一个理想的理性世界。柏拉图用这个寓言故事表达了他对于人类认识和智慧的理解。所谓智慧，就是从洞穴的影子反过去推测火把前物体的能力。</p>
+
+<p>当然，这种思想被 Marx 主义定性为一种客观唯心主义、唯理论，是受其批判的。</p>
+
+<h3 id="逻辑学从命题到希尔伯特算符">逻辑学·从命题到希尔伯特算符</h3>
+
+<p>柏拉图的学生亚里士多德，今天在低年级的物理教科书里基本是个反面典型，但他对逻辑学进行了系统化和全面的研究，提出了许多逻辑学的基本概念和原理。这些成果后来成为了欧洲哲学和逻辑学的基石，对西方哲学和科学的发展产生了深远影响。</p>
+
+<p>所谓逻辑，就是研究命题的对错，以及如何判断命题对错的学问。而命题，就是能被判断对错的句子。但是句子显然可以再分成不同成分，于是就发明和/发现了主体、客体、谓词、谓词的量词……等等概念，以及用这些概念构造命题的方法。</p>
+
+<p>但是要注意，虽然逻辑主要由语言来表达，但是逻辑还是和语言不同，主体、客体也不等于句子的主语、宾语。这两者的区别，基本可以类比于之前洞穴之壁寓言里的实体和影子。</p>
+
+<p>这种努力到目前为止的巅峰，基本上要数希尔伯特形式化逻辑系统了。感兴趣的朋友可以自行查阅戈得门特《代数学教程》的第一章，这玩意相当于思想界的引体向上，反正我是一个也拉不上去……</p>
+
+<h3 id="计算机从半导体到抽象语法树">计算机·从半导体到抽象语法树</h3>
+
+<p>希尔伯特是德国的数学家，《代数学教程》也是数学而不是哲学教材。显而易见，逻辑虽然由哲学家奠基，但是主导权很快落到数学家，至少是哲学家兼数学家手里了。</p>
+
+<p>命题的“真”与“非真”同构于 {1, 0}，各种逻辑运算都可以分解成“或”与“非”两种基本逻辑运算的组合，这就是以数学家乔治·布尔 (George Boole) 命名的布尔代数。因为 {1, 0} 又可以同构于半导体电路的高低电位，和各种类似继电器的门电路组合，所以很容易用计算机在物理世界表示出这些逻辑运算。</p>
+
+<p>我们的电脑由上亿个这样的电位和逻辑门组成，一般的科普文章应该会去介绍芯片啊光刻机之类的东西，本文关注的是另一个方面：虽然生产电脑配件的厂商很多，不同的型号的元器件设计不同，组装出的成品应该千差万别，但是他们可以运行同样的程序，理想条件下（虽然实际工程中常常不理想）我们也可以期望他们跑出同样的结果。</p>
+
+<p>这说明所谓计算机科学，并不等同于研究计算机元件的电子科学和工程，这里电科和电子工程相当于洞穴岩壁上的影子，而计算机科学就相当于火光前的物体。这种超越物理的计算本质，一般用一种叫做“抽象语法树”的数据结构来表示。</p>
+
+<h3 id="生物学从神经元到神经网络">生物学·从神经元到神经网络</h3>
+
+<p>人们发明计算机的时候，基本上还是把它当作工具，就没期望它有什么主体性和智慧。</p>
+
+<p>而随着生物学逐渐发现了神经系统及其作用，也随着物理学在二十世纪初的大发展之后的相对平静，很多物理学家开始插手其他学科。既然生命和非生命体的背后都服从同一套物理规律，既然物理学的众多成功经验说明，搞清楚构成系统的所有微观组成就可以理解宏观的系统，那么搞清楚人类的智力器官的基本单元以及相互作用，按理说也就能够理解什么是智慧。</p>
+
+<p><img src="/blog/assets/photos/2023-06-17-neuron.png" alt="a cartoon illustrating a neuron" /></p>
+
+<p>上图是一个神经细胞的结构示意图。从其他神经细胞释放出来的名为神经递质的化学物质，到达神经元左侧短且密集的树突之后，激活细胞膜表面的离子泵，主动运输离子跨过细胞膜，从而产生电信号。电信号沿细胞膜传导到右侧的树突，刺激凸触释放神经递质给下一个细胞。</p>
+
+<p><img src="/blog/assets/photos/2023-06-17-perceptron.png" alt="a handdrawing style illustration of perceptron" /></p>
+
+<p>上图就是根据神经元的工作原理抽象出的数学模型，名为 perceptron。一个 perceptron 就是一个函数，接受多个输入的自变量，加权求和之后套一个非线性的激活函数，得到一个输出。很多个这样的 perceptron 并连和串联，就构成下图，计算机算法中的神经网络。</p>
+
+<p><img src="/blog/assets/photos/2023-06-17-neural-network.png" alt="a handdrawing style illustration of a neural network" /></p>
+
+<p>而从实验方向研究神经系统，我们隔壁系就有，经常来我们系招人。基本上就是在小鼠的天灵盖上锯开一个天窗，然后给它带上个头盔，头盔上有能从天窗伸进去的电极，采集脑神经的电信号。以前头盔有网线伸到实验室天花板，实时传到数据中心的超算。现在好像进步了，改用 Wi-Fi 了。</p>
+
+<p>这实验怎么通过的伦理审查，咱也不知道，咱也不敢问……</p>
+
+<h3 id="管理学dikw-数据-信息-知识-智慧模型">管理学·DIKW “数据-信息-知识-智慧”模型</h3>
+
+<p><img src="/blog/assets/photos/2023-06-17-DIKW.png" alt="a pyramid of DIKW model" /></p>
+
+<p>DIKW 四个字母分别代表 data, information, knowledge, wisdom，即数据、信息、知识、智慧，是一种知识管理中的心智模型。</p>
+
+<p>四个层次，前一层都是后一层的基础，后一层都是对前一层的理解。</p>
+
+<p>如果是书面文字，数据就是笔画和字母；如果是语言，数据就是人声的响度、频率和音色。由笔画/字母/声音组成的有含义的字词就是信息。表示信息之间的关系的，可以判断对错的命题就是知识。包含和统摄各条知识的思想体系，就是智慧。</p>
+
+<p>反过来说，虽然智慧高于思想，但它仍需要通过把各条知识的表达汇总起来，才能被人感知。对知识的命题的理解依赖于构成名字的各个概念的涵义，属于信息水平的内容。而每个字都有不考虑其涵义的笔画字母构成。</p>
+
+<p>这层与层之间<strong>看似</strong>并没有插入额外的内容，智慧可以直接由笔画构成。但是我们一层层理解的深入，其实是不自觉地借用了我们当前社会约定俗成的解读方式。</p>
+
+<p>比如下面这个图片里的符号，对于现代人就只是数据，无法解读成信息。但是对于苏美尔人，这是用楔形文字表示的数字，是等腰直角三角形的腰和直角边的比值，也就是 \(\sqrt{2}\) 的近似值。</p>
+
+<p><img src="/blog/assets/photos/2023-06-17-ancient-root-2.png" alt="sumerian numerical approximation to square root of two" /></p>
+
+<p>约定俗成的数据解读方式，也就是关于<strong>数据的数据</strong>，根据西方的构词法，可以叫做“<strong>元</strong>数据”(meta-data)。</p>
+
+<p>数据和元数据一起构成信息，信息和元信息一起构成知识，知识和元知识一起构成智慧。俺坚持写博客的动机，就是用费曼学习法，把无意间使用的元知识显式地表达出来，而且记录下来，争取学而不退转。</p>
+
+<h2 id="2">2</h2>
+
+<p>回顾了这些，再来看大语言模型，就会发现它落在了各方努力的延长线的交点。</p>
+
+<p>大语言模型里有一个重要概念叫做“嵌入”(embedding)，就是把语言的基本字元 (token) 可逆地映射到一个超多维度的向量空间里。本来“国王”和“儿子”之间没办法加减乘除，但是嵌入后的向量空间里有加法和数乘，如果嵌入函数选得好，“国王”的向量 + “儿子”的向量，结果向量就约等于“王子”的向量。</p>
+
+<p><img src="/blog/assets/photos/2023-06-17-vector-addition.png" alt="illustration of vector addition from wikipedia" /></p>
+
+<p>生成式语言模型的核心就是一个超多元函数，接受前一个字嵌入后的向量作为输入，给出另一个向量作为输出，用嵌入函数的逆映射翻译成字元；再把旧的输出作为新的输入，直到输出结果是“语段结束”这样一个特殊字元为止。模型训练的过程，主要就是通过现成的语料，拟合这个超多元函数的参数。</p>
+
+<p>从 DIKW 模型来看，语言模型操作的是最基本的数据，它的输出究竟是什么信息，是不是正确的知识，体现了多少智慧，是人根据当下的社会文化来解读的。</p>
+
+<p>而实现 AI 的电子计算机，或是复杂生命的大脑，他们和智能之间的关系，应该就类似于具体的计算机电路和抽象语法树之间的关系。以此类比，未来的智能科学应该会成为一门独立的专业，它和计算机科学和神经生物学的区别，就像今天的电子科学与工程，和计算机科学之间的区别一样。当下神经生物学的热度，将来恐怕多半会被分流。</p>
+
+<p>这种对字符的计算不同于逻辑运算，语言模型不判断输出结果在逻辑上的正确与错误，这既给了他啥都能说几句的 feature，又给了它经常编假消息的 bug。</p>
+
+<p>想要改掉这种错误，引入对 AI 的纠错机制，治本之道恐怕还是诉诸于对世界的正确描述，与理论相关的还是要靠逻辑，与现实相关的还是要靠科学。</p>
+
+<p>只不过，大语言模型提供了一种数据结构，有希望把人类已知的真理储存在一起。对这种数据结构本身的研究，有可能反过来启发科学的发展。柏拉图的洞穴之壁可能不再是一个比喻，未来更大的语言模型的，亿万维度的参数空间有希望成为洞穴门口的那团火。</p>
+
+<p>只不过这一切都是“可能”，现在还只是 AI 的萌芽阶段，还没有足够的证据来证实或者证伪这种畅想。而且 AI 的参数量再大也是有限的，它所能表达的信息也就有限，而真理应当是无限的，就像科学一样，总要训练更新更大的模型，总要发现已知的未知，然后欣然接受更多未知的未知之存在。</p>
+
+<p>如果电子计算机实现的 AI 独立于人类产生了意识和超出人类的智慧，很难想象他们会继续用人类语言这种对他们来说很不方便的方式来交流。</p>
+
+<p>所以，哪怕是做个 AI 生成内容的质检员，科学家依然有事可做。这算是科学的堕落吗？当然不算，如果算的话，那从计算物理也被当作理论物理的那天起，人类就已经投降了（逃）</p>
+
+<h2 id="3">3</h2>
+
+<p>现在正面来回答问题：AI透過程式組合出回答你問題的文字組合，有「涵義」嗎？</p>
+
+<p>答：有。</p>
+
+<p>因为语言的「涵義」来自于语言的内容，和整个社会的文化，并不来自于这句话的作者的身份。即便是人与人之间的交流，诉诸身份也是一种非形式逻辑谬误，是理性不足的表现。只有在信息不足仍不得不下结论的时候才该使用，比如法律判决时的自由心证主义和/或法定证据主义。</p>
+
+<p>而鹿妈眼里真人鹿酱与 AI 鹿酱的区别，如果有的话，好像主要体现在动机的区别。动机这种东西，很多智慧不高的生物，比如小猫小狗都会有；而现在的 AI，似乎还没有展现出超出编程者设计的动机。编程写入的信息有限，现有 AI 的动机也就有限，鹿酱的赢面还是很大的。</p>
+
+<p>而动机是生物与非生物的区别吗？而什么是生物 ≠ 生物是什么，那就是另一个含混而复杂的问题了。</p>
+
+<h2 id="4">4</h2>
+
+<p>这篇博文发布的时候，高考应该已经结束了，马上该填报志愿了。</p>
+
+<p>那么，西元 2023 年，AI 来袭的当下，该选个啥专业在 AI 浪潮中幸存，或者选个啥专业给 AI 老爷带路呢？</p>
+
+<p><img src="/blog/assets/photos/2023-06-17-three-body-quotation.png" alt="a screenshot of a quotation from Three Body about attitudes towards aliens" /></p>
+
+<p>我的建议是，不要听别人的建议，按自己的兴趣来就好了。</p>
+
+<p>刚刚改开的时候，有一个超级热门的专业，叫科技英语。科技落下了好多年，对外开放需要语言交流，两者一结合应该是热门又稀缺了。结果呢，你现在还听说过这个专业吗？</p>
+
+<p>科技很重要是不错，语言很重要也不错，但是搞科技的人自己可以学英语，学英语的有几个搞得了科技？社会的进步主要靠创新，而创新的方向难以预测，不论这种预测分析听起来多有道理。</p>
+
+<p>如果真的找不到兴趣，那就在能力范围之内，找个难度最高的。如果想从事智力劳动，那数学含量是个不错的衡量标准；如果不排斥体力劳动，那训练时间越长越值得考虑。</p>
+
+<p>但这只是填志愿来不及时的权宜之计，发掘兴趣是人一生的课题。</p>
+
+<p>兴趣不是为了让你成功的时候更得意，毕竟成功的话不论做什么都很得意；</p>
+
+<p>兴趣是为了你不成功时也可以不失意，毕竟平凡才是人生的真谛。</p>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[“什么是智能”的问题每每得不到回答，是因为它的逆问题“智能是什么”没有答案。]]></summary></entry><entry><title type="html">.doc | OPT 申请手续笔记</title><link href="https://mountaye.github.io/blog/articles/OPT-workshop-notes" rel="alternate" type="text/html" title=".doc | OPT 申请手续笔记" /><published>2023-05-19T00:00:00-05:00</published><updated>2023-05-19T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/OPT-workshop-notes</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/OPT-workshop-notes"><![CDATA[<p>OPT 是 Optional Practical Training 的缩写，指的是在美国完成学业期间或者之后，允许有一段实习时间，可以工作。但是此时这个人的身份依然是学生，不是工作签证，更不是移民签证。</p>
 
 <h2 id="谁有资格申请">谁有资格申请</h2>
 
@@ -510,1771 +684,7 @@
     </ol>
   </li>
   <li>Conclusion</li>
-</ol>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[本文是《Scientific Machine Learning Through Physics–Informed Neural Networks: Where we are and What’s Next》这篇综述的读书笔记。]]></summary></entry><entry><title type="html">.tex | Notes during APS March Meeting 2022 in Chicago</title><link href="https://mountaye.github.io/blog/articles/notes-during-APS-march-meeting-2022-Chicago" rel="alternate" type="text/html" title=".tex | Notes during APS March Meeting 2022 in Chicago" /><published>2023-03-12T00:00:00-06:00</published><updated>2023-03-12T00:00:00-06:00</updated><id>https://mountaye.github.io/blog/articles/notes-during-APS-march-meeting-2022-Chicago</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/notes-during-APS-march-meeting-2022-Chicago"><![CDATA[<h2 id="physical-of-artificial-system">Physical of Artificial System</h2>
-
-<p>some physical learning that does not have to be in equilibrium</p>
-
-<h2 id="cell-fate">Cell fate</h2>
-
-<h3 id="xinhua-xings-talk">Xinhua Xing’s talk</h3>
-
-<p>intro to differential geometry: Kamien, Rev Mod Phys 74:953 (2002)</p>
-
-<p>WeiKang Wang, in silico vector field analysis</p>
-
-<p>Waddington landscape 1957</p>
-
-<p>Joanathan Weissman Lab (WI, MIT)</p>
-
-<h3 id="marias-talk">Maria’s Talk</h3>
-
-<p>Boston U, Pankaj Mahta Group.</p>
-
-<p>extension  of work from Lang et al PLoS comput bio (2014)</p>
-
-<p>found an order parameter, better than UMAP</p>
-
-<h3 id="shubham-tripathis-talk">Shubham Tripathi’s talk</h3>
-
-<p>miimally frustrated topology</p>
-
-<h3 id="glassy-fluctuation-">Glassy fluctuation …</h3>
-
-<p>proten and mRNA noise levels are Boltzmann distributed.</p>
-
-<p>spin glass: frustration</p>
-
-<p>free energy</p>
-
-<p>gene expression noise can store information</p>
-
-<h3 id="kraemer">Kraemer</h3>
-
-<p>cell types in multicellular organisms</p>
-
-<p>master regulator as order parameter</p>
-
-<p><strong>Hopfield model</strong></p>
-
-<p>forward and backward conditional probabilities</p>
-
-<h3 id="logan-carpenter">Logan Carpenter</h3>
-
-<p>tissue homeostasis: birth and death</p>
-
-<p>cellular Potts model</p>
-
-<p>there is Hamiltonian!</p>
-
-<p>CompuCell3D software</p>
-
-<p>cell size distribution plot is very good</p>
-
-<h3 id="los-talk">Lo’s talk</h3>
-
-<p>UWashington</p>
-
-<p>collision during cell cycle, replication and transcription</p>
-
-<p>F-mean</p>
-
-<h3 id="lambertio">Lambert.io</h3>
-
-<p>bacterial persistence</p>
-
-<p>CRISPER-dCas12a interference</p>
-
-<p>massive parallel assay</p>
-
-<h3 id="arkansas-u-talk">Arkansas U talk</h3>
-
-<p>Reversibiliy and cell division dynamics of elongated Escherichia coli cells obtained at high pressure</p>
-
-<p>a new cell division model</p>
-
-<p>GCDM</p>
-
-<p>continuous time Markov chain model?</p>
-
-<h3 id="vivek">Vivek</h3>
-
-<p>microbial colonizing and phenotypes</p>
-
-<p>Danio rerio</p>
-
-<p>virio Z20</p>
-
-<h3 id="louis-cortes">Louis Cortes</h3>
-
-<p>IPTG indeces lac operon</p>
-
-<p>$f(t)=1-e^{-\frac{ln(2)}{t_{1/2}}(t-t_0)}$</p>
-
-<h3 id="jintao-li">Jintao Li</h3>
-
-<p>cell competition</p>
-
-<p>homeostasis pressure</p>
-
-<h2 id="author--reference-session">Author &amp; Reference Session</h2>
-
-<h3 id="criteria">criteria</h3>
-
-<ul>
-  <li>significantly advance physics</li>
-  <li>scientifically</li>
-  <li>letter
-    <ul>
-      <li>advance in field</li>
-      <li>open a new</li>
-      <li>solve a problem</li>
-      <li>be of great interest</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="for-authors">for authors</h3>
-
-<ul>
-  <li>identify audience</li>
-  <li>take-home message</li>
-  <li>adequate literature</li>
-  <li>authorship &amp; acknowledgment</li>
-  <li>additional info
-    <ul>
-      <li>suggested reviewer</li>
-      <li>conflicts of interest</li>
-      <li>related paper</li>
-      <li>PRL/X: justification for suitability exclusively to</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="referee">referee</h2>
-
-<ul>
-  <li>novel, interesting, original</li>
-  <li>valid and reproducible</li>
-  <li>well presented</li>
-  <li>report
-    <ul>
-      <li>summary</li>
-      <li>technical details</li>
-      <li>decision explained</li>
-    </ul>
-  </li>
-  <li>report requirements
-    <ul>
-      <li>substantiated</li>
-      <li>a reasonable level of details</li>
-      <li>no personal/self-serving remarks</li>
-      <li>timeliness</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="joint-submissions">joint submissions</h3>
-
-<h3 id="updated-physh">updated PhySH</h3>
-
-<h2 id="k42-network-theory-and-applications-to-complex-systems">K42: Network Theory and Applications to Complex Systems</h2>
-
-<h3 id="complex-contagion-unfolding-and-control">Complex Contagion: Unfolding and Control</h3>
-
-<p>Adilson E. Motter, Northwest University</p>
-
-<p>contagion</p>
-
-<p>whack-a-mole effect</p>
-
-<h3 id="physics-of-financial-networks">Physics of financial networks</h3>
-
-<p>mono-layer networks: a network of ownership, a network of credit contracts between financial institutes</p>
-
-<p>multi-layer  networks:</p>
-
-<h2 id="non-equilibrium-i">Non-equilibrium I</h2>
-
-<h3 id="success-landscape">success landscape</h3>
-
-<h3 id="speed-fluctuation-of-bacterial-replisomes">speed fluctuation of bacterial replisomes</h3>
-
-<h3 id="circadian-clocks-in-natural-environments">circadian clocks in natural environments</h3>
-
-<p>$\dot r = \alpha r(1-\frac{r^2}{R^2})$</p>
-
-<p>$\dot \theta = \omega$</p>
-
-<p>“decoder”</p>
-
-<p>Leypunskiy 2017, Pittayakanchit 2018</p>
-
-<h2 id="physics-of-social-interactions-i">Physics of social interactions I</h2>
-
-<h3 id="collective-sensing-in-slime-mold">collective sensing in slime mold</h3>
-
-<p>slime molds sense concentrations of fructose in environments</p>
-
-<p>hypotheses:</p>
-
-<ul>
-  <li>evenly distributed across the network. density be the only parameter</li>
-  <li>at the growing tips</li>
-</ul>
-
-<h3 id="competition-for-fluctuating-resources-reproduces-statistics-of-species-abundance-over-time-across-wide-ranging-microbiotas"><a href="https://march.aps.org/sessions/M03/2">Competition for fluctuating resources reproduces statistics of species abundance over time across wide-ranging microbiotas</a></h3>
-
-<p>consumer-resource model: species abundance is solely dependent on resource functuations</p>
-
-<p>Taylor’s law: distribution of abundance change is fit by a power law.</p>
-
-<p>“their model” coarse grained consumer-resource. can predict many kinds of , different resource competition regimes.</p>
-
-<h3 id="dog-congnition">Dog Congnition</h3>
-
-<p>Alexandra Horowitz.</p>
-
-<p>Social play</p>
-
-<h2 id="predicting-nonlinear-and-complex-systems-with-machine-learning-i">Predicting Nonlinear and Complex Systems with Machine Learning I</h2>
-
-<h3 id="building-deep-learning-architectures-for-physics-chemistry-and-biology-with-geometric-algebra">Building Deep Learning Architectures for Physics, Chemistry, and Biology with Geometric Algebra</h3>
-
-<p>finished soon after I arrived</p>
-
-<p>vector institute</p>
-
-<h3 id="quantum-thermal-machine-with-ml">Quantum thermal machine with ML</h3>
-
-<p>BraXXXX, VQE</p>
-
-<p>Finite time thermodynamics: compete between efficiency and power</p>
-
-<p>energy change between two harmonic oscillators</p>
-
-<p>differential programming, RL-like scheme</p>
-
-<p>missed the flawed thermodynamic definition</p>
-
-<h3 id="clarkson-university-reservoir-computing">Clarkson University: reservoir computing</h3>
-
-<p>reservoir computer: a kind of neural network, for forecasting dynamical systems but most of the parameters are chosen randomly. cheap but works well.</p>
-
-<p>ESN Jaeger 2001</p>
-
-<p>classic representation theorem by WOLD theorem</p>
-
-<p>works because time soaks randomness. equivalent to logical NVAR (non-linear vector autoregression)</p>
-
-<p>enjoys universal approximation theorem, even linear with non-linear readout.</p>
-
-<p>VAR: vector autoregression</p>
-
-<p>VMA: vector moving average</p>
-
-<p>DMD</p>
-
-<p>macket-glass equation as its example</p>
-
-<h3 id="kims-recurrent-neural-programming-language">Kim’s recurrent neural programming language</h3>
-
-<p>also reservoir computer.</p>
-
-<p>silicon computers represent with binary and compute sequentially.</p>
-
-<p>neural computers use continuous symbols and compute distributedly</p>
-
-<p>dRAM: dynamical random access memory</p>
-
-<p>store a reservoir into another reservoir</p>
-
-<p>another hot topic is Koopman’s theory</p>
-
-<h3 id="learn-complex-fluids-with-rheo">Learn complex fluids with rheo</h3>
-
-<p>RhINNs (PhysicsINNs): inform the NN with underlying physics/rheology</p>
-
-<p>his model is called RhIGNet, and an improved “multi-fidelity RHIGNets”</p>
-
-<h3 id="data-driven-selection-of-rheology-informed-nn">Data-driven selection of rheology-informed NN</h3>
-
-<p>same group as previous one.</p>
-
-<p>model works better as it goes more complex, while data wants model to be simpler.</p>
-
-<p>we should prioritize data range over size</p>
-
-<h3 id="ml-for-robot-locomotion-in-flowable-materials">ML for Robot Locomotion in Flowable Materials</h3>
-
-<p>robot cars (RRP) climbing sand slopes</p>
-
-<h3 id="predicting-clogging">Predicting Clogging</h3>
-
-<p>hopper flow</p>
-
-<h3 id="analogical-reasoning-to-build-transferable-models">Analogical Reasoning to build Transferable Models</h3>
-
-<p>model manifold: for a given data sampling method, points in parameter space can be mapped to a sampling space</p>
-
-<p>manifold boundary approximation method</p>
-
-<p>supremum principle</p>
-
-<p>Wnt signalling network</p>
-
-<h3 id="evidence-for-griffiths-phase-criticality-in-residual-neural-networks"><a href="https://march.aps.org/sessions/M09/12">Evidence for Griffiths Phase Criticality in Residual Neural Networks</a></h3>
-
-<p>residual networks’ has Griffith phase, due to the design (sth.  and renormalization)</p>
-
-<h2 id="n08-systems-far-from-equilibrium">N08: Systems Far from Equilibrium</h2>
-
-<h3 id="hopping-particles">Hopping Particles</h3>
-
-<p>math heavy</p>
-
-<p>Doi representation, Jarzynski relation, Doi-Peliti field theory</p>
-
-<p>generalized fluctuation-dissipition into non-equilibrium</p>
-
-<p>no coarse graining or slow modes</p>
-
-<h3 id="a-topological-fluctuation-theorem"><a href="https://march.aps.org/sessions/N08/2">A topological fluctuation theorem</a></h3>
-
-<p>$\Delta S_M = \frac{Q}{k_B T}n = \gamma n$</p>
-
-<p>also math heavy</p>
-
-<p>detailed TFT: symmetry of particle in vortex field is protected by topology</p>
-
-<h3 id="tur-in-langevan-processes">TUR in Langevan processes</h3>
-
-<p>TUR: thermodynamic uncertainty relation</p>
-
-<p>$\frac{var(j)}j{}\ge \frac{2}{&lt;\Sigma&gt;}$</p>
-
-<p>probability distribution → rate function. don’t know how</p>
-
-<p>“caveat” seems an abused word, another is “ansatz”</p>
-
-<h3 id="reversal-symmetry-for-cyclic-paths-from-notre-dame">reversal symmetry for cyclic paths from Notre Dame</h3>
-
-<p>detailed balance implies a reversal symmetry</p>
-
-<p>expressed as Markov process: $\frac{p_i}{p_j} = \frac{l(i,j)}{l(j,i)}$</p>
-
-<p>his work is just cycles in non-equilibrium systems</p>
-
-<p>fluctuation theorem for <strong>cycle counts</strong>. PRE 2021</p>
-
-<h3 id="emergence-and-breaking-of-duality-symmetry-in-generalized-thermodynamic-relations-from-unc-chapel-hill">emergence and breaking of duality symmetry in generalized thermodynamic relations from UNC chapel hill</h3>
-
-<p>foundation of thermodynamics, statistical mechanics, can be further founded upon classical or quantum mechanics</p>
-
-<p>three times of Legendre transforms of internal energy ought to give 0, which breaks the reversibility of Legendre transform.</p>
-
-<p>T. Hill 1963: added some sub linear term</p>
-
-<p>they used mean of finite measurements</p>
-
-<p>their understanding of thermodynamics is “nothing more than theories of probability”</p>
-
-<h3 id="scaling-of-entropy-under-coarse-graining">Scaling of entropy under coarse graining</h3>
-
-<p>entropy production rate</p>
-
-<p>in 1 dimension Derrida)</p>
-
-<p>dimension matters and data reduction may have non-trivial effects.</p>
-
-<h3 id="kibble-zurek-effect-quench">Kibble-Zurek effect, quench</h3>
-
-<p>phase transitions</p>
-
-<h3 id="discrete-non-linear-schroedinger-equation-by-federico">Discrete Non-Linear Schroedinger Equation by Federico</h3>
-
-<p>phase transition again</p>
-
-<h3 id="anormalous-thermal-relaxation-in-unimolecular-chemical-reactions">anormalous thermal relaxation in unimolecular chemical reactions</h3>
-
-<p>Mpemba effect: hotter water freeze faster than cold water</p>
-
-<h3 id="perturbation-spreading-in-a-non-reciprocal-classical-isotropic-magnet"><a href="https://march.aps.org/sessions/N08/10">Perturbation spreading in a non-reciprocal classical isotropic magnet</a></h3>
-
-<p>totally absent-minded</p>
-
-<h3 id="stefan-maxwell-diffusivities-of-gas-mixtures-and-liqiud-electrolytes-from-oxford">Stefan-Maxwell diffusivities of gas mixtures and liqiud electrolytes from Oxford</h3>
-
-<p>electrolytes, concentrated solution theory: Gibbs-Duhem relations</p>
-
-<p>very math heavy, and words too small on slides. presentation visualization not so good.</p>
-
-<p>extended DFN model</p>
-
-<p>Onager’s regression</p>
-
-<h2 id="q04-non-equilibrium-thermodynamics-from-chemical-reaction-networks-to-natural-selection-ii">Q04: Non-equilibrium Thermodynamics: From Chemical Reaction Networks to Natural Selection II</h2>
-
-<h3 id="free-energy-transduction-chemical-reaction-network">Free energy transduction, chemical reaction network</h3>
-
-<p>non-linear reaction: at least second order reaction</p>
-
-<p>reactions → emergent cycles</p>
-
-<h3 id="scaling-relations-of-energy-dissipation-rate-in-non-quilibrium-reaction-systems">Scaling relations of energy dissipation rate in non-quilibrium reaction systems</h3>
-
-<p>state space renormalization group</p>
-
-<h3 id="algebra-on-biological-structures-caltech-and-cold-spring-harbor">algebra on biological structures, Caltech and Cold Spring Harbor</h3>
-
-<p>second quantization, field operators in multiparticle Fock space</p>
-
-<p>classic particles in quantum language</p>
-
-<p>the operation is the Wick contraction</p>
-
-<h3 id="decomposing-local-arrow-of-time-interacting-systems">decomposing, local arrow of time, interacting systems</h3>
-
-<table>
-  <tbody>
-    <tr>
-      <td>$\dot I = D_{KL}[P(x\rightarrow x’)</td>
-      <td> </td>
-      <td>P(x’\rightarrow x)]$</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>“entropy production” again: Prigogine 1947, Shcnakenberg 1976, Skinner Dunkel 2021</p>
-
-<p>observe k elements in the system: interaction irreversibility $\dot I^{(k)}_{int}=\dot I^{(k)} - \dot I^{(k-1)}$</p>
-
-<h3 id="information-transmission-by-heterogeneous-cell-populations">information transmission by heterogeneous cell populations</h3>
-
-<p>noise can ruin cellular info sensing</p>
-
-<p>individual cell senses better than population(?) <strong>conditional mutual information</strong> reflects this</p>
-
-<h3 id="functional-universality-microbial-thermodynamic-constraints">functional universality, microbial, thermodynamic constraints</h3>
-
-<p>energy-limited vs. nutrient limited</p>
-
-<h3 id="trade-off">trade off:</h3>
-
-<p>law of energy in biology; model organism being anaerobes B. theta</p>
-
-<p>PPi (pyrophorsphate) as energy source</p>
-
-<h3 id="3d-diffusion-in-ecoli">3D diffusion in E.coli</h3>
-
-<h2 id="physics-of-social-interactions-ii">Physics of social interactions II</h2>
-
-<p>firefly, one research about vocabulary, one about spatiotemporal pattern</p>
-
-<p>bunblebees, SLEAP to identity action and track</p>
-
-<p>ant, fire ant, BOBbots, multi-occupancy lattice gas, rule based model→observed result</p>
-
-<p>social polarization: vector force, but how agents are embedded into this space? no answer</p>
-
-<p>HKB system, third party induced bistability, symmetry breaking “HOW”!</p>
-
-<p><strong>Team formation</strong>: <a href="https://march.aps.org/sessions/S03/9">Modeling the Catalysis of Collaboration at In-Person and Virtual Conferences</a>: Non-linear memory model, scialog dataset</p>
-
-<p>mirror game: no designated leader experts reach higher accuracy and velocities</p>
-
-<p>Granger causality analysis: not so advertised. experiment with flow switch. Presentation not so well given.</p>
-
-<p>Bacteria reshape their surroundings to enable migration: use bioprinting. different pore size in media. non-motile vs. motile. motile E.coli can escape tight pores</p>
-
-<h2 id="learning-dynamical-models-across-physical-systems"><strong>Learning dynamical models across physical systems</strong></h2>
-
-<h3 id="learning-dominant-physical-processes-with-data-driven-balance-models-walking"><strong>Learning dominant physical processes with data-driven balance models (walking)</strong></h3>
-
-<ul>
-  <li>obtain kinetics without markers
-    <ul>
-      <li>2d median filter, viterbi filter</li>
-      <li><strong>anipose</strong>: combination of  2d filters, triangulation, minimize spatiotemporal variation in limb length</li>
-    </ul>
-  </li>
-  <li>feedback model
-    <ul>
-      <li>reflex model, central pattern generator</li>
-      <li>tune the sensor neurons with laser</li>
-      <li>proprioceptor model → state estimator → neural controller → (muscle model)</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="knodes-to-learn-complex-dynamics-and-chaos-by-m-ani-hsieh-from-upenn">KNODES to learn complex dynamics and chaos by M. Ani Hsieh from UPenn</h3>
-
-<ul>
-  <li>ocean data</li>
-  <li>neural ordinary differential equation (NODE).
-    <ul>
-      <li>NeurIPS 6572-6583, 2018</li>
-      <li>knowledge embedding enabled by NODEs. Knowledge-based learning of nonlinear dynamics and chaos. Chaos vol31. 2021</li>
-      <li>applied to Hopf model, Stiff Can Der Pol model,</li>
-      <li>inferring swarming dynamics from data</li>
-      <li>deformable image registration</li>
-      <li>model predictive control that controlled drones</li>
-      <li>learning chaos</li>
-    </ul>
-  </li>
-</ul>
-
-<p>scalar.seas.upenn.edu</p>
-
-<h3 id="physics-of-behaviors-across-scales">physics of behaviors across scales</h3>
-
-<p>large scale behavior (trajectory): variation explained by exploration-exploitation</p>
-
-<p>fine scale (posture): decompose into 5 primitive postures</p>
-
-<p>connection:</p>
-
-<ul>
-  <li>transfer operators → slow emergent variables, subsume nonlinear to linear</li>
-  <li>use time series to max predict system to compensate missing d.o.f</li>
-</ul>
-
-<p>“hopping dynamics” again</p>
-
-<p>non-ergodic drives that prevent the dynamics from relaxing to the steady state within measurement time</p>
-
-<p>the landscape the worms seeking food is also time dependent</p>
-
-<h3 id="ml-for-biomechanics">ML for biomechanics</h3>
-
-<p>this group’s interested is very scattered.</p>
-
-<p>first part just missed: learn macroscopic params in hydrodynamics as fields</p>
-
-<p>Unet to predict some cell protein density, identify relevant signals</p>
-
-<p>model: Oakes et al, BioPhys J 2014</p>
-
-<p>fruit fly tissue</p>
-
-<p>physics-informed machine learning again</p>
-
-<h3 id="physics-informed-machine-learning-climate-modeling-and-covid-19-forecasting">physics-informed machine learning: climate modeling and COVID 19 forecasting</h3>
-
-<p>Unet also here. turbulent-flow net. basically a new network structure based on unet.</p>
-
-<p>group equivariance leads to another net called Scale Equ-ResNet in order to retrieve symmetry</p>
-
-<p>spatial-temporal neural p…: Baysian Active Learning</p>
-
-<h2 id="collective-behavior-in-biology">Collective Behavior in Biology</h2>
-
-<h3 id="thermal-trp-channels-of-vipers">thermal TRP channels of vipers</h3>
-
-<p>1K sensitivity of a channel; 1mK sensitivity of neurons</p>
-
-<p>independent channels, over time of several independent measurements</p>
-
-<p>hypothesis: TRPA1 channels are embedded into a dynamical system near bifurcation. activated channels activates other channels</p>
-
-<p>question: does coupling break the independence of measurements? single channel info is ~1</p>
-
-<h3 id="growth-difference-in-single-and-multicellular-organisms">growth difference in single and multicellular organisms</h3>
-
-<p>expanding epithelium,when the area grows linearly, the size only ~$\sqrt{a}$, does this feedback to cells?</p>
-
-<p>cells divide at a smaller size</p>
-
-<p>lower bound of cellular size might come from genome size. CCND1labels DNA demage</p>
-
-<p>no mechanisms yet</p>
-
-<h3 id="collective-signal-oscillation">collective signal oscillation</h3>
-
-<p>a lot of models</p>
-
-<p>key features not heard clearly. adaptive spiking</p>
-
-<h3 id="cellular-migration-on-substrate-with-topological-defects">cellular migration on substrate with topological defects</h3>
-
-<p>the way they defined topology number = -1 is not as my expectation</p>
-
-<p>Francesca Serra group experiment</p>
-
-<p>not too much work</p>
-
-<h3 id="synchrony-and-causality">synchrony and causality</h3>
-
-<p>Bo Sun again. granger causality again</p>
-
-<p>used a famous model not written down. Sounded like Nagumo model</p>
-
-<h3 id="living-chiral-crystals">living chiral crystals</h3>
-
-<p>starfish embryos</p>
-
-<h3 id="central-nervous-system">central nervous system</h3>
-
-<p>gut motions and nerves in crafish</p>
-
-<p>just using 5-HT is not enough to compensate the cutting of nerve</p>
-
-<h3 id="role-of-position-info-in-collcetive-gradient-sensing">role of position info in collcetive gradient sensing</h3>
-
-<p>Cramer-Rao bound by maximum likelihood estimation</p>
-
-<p>benchmark was called tug-of-war model</p>
-
-<p>contact inhibition of locomotion</p>
-
-<h3 id="self-tuned-criticality-amplifies-signals-in-bacterial-chemotaxis">self-tuned criticality amplifies signals in bacterial chemotaxis</h3>
-
-<p>E.coli chemosensing: high cooperativity, perfect adaptation, large noise</p>
-
-<p>symmetric spreading of CheA</p>
-
-<h3 id="division-migration-cell-signaling">division, migration, cell signaling</h3>
-
-<p>MDCK monolayer</p>
-
-<p>very biology heavy</p>
-
-<p>a low fluctuation phase</p>
-
-<h3 id="criticality-in-cochlea">criticality in Cochlea</h3>
-
-<p>impedance = pressure/height, WKB approximation</p>
-
-<p>hair cells are the sensors, undergo Hopf bifurcation</p>
-
-<h3 id="defining-success-for-pairwise-maximum-entropy-models">defining success for pairwise maximum entropy models</h3>
-
-<p>mouse brain hippocampus, 2000 neurons</p>
-
-<p>in subgroups, swap 1/2 of the cells to minimize pairwise correlation coefficient</p>
-
-<h2 id="stoichastic-thermodynamics-and-biological-and-artificial-info-processing">stoichastic thermodynamics and biological and artificial info processing</h2>
-
-<h3 id="entropy-generation-during-computation---is-it-really-avoidable-even-in-principle"><a href="https://march.aps.org/sessions/Y09/1">Entropy generation during computation - is it really avoidable, even in principle?</a></h3>
-
-<p><a href="https://march.aps.org/sessions/Y09/1">Entropy generation during computation</a>: Szilard’s argument</p>
-
-<p>erase and copy operation of ribonsome works like a universal turing machine.</p>
-
-<p>in theory, logically irreversible process can be thermodynamically reversible, like <strong>erasure</strong></p>
-
-<h3 id="statistic-thermodynamics-of-communication-channels">statistic thermodynamics of communication channels</h3>
-
-<p>MIT media lab</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>$\sigma(\vec x_f)\leftrightarrow DK(P(\vec x_f)</td>
-      <td> </td>
-      <td>P(\vec x))$ KL Divergence</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>2 models, 3 by 3 nodes with some lines connecting some pairs, didn’ get what they mean.</p>
-
-<p>they call the thing NESS (non equilibrium steady state).</p>
-
-<p>takehome: dissipative not monotuned increasing as info transmission increases. some channel more efficient than others</p>
-
-<h3 id="fluid-intellengence-activities-from-learning-and-forgetting">fluid intellengence: activities from learning and forgetting</h3>
-
-<p>diameter variable particles as intelligent agents</p>
-
-<p>diameter function $D(\vec p)$ symmetry determines symmetry of new distribution</p>
-
-<p>policy optimization, reinforce learning to search behavior space</p>
-
-<h3 id="nonquilibrium-dynamics-of-temporally-responsive-single-molecular-automation">nonquilibrium dynamics of temporally responsive, single molecular automation</h3>
-
-<p>smart vs. inert: ability to perform temporal pattern recognition</p>
-
-<p>a polymer that has multiple foldable positions.</p>
-
-<p>dual scale master equation</p>
-
-<h3 id="thermodynamics-of-biological-signal-propagation">thermodynamics of biological signal propagation</h3>
-
-<p>information: $lim_{T\rightarrow \infin}\frac{1}{T}\int MI(I,O)dt$</p>
-
-<p>diffusion of signal,some equations, etc, parameters include size of source and receiver</p>
-
-<p>implications:</p>
-
-<ul>
-  <li>cells don’t talk because they are too small</li>
-  <li>E.coli phosphotases are close to ion channels (missed, not sure)</li>
-</ul>
-
-<h3 id="dissipation-accuracy-speed-tradeoffs-in-computation-on-attice-self-assembly">dissipation-accuracy-speed tradeoffs in computation on-;attice self-assembly</h3>
-
-<p>Landauer principle</p>
-
-<p>D. Woods. Nature 2019</p>
-
-<p>diamond shape 2-in2-out tiles that</p>
-
-<h3 id="bayesian-mechanics-for-interacting-systems">Bayesian mechanics for interacting systems</h3>
-
-<p>Langevin equation</p>
-
-<p>NESS again</p>
-
-<h3 id="wipe-a-bit-with-no-energy-cost-by-pypassing-liouville-theorem">wipe a bit with no energy cost by pypassing Liouville theorem</h3>
-
-<p>Liouville says Halmitonian system must be incompressible in phase space</p>
-
-<p>$H_{ers} = H_0+gH_{contraction}$</p>
-
-<p>micro-canonical energy shell</p>
-
-<h3 id="stochastic-thermodynamics-of-finite-automata"><strong>Stochastic Thermodynamics of Finite Automata</strong></h3>
-
-<p>not following, deterministic finite automata</p>
-
-<h3 id="nonequilibrium-thermodynamics-of-uncertain-stochastic-processes"><strong>Nonequilibrium thermodynamics of uncertain stochastic processes</strong></h3>
-
-<p>wanted to follow but failed</p>
-
-<h3 id="glycan-function-of-golgi-constrain-its-morphology">glycan, function of Golgi constrain its morphology</h3>
-
-<p>also used KL divergence here.</p>
-
-<p>looks like there has been no experiment, maybe I missed it.</p>
-
-<h3 id="stochastic-thermodynamics-of-anomalous-diffusion-generated-by-scaled-and-fractional-brownian-motions"><strong>Stochastic thermodynamics of anomalous diffusion generated by scaled and fractional Brownian motions</strong></h3>
-
-<p>Stochastic thermodynamics: ST</p>
-
-<p>fractional Brownian motion: fractional gaussian noise (no idea what)</p>
-
-<p>fluctuation-dissipation is broken by memory in noise</p>
-
-<h3 id="optimality-in-biological-proofreading"><strong>Optimality in biological proofreading</strong></h3>
-
-<p>DNA replication error rate 10^-8 ~10^-10</p>
-
-<p>experiment K_D/K_C = 10^-2, observed error rate 10^-3~10^-4, discrepancy</p>
-
-<p>Pareto optimal fronts of kinetic proofreading</p>
-
-<p><strong>generalized Hopfield model</strong></p>
-
-<p>speed-dissipation trade off again</p>
-
-<h2 id="dynamics-in-evolution">Dynamics in Evolution</h2>
-
-<h3 id="multicellular">Multicellular</h3>
-
-<p>Size→nutrition gradient→differentiation</p>
-
-<p>Multicellular yeast! T yeast</p>
-
-<p>Bozdag</p>
-
-<p>Non-reformable→mechanical challenge</p>
-
-<p>The aspect ratio increases significantly after the size grows</p>
-
-<p>Aggregation not happening; Tangling spans the bulk</p>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[去年芝加哥三月会的笔记，记得比较粗疏]]></summary></entry><entry><title type="html">.tex | Notes during APS March Meeting 2023 in Las Vegas</title><link href="https://mountaye.github.io/blog/articles/notes-during-APS-march-meeting-2023-Las-Vegas" rel="alternate" type="text/html" title=".tex | Notes during APS March Meeting 2023 in Las Vegas" /><published>2023-03-12T00:00:00-06:00</published><updated>2023-03-12T00:00:00-06:00</updated><id>https://mountaye.github.io/blog/articles/notes-during-APS-march-meeting-2023-Las-Vegas</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/notes-during-APS-march-meeting-2023-Las-Vegas"><![CDATA[<p>Some interesting sessions:</p>
-
-<p><img src="/blog/assets/photos/2023-03-12-5FB0A373-E7B7-45FF-97A5-81F9392CBB02.jpeg" alt="5FB0A373-E7B7-45FF-97A5-81F9392CBB02.jpeg" /></p>
-
-<p><img src="/blog/assets/photos/2023-03-12-E35F718E-38ED-432D-AC00-44E8D8893CC6.jpeg" alt="E35F718E-38ED-432D-AC00-44E8D8893CC6.jpeg" /></p>
-
-<p><img src="/blog/assets/photos/2023-03-12-A44D0789-44CC-42F5-85D1-E0CA93952712.jpeg" alt="A44D0789-44CC-42F5-85D1-E0CA93952712.jpeg" /></p>
-
-<p><img src="/blog/assets/photos/2023-03-12-7E0D2844-3BC8-4BEF-BABA-2818EEBA2C15.jpeg" alt="7E0D2844-3BC8-4BEF-BABA-2818EEBA2C15.jpeg" /></p>
-
-<p><img src="/blog/assets/photos/2023-03-12-A727558B-D110-48A1-B125-67A7067BFBD5.jpeg" alt="A727558B-D110-48A1-B125-67A7067BFBD5.jpeg" /></p>
-
-<p><img src="/blog/assets/photos/2023-03-12-B635604C-B9BD-4A34-9767-AD7338A80765.jpeg" alt="B635604C-B9BD-4A34-9767-AD7338A80765.jpeg" /></p>
-
-<h2 id="network-theory-and-application-to-complex-systems">Network theory and application to complex systems</h2>
-
-<p>1st talk: <strong>Avalanches Dynamics</strong> and its critical points, cortes dynamics, very long, missed first ~10 minutes, hard to follow, coarse grained 朗道-金斯堡 theory</p>
-
-<p>Fokker-Planck equation, Fourier expansions, use as parameters of <em>__</em>, choose a closure to solve</p>
-
-<h2 id="machine-learning-in-complex-systems">Machine learning in complex systems</h2>
-
-<p>Fractional nn for continuous modeling of complex fluids: Caputo method for fractional derivative</p>
-
-<p>Inferring forces in many-particle systems using physics tailored ml: Chinese student with Ilya from Emory. Bruckner 2021 PNAS, cell. His work, dusty plasma, non reciprocal. Mutual Interactions, with environment, linear damping. not clear details of the nn</p>
-
-<p>Echo state network: Arizona state, Chinese student. A branch of reservoir learning. Switching states not always successful. Bad presentation. Don’t even know what question he is learning with this nn. Could be Lorenz system</p>
-
-<p>Hopper Flow: particles passing a narrow gate in 2d. Classify problem: flow, clogging, clogged, empty arch. Direct interpretability: linear SVM.</p>
-
-<p>Committer of Reactive Events in and out of equilibrium: UCB. Variational methods for time-dependent backward Kolmogorov equation. decompose rate into contributions from different degrees of freedom.</p>
-
-<p>Predict Microfluid properties with ML: oil droplets into water, predict the droplet size. Monodispensed phse, poly  (jetting). Pretty small network and small dataset. nice GUI</p>
-
-<p>ML for inverse design of metameterial. Combinatory/Discrete, imbalance. building block → unit cell → metamaterial. Ogliomodes</p>
-
-<p>Long-term behavior with liearn regression. Moody 1944 moody diagram. Studied Lorenz system. Use short trajetories to predict long term properties. Period orbit theory</p>
-
-<h2 id="quantitative-cell-physiology-i---shape-and-size">Quantitative cell physiology I - shape and size</h2>
-
-<p>missed 1st talk for breakfast.</p>
-
-<h3 id="beyond-g1s-regulation-how-cell-size-homeostasis-is-tightly-controlled-throughout-the-cell-cycle">Beyond G1/S regulation: how cell size homeostasis is tightly controlled throughout the cell cycle?</h3>
-
-<p>G1/S not the main control cell size variation; CV reduces across cell cycle</p>
-
-<p>rate positively correlated to size, but not exponential. this should lead to different mass density, but it is maintained tightly stable.</p>
-
-<h3 id="cell-cycle-dependent-growth-regulation-in-bacteria">Cell cycle dependent growth regulation in bacteria.</h3>
-
-<p>data  show that E. Coli cell growth is super-exponential.</p>
-
-<p>model: ribonsome growth is exponential,</p>
-
-<p>B. Subtilis growth rate is not monotonic</p>
-
-<p>Scott, M, 2014 Mol Sys Bio</p>
-
-<p>tome averaged mass function and allocation function are equivalent.</p>
-
-<p>A model, but didn’t see how it’s correlated to cell-cycle</p>
-
-<h3 id="e-coli-coordination-of-cell-dimensions-to-preserve-macromolecular-densities-between-compartments">E. Coli coordination of cell dimensions to preserve macromolecular densities between compartments</h3>
-
-<p>shape is also important, not just dimensions.</p>
-
-<p>periplasm is the region between inner and outer membrane of E. Coli. Its colume fraction scales differently with the width and length of the cell</p>
-
-<p>measure periplasm density by shocking and destroying the outer membrane and measure protein amount</p>
-
-<p>cell aspect ratio is relatively controlled by changing periplasm biomass fraction and average cell width. Testified in multiple mutants</p>
-
-<p>Growth rate is not a control parameter</p>
-
-<h3 id="molecular-noise-on-cellular-growth">Molecular noise on cellular growth</h3>
-
-<p>standard model of size homeostasis: timer, adder, sizer</p>
-
-<p>consider noise, get lower bound of size</p>
-
-<h3 id="dynamic-proteome-trade-offs-regulate-cell-size-and-growth-in-fluctuating-nutrient-conditions">Dynamic proteome trade-offs regulate cell size and growth in fluctuating nutrient conditions</h3>
-
-<p>growth rate and size control; in fluctuating nutritions, there is overshoot</p>
-
-<p>assums: cell maximize flux; division protein co-regulated with metabolic sector</p>
-
-<p>model predicts cells prioritize division over biomass accumulation durign downshift</p>
-
-<h3 id="simulation-about-mechanical-properties-of-peptidoglycan-pg">Simulation about mechanical properties of Peptidoglycan (PG)</h3>
-
-<p>University of Jena, Balance of the Microverse. Very technical, very detailed</p>
-
-<h3 id="teichoic-acids-as-organizing-center-of-growth-in-b-subtilis">Teichoic acids as organizing center of growth in B. Subtilis</h3>
-
-<p>inhibiting its synthesis immediately loses the cells’ rod shape; fluorescent images are uniform across the whole cell.</p>
-
-<p>perturbing synthesis causes growth rate shutdown after loss of rod shape</p>
-
-<p>PonA mediated crosslinking is required for growth in the absence of wall teichoic acids</p>
-
-<p>proposed a model, not quantitative, seems not testified.</p>
-
-<h3 id="coarse-grained-cell-wall-simulation">coarse grained cell wall simulation</h3>
-
-<p>turgor pressure: 膨胀压</p>
-
-<p>anisotropic deformability</p>
-
-<p>surface evolver</p>
-
-<h3 id="nanostrctural-changes-of-peptidoglycan">Nanostrctural changes of Peptidoglycan</h3>
-
-<p>Penicillin binds enzymes with the last step of PG synthesis.</p>
-
-<p>treat with mecillinam; use AFM, changes local molecule orientation &amp; PG organization</p>
-
-<p>gaps in the PG network, not orientation, caused the death</p>
-
-<h3 id="robustness-and-fragility-in-yeast">Robustness and Fragility in Yeast</h3>
-
-<p>Umap for metabolome data</p>
-
-<h3 id="how-type-1-fimbriae-help-e-coli-adhere-to-interfaces">How Type 1 Fimbriae Help E. coli Adhere to Interfaces?</h3>
-
-<p>What is a fimbriae in bacteria?</p>
-
-<p>Thin,  hairlike appendages, 1 to 20 microns in length and often occurring in large numbers, present on the cells of gram-negative bacteria, particularly Enterobacteriaceae and Neisseria.</p>
-
-<p>they contruct mutants and can both adhere and swim.</p>
-
-<h3 id="zno-kills-bacteria">ZnO kills bacteria</h3>
-
-<p>Hypothezes: metal ion production, generation of reactive oxide</p>
-
-<h2 id="march-7-2023-ecological-dynamics">March 7, 2023 Ecological Dynamics</h2>
-
-<p><strong>Spatial drug heterogeneity:</strong> a row of multiple wells, some of them have drugs. Mean field survival criterion: <strong>\(L=\pi\sqrt{}\)</strong>, and beyond mean field (some purtubation theory borrowed from quantum to reaction diffusion equation).</p>
-
-<h3 id="evo-adaptation-on-cell-shape-by-katie">Evo adaptation on cell shape by Katie</h3>
-
-<p>mechanical factors give same-fitness cells different growth rates in a colony. cells labels with 2 colors of fluorescence and grow in a mixed colony</p>
-
-<p>mechanical forces slows down natural selection, both directions</p>
-
-<p>used yeasts and grow for 10 days. select edge and center and continue growing. center still similar, but edge cells become elongated. “The elongation is a mechanism to get out of nitrogen starvation”(?)</p>
-
-<p>sequenced ancester, center, and edge cells. Found 9 genes</p>
-
-<hr class="slender" />
-
-<p><strong>The fate of beneficial and deleterious mutations in range expansions driven by long-range dispersal:</strong> luckiest better than fittest, spatial factors dominate.</p>
-
-<p><strong>Speciation at an expanding front</strong>: superdiffusion → stepping stone model. Want to explain how homogeneous population evolve into species→ fitness model</p>
-
-<h3 id="f13-emerging-principles-and-new-developments-in-non-equilibrium-thermodynamics-natural-selection-and-chemical-reaction-networks---nonequilibrium-thermodynamics-of-chemical-reaction-networks">F13: Emerging Principles and New Developments in Non-Equilibrium Thermodynamics, Natural Selection and Chemical Reaction Networks - Nonequilibrium thermodynamics of chemical reaction networks</h3>
-
-<p>CRN: chemical reaction networks, and this is about</p>
-
-<p>circuit theory for CRN: arxiv-2210.08035</p>
-
-<ul>
-  <li>modules do not share internal species</li>
-  <li>emergent cycles and effective reactions</li>
-</ul>
-
-<h2 id="203-cell-model">203 cell model</h2>
-
-<h3 id="active-transport-and-cell-self-organization">Active transport and Cell self organization</h3>
-
-<p>A lot of microtubules</p>
-
-<p>CCB-FL</p>
-
-<p><img src="/blog/assets/photos/2023-03-12-214D3DB8-7A99-42AC-8C18-051171564D6D.jpeg" alt="214D3DB8-7A99-42AC-8C18-051171564D6D.jpeg" /></p>
-
-<p>Steam flows in large cells B. Corti 1741, fruit fly oocyte</p>
-
-<p>Flows in organelle positioning. Zidovska PNAS 2013, 2018. Gatlin lab U Wy</p>
-
-<p>Microscopic mechanisms about micro tubules is ill understood</p>
-
-<p>aLENS a living ensemble simulator</p>
-
-<p>1model: Cytoplasm as confined Newtonian fluid</p>
-
-<p>Another model: coarse grained stokes force: fruit fly oogenesis</p>
-
-<p><img src="/blog/assets/photos/2023-03-12-C622BD7E-E638-4194-A563-096F73209132.jpeg" alt="C622BD7E-E638-4194-A563-096F73209132.jpeg" /></p>
-
-<p>skellySim</p>
-
-<h3 id="di-pierro-physical-genomics">Di Pierro: physical genomics</h3>
-
-<p>Nucleosome</p>
-
-<p>but his title is <strong>Landscapes of Genomic Architecture Across Evolution</strong>, which is not</p>
-
-<p>ideal chromsome: every time  2 loci at genomic distance d come into contact there is a gain/loss of free energy \(\gamma(d)\)</p>
-
-<h3 id="stochastic-model-for-cell-survival-and-evolution">Stochastic model for cell survival and evolution</h3>
-
-<p>Single threshold and double threshold</p>
-
-<h2 id="metabolism-and-growth">metabolism and growth</h2>
-
-<h3 id="adaptability-and-sensitivities-in-gene-regulation-out-of-equilibrium">Adaptability and sensitivities in gene regulation out of equilibrium</h3>
-
-<p>Spare able energy</p>
-
-<p>Matrix tree theorem: inter alios</p>
-
-<h3 id="biofilm-electric-shocked">biofilm electric shocked</h3>
-
-<p>Bacteria use membrane potential to regulate bio processes: cell division, antibiotic resistance, metabolism</p>
-
-<p>Electrical stimulation</p>
-
-<p>Biofilm: B subtilis: motile cells and matrix forming cells</p>
-
-<p>Accumulation of motile cells around electrodes</p>
-
-<p>Proliferation or switch? Proliferate</p>
-
-<h3 id="self-organization-waves-on-huge-single-cell-living-on-light">Self organization waves on huge single cell living on light</h3>
-
-<p>external driving force main  reason?</p>
-
-<p>Also internal limit cycle?</p>
-
-<h3 id="crisper-array-for-e-coli-under-antibiotic-exposure">CRISPER array for E. coli under antibiotic exposure</h3>
-
-<p>crisper cas 12-a</p>
-
-<p>Beta Score , different in different media</p>
-
-<h3 id="zno-nano-particles-on-bacteria-in-magnetic-field">ZnO Nano particles on bacteria in magnetic field</h3>
-
-<p>Gram staining</p>
-
-<p>Synopsys quantumatk</p>
-
-<h2 id="ecological-dynamics">ecological dynamics</h2>
-
-<h3 id="design-microbial-community">design microbial community</h3>
-
-<p>Goal: metabolite production &amp; degradation; pathogen inhibit</p>
-
-<p>Emerge,</p>
-
-<p>function as a design problem = f(composition)</p>
-
-<p>Trivial idea: open the hood and see the interaction</p>
-
-<p>Another way: borrow from molecular level: how sequences gives function</p>
-
-<p>Statistical design: blue and red fluorescent proteins, separated by 13 amino acids, fit color as 13d binary</p>
-
-<p>Success because landscape simple</p>
-
-<p>Ecology: if one can predict function from presence absence of a strain</p>
-
-<p>Absence =-1 not 0, for similarity with Frourier expansion</p>
-
-<p>500 communities of 27 strains, predict production of a chemical</p>
-
-<p>sampling a very small space but result good, (predict/true value diagram)</p>
-
-<p>Also predicted biomass (OD)</p>
-
-<p>Additive property is the key to success</p>
-
-<p>Can get explained variance by the order of</p>
-
-<p>Ruggedness/slope</p>
-
-<p>Compare with Generalized Lotka-Volterra</p>
-
-<p>Metabolic cascades makes landscape rugged.</p>
-
-<h3 id="connecting-global-patterns-to-ecological-processes">connecting global patterns to ecological processes</h3>
-
-<p>Global soil samples</p>
-
-<p>Environmental filtering cannot explain some of their data</p>
-
-<p>Emerges from interactions</p>
-
-<h3 id="mapping-prediction-error-versus-information-content-of-coarse-grained-descriptions-of-microbial-ecosystems">Mapping prediction error versus information content of coarse-grained descriptions of microbial ecosystems</h3>
-
-<p>Jacob moran</p>
-
-<p>Framework to compare different coarse grained descriptions: partitioning, error-information diagram</p>
-
-<p>To distinguish mechanisms of emergent simplicity: diversity in the partition</p>
-
-<h2 id="materials-that-work-by-themselves">Materials that work by themselves</h2>
-
-<h3 id="biotic-and-abiotic">biotic and abiotic</h3>
-
-<p>Adaptive d spring</p>
-
-<h2 id="pattern-formation">Pattern Formation</h2>
-
-<p>missed 1st talk of 30 min</p>
-
-<h3 id="morphoelastic-growth-to-model-aortic-geometry">Morphoelastic growth to model aortic geometry</h3>
-
-<p>aortic 主动脉</p>
-
-<p>integrated gaussian curvature</p>
-
-<p>AI/ML needs a lot of data, so they need explicit models</p>
-
-<p>NHLBI: National Heart, Lung, and Blood Institute</p>
-
-<h3 id="experimental-on-chaos-in-cardiac-tissue">experimental on chaos in cardiac tissue</h3>
-
-<p>kept in Tyrode solution</p>
-
-<p>action potential duration + diastolic interval = period</p>
-
-<p>TISEAN (a <a href="https://www.pks.mpg.de/tisean/">Nonlinear Time Series Analysis</a> tool) to get Lyapunov exponent</p>
-
-<h3 id="excitability-at-interface">excitability at interface</h3>
-
-<p>2 bio-electric tissues, one only sodium channels, the other only potasium channels. so no spikes on their own. then shed laser on them.</p>
-
-<p>A as fast variable, B as slow variable. A is x^3 shaped, whie B is -x shaped, then</p>
-
-<p>can also exlpain BZ reaction with some sub-reactions separated, and lumberjack and forect and desert</p>
-
-<h3 id="light-induced-cortical-excitability">light induced cortical excitability</h3>
-
-<p>shape control strategy in meiotic starfish oocytes.</p>
-
-<p>rho protein. part of some signaling pathway, kymographs</p>
-
-<p>seems to be my competitor on postdoc project in MPI-PKS</p>
-
-<p>pole to pole opto-GEF accumulation aymmetry</p>
-
-<p>presentation overtimed, not well delievered</p>
-
-<hr class="slender" />
-
-<p><strong>Exploring regular, exotic and turbulent flow states in active fluids via the framework of Exact Coherent Structures</strong>: too fast, totally lost. Who tm knows what is shadowing</p>
-
-<h3 id="pattern-plant-roots">Pattern plant roots</h3>
-
-<p>tropism 向性: gravitropism, phototropism</p>
-
-<p>roots on obstacles: skewing, coiling, waving</p>
-
-<p>numerical scheme: separation of timescles, derivatives of intrinsic curvature over time, against cross section growth rate gradient.</p>
-
-<p>decoupling the tropic dynamics parallel and perpendicular to the slope.</p>
-
-<p>each curing given an energy, can predict transition between states</p>
-
-<p>skewing is different, seen in mutants. It’s the intrinsic twist</p>
-
-<h3 id="cdc42-mobility-changes-yeast-shape-and-survival">cdc42 mobility changes yeast shape and survival</h3>
-
-<p>As title says</p>
-
-<h3 id="jagged-ligand-improves-notch-signaling">Jagged ligand improves notch signaling</h3>
-
-<p>Notch, delta, jagged</p>
-
-<h2 id="synthetic-biology">Synthetic biology</h2>
-
-<h3 id="stochastic-model-selex">stochastic model SELEX</h3>
-
-<p>to select aptamers with highest affinity : <a href="https://www.basepairbio.com/what-is-an-aptamer/">https://www.basepairbio.com/what-is-an-aptamer/</a></p>
-
-<p>Optimal policy: A1 A2»T, T»1</p>
-
-<h3 id="cytoplasm-is-organized-crowding">Cytoplasm is organized, crowding</h3>
-
-<p>Crowded with macromolecules</p>
-
-<p>Crowding of cell free gene expression change noise; simulations</p>
-
-<p>Crowding gives attraction to membrane</p>
-
-<p>Simulations</p>
-
-<p>Impacts transcription and translation in cell-sized vesicles</p>
-
-<h3 id="elisa-from-cornell--titrable-in-vivo-cre-loxp-in-e-coli">Elisa from Cornell : titrable in vivo Cre-loxP in E. coli</h3>
-
-<p>Somatic differentiation</p>
-
-<p>Er binding site, beta estradiol</p>
-
-<p>DH10B RepOrter yfp</p>
-
-<h2 id="research-in-germany">Research in Germany</h2>
-
-<h3 id="mpi">MPI</h3>
-
-<p>Write emails with info from website</p>
-
-<p>humburg scholarship</p>
-
-<p>6+2 years super generous funding enough to hire 2 postdoctoral, to early scholars</p>
-
-<p>Foreigners 9 years after doctor degree has to be employed, so many leaves</p>
-
-<p>University and Scores important, papers slow so not so important</p>
-
-<p>DPG MEETING</p>
-
-<p>140 directors, each has a way of sponsoring</p>
-
-<p>Andrew Mackenzie</p>
-
-<p>Go for Nobel prize, not professorship</p>
-
-<p>Want to hire people with 20 yers of career left</p>
-
-<p>Six months danger period, then 3 years safe</p>
-
-<h3 id="cell-fate-transition">Cell fate transition</h3>
-
-<h3 id="cell-type-order-parameters">cell type order parameters</h3>
-
-<p>Saw last year</p>
-
-<p>Order parameters:</p>
-
-<p>scTop python package</p>
-
-<h3 id="class-iv-da-neurons-laval-development">Class IV da neurons Laval development</h3>
-
-<p>Macroscopic measurable: dendrite Densities, front velocity</p>
-
-<p>Dendrite grow in stochastic manner</p>
-
-<p>Mean field descriptions: grow, shrinking, stall states</p>
-
-<p>master equations</p>
-
-<p>Very in detail</p>
-
-<p>Yale integrated graduate program in physical and engineering biology</p>
-
-<h3 id="synnotch-expression-in-fruit-fly">synNotch expression in fruit fly</h3>
-
-<p>Delta notch: contact based intercellular signaling</p>
-
-<p>Vortex based model framework</p>
-
-<h2 id="intracellular-transport-and-organization">Intracellular transport and organization</h2>
-
-<h3 id="super-resolution">super resolution</h3>
-
-<p>STORM, PALM, FPALM, all in 2006</p>
-
-<p>Correlative live cell and super resolution microscopy</p>
-
-<p>Post translation modification: Tyrosinated/detyrosinated, de- is important , sparse and stochastic</p>
-
-<p>De- VASH interact with MT</p>
-
-<p>Mean square displacement analysis</p>
-
-<p>Simulation:</p>
-
-<h3 id="in-vitro-experiment-of-microtubules">In vitro experiment of Microtubules</h3>
-
-<h2 id="switch-and-detach-at-intersections-of-microtubules">switch and detach at intersections of microtubules</h2>
-
-<p>diaplacement≤path length, from experiment</p>
-
-<h3 id="kinesin-123-bidirectional-transport">Kinesin-1,2,3, bidirectional transport</h3>
-
-<p>Different detect rate</p>
-
-<p>Kinesin compete for dynesin in a tug of war</p>
-
-<p>segment analysis of slow trace</p>
-
-<h3 id="motor">motor</h3>
-
-<p>MTOC, convergence and target scretion of granules</p>
-
-<p>Natural killer cells</p>
-
-<h3 id="growth-of-axonal-caliber">Growth of axonal caliber</h3>
-
-<p>Axonal neurofilament as caliber modulators</p>
-
-<p>Six state model Jung and Brown 2009, Li etc 2014</p>
-
-<h3 id="intracellular-drug-transport-in-single-cell">intracellular drug transport in single cell</h3>
-
-<p>Hoechst dye to measure effenciency</p>
-
-<h3 id="alien-proteomics-diffusion-through-nuclear-pore">alien proteomics, diffusion through nuclear pore</h3>
-
-<p>Nuclear pore complex</p>
-
-<p>FG-nucleoporin (IDR)</p>
-
-<p>Active transport vs passive diffusion</p>
-
-<p>\Delta F(R)</p>
-
-<p>Inject frog oocyte into E. coli</p>
-
-<h3 id="cone-shaped-hiv-capsid-through-nuclear-pore-complex">cone shaped hiv capsid through nuclear pore complex</h3>
-
-<p>Free energy of nuclear protein</p>
-
-<p>Narrow end enter first</p>
-
-<h3 id="er-for-transport-calcium-ion">ER for transport Calcium ion</h3>
-
-<p>Ca bound to high capacity buffer proteins in ER</p>
-
-<p>locally release in spikes</p>
-
-<p>Reaction-diffusion model for calcium and buffer proteins</p>
-
-<p>local cytoplasm concentration</p>
-
-<p>in ER Lumen: proteins spread super diffusively; active runs along tubules, from single particle trajectories</p>
-
-<p>altering morphology by morphogen expression: Rtn3 overexpression; Atlastin knockout</p>
-
-<h2 id="collective-behavior">collective behavior</h2>
-
-<h3 id="biofilmcellsmatrix">biofilm=cells+matrix</h3>
-
-<p>SPP2389- emergent function of bacterial multicellularity</p>
-
-<p>Ng bacteria</p>
-
-<h3 id="flow-dirven-cancer-cell-migration">flow-dirven cancer cell migration</h3>
-
-<p>autologous chemotaxis is a mechanis cancer cells fall onto XXX</p>
-
-<p>chemotaxis vs. mechanosensing</p>
-
-<p>chemotaxis fails at high cell density</p>
-
-<h3 id="motility-induced-phase-separation-of-deformable-cells">motility induced phase separation of deformable cells</h3>
-
-<p>所谓 phase separation，就是一筐红绿豆自己分成两堆</p>
-
-<p>rigid particles aggregate and sort without adhesion</p>
-
-<p>2d layer of deformable active brownian particles</p>
-
-<p>simulation: high deformability easier to phase separation, shorter collision time</p>
-
-<p>BioPACIFIC program at UCSB and UCLA</p>
-
-<h3 id="geometric-programming-of-collective-sensing-of-neural-cells">Geometric programming of collective sensing of neural cells</h3>
-
-<p>Oregon State University, Chinese speaker</p>
-
-<p>a cross shaped titch, with five wells at 4 tips and 1 crossing, (infinitely peridic? not sure)</p>
-
-<p>flow switch of GM and ATP</p>
-
-<p>longer period leads to more well synchronized nodes. edge probability pattern</p>
-
-<h3 id="ear-hair-cells-tune-cochlea-to-criticality">Ear, hair cells tune cochlea to criticality</h3>
-
-<p>impedance</p>
-
-<p>seems have heard last year</p>
-
-<p>Bo Sun Gourp member?</p>
-
-<h2 id="social-interaction">Social Interaction</h2>
-
-<p>pretty big hall actually</p>
-
-<h3 id="the-use-of-laser-speckle-spectroscopy-for-subtle-detection-of-infantile-ants">The Use of Laser Speckle Spectroscopy for Subtle Detection of Infantile Ants</h3>
-
-<p>Geogeria tech</p>
-
-<p>pixel photon intensity, not direct movies, to detect movements. also sounds like something last year.</p>
-
-<h3 id="density-functional-fluctuation-theory-to-model-basketball">density functional fluctuation theory to model basketball</h3>
-
-<p>NBA has position data every 40 ms!</p>
-
-<p>50 feet x 50 feet heatmap of shots</p>
-
-<p>postulates: location of ball changes player spatial tendencies, 2 types of player defense and offense</p>
-
-<p><img src="/blog/assets/photos/2023-03-12-8795A615-E1CB-44C4-B02B-3AB5884AA384.jpeg" alt="8795A615-E1CB-44C4-B02B-3AB5884AA384.jpeg" /></p>
-
-<p>forecast a play, evaluate a position, improving a player’s positioning.</p>
-
-<h3 id="honeycomb-formation-under-geometric-frustrations">honeycomb formation under geometric frustrations</h3>
-
-<p>decentralized division of labour, to build honeycomb</p>
-
-<p>a lot of energy cost, not always on flat plane.</p>
-
-<p>3d printing to prepare substrate for bees, for data repeatability. basically they make plastic cells of different sizes, and see how bees build upon them.</p>
-
-<p>geometric frustrations: shifts, tilts, sizes</p>
-
-<p>forcing smaller cell size → X-ray microscopy</p>
-
-<p>some ~24% of the cells are filled with wax</p>
-
-<p>larger cells → tilting of wax walls, can be 3x bees’ normal honeycomb cell size</p>
-
-<h3 id="winner-and-loser-emergence-in-zebrafish-fights">winner and loser emergence in zebrafish fights</h3>
-
-<p>what is a fight, what is a winner and dominance, how fights start and end.</p>
-
-<p>6 pairs fo fish, 3 body points of 2 fish in 3d, experimental tracking</p>
-
-<p>defining winner: post-fight position asymmetry</p>
-
-<p>fight-bout micostructure to <strong>mesoscopic</strong> fight-maneuvers.</p>
-
-<p>phase space: \((\theta_W, \theta_L, D_{pp})\)</p>
-
-<h3 id="chimera-states-among-synchronous-fireflies">Chimera states among synchronous fireflies</h3>
-
-<p>Lewis and Cratsley Annu. Rev. Entomol. 2008. temporal patterns of different species</p>
-
-<p><a href="https://fireflyexperience.org">https://fireflyexperience.org</a></p>
-
-\[\dot\theta_i=\omega_i+\frac{K}{N}\sum_j\sin(\theta_j-\theta_i)\]
-
-<p>chimera states for couples oscillators: part of the agents are synchronized, some are not, they coexist</p>
-
-<p>example: unihemisphere sleep in marine mammals</p>
-
-<p>South carolina, Congaree National Park</p>
-
-<h3 id="synchronization-of-human-networks">Synchronization of human networks</h3>
-
-<p>Moti Fridman (Bar Ilan University)</p>
-
-<p><img src="/blog/assets/photos/2023-03-12-3790D8EF-864E-4107-9C44-2CD22D76AF8F.jpeg" alt="3790D8EF-864E-4107-9C44-2CD22D76AF8F.jpeg" /></p>
-
-<p>previous works deal with the case where everyone sees everyone</p>
-
-<p>violin players，但是成员互相看不到对方，one control position(? why need it)</p>
-
-<p>bidirectional and delay</p>
-
-<p>even number of plays give checker board out-of-phase pattern</p>
-
-<p>odd number gives frustration, they need to ignore one of the plays, changing the connectivity of network, glass state</p>
-
-<p>unidirectional network: humans change coupling strength at will when there is no delay</p>
-
-<h2 id="mechanics-of-cells-and-tissues">Mechanics of cells and tissues</h2>
-
-<h3 id="division-and-differential-adhesion-drive-cell-self-segregation-during-embryo-morphogenesis">division and differential adhesion drive cell self-segregation during embryo morphogenesis</h3>
-
-<p>Voronoi cell model for cell monolayers</p>
-
-<p>contact tension controls tissue structure</p>
-
-<h3 id="mechanosensing-breast-cancer-spheroids">mechanosensing breast cancer spheroids</h3>
-
-<p>another Bo Sun group member.</p>
-
-<p>to segment and track the cells in 3d: PEN projection enhanced network, on top of a Cellpose 2d neural network.</p>
-
-<p>classify cell shape phenotypes with SVM</p>
-
-<p>filopodia leads invasion</p>
-
-<h3 id="kinetics-of-cell-aggregation">kinetics of cell aggregation</h3>
-
-<p>cell-cell contacts: Guo et al Biophysics J. 2006</p>
-
-<p>cell-substrate interactions:</p>
-
-<p>感觉是个大杂烩，啥都有</p>
-
-<p>matrix mediated mechanical interactions, so what does matrix mean?</p>
-
-<blockquote>
-  <p>ChatGPT:</p>
-
-  <p>In biology, a matrix refers to a non-living or extracellular substance that provides structural support or serves as a medium for cellular interactions. The matrix can be made up of various components such as proteins, polysaccharides, and minerals, and it can be found in different biological contexts, such as bone, cartilage, connective tissue, and the extracellular matrix surrounding cells.</p>
-
-  <p>For example, in bone tissue, the extracellular matrix provides support and rigidity to the bone and is primarily composed of collagen fibers and mineralized calcium phosphate. In cartilage, the matrix is composed of collagen and proteoglycans and serves as a cushion between bones in joints. In connective tissue, the matrix provides support and allows for the exchange of nutrients and waste products between cells.</p>
-
-  <p>In summary, the matrix is an essential component of many biological tissues and provides structural support and a medium for cellular interactions.</p>
-
-</blockquote>
-
-<h3 id="epithelia-tissues-as-hexnematic-liquid-cystals-and-instabilities">epithelia tissues as hexnematic liquid cystals, and instabilities</h3>
-
-<p>Heager et al,  J. Exp Med 2020</p>
-
-<p>hexatics in a channel, momentum conservation and orientation dynamics</p>
-
-<p>dispersion relation and unstabilities</p>
-
-<p>very classical dynamics study, as classical as those on textbooks</p>
-
-<h3 id="multiscale-measurements-of-mechanical-stress-in-3d-co-cultures-using-a-deformable-micro-device">Multiscale measurements of mechanical stress in 3D co-cultures using a deformable micro-device</h3>
-
-<p>巴斯德研究所</p>
-
-<p>cell level reponse to tissue level mechanical xxx</p>
-
-<p>mechanic stress on each cell depends on position and neighbors; global deformation is accumulation of local stressees.</p>
-
-<h3 id="mechanoregulation-of-biofilm-homeostasis">Mechanoregulation of biofilm homeostasis</h3>
-
-<p>EPFL, Lausanne, Switzerland</p>
-
-<p>biofilm in hydrogels</p>
-
-<p>size control hypotheses: mechanical, growth rate, cell death</p>
-
-<h3 id="mechanosensing-of-embedded-spheroids-and-cell-invasion">mechanosensing of embedded spheroids and cell invasion</h3>
-
-<p>inserted in a fibrous network consisting of collagen, and other proteins</p>
-
-<p>3d <strong>vertex models</strong></p>
-
-<p><a href="https://github.com/ZhangTao-SJTU/tvm">https://github.com/ZhangTao-SJTU/tvm</a></p>
-
-<h3 id="density-variation-of-fibroblasts-near-topological-defects">density variation of fibroblasts near topological defects</h3>
-
-<p>ridges to introduce topological defects, ridge height as proxy for ridge strength</p>
-
-<p>shape dependent rate of division as the mechanism</p>
-
-<p>cell density changes</p>
-
-<h3 id="slicing-softly-with-paper">slicing softly with paper</h3>
-
-<p>paper cutting machine to use paper cutting into gels</p>
-
-<p>small angle, thickness: buckling → cutting → indention</p>
-
-<p>larger angle, only buckling → indention</p>
-
-<p>appled stress must exceed critical threshold, but below buckling threshold</p>
-
-<p>dangerous thickness: 65 microns</p>
-
-<h3 id="vasculogenesis">Vasculogenesis</h3>
-
-<p>cardiovascular system is 1st organ system to form in a vertebrate embryo. 2 steps: vasculogenesis and angiogenesis</p>
-
-<p>then totally lost</p>
-
-<h3 id="cell-shape-and-fate-changes-in-3d-model-of-mammalian-hair-follicle-development">Cell shape and fate changes in 3D model of mammalian hair follicle development</h3>
-
-<p>3d vertex model</p>
-
-<p>2 hypotheses: 1. changing cell autonomous properties; 2. extrinsic force. model 2 wins</p>
-
-<p>WTH is E15.5 morphology</p>
-
-<p>Lisa Manning group</p>
-
-<h3 id="emergent-chirality-in-active-solid-rotation-of-pancreas-spheres">Emergent chirality in active solid rotation of pancreas spheres</h3>
-
-<blockquote>
-  <p><strong>ChatPDF and Humata.ai</strong></p>
-
-  <p>ChatPDF is almost unusable, there is no context, and cannot break lines. They even answered in French first</p>
-
-  <p>Humata.ai: The paper investigates the rotational dynamics of spherical tissues using murine pancreas-derived organoids as a model system. The study uses an active <strong>vertex model</strong> to demonstrate how the interplay between traction force and polarity alignment can account for distinct rotational dynamics. The study also investigates the emergence of chiral symmetry breaking in multicellular systems using experiments and simulations of rotating pancreas spheres. The authors propose that topological defects in the polarity field underlie the symmetry breaking. The article discusses the role of geometry in the behavior and properties of epithelial tissues, including cell division, patterning, and left-right symmetry breaking.</p>
-
-</blockquote>
-
-<p>语速还挺快</p>
-
-<p>geometric constrains</p>
-
-<p>3D上皮 collective dynamics, mouse pancres self organize into a sphere, inside filled with lumen</p>
-
-<p>distinct rotational modes: rotation, rotation arrest, drift in rotation axis → mechanism?</p>
-
-<p>active certex model: force balance, polarity dynamics</p>
-
-<p>solid rotation, or fluid exchange of neighbors. solid body rotation fraction.</p>
-
-<p>rotation axis drift is reminiscent of yielding like transition</p>
-
-<p>cell shape orientation is almost stable, not a uniform random distribution when there is rotation, but uniform random without rotation</p>
-
-<p>polarity dynamics: 2 types of solutions</p>
-
-<p>other structures: cubodal, compact, multi-lumen: <strong>this is the proposed future direction</strong></p>
-
-<h2 id="collective-behavior-1">collective behavior</h2>
-
-<h3 id="spying-on-bacteria-in-3d">spying on bacteria in 3d</h3>
-
-<p>Isolated cells:</p>
-
-<p>Ball pit for E. coli cells for them to tumble</p>
-
-<p>Active hopping and trapping</p>
-
-<hr class="slender" />
-
-<p>granular hydrogel matrix supports 3d printed colonies</p>
-
-<p>Collective motion, not diffusion</p>
-
-<p>Consumption and chemotaxis</p>
-
-<p>How to keep front together: Change initial position. Chemostatic velocity</p>
-
-<p>Sensing = F(c)</p>
-
-<h3 id="multicelluarity-w-differentiable-molecular-dynamics-simulations">multicelluarity w/ Differentiable Molecular Dynamics Simulations</h3>
-
-<p>Jax-MD: <a href="http://github.com/google/jax-md">github.com/google/jax-md</a></p>
-
-<p>machanism for regulating division</p>
-
-<p>“learned params consistently yield homogeneous growth”</p>
-
-<p>don’t like this project very much. which part is done by the speaker?</p>
-
-<h3 id="collective-behavior-of-swimmers-in-intermediate-reynold-number">collective behavior of swimmers in intermediate Reynold number</h3>
-
-<p>model of dumbbell in fluid, 2D [torque and force] free</p>
-
-<p>pair of dumbbells: puller and pusher</p>
-
-<h3 id="chemotactic-motility-induced-phase-separation">Chemotactic motility-induced phase separation</h3>
-
-<p><strong>Chemotactic</strong></p>
-
-<p>student of the invited speaker of this session, award winner.</p>
-
-<p>motility-induced phase separation: 抖豆子抖成堆</p>
-
-<p>chemotaxis: directed motion in response to chemical gradient</p>
-
-<p>particle volume fraction, chemoattractant concentration,</p>
-
-<p>sets up an allowed region of phase separation</p>
-
-<p>arxiv:2301.12345</p>
-
-<h3 id="anomalous-collective-dynamics-of-dividing-chemotactic-agents">Anomalous collective dynamics of dividing chemotactic agents</h3>
-
-<p>Chemotaxis + population dynamics</p>
-
-<p>non-equilibrium continuous phase transition</p>
-
-<p>some kind of reaction diffusion equations for \(\rho, c\)</p>
-
-<p><strong>chemotactic</strong> interactions can alter {} near critical point</p>
-
-<h3 id="crowds-with-large-pressures">Crowds with large pressures</h3>
-
-<p>non-equilibrium</p>
-
-<p>microscopic: Vicsek model, Helbing-Molnar model; macroscopic: mechanical spectroscopy of insect swarms, equation of state</p>
-
-<p>sys behave like equilibrium: Silverberg 2013 PRL</p>
-
-<p>why works? difference of time scales: relaxation time » collision time.</p>
-
-<p>agents packed: potential energt not equi-partition, but kinetic energy are.</p>
-
-<h3 id="phenotype-probability-distinguishes-mutants-from-wildtype-social-bacteria">phenotype probability distinguishes mutants from wildtype social bacteria</h3>
-
-<p>M. xanthus form persistent or not persistent dunes.</p>
-
-<h2 id="morphogenesis">Morphogenesis</h2>
-
-<h3 id="tension-triangle">tension triangle</h3>
-
-<p>8:30-8:40</p>
-
-<p>Order and anisotropic form coherent T1 that drive flow</p>
-
-<p>A lot of UCSB, actually one group having 2 talks back to back</p>
-
-<p>Tension isogonal decomposition</p>
-
-<p>Could be applied to wing disk, neurolation,</p>
-
-<h3 id="from-gene-to-geometry">from gene to geometry</h3>
-
-<p>Cells → sheet → tube → cortex</p>
-
-<p>multi view confocal, Bayesian based deconvolution, deep tissue imaging</p>
-
-<p>Knockout and shape differs</p>
-
-<p>TubLUAR: tube like surface Lagrangian analysis resource</p>
-
-<p>How gene → calcium signaling → muscle contraction → endodem strains → organ shape</p>
-
-<h2 id="plant-biology">plant Biology</h2>
-
-<h3 id="root-hair">root hair</h3>
-
-<p>self anchoring, 仿生根 robot, can dig into fake moon soil, for soil sampling and sensor implanting</p>
-
-<h3 id="heterogeneous-cellular-growth-in-root">Heterogeneous cellular growth in root</h3>
-
-<p>Directly connected to organismal shape</p>
-
-<p>cell behavior to organisms</p>
-
-<p>Discrete element simulation</p>
-
-<p>Meristematic and elongation zone</p>
-
-<h3 id="turing-pattern-in-vegetation">Turing pattern in vegetation</h3>
-
-<p>Experiment: Australien fairy circles regenerated</p>
-
-<p>WebGL and JavaScript</p>
-
-<h3 id="network-architecture-of-plant-pathogen-interactions">network architecture of plant pathogen interactions</h3>
-
-<p><img src="/blog/assets/photos/2023-03-12-D185C1B7-F5EB-4629-B767-0ECF7F72C591.jpeg" alt="D185C1B7-F5EB-4629-B767-0ECF7F72C591.jpeg" /></p>
-
-<p><img src="/blog/assets/photos/2023-03-12-03A05C17-8E19-4B30-B449-1A99D02093A9.jpeg" alt="03A05C17-8E19-4B30-B449-1A99D02093A9.jpeg" /></p>
-
-<p>Translation/degradation, xxx, xxx</p>
-
-<p>Simple model. complex systems</p>
-
-<p>Rockefeller U.</p>
-
-<h3 id="water-solubility-of-hydrophobic-xxx-with-phytoglycogenpg-nano-particles">water solubility of hydrophobic xxx with phytoglycogen(PG) nano particles</h3>
-
-<p>University of Guelph, in Canada</p>
-
-<p>Astaxanthin-</p>
-
-<p>Carotenoid solubilization strategy</p>
-
-<p>OSA modification changes absorption spectra</p>
-
-<h2 id="emergent-behavior-in-biological-systems">Emergent behavior in biological systems</h2>
-
-<h3 id="emergent-spatiotemporal-communication-patterns-in-insect-swarms">Emergent Spatiotemporal Communication Patterns in Insect Swarms</h3>
-
-<p>Chemical signaling (bees) and visual signaling (fireflies)</p>
-
-<p>Worker bees scent to amplify the feromon of the queen to locate the queen</p>
-
-<p>Also Happens in fed bees to locate food</p>
-
-<hr class="slender" />
-
-<p>Visual signals by fireflies</p>
-
-<p>非线性动力学的课本居然有 synchronization, slide 和之前看过的一样</p>
-
-<p>Can only see a small portions of fireflies in the wild</p>
-
-<p>Controlled environment</p>
-
-<p>Talking to fireflies with LED</p>
-
-<h3 id="anatomy-of-e-coli-colony-expansion">anatomy of E. coli colony expansion</h3>
-
-<p>Height depends on glucose concentration</p>
-
-<h3 id="mechanical-information-processing-by-action-cytoskeleton">mechanical information processing by action cytoskeleton</h3>
-
-<p>Focal adhesion</p>
-
-<p>Pretty biology heavy</p>
-
-<h3 id="cryoet">CryoET</h3>
-
-<p>Tomography</p>
-
-<p>Capture topological features on sparse density data</p>
-
-<p>Image voxels and compare with alpha fold candidates.</p>
-
-<p>Is this risky for cyclic reasoning?</p>
-
-<h3 id="protein-assembly">protein assembly</h3>
-
-<p>最后一天，没有心气记笔记了……</p>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[终于把个人博客变成了废纸篓（]]></summary></entry><entry><title type="html">.pdf | 《你的第一本哲学书》笔记（更新中）</title><link href="https://mountaye.github.io/blog/articles/your-first-philosophy-course-what-does-it-all-mean" rel="alternate" type="text/html" title=".pdf | 《你的第一本哲学书》笔记（更新中）" /><published>2023-03-03T00:00:00-06:00</published><updated>2023-03-03T00:00:00-06:00</updated><id>https://mountaye.github.io/blog/articles/your-first-philosophy-course-what-does-it-all-mean</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/your-first-philosophy-course-what-does-it-all-mean"><![CDATA[<p>托马斯·内格尔 (Thomas Nagel) 的《What Does It All Mean?——A Very Short Introduction to Philosophy》，中文版将标题译作“你的第一本哲学书”。</p>
+</ol>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[本文是《Scientific Machine Learning Through Physics–Informed Neural Networks: Where we are and What’s Next》这篇综述的读书笔记。]]></summary></entry><entry><title type="html">.pdf | 《你的第一本哲学书》笔记（更新中）</title><link href="https://mountaye.github.io/blog/articles/your-first-philosophy-course-what-does-it-all-mean" rel="alternate" type="text/html" title=".pdf | 《你的第一本哲学书》笔记（更新中）" /><published>2023-03-03T00:00:00-06:00</published><updated>2023-03-03T00:00:00-06:00</updated><id>https://mountaye.github.io/blog/articles/your-first-philosophy-course-what-does-it-all-mean</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/your-first-philosophy-course-what-does-it-all-mean"><![CDATA[<p>托马斯·内格尔 (Thomas Nagel) 的《What Does It All Mean?——A Very Short Introduction to Philosophy》，中文版将标题译作“你的第一本哲学书”。</p>
 
 <p>原作者在中译版前面写了如下一段话：</p>
 
@@ -4638,4 +3048,441 @@ cinity，他按说是咱们中国原创，但你仔细一看，里边它还是�
         <span class="c1"># something else
 </span>        <span class="k">return</span> <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">inner</span>
-</code></pre></div></div>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[所谓装饰器 (decorator)，就是函数前一行 @ 打头的一串字符，是 python 的一种语法糖。]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[所谓装饰器 (decorator)，就是函数前一行 @ 打头的一串字符，是 python 的一种语法糖。]]></summary></entry><entry><title type="html">.mov | NHK大河剧《龙马传》观后</title><link href="https://mountaye.github.io/blog/articles/nhk-sakamoto-ryoma-den" rel="alternate" type="text/html" title=".mov | NHK大河剧《龙马传》观后" /><published>2022-11-05T00:00:00-05:00</published><updated>2022-11-05T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/nhk-sakamoto-ryoma-den</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/nhk-sakamoto-ryoma-den"><![CDATA[<p>最近看了 NHK 的大河剧《龙马传》。此剧以明治维新之前，幕府统治末期，土佐藩士坂本龙马短暂又传奇的一生为线索，串联起日本从列强叩关到大政奉还的历史。</p>
+
+<p>之前对日本近代历史的了解，基本上来自于初中历史课本（高中历史也有，但是理科生还没学到就分科了）、央视的《大国崛起》纪录片关于日本的部分，再有就是各种影视作品里的一鳞半爪。根据这些印象，勉强可以拼凑出下面这条诡异的故事线——</p>
+
+<p>近代以前的日本，天皇的权力被架空，幕府将军建立了“幕府-藩国-武士-平民”的封建政治结构。“<a href="https://chinadigitaltimes.net/chinese/tag/%E9%97%AD%E5%85%B3%E9%94%81%E5%9B%BD">自主限关</a>”，禁止民众对外交流，只允许士人学习来自中国的汉学，以及大航海时代来自荷兰的兰学，形成了长州、萨摩、土佐、肥前四强藩。</p>
+
+<p>如此直到 1853 年，美国海军准将佩里率领一支舰队来到日本，以开战相威胁，逼迫幕府开关。很快幕府与西方列强签订了《安政五国条约》，对外开放。</p>
+
+<p>诸强藩打出了“尊王攘夷”的旗号，开始武装反抗幕府的统治，史称“倒幕运动”。在幕府被打倒之前，末代将军德川庆喜将权力交还给明治天皇，史称“大政奉还”。</p>
+
+<p>以倒幕运动成员为主干的新政府力行维新，建立起一个遗留了大量封建阶级残余的资本主义国家，随着国力的增强连续击败清帝国和沙俄，走上了侵略扩张、军事冒险、自取灭亡的道路……</p>
+
+<hr class="slender" />
+
+<p>但是这个叙事有颇多难以理解之处：</p>
+
+<ol>
+  <li>既然德川幕府就已经开始了对外开放学习西方的进程，为何日本崛起公认是从明治维新开始？</li>
+  <li>倒幕运动的口号之一是“尊王攘夷”，听起来要做的事情应该和义和团差不多，而且他们反对的幕府已经实行对外开放，他们自己上台理应改弦易辙，为何依然坚持维新开放？</li>
+  <li>既然倒幕运动进展顺利，“宜将剩勇追穷寇，不可沽名学霸王”，又何必放过德川幕府，直接“扫除一切害人虫，全无敌”不是更爽吗？</li>
+</ol>
+
+<p>本剧的历史细节，在很大程度上解决了我的疑问：</p>
+
+<ol>
+  <li>虽然日本在近代以前的主要学习对象是秦制时代的中国，但是幕府的统治和“封臣的封臣不是我的封臣”的欧洲中世纪，或者说中国的西周和春秋更为相似。一方面，幕府的开放政策受限于国力和外交技能，几乎沦为了法国的半殖民地代理人；另一方面开放主要是为了让自己的直属封地在与藩国的竞争中占据优势，整个日本的现代化反而会增强竞争对手的实力，因此对西方的学习满足于长期处在低水平和不普及的状态。</li>
+  <li>倒幕运动的参与者并非铁板一块，每个人的政治主张都有所不同。确实有些攘夷人士就是像义和团一样满足于诉诸暴力将外国人赶出日本，攘夷先锋的长州藩甚至确实付诸行动，火烧英国驻日使馆（工地），还攻击外国商船，挑起下关战争，并且战败。但是随着对外国了解的加深，越来越多的人将“攘夷”的定义进行了更新，变成了增强国力，让日本成为免于被列强殖民的独立国。</li>
+  <li>诸藩作为独立的行动实体，各自有自己的利益和打算。早期，长州藩决意攘夷，而萨摩藩则偷偷绕过幕府与英国交流，坚决反对攘夷。正是后者对幕府的支持，导致攘夷派携天皇以令幕府攘夷的计划失败，并导致蛤御门之变后长州被宣布为朝贼，攘夷派公家被放逐。而后幕府垄断对外贸易，将萨摩推向了和长州联盟的道路，并在战争中战胜了幕府及其附庸。而后土佐藩走向前台，在萨长联盟和德川幕府之间制衡斡旋，遂有“大政奉还”。而坚持幕府统治的会津等藩在会津战争、箱馆战争等过程中降伏。这种藩国之间的实力制衡，起到了限制冲突规模，减少转型阻力的作用。</li>
+</ol>
+
+<hr class="slender" />
+
+<blockquote>
+  <p>而本剧的主角坂本龙马，在这场剧烈的变革中发挥了传奇般的作用。</p>
+
+</blockquote>
+
+<hr class="slender" />
+
+<p>他本出身自一个由商人提拔成下士的家庭，在等级森严的土佐藩，成长过程中和自己的下士朋友受尽了上士的欺凌。</p>
+
+<p>成年后前往江户的千叶道场修习剑道，亲眼目睹了佩里的黑船舰队，世界观受到巨大冲击的同时，结识了吉田松阴、桂小五郎（木户孝允）等维新志士。</p>
+
+<p>回到土佐之后，在武市半平太领导的土佐勤王党和上士剑拔弩张之际，认为内耗不是办法的龙马毅然脱藩，决心走出土佐寻找攘夷的良方。</p>
+
+<p>他先后去萨摩试图学习西方的先进技术，去长州和吉田松阴的弟子久坂玄瑞深谈，去福井城造访德川家政事总裁松平春寿，和他麾下谋士横井小楠讨论 democracy……</p>
+
+<p>终于在江户，龙马见到了在幕府担任军舰奉行的胜麟太郎，悟出了增强国力，建立海军，以实力制衡列强，以威慑争取和平的新攘夷之路。</p>
+
+<p>随着蛤御门之变后攘夷运动的低潮，幕府的野心膨胀，胜麟太郎的神户海军操练所也遭解散。龙马和操练所的同伴来到长崎，成立龟山社中，一面经商维持生计，一面撮合长州与萨摩结盟，并亲自参与长州藩对幕府征伐的反击。</p>
+
+<p>看到全面内战的危险之后，又与土佐藩的旧敌后藤象二郎在清风亭握手言和，力主土佐与萨摩长州联盟，胁迫幕府大政奉还。在这一过程中，龙马在返回土佐的轮船上写下了关于日本未来的政纲《船中八策》，其内容基本都得到了日后明治政府的落实。</p>
+
+<p>可惜龙马没能看到他试图建立的“让所有人都能幸福微笑的国家”。让平民下士幸福微笑的国家里，那些自觉高人一等的武士便无法微笑。不满于新秩序的旧武士，在近江屋刺杀了龙马。</p>
+
+<hr class="slender" />
+
+<blockquote>
+  <p>本剧的体裁是岩崎弥太郎口述的龙马个人传记，但是为了利用影视作品这一媒介的优势，采用了接近群像剧的多视角，也从龙马的幼时朋友武市半平太和岩崎弥太郎等人的角度交代了部分情节，更为全面地反映了幕末的历史。</p>
+
+</blockquote>
+
+<hr class="slender" />
+
+<p>武市半平太从小就是孩子王，早早地显示出了领袖气质。在青年时代就成立剑道道场开馆授徒，去江户修习剑术结果被聘为了当地道场的教头。年纪轻轻就成为了土佐下士的领袖。</p>
+
+<p>在黑船事件后，他向土佐藩主上书，力主攘夷，主张用精神力量战胜物质上的劣势，哪怕身死也在所不惜。彼时土佐的政务掌握在吉田东洋手中，认为日本实力不足应当开国，武装驱逐外国人不可能成功。武市半平太的上书石沉大海，当面建言更是遭到了吉田东洋的羞辱，先后成立了以下士为主的土佐勤王党，并通过暗杀吉田东洋，夺取了土佐的决策权。</p>
+
+<p>此后土佐勤王党串联起京都的攘夷派公家，武市半平太作为卫队首领，护送三条实美前往江户传达天皇召见将军的命令，将军德川家茂上洛后，要求幕府指定日期攘夷，攘夷派一时风头无两。</p>
+
+<p>然而日本与西方列强的国力对比决定了，幕府的攘夷承诺只能是空头支票，一意孤行攘夷的长州藩被西方四国联军打得落花流水。土佐勤王党也被藩主山内荣堂分化瓦解，骨干成员因为各种罪名被处决，攘夷梦碎。</p>
+
+<hr class="slender" />
+
+<p>而岩崎弥太郎则出身于落魄武士家庭，距离普通农民只有一把武士刀的差距，还是一把锈得拔不出来的坏刀。为了补贴家用，种田之外还要卖鸟笼补贴家用。家里有老母小弟，还有一个好酒嗜赌的老爹。贫穷困顿至此的弥太郎，仍未放弃改变自己命运的努力。屡败屡战，然而屡战屡败。</p>
+
+<p>不善剑道，他便将努力付诸汉学。结果老师去世，私塾被藩里收回。</p>
+
+<p>黑船来航之后，他的上书得到了土佐商人的赏识，资助他前往江户学习。结果自己的父亲被当地豪强欺负，地方官偏袒对方，弥太郎在官衙大门上涂鸦，被捕入狱。</p>
+
+<p>在狱中遇到了擅长经商的老人，学了一身会计本领，结果出狱后做木材生意，久久无法打开市场。</p>
+
+<p>得到了吉田东洋的赏识，代表土佐前往长崎和外国人做生意，结果暴得富贵，很快把做生意的本金腐败光了。</p>
+
+<p>直到对外开放再次成为时代的潮流，弥太郎重新来到长崎，成为了土佐商会的负责人，龙马的海援队的会计。后来成立了三菱商社，成为了日本闻名的富豪。</p>
+
+<hr class="slender" />
+
+<p>近藤长次郎，原本只是一介卖馒头的小贩，自己攒钱来到江户，成为了胜麟一郎的学生，获得了近藤的姓氏，成为了一名武士。后来和龙马一起在龟山社中工作，因为出色的英语水平，在长州和萨摩藩向英国购买武器的谈判中作出了巨大的贡献。</p>
+
+<p>……</p>
+
+<hr class="slender" />
+
+<blockquote>
+  <p>如此种种，无不显示出那是怎样一个充满活力的时代，一个普通人也可以振袖的历史舞台。对照华夏历史，让人想起春秋战国时的俊采星驰。</p>
+
+</blockquote>
+
+<hr class="slender" />
+
+<p>由此可以看出，存在着两种人民史观。</p>
+
+<p>积极的人民史观，或曰建设性的人民史观，指的是每个人不论出身，凭智慧勇气和毅力，都有权利为历史的发展做出自己的贡献，位卑亦可照汗青。而所有人秉公评价，将其中贡献大者加冕为英雄，承认其贡献，习以为榜样。从这个意义上讲，人民史观和英雄史观并非水火不容。</p>
+
+<p>消极的人民史观，或曰破坏性的人民史观，指的是在历史贡献方面吃大锅饭，不论一个人顶着多少冷漠，做出多大的贡献，不断复读“历史是人民创造的”就能否定这些贡献的意义，仿佛自己和那些平民英雄一样伟大；而当独裁者跟在手持法西斯束棒的兵士身后招摇过市的时候，这些消极的人民史观者一个个胆小如鼠，嚅喏如鸡，腰身柔软者早已将皇帝也册封为人民。从这个意义上讲，人民史观和帝王史观竟是一邱之貉。</p>
+
+<hr class="slender" />
+
+<p>还可以看出，存在着两种民族主义/集体主义。</p>
+
+<p>积极的集体主义，或曰建设性的集体主义，集体的利益和目标和大多数成员相同。个人利用自己的能力发现集体的问题，提出解决的方案，帮助集体进步；集体的规模优势，帮助个人延伸自己的能力，实施个人的设想，帮助个人实现自我价值。</p>
+
+<p>消极的集体主义，或曰破坏性的集体主义，集体的存在和维持高于（除领袖之外的）成员个人的自我价值。集体为了自己的存在，压制任何“不利于安定团结”的批评，指责成员的批评“破坏大好局面”；个人为了求得集体的庇护，甚至仅仅为了避免集体的迫害，“克己复礼”，少做少错，坐视集体在歧途越走越远。</p>
+
+<hr class="slender" />
+
+<p>有人将这种分野总结为小集体/大集体，进而鼓吹分离是解决问题的唯一方法。诚然，随着集体规模的扩大，集体的利益指向和个人一致的可能性越来越小，个人的主张得到整个整体的认同越来越困难，由是“合久必分”。多个小集体之间互相竞争制衡，也能给人选择的权利，腾挪的空间。</p>
+
+<p>但是，同样是统一的日本，相对于幕府时代的藩国来说显然是大，但是和整个近代世界来说又可以说是小，小与大往往是相对的。浸淫于消极集体中的党棍和权蠹，即便从大集体里分离出来，所建立的恐怕也只是尺寸小一些的消极集体。从华夏到诸夏可以，那么从巴蜀到诸蜀又伊於胡底？集体的规模，最终还是要落到文化认同，落到民族叙事，和“英雄”的实绩上来。</p>
+
+<p>所以我们也要看到，虽然龙马的生命脆断于政治谋杀，但是哪怕没有如此悲剧性的结尾，建立“让所有人都能幸福微笑的国家”的壮志恐也难酬。通过西南战争清洗了武士阶层的统一新日本，平等的万民之上还有一君，万民更加平等地接受近代化国家机器的压榨，为战争机器添柴加火；天皇的神化地位成为了好战分子以下克上，绑架国家政策的挡箭牌，愈发激进的战争狂热最终带领整个国家走上了<a href="https://program-think.blogspot.com/2015/09/Japan-in-WW2.html">侵略扩张的不归路</a>。</p>
+
+<h2 id="片尾旅游列表">片尾旅游列表</h2>
+
+<p>《龙马传》每集结束之后，会接一段 NHK 拍摄的实景短片，介绍当集剧情涉及的一些地点的遗迹，可以说是官方的圣地巡礼指南了。现将每集出现的景点列举于下：</p>
+
+<ol>
+  <li>高知县·高知市·桂滨
+    <ol>
+      <li>坂本龙马铜像</li>
+      <li>坂本龙马纪念馆</li>
+    </ol>
+  </li>
+  <li>高知县·高知市
+    <ol>
+      <li>高知城</li>
+      <li>上町一丁目：坂本龙马诞生地</li>
+    </ol>
+  </li>
+  <li>高知县·安艺市
+    <ol>
+      <li>岩崎弥太郎生家</li>
+      <li>妙见山·星神社：岩崎弥太郎离家前往江户前祈福立志处</li>
+    </ol>
+  </li>
+  <li>东京都·千代田区
+    <ol>
+      <li>江户城迹</li>
+      <li>神田东松下町·千叶周作玄武馆迹：坂本龙马的老师千叶定吉是千叶周作的弟弟</li>
+    </ol>
+  </li>
+  <li>东京都·品川区
+    <ol>
+      <li>立会川商店街·坂本龙马像</li>
+      <li>浜川中学校·土佐藩品川下屋敷迹：黑船来航时龙马在江户的住处</li>
+    </ol>
+  </li>
+  <li>静冈县·下田市
+    <ol>
+      <li>柿崎并天岛公园·吉田松阴、金子重辅像：吉田松阴试图登黑船处。吉田松阴因攘夷思想，于安政大狱中被处斩；金子重辅是其学生，和吉田同时入狱，早于老师死于酷刑。</li>
+      <li>旧七轩町·了仙寺：佩里一行休息所</li>
+    </ol>
+  </li>
+  <li>高知县·高知市·中心街：土佐画家、前卫学者和田小龙的诞生地，他整理了约翰万次郎的《漂异记略》</li>
+  <li>高知县·安艺市·土居廓中：安艺城的城下町，岩崎弥太郎曾在廓内师从小牧米山，后来因为在公所大门上涂鸦而被捕入狱。</li>
+  <li>东京都·千代田区·尼古拉教堂：因为怀表事件被龙马救助逃离的山本琢磨，后来成为东正教第一个日本人牧师，参与了教堂的修建。</li>
+  <li>高知县
+    <ol>
+      <li>高知市·山手町·平井收二郎、加尾邸迹：龙马的初恋平井加尾生活的地方。</li>
+      <li>南国市·高知县立历史民俗资料馆：保存有加尾留下的物品，与龙马有关的书信。</li>
+      <li>高知市·镜川</li>
+    </ol>
+  </li>
+  <li>高知县·高知市
+    <ol>
+      <li>长滨海岸·鹤田塾迹（少林塾迹）：土佐开国派吉田东洋开办私塾的地方，学生包括后藤象二郎、岩崎弥太郎等人</li>
+      <li>高知县立武道馆·文武馆迹（致道馆迹）：吉田东洋开办的土佐藩教育机构</li>
+    </ol>
+  </li>
+  <li>山口县·萩市
+    <ol>
+      <li>平安古·久坂玄瑞生诞地：文久2年，坂本龙马与长州藩士久坂玄瑞会面，探讨攘夷。</li>
+      <li>松阴神社·松下村塾：吉田松阴开办，久坂玄瑞18岁开始就读与此。</li>
+      <li>松阴神社·萨长土连合密议之处</li>
+      <li>萩往还公园</li>
+    </ol>
+  </li>
+  <li>高知县·高知市
+    <ol>
+      <li>水谷山·和灵神社：脱藩前龙马曾独自到此参拜祈福。</li>
+      <li>梼原町·维新之门·志士之群像：土佐国境，很多志士从此脱藩。龙马的脱藩受到了那须信吾的帮助。</li>
+      <li>茶や谷之茶堂：龙马脱藩路上歇脚之处</li>
+    </ol>
+  </li>
+  <li>高知县·高知市
+    <ol>
+      <li>仁井田·武市半平太旧邸：武市半平太在土佐复杂的等级体系中处于上士和下士之间的“白札”</li>
+      <li>横堀公园·武市道场迹</li>
+    </ol>
+  </li>
+  <li>京都府·京都市
+    <ol>
+      <li>中京区木屋町通·高濑川一之船入：从鸭川引水建成的运河，两岸建有许多藩邸。</li>
+      <li>中京区河原町通·长州藩邸迹</li>
+      <li>元 立城小学校·土佐藩邸迹</li>
+      <li>土佐稻荷·岬神社：土佐藩邸内的神社，对当地人也开放。</li>
+      <li>武市瑞山寓居迹：半平太在京都领导攘夷运动时的居所。</li>
+    </ol>
+  </li>
+  <li>东京都·墨田区
+    <ol>
+      <li>うるおい广场·胜海舟像：墨田区是日本海军之父胜海舟的故乡。</li>
+      <li>隅田公园·牛屿神社迹之碑</li>
+      <li>本所4丁目·能势妙见山别院</li>
+      <li>港区·赤坂·本冰川坂下·胜海舟邸迹</li>
+    </ol>
+  </li>
+  <li>高知县·土佐清水市
+    <ol>
+      <li>中滨·中滨万次郎生家迹：约翰万次郎出生的地方。万次郎14岁出海捕鱼时遇海难，孤岛求生143天，被美国捕鲸船救往美国，异国生活10年后回国。</li>
+      <li>足摺岬·中滨万次郎像</li>
+    </ol>
+  </li>
+  <li>大阪府·大阪市
+    <ol>
+      <li>土佐稻荷神社·土佐藩藏屋敷迹：土佐藩在大阪的仓库栈房</li>
+      <li>日本桥·黑门市场：大阪被誉为天下厨房</li>
+      <li>北浜·適塾：兰学家绪方洪庵开办，福泽谕吉等人读书的地方</li>
+      <li>淡路町3丁目附近·专称寺迹（胜海舟寓居迹）：胜海舟开办的海军塾之所在。</li>
+      <li>土佐堀川</li>
+    </ol>
+  </li>
+  <li>山口县·下关市·关门海峡·みもすそ(含羞草)川公园·坛ノ浦炮台迹：文久3年长州藩攘夷时，向西洋商船开炮之地，即下关战争爆发处。长州藩惨败，炮台被占领和破坏。</li>
+  <li>福井县·福井市
+    <ol>
+      <li>福井城址·天守台迹：文久3年，坂本龙马在此地造访德川家御三卿福井藩主松平春岳。春岳11岁继任藩主，自幼被公认为明君，后任幕府政事总裁。录用了熊本藩士横井小楠等不分藩籍不同地位的人才。</li>
+      <li>瑞原寺·福井城本丸御殿遗构</li>
+      <li>养浩馆庭院·旧御泉水屋敷</li>
+    </ol>
+  </li>
+  <li>高知县·高知市
+    1. 高知城：土佐藩山内家的城堡
+    2. 鹰匠町·山内神社·山内荣堂像：荣堂在即位前后深受德川家照顾，所以深知变革必要性的同时，在行动上十分犹豫。好酒，自称“鲸海醉侯”。
+    3. 鹰匠町·旧山内家下屋敷长屋</li>
+  <li>京都府·京都市
+    <ol>
+      <li>青莲院门迹</li>
+      <li>西林寺·楢崎將作之墓：楢崎將作是楢崎龙的父亲，因同情维新人士死于安政大狱。</li>
+      <li>茶屋町·方广寺：龙马和阿龙在此附近相遇。</li>
+      <li>大佛殿石垣</li>
+    </ol>
+  </li>
+  <li>兵库县·神户市
+    <ol>
+      <li>海军操练所迹碑：胜海舟之所以选择神户建立海军操练所，是因为此地当时有被称作船只休憩站的设施。</li>
+      <li>新港第一凸堤·网屋吉兵卫显彰碑</li>
+      <li>旧生岛四郎大夫别邸·胜海舟寓居迹：生岛四郎是胜海舟的医生，海舟曾说神户日后将变为繁华之地，劝其早买土地。</li>
+      <li>神户异人馆·旧Thomas住宅（风见鸡之馆）</li>
+      <li>诹访山公园·海军营之碑</li>
+    </ol>
+  </li>
+  <li>京都府·京都市
+    <ol>
+      <li>八木邸·新选组屯所迹：新选组队员的驻地</li>
+      <li>旧前川邸·新选组屯所迹：同上</li>
+      <li>壬生寺·近藤勇像：壬生寺内流传有壬生狂言，新选组员也曾观之以为消遣。</li>
+    </ol>
+  </li>
+  <li>京都府·京都市
+    <ol>
+      <li>蛤御门：上京的长州军与会津和萨摩为中心的幕府军发生激烈冲突，史称“蛤御门之变”</li>
+      <li>天龙寺·嵯峨岚山</li>
+      <li>吉田家住宅·京町屋：拥有“火袋”天花板，防止火灾延烧至别家。</li>
+      <li>上善寺·鞍马口通：安葬长州战死者处</li>
+    </ol>
+  </li>
+  <li>高知县·高知市
+    1. 五台山：山脚坐落着高知县护国神社
+    2. 高知县护国神社·吸江：祭祀着“斩人以藏”
+    3. 高知县护国神社·维新の志士たち显彰碑：然而寺内的表彰石碑上没有冈田以藏的名字。
+    4. 山田町狱舍迹：元治元年（1864年），以藏被捕
+    5. 薰的神社·移筑された舍迹：保留了关押乙藏的监狱当时的一部分
+    6. 蓟野·冈田以藏之墓：享年24岁</li>
+  <li>
+    <ol>
+      <li>东京都·多摩市·旧多摩圣迹记念馆：保存有土佐勤王党幸存者田中光显收集的史料。</li>
+      <li>神奈川县·小田原市·旧田中光显别邸（小田原文学馆）：田中光显在明治维新后，历任宫内大臣等政府要职</li>
+      <li>东京都·文京区·护国寺：安葬着维新志士</li>
+    </ol>
+  </li>
+  <li>高知县·高知市
+    <ol>
+      <li>高知城：环绕城池的地区是只允许上士居住的特殊区域</li>
+      <li>带屋町·武市瑞山（半平太）殉节之碑：成为上士的武市半平太，因失势而被收监的地方</li>
+      <li>仁井田·瑞山神社：半平太的旧居附近，还保留有祭祀他的神社，旁别是妻子阿富的墓</li>
+    </ol>
+  </li>
+  <li>长崎县·长崎市
+    <ol>
+      <li>丸山：长崎首屈一指的花街</li>
+      <li>丸山公园·坂本龙马像</li>
+    </ol>
+  </li>
+  <li>长崎县·长崎市·旧格罗佛邸：英国商人托马斯·格罗佛的旧宅，位于俯瞰长崎的山坡上</li>
+  <li>长崎县·长崎市
+    <ol>
+      <li>龟山社中记念馆：龟山社中是日本第一个商社，借用了半山一家做龟山烧的屋子。</li>
+      <li>若宫稻荷神社：社员在此祈求社中的发展。</li>
+      <li>风头公园·坂本龙马像</li>
+    </ol>
+  </li>
+  <li>高知县
+    <ol>
+      <li>室户市·室户岬·中冈慎太郎像：中冈慎太郎早年也是土佐勤王党的成员，后来也为促成萨长同盟四处奔走。</li>
+      <li>北川村·柏木·中冈慎太郎生家：慎太郎是管理14个村落的大村官家的长男。</li>
+      <li>松林寺迹·慎太郎が学んだ寺</li>
+      <li>向学之道·慎太郎が塾へ通つた道</li>
+      <li>北川温泉·中冈慎太郎彰德碑：慎太郎鼓励村民种柚子，如今已成为首屈一指的柚子产区，中冈仍被当作村子的恩人受爱戴</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>佐贺县·嬉野市：经济上支持龙马的长崎女富商大浦庆，靠出口嬉野茶发家。</li>
+      <li>长崎市·锻冶屋町·清水寺：阿庆在人生的转折点曾造访此处。</li>
+      <li>长崎市·高平町·大浦庆之墓：卷入巨额欺诈事件，晚节不保。在人生最后阶段，收到了来自明治政府对其维新贡献的表彰</li>
+    </ol>
+  </li>
+  <li>长崎县·长崎市
+    <ol>
+      <li>万才町·小曾根邸迹：近藤长次郎是高知城下一家包子铺的长男。做了胜海舟的门生，成为武士。庆应2年（1866年）企图偷渡至英国，事败切腹。</li>
+      <li>皓台寺·近藤长次郎之墓：享年29岁</li>
+    </ol>
+  </li>
+  <li>京都府·京都市
+    <ol>
+      <li>同志社大学·萨摩藩邸迹之碑：萨长同盟谈判场所之一</li>
+      <li>京都府厅·京都守护职上屋敷迹：京都守护职负责京都治安，幕府察觉到了萨摩的动向。</li>
+      <li>一条庆桥周边·小松带刀邸迹：会谈改到萨摩藩家老小松带刀的宅邸进行。</li>
+    </ol>
+  </li>
+  <li>京都市·伏见区
+    <ol>
+      <li>南浜町·寺田屋：一间船宿，龙马与老板娘登势熟识，并介绍楢崎龙在此工作。</li>
+      <li>西奉行町·伏见奉行所迹：庆应2年（1866年）龙马于深夜遭到伏见奉行所官差袭击。</li>
+      <li>濠川沿い·坂本龙马避难之材木小屋迹地：龙马从寺田屋逃走后藏身在一件木料屋，在阿龙的紧急联络下，被萨摩营救。</li>
+    </ol>
+  </li>
+  <li>山口县·萩市
+    <ol>
+      <li>高杉晋作诞生地：高杉晋作出生于长州藩城下町，吉田松阴的学生。</li>
+      <li>下关市·功山寺·高杉晋作回天义拳像：高杉晋作在下关起兵，建立奇兵队，统一藩国。</li>
+      <li>白石正一郎旧宅迹·奇兵队结成之地：奇兵队不论出身，武士与平民均可参加。</li>
+    </ol>
+  </li>
+  <li>鹿儿岛县
+    <ol>
+      <li>鹿儿岛市·樱岛：庆应2年（1866年），龙马与阿龙到鹿儿岛旅行3个月。</li>
+      <li>鹿儿岛市·仙岩园·岛津家别邸</li>
+      <li>鹿儿岛市·尚古集成馆·旧集成馆机械工场：萨摩是幕末最为近代化的藩，龙马参观了教授西洋学问的设施。</li>
+      <li>雾岛市·雾岛连山：</li>
+      <li>雾岛市·新川溪谷温泉乡·盐浸温泉龙马公园：龙马在此治疗寺田屋事件所受的伤。</li>
+      <li>雾岛市·牧园町·犬饲泷：龙马给姐姐乙女的信中称赞此处的瀑布。</li>
+      <li>雾岛市·雾岛屋久国立公园·高千穗峰·天之逆鉾：龙马与阿龙的旅行，开日本新婚旅行之先河（一说小松带刀最早）。</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>关门海峡：长州战争中最大的战役，隔着关门海峡打响。</li>
+      <li>福冈县·北九州市·小仓城：长州人数劣势，但是渡海发动奇袭，攻下了小仓城</li>
+      <li>福冈县·北九州市·小仓北区赤坂·长州奇兵队之墓</li>
+      <li>山口县·下关市·火之山公园：龙马参与了此战的海战</li>
+      <li>山口县·下关市·严岛神社·小仓城之大太鼓：长州军的战利品</li>
+    </ol>
+  </li>
+  <li>长崎县·长崎市
+    <ol>
+      <li>滨町·土佐商会迹：土佐商会的负责人是后藤象二郎</li>
+      <li>金屋町·后藤象二郎邸迹</li>
+      <li>万屋町·清风亭迹：后藤与坂本龙马在庆应三年（1867年）一月在此处会谈，握手言和，龟山社中改造为海援队重新出发，事业涉及海运业、北海道开发、英语入门图书出版等。岩崎弥太郎担任海援队会计。</li>
+    </ol>
+  </li>
+  <li>山口县·下关市
+    <ol>
+      <li>高杉晋作终焉之地：高杉晋作29岁时英年早逝</li>
+      <li>吉田·奇兵队阵屋迹·奇兵队像：遗骸遵其遗愿，运送至奇兵队因缘之地。</li>
+      <li>东行庵·高杉晋作之墓·高杉晋作显彰碑：明治时期藩士为其修建。伊藤博文评价他“动如雷电，发如风雨”。</li>
+      <li>日和山公园：高杉晋作陶像</li>
+    </ol>
+  </li>
+  <li>广岛县·福山市·鞆之浦
+    <ol>
+      <li>桝屋清右卫门宅：龙马宿泊所迹。伊吕波丸海难沉没后，龙马一行人在第二天早晨来到此地</li>
+      <li>旧鱼屋万藏宅：伊吕波丸事件谈判迹。龙马在此地与纪州藩谈判破裂，后在长崎依据万国公法取得赔偿</li>
+    </ol>
+  </li>
+  <li>京都府·京都市
+    <ol>
+      <li>鸭川</li>
+      <li>三本木·吉田屋迹：萨土盟约缔结之场所。据说龙马也出席了谈判</li>
+    </ol>
+  </li>
+  <li>长崎县·长崎市
+    <ol>
+      <li>大浦天主堂：长崎开埠后，为外国人修建的教堂。</li>
+      <li>大浦天主堂·“信徒发见”之浮雕：元治2年（1865年）秘密天主教徒到访大浦天主堂，向神父表明信仰。</li>
+      <li>大桥町·圣克拉拉堂（秘密教会）迹：用以接受神父传教的秘密教堂</li>
+      <li>长崎历史文化博物馆·长崎奉行所迹：长崎奉行所得知天主教徒动向，开始了名为“浦上第四次镇压”的取缔活动。</li>
+      <li>本尾町·浦上天主堂：明治6年，天主教得到解禁，在信徒被释放处建立了此教堂</li>
+    </ol>
+  </li>
+  <li>神奈川县·横须贺市·信乐寺：阿龙在龙马死后移居土佐，但仅半年便离开，35岁时改嫁商人西村松兵卫，晚年在横须贺度过，死后葬于此。</li>
+  <li>高知县·高知市
+    <ol>
+      <li>浦户湾·袂石：庆应三年（1867年）龙马乘坐震天丸汽船返回土佐，据说船停靠于此。</li>
+      <li>种崎·中城家：龙马上岸后造访了相识的中城家，瞩目欣赏此处的纸门画。</li>
+      <li>五台山·西江庵迹：龙马为统一藩论支持大政奉还，在此地与藩内重臣会谈。</li>
+      <li>五台山·竹林寺：同上。</li>
+      <li>山手町·坂本家墓所</li>
+    </ol>
+  </li>
+  <li>京都府·京都市
+    <ol>
+      <li>二条城：第十五代将军德川庆喜在此宣布大政奉还。</li>
+      <li>酢屋：海援队京都本部迹。被人追捕的龙马在京都时曾暂居此处，在此收到了大政奉还的消息。</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>京都府·京都市·灵山·护国神社：坂本龙马·中冈慎太郎像、坂本龙马&amp;中冈慎太郎之墓</li>
+      <li>京都府·京都市·近江屋迹：坂本龙马&amp;中冈慎太郎遭难之地</li>
+      <li>东京都·千代田区·丸之内·三菱一号馆</li>
+      <li>东京都·江东区·清澄庭园</li>
+      <li>东京都·台东区·池之端·旧岩崎邸庭园</li>
+      <li>高知县·桂滨</li>
+    </ol>
+  </li>
+</ol>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[没有剧透预警——明知是观后感点进来，还因为剧透唧唧歪歪的，属于逻辑思维能力有问题，或者社会化教育不足，建议就医。]]></summary></entry></feed>

@@ -592,7 +592,7 @@ body {
   background: url(../images/body-background.png) #eae6d1;
 }
 
-.outlined p {
+.outlined p:not(:has(img)) {
   text-indent: 2em;
 }
 

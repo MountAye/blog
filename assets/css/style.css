@@ -961,10 +961,10 @@ footer {
     margin-right: 15px;
   }
   section {
-    border: 0px solid #e5e5e5;
-    border-width: 0px;
-    padding: 20px 5px;
-    margin: auto;
+    border: 1px solid #e5e5e5;
+    border-width: 1px 0;
+    padding: 20px 0;
+    margin: auto, 0px; /* Need further investigate. */
     max-width: 700px;
   }
   footer {

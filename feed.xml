@@ -1,4 +1,226 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-08-15T23:42:04+08:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.doc | 博客咨文 2023</title><link href="https://mountaye.github.io/blog/articles/state-of-blog-2023" rel="alternate" type="text/html" title=".doc | 博客咨文 2023" /><published>2023-08-15T00:00:00+08:00</published><updated>2023-08-15T00:00:00+08:00</updated><id>https://mountaye.github.io/blog/articles/state-of-blog-2023</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/state-of-blog-2023"><![CDATA[<p>以往过年的时候，都会在博客写一篇年终总结。今年没写，主要是当时觉得自己春季学期结束就要毕业了，需要努力工作，至少要摆出一副努力工作的样子。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-09-11T17:51:31+08:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">如是我闻 | 生成式人工智能</title><link href="https://mountaye.github.io/blog/articles/afaik-generative-ai" rel="alternate" type="text/html" title="如是我闻 | 生成式人工智能" /><published>2023-09-11T00:00:00+08:00</published><updated>2023-09-11T00:00:00+08:00</updated><id>https://mountaye.github.io/blog/articles/afaik-generative-ai</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/afaik-generative-ai"><![CDATA[<h2 id="生成式语言模型">生成式语言模型</h2>
+
+<h3 id="模型">模型</h3>
+
+<ul>
+  <li>OpenAI/GPT</li>
+  <li>Claude</li>
+  <li><code class="language-plaintext highlighter-rouge">bloomchat</code>, 可以商用 [<a href="https://github.com/sambanova/bloomchat">GitHub</a>]</li>
+  <li><code class="language-plaintext highlighter-rouge">falcon40B</code>
+    <ul>
+      <li>apache 2.0 许可证，可商用[<a href="http://huggingface.co/tiiuae">huggingface</a>]</li>
+      <li>gpt3 的性能，更少的运算资源，其中Falcon 7B可以跑在苹果Mac上 [<a href="https://twitter.com/rickawsb/status/1666148546285043714">推特</a>]</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">TigerBot</code>: 一款国产自研的多语言任务大模型，70亿参数和1800亿参数两个版本 [<a href="https://github.com/TigerResearch/TigerBot">GitHub</a>]</li>
+  <li><code class="language-plaintext highlighter-rouge">QLoRA</code>: 单个GPU，ChatGPT 99%的能力，消费级GPU微调12个小时就可以达到97%的ChatGPT水平，4B就可以保持16B精度的效果 [<a href="https://www.notion.so/Endocytic-trafficking-promotes-vacuolar-enlargements-for-fast-cell-expansion-rates-in-plants-6b8f0a313c184ccba9fb5a035bb04a0e?pvs=21">论文</a>] [<a href="https://www.notion.so/pdf-14a94950d61c42d3b03bb132f7655589?pvs=21">GitHub</a>]</li>
+  <li><code class="language-plaintext highlighter-rouge">MBT 30B</code>: 开源商用模型为数不多的选择里出现了一个比Falcon 40B更好的模型 [<a href="https://twitter.com/fi56622380/status/1672137540281974784">Twitter</a>]</li>
+  <li><code class="language-plaintext highlighter-rouge">GLM-6B</code> &amp; <code class="language-plaintext highlighter-rouge">GLM2-6B</code>: 智谱AI发布，对学术研究完全开放，并且在完成企业登记获得授权后，允许免费商业使用。[<a href="https://twitter.com/GanymedeNil/status/1679892021807550465">Twitter</a>][<a href="https://mp.weixin.qq.com/s?__biz=MzkxNjMzMjM3NA==&amp;mid=2247484214&amp;idx=1&amp;sn=e42153f987a74d1ffc7882f7cc09670d">微信公众号@GLM大模型</a>]</li>
+  <li><code class="language-plaintext highlighter-rouge">Llama 2</code>: Meta开源大语言模型Llama 2，可免费商用. [<a href="https://mp.weixin.qq.com/s/9pcmrCEyp2AQsL3MbPYx-Q?utm_source=pocket_saves">微信</a>介绍]
+    <ul>
+      <li>Jim Fan 评论 [<a href="https://twitter.com/dotey/status/1681553916373135362?utm_source=pocket_saves">推特，翻译</a>]</li>
+      <li>很多团队几乎都达成共识， RLHF 不重要，SFT 就够了。现在 Llama2 的论文说 RLHF 非常非常重要。[<a href="https://twitter.com/oran_ge/status/1681793774685659136?utm_source=pocket_saves">推特</a>]</li>
+      <li><code class="language-plaintext highlighter-rouge">LLaMA-2-7B-32K</code>, context为32K的模型 [<a href="https://twitter.com/JefferyTatsuya/status/1685423475979325440">推特</a>][<a href="https://twitter.com/togethercompute/status/1685048832168714240">Twitter</a>]</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="基于模型直接可用的产品">基于模型，直接可用的产品</h3>
+
+<ul>
+  <li>OpenAI/GPT
+    <ul>
+      <li>ChatGPT
+        <ul>
+          <li>2023年6月13日，GPT提供了函数调用，让ChatGPT来自己调用函数。[<a href="https://twitter.com/cryptonerdcn/status/1668733300070924288">Twitter</a>][<a href="https://openai.com/blog/function-calling-and-other-api-updates">OpenAI</a>][<a href="https://twitter.com/dotey/status/1668728109376450566">用法 Twitter@宝玉</a>]</li>
+        </ul>
+      </li>
+      <li>ChatGPT - Code Interpreter
+        <ul>
+          <li>介绍 [<a href="https://twitter.com/fuyufjh/status/1684191835210809344">推特</a>][<a href="https://www.youtube.com/watch?v=4wGlRrir_u4">YouTube</a>]</li>
+          <li>《ChatGPT 探索：Code Interpreter 高级指南》[<a href="https://mp.weixin.qq.com/s/K_csi1oWDv5tEaeeKSlvwA?utm_source=pocket_saves">微信@浮之静</a>]</li>
+          <li>源码可能被套出。[<a href="https://twitter.com/fuergaosi/status/1679457847237820416">Twitter</a>]</li>
+          <li>对 code interpreter 的逆向工程 [<a href="https://twitter.com/Yampeleg/status/1678045605527003136">Twitter</a>][<a href="https://mem.ai/p/xyy8ULiAce1BecTxnU0M">Mem</a>]</li>
+        </ul>
+      </li>
+      <li>OpenAI API
+        <ul>
+          <li>2023年8月23日，OpenAI 开放了 GPT-3.5 的微调的API [<a href="https://twitter.com/dotey/status/1694207797351616703">推特</a>]</li>
+        </ul>
+      </li>
+      <li>OpenAI on Azure 内置了一个内容过滤器 [<a href="https://twitter.com/jw1dev/status/1666613728106938368">推特1</a>][<a href="https://twitter.com/jw1dev/status/1666622878962548740">推特2</a>]</li>
+      <li><code class="language-plaintext highlighter-rouge">forefront</code>: 完全免费 GPT-4 的工具 [<a href="https://accounts.forefront.ai/">登录</a>]，大概基于 <code class="language-plaintext highlighter-rouge">gptfree-ts</code> [<a href="https://github.com/xiangsx/gpt4free-ts">GitHub</a>]</li>
+      <li><code class="language-plaintext highlighter-rouge">BratGPT</code>: ChatGPT的激进版本。[<a href="https://bratgpt.com/">官网</a>]</li>
+      <li><code class="language-plaintext highlighter-rouge">SmartStudy</code>: 提供文本文档，创建10个问题的小测验。[<a href="https://smartstudy.streamlit.app/">官网</a>]</li>
+      <li><code class="language-plaintext highlighter-rouge">XrayGPT</code>: 通过给定的 X 光片来促进围绕胸部 X 光片的自动化分析的研究。[<a href="https://twitter.com/CarsonYangk8s/status/1661588037892198401">GitHub</a>]</li>
+      <li><code class="language-plaintext highlighter-rouge">FinGPT</code>: 类似BloomBerg的开源方案，RLHF 和 Lora 的低秩技术 [<a href="https://twitter.com/JefferyTatsuya/status/1668433680887615488">Twitter</a>]</li>
+    </ul>
+  </li>
+  <li>微软
+    <ul>
+      <li>BingAI
+        <ul>
+          <li>本地部署方案 [<a href="https://twitter.com/geekbb/status/1665692703055552513">推特</a>][<a href="https://github.com/adams549659584/go-proxy-bingai">GitHub</a>]</li>
+        </ul>
+      </li>
+      <li>VsCode Copilot</li>
+      <li>Office 365 Copilot: 每月每名用户30美元. [<a href="https://www.theverge.com/2023/7/18/23798627/microsoft-365-copilot-price-commercial-enterprise">verge</a>][<a href="https://mp.weixin.qq.com/s/9pcmrCEyp2AQsL3MbPYx-Q?utm_source=pocket_saves">微信</a>]</li>
+    </ul>
+  </li>
+  <li>Claude+
+    <ul>
+      <li>例子：阅读多份行业报告 [<a href="https://twitter.com/iamshaynez/status/1684398211958730753">推特</a>]</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Llama</code>
+    <ul>
+      <li>llama2.ai: 一个基于 llama 2 的聊天机器人，非官方。[<a href="https://llama2.ai/">网站</a>]</li>
+      <li>WizardCoder 34B based on Code Llama 写代码 [<a href="https://twitter.com/dotey/status/1696202647269785875">推特</a>]</li>
+    </ul>
+  </li>
+  <li>WebGLM: 清华开源的带网络搜索功能的 GLM 实现 [<a href="https://www.notion.so/pdf-14a94950d61c42d3b03bb132f7655589?pvs=21">GitHub</a>]</li>
+  <li>mendable: 根据开发文档进行问答 [<a href="https://www.mendable.ai/usecases/documentation">官网</a>]</li>
+  <li>阅读 PDF 文档
+    <ul>
+      <li>Humata.ai</li>
+      <li>explainpaper</li>
+      <li>ChatPDF</li>
+      <li>[<a href="https://twitter.com/oran_ge/status/1683432444169711616?utm_source=pocket_saves">对比</a>] Claude2支持超长上下文，摘要信息量更大，更适合长文提炼。ChatDOC 具有页码溯源、表格解析、原文定位功能，数据找得准，也方便二次验证，能够限制大语言的幻觉问题。</li>
+    </ul>
+  </li>
+  <li>Obsidian-copliot: 快速获取文字的核心观点</li>
+  <li>视频内容梗概
+    <ul>
+      <li>Glarity: 浏览器插件，基于ChatGPT和字幕生成Youtube摘要，20秒看完梗概 [<a href="https://twitter.com/starzqeth/status/1640867876109422595">Twitter</a>]</li>
+      <li>summarize-tech: 5分钟了解长视频的要点. [<a href="https://twitter.com/starzqeth/status/1640867876109422595">Twitter</a>]</li>
+    </ul>
+  </li>
+  <li>webpilot: 可联网可读网页链接的插件 Webpilot 推出的 Chrome 版插件 [<a href="https://chrome.google.com/webstore/detail/webpilot-copilot-for-all/biaggnjibplcfekllonekbonhfgchopo?utm_source=link">chrome</a>]</li>
+</ul>
+
+<h3 id="模型教程评论二次开发">模型教程、评论、二次开发</h3>
+
+<ul>
+  <li>一般性原理
+    <ul>
+      <li>《Prompt 编写模式》[<a href="https://prompt-patterns.phodal.com">phodal</a>]</li>
+      <li>《LLM+Embedding构建问答系统的局限性及优化方案》[<a href="https://zhuanlan.zhihu.com/p/641132245">知乎</a>]</li>
+      <li>基于检索的 LM，外挂一个数据库用来检索。[<a href="https://twitter.com/cosmtrek/status/1678077835418955781">推特</a>][<a href="https://acl2023-retrieval-lm.github.io/">GitHub.io</a>]</li>
+      <li>一篇泼冷水的论文 [<a href="https://aclanthology.org/2023.findings-acl.426/">ACL Anthology</a>]</li>
+      <li>即刻出的Prompt调试工具。[<a href="https://twitter.com/vista8/status/1678784460786135040">Twitter</a>][<a href="https://promptknit.com/">官网</a>]</li>
+    </ul>
+  </li>
+  <li>GPT
+    <ul>
+      <li>GPT best practice [<a href="https://platform.openai.com/docs/guides/gpt-best-practices?utm_source=pocket_saves">OpenAI</a>]</li>
+      <li>Andrew Ng 吴恩达 &amp; Isa Fulford from OpenAI 《Build system with <a href="https://twitter.com/hashtag/ChatGPT?src=hashtag_click">#ChatGPT</a> API》[推特@<strong><a href="https://twitter.com/JefferyTatsuya">金田達也</a></strong>]
+        <ul>
+          <li>借助 CoT 的思路，翻译字幕，返回正确的 JSON 格式 [<a href="https://twitter.com/dotey/status/1665476562219573249">推特</a>]</li>
+          <li>同样的加入了CoT（Chain of Though）的Prompt，如果让GPT打印出来步骤，效果非常好，但是如果不让GPT打印（省点token，以及更容易解析），那么GPT就会偷懒 [<a href="https://twitter.com/dotey/status/1668736426286915590">Twitter</a>1][<a href="https://twitter.com/dotey/status/1664335473500626946">Twitter2</a>]</li>
+        </ul>
+      </li>
+      <li>熊猫吃短信是 Twitter@威力狈 开发的垃圾短信过滤工具。将其与 GPT 结合的一些讨论
+        <ul>
+          <li><a href="https://twitter.com/waylybaye/status/1664253928970788864">Twitter@威力狈</a>：尝试了下用 ChatGPT 自动标注数据，效果太差了。</li>
+          <li><a href="https://twitter.com/dotey/status/1669028955842650139">Twitter@宝玉</a>：通常如果我写的话，会做一些小调整</li>
+          <li><a href="https://twitter.com/IIInoki">Twitter@IIInoki</a>：是的，感觉八爷用 API 用得有点糙……就只是很简单的 prompt 达到的效果都还不错</li>
+        </ul>
+      </li>
+      <li>《ChatGPT 越过山丘之后，再来谈谈 LLM 应用方向》[<a href="https://quail.ink/orange/p/chatgpt-cross-over-the-hills-and-discuss-llm-application-directions">橘子汽水铺</a>]</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">LangChain</code>:
+    <ul>
+      <li>官方教程 [<a href="https://twitter.com/LangChainAI/status/1665009694627250176">推特</a>][<a href="https://blog.streamlit.io/langchain-tutorial-1-build-an-llm-powered-app-in-18-lines-of-code/">streamlit</a>]</li>
+      <li>一个使用 LangChain 和 GPT Index 的教程 [<a href="https://leanpub.com/langchain">leanpub, 收费</a>][<a href="https://getpocket.com/read/3839490971">Pocket</a>]</li>
+      <li>LangChain for LLM Application Development 基于LangChain的大语言模型应用开发 [<a href="https://t.co/JXV1SBI2OA">YouTube</a>]
+        <ul>
+          <li>基于Embedding的文档问答。stuff, map reduce, refine, map rerank [<a href="https://twitter.com/dotey/status/1667790801420558342">Twitter@宝玉</a>]</li>
+        </ul>
+      </li>
+      <li>Chanin Nantasenamat: LangChain tutorial #1: Build an LLM-powered app in 18 lines of code [<a href="https://blog.streamlit.io/langchain-tutorial-1-build-an-llm-powered-app-in-18-lines-of-code/?utm_source=pocket_saves">streamlit</a>]</li>
+      <li>把一篇很长的 PDF 内容喂给 ChatGPT，然后向他提问
+        <ul>
+          <li>纯 JS 开源工具推荐 [<a href="https://twitter.com/Barret_China/status/1638119945749037056">推特</a>]</li>
+          <li>用 <code class="language-plaintext highlighter-rouge">LangChain</code> 六七行代码就可以搞定了 [<a href="https://js.langchain.com/docs/get_started/introduction">LangChain</a>]</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">AutoChain</code>
+    <ul>
+      <li>介绍 [<a href="https://twitter.com/zhangjintao9020/status/1683996172980199429">推特</a>][<a href="https://github.com/Forethought-Technologies/AutoChain">GitHub</a>]</li>
+      <li>《我为什么放弃了 LangChain》[<a href="https://twitter.com/Barret_China/status/1683135367862718465">推特</a>][<a href="https://mp.weixin.qq.com/s/jIbz9JYc8-_ua-QLENX__A">微信</a>] 推友提出的 AutoChain 替代方案 [<a href="https://twitter.com/Barret_China/status/1684211570186887170?utm_source=pocket_saves">推特</a>]</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">OpenDAN</code>: 为各类 AI 模块提供运行环境，并提供它们之间的互操作性协议。可创建诸如律师、医生、教师，甚至男女朋友等角色 [<a href="https://twitter.com/Barret_China/status/1666455683758161920">GitHub</a>]</li>
+  <li>“视频语音↔文字”任务相关
+    <ul>
+      <li>指定视频URL，识别文字，翻译 [<a href="https://github.com/lewangdev/autotranslate">GitHub</a>]</li>
+      <li><code class="language-plaintext highlighter-rouge">WhisperX</code>: 按照单词对齐时间戳，生成的字幕都是完整的句子 [<a href="https://github.com/m-bain/whisperX">GitHub</a>]。[<a href="https://twitter.com/dotey/status/1667394662628204546">Twitter@宝玉</a>] 写了一个可以根据 YouTube Url 识别 YouTube 字幕的 <a href="https://github.com/JimLiu/whisper-subtitles/blob/main/whisperx_youtube_subtitle.ipynb">Jupyter Notebook</a></li>
+      <li><code class="language-plaintext highlighter-rouge">audiocraft</code>: audio processing and generation with deep learning. [<a href="https://github.com/facebookresearch/audiocraft">GitHub</a>]</li>
+      <li><a href="https://twitter.com/Barret_China/status/1684218981639413760">[推特]</a> 小作文</li>
+      <li><code class="language-plaintext highlighter-rouge">yt-dlp</code> 一行命令下载视频字幕的工具，不需 puppeteer 无头浏览器 [<a href="https://twitter.com/Barret_China/status/1684228477644570624">推特</a>][<a href="https://github.com/yt-dlp/yt-dlp">GitHub</a>]</li>
+    </ul>
+  </li>
+  <li>ChatGPT + AI agent + ScholarAI + Noteable 写的小综述 [<a href="https://t.co/eqVc2LIfSz">链接失效</a>]</li>
+  <li><code class="language-plaintext highlighter-rouge">MusicGen</code>: 将文本和旋律转化为完整乐曲 [<a href="https://twitter.com/Fenng/status/1668141100610248705">Twitter</a>][<a href="https://www.notion.so/3753e42dc4204a99ab83a725b655a632?pvs=21">ReadHub</a>]</li>
+  <li><code class="language-plaintext highlighter-rouge">MMS</code>: 一个声音模型 [<a href="https://huggingface.co/docs/transformers/main/en/model_doc/mms">HuggingFace</a>]</li>
+  <li><code class="language-plaintext highlighter-rouge">FRVR Forge</code>: AI-Powered End-to-End Game Creation [<a href="https://twitter.com/FRVRGames/status/1669758477789540365">Twitter</a>][<a href="https://www.notion.so/ai-University-Cloud-8078b4682e454a5fba982f67e4530498?pvs=21">官网</a>]</li>
+</ul>
+
+<h3 id="开发平台">开发平台</h3>
+
+<p>Runpod: 租用 GPU 跑模型并创建 Serverless API 一站式服务，最低只要0.2刀/hr。[<a href="http://runpod.io">官网</a>]</p>
+
+<h3 id="杂项">杂项</h3>
+
+<ul>
+  <li>2023年5月27日、28日，OpenAI 使用 Sentry 审计工具封禁来自中国的用户，解决方案：
+    <ul>
+      <li>路由器 Clash 规则 [<a href="https://twitter.com/wey_gu/status/1663003950214438912?utm_source=pocket_saves">推特</a>]</li>
+      <li>改用 Azure OpenAI service [<a href="https://twitter.com/zhangjintao9020/status/1662865819041402880">推特</a>]</li>
+      <li>Cloudflare WARP [<a href="https://haoel.github.io/">左耳朵</a>]</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="生成式图像模型">生成式图像模型</h2>
+
+<p>2023年5月31日，Adobe 添加人工智能相关功能 generative fill。[<a href="https://twitter.com/CodeByPoonam/status/1663824055164887040">推特</a>]</p>
+
+<ul>
+  <li>配置要求极低，连Win掌机都能跑，但是不能断网。[<a href="https://twitter.com/OfflineHelper/status/1666042746866663424">推特</a>]</li>
+  <li>填充将横屏的视频转换为竖屏。[<a href="https://twitter.com/Alex_Cerrato/status/1681677307843432449">推特</a>]</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">MidJourney</code></p>
+
+<ul>
+  <li>在提示词中添加相机镜头信息。[<a href="https://twitter.com/4rtofficial/status/1663310457854099458">推特</a>]</li>
+  <li>zoom [<a href="https://twitter.com/jesselaunz/status/1674210886695923712">Twitter</a>]</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">StableDiffusion</code></p>
+
+<ul>
+  <li>Eric Fu: 训练指南. [<a href="https://ericfu.me/stable-diffusion-finetune-guide/?utm_source=pocket_reader">Coding Husky</a>]</li>
+  <li>文字或者符号融合生成图片 [<a href="https://twitter.com/op7418/status/1680223090138316800">Twitter</a>][<a href="https://mp.weixin.qq.com/s/rvpU4XhToldoec_bABeXJw">微信</a>]</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">StyleDrop</code>: Google 基于 MUSE 的样式迁移 transformer [<a href="https://twitter.com/recatm/status/1665056017107886080">推特</a>][<a href="https://styledrop.github.io/">GitHub.io</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">Redream</code>: 从视频到二次元动画 [<a href="https://twitter.com/heyBarsee/status/1665034805384290307">推特</a>][<a href="https://github.com/Fictiverse/Redream">GitHub</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">Runway</code> Gen-2: 文本生成视频和图片生成视频, 4 秒钟 [<a href="https://twitter.com/op7418/status/1666461595818504192">推特</a>][<a href="https://app.runwayml.com/login">需注册</a>]</p>
+
+<p>一个 AI 视频解决方案，来自南洋理工，代码尚未开源 [<a href="https://twitter.com/op7418/status/1669026494885285888">Twitter</a>] [<a href="https://anonymous-31415926.github.io/">GitHub.io</a>][<a href="https://twitter.com/rickawsb/status/1672310994390126593">Twitter2</a>][<a href="https://arxiv.org/abs/2306.07954">arxiv</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">AWPortrait1.1</code>: 图像生成 [<a href="https://twitter.com/dynamicwangs/status/1673730591462928385">Twitter</a>][<a href="https://www.liblibai.com/modelinfo/721fa2d298b262d7c08f0337ebfe58f8">LibLibai</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">Anything AI</code>: 可以取代照片中的任何物体。免费，不需要注册. [<a href="https://www.anything-ai.com/">官网</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">PixelLab</code>: 草图创建2D图像. [<a href="https://www.pixellab.ai/">官网</a>]</p>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[生成式语言模型]]></summary></entry><entry><title type="html">.doc | 博客咨文 2023</title><link href="https://mountaye.github.io/blog/articles/state-of-blog-2023" rel="alternate" type="text/html" title=".doc | 博客咨文 2023" /><published>2023-08-15T00:00:00+08:00</published><updated>2023-08-15T00:00:00+08:00</updated><id>https://mountaye.github.io/blog/articles/state-of-blog-2023</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/state-of-blog-2023"><![CDATA[<p>以往过年的时候，都会在博客写一篇年终总结。今年没写，主要是当时觉得自己春季学期结束就要毕业了，需要努力工作，至少要摆出一副努力工作的样子。</p>
 
 <p>之前的文章里大概也提到了，论文投稿之前各种小修小补、准备参加三月会、投简历、面试且自以为成功找到了工作，毕业已经是再努力也没办法在春季学期结束之前完成的事情，于是博客恢复了更新。</p>
 
@@ -2963,175 +3185,4 @@ cinity，他按说是咱们中国原创，但你仔细一看，里边它还是�
 
 <p>在这一章的结尾，作者还谈到了《1987》。电影中一个女孩劝她暗恋的男学生不要去参加运动，质问他：“你以为你这样做，世界就会改变吗？” 男学生回答：“我也想啊，但是不行，因为心太痛了。”</p>
 
-<p>刘瑜写道：“心太痛了，可以说，一语道破了启蒙观念的真正起源……这种源于道德直觉的正义感有种令人敬畏的天真。你会发现，当所有政治的泥沙沉淀、所有理论的波涛平息、所有流行的趋势过去，最终，这种无与伦比的天真还是会从水底浮现。它熠熠的光芒，还是会诱惑你向它伸出手去。”</p>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[每个人都知道中国电影完了，但可以看一看怎么完的。——微博@克莱因壶不缺钙]]></summary></entry><entry><title type="html">.py | Python decorator 装饰器</title><link href="https://mountaye.github.io/blog/articles/python-decorator" rel="alternate" type="text/html" title=".py | Python decorator 装饰器" /><published>2022-11-09T00:00:00+08:00</published><updated>2022-11-09T00:00:00+08:00</updated><id>https://mountaye.github.io/blog/articles/python-decorator</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/python-decorator"><![CDATA[<p>最近参加了一个关于如何在 Python 项目中利用 GPU 提高运算效率的培训，里面提到了 <code class="language-plaintext highlighter-rouge">numba</code> 这个加速科学计算的库，而 <code class="language-plaintext highlighter-rouge">numba</code> 发挥作用的主要工具就是各种装饰器。</p>
-
-<p>所谓装饰器，就是读一些网上现成的 python 代码的时候会看到的，函数前一行 <code class="language-plaintext highlighter-rouge">@</code> 打头的一串字符，一般是一个名字，偶尔会附带有参数：</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@decorator</span>
-<span class="k">def</span> <span class="nf">myfunction</span><span class="p">():</span>
-    <span class="c1"># do something...
-</span>    <span class="k">return</span> <span class="n">results</span>
-</code></pre></div></div>
-
-<p>它的实际作用相当于：</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">myfunction</span><span class="p">():</span>
-    <span class="c1"># do something...
-</span>    <span class="k">return</span> <span class="bp">None</span>
-
-<span class="n">myfunction</span> <span class="o">=</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">myfunction</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>Python 是一种<a href="https://program-think.blogspot.com/2012/02/why-choose-python-4-fp.html">函数式编程语言</a>，函数和各种类型的变量一样，在 Python 都是一种对象，所以可以把函数赋值给一个变量，可以在函数里定义另一个函数，可以把函数作为参数传递给另一个函数，可以把函数名作为另一个函数的返回值。</p>
-
-<p><code class="language-plaintext highlighter-rouge">myfunction = decorator(myfunction)</code> 就是装饰器的定义，是 Python 的一个<a href="https://zh.m.wikipedia.org/zh-hans/%E8%AF%AD%E6%B3%95%E7%B3%96">语法糖</a>。也就是说装饰器本身也是一个函数，我们的函数被装饰器装饰之后，函数名称不变，在完整实现函数原有功能的同时，额外执行装饰器中的命令。</p>
-
-<h3 id="装饰器是如何做到的">装饰器是如何做到的</h3>
-
-<p>要想自己写一个装饰器的话，需要了解一下装饰器的实现原理。一个最简单的装饰器可以这么写：</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
-        <span class="c1"># do something
-</span>        <span class="nf">func</span><span class="p">()</span>
-        <span class="c1"># do some more
-</span>        <span class="k">return</span> <span class="bp">None</span>
-    <span class="k">return</span> <span class="n">inner</span>
-</code></pre></div></div>
-
-<p>也就是在装饰器内部再定义一个函数，这个内部函数的函数体执行被装饰的函数，然后外层装饰器把内层函数名当作返回值。</p>
-
-<h3 id="如果一个函数需要多个装饰器">如果一个函数需要多个装饰器</h3>
-
-<p>把前面装饰器的定义套在多个装饰器的情况里：</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@decorator1</span>
-<span class="nd">@decorator2</span>
-<span class="k">def</span> <span class="nf">myfunction</span><span class="p">():</span>
-    <span class="k">return</span> <span class="bp">None</span>
-
-<span class="n">myfunction</span> <span class="o">=</span> <span class="nf">decorator1</span><span class="p">(</span><span class="nf">decorator2</span><span class="p">(</span><span class="n">myfunction</span><span class="p">))</span>
-</code></pre></div></div>
-
-<h3 id="如果被装饰的函数有传入参数">如果被装饰的函数有传入参数</h3>
-
-<p>装饰器不知道自己要装饰的函数长什么样，也就不知道函数接受多少个参数，其中有几个是位置参数，几个是关键词参数。所以需要用单星号打包/解包位置参数，双星号打包/解包关键词参数。<code class="language-plaintext highlighter-rouge">args</code> 和 <code class="language-plaintext highlighter-rouge">kwargs</code> 是变量名的代词，可以换成其他自己喜欢的名字。</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="c1"># do something
-</span>        <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="c1"># something else
-</span>        <span class="k">return</span> <span class="bp">None</span>
-    <span class="k">return</span> <span class="n">inner</span>
-
-<span class="nd">@decorator</span>
-<span class="k">def</span> <span class="nf">myfunction</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">"normal"</span><span class="p">,</span><span class="n">strict</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="c1"># do something...
-</span>    <span class="k">return</span> <span class="bp">None</span>
-</code></pre></div></div>
-
-<h3 id="如果被装饰的函数有返回值">如果被装饰的函数有返回值</h3>
-
-<p>则装饰器的内层函数需要把被装饰的函数的返回值返回出来：</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="c1"># do something
-</span>        <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="c1"># something else
-</span>        <span class="k">return</span> <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">inner</span>
-
-<span class="nd">@decorator</span>
-<span class="k">def</span> <span class="nf">myfunction</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">"normal"</span><span class="p">,</span><span class="n">strict</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="c1"># do something...
-</span>    <span class="k">return</span> <span class="n">results</span>
-</code></pre></div></div>
-
-<h3 id="如果想让装饰器本身接受参数">如果想让装饰器本身接受参数</h3>
-
-<p>也就是想达到下面的效果：</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@param_decorator</span><span class="p">(</span><span class="n">param</span><span class="o">=</span><span class="s">"neat"</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">myfunction</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">"normal"</span><span class="p">,</span><span class="n">strict</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="c1"># do something...
-</span>    <span class="k">return</span> <span class="n">results</span>
-</code></pre></div></div>
-
-<p>也就是让 <code class="language-plaintext highlighter-rouge">param_decorator(param="neat")</code> 返回一个装饰器函数，也就是在之前的装饰器外面再加一层：</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">param_decorator</span><span class="p">(</span><span class="n">param</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-        <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">param</span><span class="o">==</span><span class="s">"neat"</span><span class="p">:</span>
-                <span class="nf">print</span><span class="p">(</span><span class="s">"neat"</span><span class="p">)</span>
-                <span class="c1"># ...
-</span>            <span class="k">else</span><span class="p">:</span>
-                <span class="nf">print</span><span class="p">(</span><span class="s">"not neat"</span><span class="p">)</span>
-                <span class="c1"># ...
-</span>            <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            <span class="k">return</span> <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">inner</span>
-    <span class="k">return</span> <span class="n">previous_decorator</span>
-</code></pre></div></div>
-
-<h3 id="如果想让装饰器既可以接受参数也可以不接受参数">如果想让装饰器既可以接受参数，也可以不接受参数～</h3>
-
-<p>实在是有点过于高级了，直接说答案：</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">flex_decorator</span><span class="p">(</span><span class="n">_func</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">kw1</span><span class="o">=</span><span class="s">"val1"</span><span class="p">,</span><span class="n">kw2</span><span class="o">=</span><span class="s">"val2"</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-        <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="nf">print</span><span class="p">(</span><span class="n">kw1</span><span class="p">,</span><span class="n">kw2</span><span class="p">)</span>
-            <span class="c1"># do something
-</span>            <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            <span class="c1"># something else
-</span>            <span class="k">return</span> <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">inner</span>
-    <span class="k">if</span> <span class="n">_func</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">decorator</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">_func</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>根据 <a href="https://peps.python.org/pep-3102/">https://peps.python.org/pep-3102/</a>，<code class="language-plaintext highlighter-rouge">*</code>作为一个单独的函数参数，表示后面所有的参数都是关键词参数，用来限定星号前面位置参数的数量。</p>
-
-<ul>
-  <li>当 <code class="language-plaintext highlighter-rouge">@flex_decorator</code> 不加参数使用的时候:
-    <ul>
-      <li>根据定义 <code class="language-plaintext highlighter-rouge">myfunction = flex_decorator(myfunction)</code></li>
-      <li><code class="language-plaintext highlighter-rouge">_func=myfunction</code></li>
-      <li>此时 <code class="language-plaintext highlighter-rouge">else</code> 生效，<code class="language-plaintext highlighter-rouge">myfunction = decorator(myfunction)</code></li>
-    </ul>
-  </li>
-  <li>当 <code class="language-plaintext highlighter-rouge">@flex_decorator(kw1="val1",kw2="val2")</code> 加上参数使用的时候:
-    <ul>
-      <li>根据定义 <code class="language-plaintext highlighter-rouge">myfunction = flex_decorator(kw1="val1",kw2="val2")(myfunction)</code></li>
-      <li><code class="language-plaintext highlighter-rouge">_func=None</code></li>
-      <li>此时 <code class="language-plaintext highlighter-rouge">if</code> 生效，<code class="language-plaintext highlighter-rouge">myfunction = decorator(myfunction)</code></li>
-    </ul>
-  </li>
-</ul>
-
-<p>——<strong>接受的参数必须是关键词参数</strong>，否则和被装饰的函数名无法区分。</p>
-
-<h3 id="functoolswraps刻章办证"><code class="language-plaintext highlighter-rouge">@functools.wraps</code>：刻章、办证</h3>
-
-<p>以上各节基本完成了常用场景下装饰器的功能。</p>
-
-<p>但是，Python 作为一种动态语言，一大特征就是可以在运行时进行<a href="https://en.wikipedia.org/wiki/Type_introspection">类型内省</a>。而按照我们上面的写法，被装饰之后的函数，Python 认为它不再是原来的函数，而是装饰器里面定义的那个内部函数，这样可能会出现意想不到的问题。</p>
-
-<p>解决方法是使用一个专门的装饰器根装饰器定义的内部函数办个假身份：</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">functools</span>
-
-<span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="nd">@functools.wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="c1"># do something
-</span>        <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="c1"># something else
-</span>        <span class="k">return</span> <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">inner</span>
-</code></pre></div></div>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[所谓装饰器 (decorator)，就是函数前一行 @ 打头的一串字符，是 python 的一种语法糖。]]></summary></entry></feed>
+<p>刘瑜写道：“心太痛了，可以说，一语道破了启蒙观念的真正起源……这种源于道德直觉的正义感有种令人敬畏的天真。你会发现，当所有政治的泥沙沉淀、所有理论的波涛平息、所有流行的趋势过去，最终，这种无与伦比的天真还是会从水底浮现。它熠熠的光芒，还是会诱惑你向它伸出手去。”</p>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[每个人都知道中国电影完了，但可以看一看怎么完的。——微博@克莱因壶不缺钙]]></summary></entry></feed>

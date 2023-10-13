@@ -1,4 +1,174 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-10-11T09:37:39-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.css | TailwindCSS 笔记</title><link href="https://mountaye.github.io/blog/articles/notes-on-TailwindCSS" rel="alternate" type="text/html" title=".css | TailwindCSS 笔记" /><published>2023-10-11T00:00:00-05:00</published><updated>2023-10-11T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/notes-on-TailwindCSS</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/notes-on-TailwindCSS"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-10-13T11:39:34-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.py | 让自己的代码可以被别人使用</title><link href="https://mountaye.github.io/blog/articles/python-packaging" rel="alternate" type="text/html" title=".py | 让自己的代码可以被别人使用" /><published>2023-10-13T00:00:00-05:00</published><updated>2023-10-13T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/python-packaging</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/python-packaging"><![CDATA[<blockquote>
+  <p>这里所说的“别人”，也包括6个月之后，已经不记得当初如何写出这段代码的自己。</p>
+
+</blockquote>
+
+<p>很久以前写过一篇《<strong><a href="https://mountaye.github.io/blog/articles/python-import-script-module-package">import 引用现成的代码</a></strong>》讲如何使用别人的代码，最后讲到一个模块的 <code class="language-plaintext highlighter-rouge">setup.py</code> 文件就没再往下写，这次继续。</p>
+
+<ul>
+  <li><a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">https://packaging.python.org/en/latest/tutorials/packaging-projects/</a></li>
+  <li><a href="https://setuptools.pypa.io/en/latest/userguide/quickstart.html">https://setuptools.pypa.io/en/latest/userguide/quickstart.html</a></li>
+</ul>
+
+<h2 id="基本流程">基本流程</h2>
+
+<ul>
+  <li>写代码，且让代码项目文件的结构符合一定的要求（见下一节）</li>
+  <li>根据项目的文件结构，填写 <code class="language-plaintext highlighter-rouge">pyproject.toml</code>、<code class="language-plaintext highlighter-rouge">setup.cfg</code> <strong>或</strong> <code class="language-plaintext highlighter-rouge">setup.py</code> <strong>文件</strong></li>
+  <li>安装 build 这个库，然后运行 <code class="language-plaintext highlighter-rouge">python -m build</code>，产生 <code class="language-plaintext highlighter-rouge">dist/</code> 文件夹及下面的文件。（可选）将项目上传到 PyPi 或者 Conda</li>
+</ul>
+
+<h2 id="项目文件结构">项目文件结构</h2>
+
+<p>常用的文件结构有两种：src-layout 和 flat-layout，另外一些小项目只有一个 python 文件。</p>
+
+<h3 id="src-layout">src-layout</h3>
+
+<p>在 src-layout 里，写有 package 源代码的文件夹上层还套了一个文件夹，这个文件夹习惯上命名为 src，当然也可以是别的。<code class="language-plaintext highlighter-rouge">pyproject.toml</code> 和 <code class="language-plaintext highlighter-rouge">src/</code> 文件夹同级。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;project_name&gt;
+├── LICENSE
+├── pyproject.toml
+├── README.md
+├── src/
+│   └── &lt;package_name&gt;/
+│       ├── __init__.py
+│       └── example.py
+└── tests/
+</code></pre></div></div>
+
+<h3 id="flat-layout">flat-layout</h3>
+
+<p>flat-layout 指的是写有 package 源代码的文件夹直接作为开发项目的第一级子文件夹，和 <code class="language-plaintext highlighter-rouge">pyproject.toml</code> 处于同一级。</p>
+
+<p>这种结构比较古老，不太推荐</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;project_name&gt;
+├── pyproject.toml  # and/or setup.cfg/setup.py (depending on the configuration method)
+├── &lt;package_name&gt;
+|   ├── __init__.py
+|   └── ... (other Python files)
+├── test
+|   └── ... (test files)
+├── # README.rst or README.md (a nice description of your package)
+└── # LICENCE (properly chosen license information, e.g. MIT, BSD-3, GPL-3, MPL-2, etc...)
+</code></pre></div></div>
+
+<h3 id="单文件项目">单文件项目</h3>
+
+<p>可以看作是 flat-layout 的一种特殊情况</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;project_name&gt;
+├── pyproject.toml  # and/or setup.cfg/setup.py (depending on the configuration method)
+├── &lt;my_module&gt;.py
+├── # README.rst or README.md (a nice description of your package)
+└── # LICENCE (properly chosen license information, e.g. MIT, BSD-3, GPL-3, MPL-2, etc...)
+</code></pre></div></div>
+
+<h2 id="填写-pyprojecttomlsetupcfg-或-setuppy-文件">填写 <code class="language-plaintext highlighter-rouge">pyproject.toml</code>、<code class="language-plaintext highlighter-rouge">setup.cfg</code> <strong>或</strong> <code class="language-plaintext highlighter-rouge">setup.py</code> <strong>文件</strong></h2>
+
+<p>要想让构建程序把我们的代码打包成安装包，标题中的三个文件至少有一个要出现在 project 的根目录。</p>
+
+<p>文件中要按照各自拓展名对应的语法，填写项目的有关信息，绝大多数可以顾名思义。</p>
+
+<p>各参数的取值和代码文件结构相关，参数主要包括 <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">packages</code>, <code class="language-plaintext highlighter-rouge">package_dir</code>。如果文件结构完全满足上一节的结构，那么 <code class="language-plaintext highlighter-rouge">setuptools.find_packages()</code> 的<a href="https://setuptools.pypa.io/en/latest/userguide/package_discovery.html#automatic-discovery">自动发现机制</a>就够用了。</p>
+
+<h3 id="name"><code class="language-plaintext highlighter-rouge">name</code></h3>
+
+<p>这是一个必填项。</p>
+
+<p>注意：上一节的文件结构中，有两个名字 <code class="language-plaintext highlighter-rouge">&lt;project_name&gt;</code> 和 <code class="language-plaintext highlighter-rouge">&lt;package_name&gt;</code> ——</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;project_name&gt;</code> 是整个开发项目的名字，如果用了类似 git 的版本控制的话，这个名字就是你的 repository 的名字。</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;package_name&gt;</code> 比较复杂，它可以是，但不一定是你在其他代码中 <code class="language-plaintext highlighter-rouge">import __</code> 的名字，import 的名字由 <code class="language-plaintext highlighter-rouge">pyproject.toml</code> / <code class="language-plaintext highlighter-rouge">setup.cfg</code> <strong>/</strong> <code class="language-plaintext highlighter-rouge">setup.py</code> 里面的 <code class="language-plaintext highlighter-rouge">name</code> 参数指定。不能有连字符，只能用下划线。</p>
+
+<p>如果你的 <code class="language-plaintext highlighter-rouge">name</code> 参数和 <code class="language-plaintext highlighter-rouge">&lt;package_name&gt;</code> 不同，还需要填写 <code class="language-plaintext highlighter-rouge">package_dir</code> 参数，</p>
+
+<p>此外还有第三个名字，就是 <code class="language-plaintext highlighter-rouge">pip install __</code> 时候的名字，上传到 PyPI 的时候填写，可以带有连字符，比如 scikit-image。</p>
+
+<h3 id="packages"><code class="language-plaintext highlighter-rouge">packages</code></h3>
+
+<p>参数是一个 list，但是一般都使用 <code class="language-plaintext highlighter-rouge">setuptools.find_packages()</code> 的结果。</p>
+
+<p>该函数常用三个参数，都是可选的：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">where</code>: 一个路径，相对于 <code class="language-plaintext highlighter-rouge">setup.py</code></li>
+  <li><code class="language-plaintext highlighter-rouge">include</code>: 一个 list，元素是 glob patterns</li>
+  <li><code class="language-plaintext highlighter-rouge">exclude</code>: 一个 list，元素是 glob patterns</li>
+</ul>
+
+<p>不指明任何参数 = 使用自动发现机制</p>
+
+<h3 id="package_dir"><code class="language-plaintext highlighter-rouge">package_dir</code></h3>
+
+<p>参数是一个 dict，两种用法：</p>
+
+<ul>
+  <li>标准的 src-layout，直接写 <code class="language-plaintext highlighter-rouge">{"": "src/"}</code>, 表示所有的代码都在这个文件夹里。</li>
+  <li>当 python 模块的结构和代码的文件结构不同的时候，用这个 dict 指明 模块-文件夹 之间的关系。</li>
+</ul>
+
+<p>文件的路径相对于 <code class="language-plaintext highlighter-rouge">setup.py</code> 而言</p>
+
+<h2 id="打包和上传">打包和上传</h2>
+
+<p>安装 build 工具：<code class="language-plaintext highlighter-rouge">python3 -m pip install --upgrade build</code></p>
+
+<p>运行 build：<code class="language-plaintext highlighter-rouge">python3 -m build</code></p>
+
+<p>如此会生成一个 <code class="language-plaintext highlighter-rouge">dist/</code> 文件夹，里面包含打包的结果。</p>
+
+<p>要想让自己的程序可以被别人用 <code class="language-plaintext highlighter-rouge">pip install</code> 的方式安装，需要将打包成果上传到 PyPI，方法在<a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/#uploading-the-distribution-archives">这里</a>。</p>
+
+<h2 id="安装">安装</h2>
+
+<h3 id="静态安装">静态安装</h3>
+
+<p>已经上传到 PyPI 的包，可以直接用 <code class="language-plaintext highlighter-rouge">pip install &lt;package&gt;</code> 安装，这种方法叫做静态安装</p>
+
+<h3 id="动态安装">动态安装</h3>
+
+<p>还在开发过程中的包，可以在 <code class="language-plaintext highlighter-rouge">setup.py</code> 所在的位置，运行 <code class="language-plaintext highlighter-rouge">pip install -e .</code> 这种安装方法叫做动态安装，因为代码的修改可以实时反映在引用的项目中。</p>
+
+<h2 id="思考题">思考题</h2>
+
+<p>上篇文章提到的一个<a href="https://gist.github.com/ericmjl/27e50331f24db3e8f957d1fe7bbbe510">数据分析项目</a>，其文件结构是这样的（我稍微改动了一下）：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/path/to/project/directory/
+|-- notebooks/
+    |-- 01-first-logical-notebook.ipynb
+    |-- 02-second-logical-notebook.ipynb
+    |-- prototype-notebook.ipynb
+    |-- archive/
+	      |-- no-longer-useful.ipynb
+|-- src/
+    |-- projectname/
+	      |-- __init__.py
+	      |-- config.py
+	      |-- data.py
+	      |-- utils.py
+    |-- setup.py
+|-- README.md
+|-- data/
+    |-- raw/
+    |-- processed/
+    |-- cleaned/
+|-- scripts/
+    |-- script1.py
+    |-- script2.py
+    |-- archive/
+        |-- no-longer-useful.py
+|-- environment.yml
+</code></pre></div></div>
+
+<p>问：</p>
+
+<ol>
+  <li>这是一个 flat-layout 还是 src-layout？</li>
+  <li>setup.py 应该怎么写？执行动态安装时的 <code class="language-plaintext highlighter-rouge">pwd</code> 结果是什么？</li>
+</ol>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[这里所说的“别人”，也包括6个月之后，已经不记得当初如何写出这段代码的自己。]]></summary></entry><entry><title type="html">.css | TailwindCSS 笔记</title><link href="https://mountaye.github.io/blog/articles/notes-on-TailwindCSS" rel="alternate" type="text/html" title=".css | TailwindCSS 笔记" /><published>2023-10-11T00:00:00-05:00</published><updated>2023-10-11T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/notes-on-TailwindCSS</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/notes-on-TailwindCSS"><![CDATA[<blockquote>
   <p>一直听说“全栈项目 = Next.js + TailwindCSS + HeadlessUI”
 但是 TailwindCSS 到底是啥，之前一直妹整明白</p>
 
@@ -2100,146 +2270,4 @@ npx tailwindcss init <span class="nt">-p</span>
   <li>动图演示: <a href="https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md">https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md</a></li>
   <li>U-net: <a href="https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/">https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/</a></li>
   <li>PyTorch TransposeConv 文档: <a href="https://pytorch.org/docs/stable/generated/torch.nn.ConvTranspose2d.html">https://pytorch.org/docs/stable/generated/torch.nn.ConvTranspose2d.html</a></li>
-</ul>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[在读 PyTorch 的文档和源码的时候，发现写文档的人也不怎么解释啥是卷积，卷积的各个参数是什么意思，只在文档里扔了个链接就完事了……]]></summary></entry><entry><title type="html">文革史笔记-2.2 | 清除“顶峰论”的反对者</title><link href="https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-2-2" rel="alternate" type="text/html" title="文革史笔记-2.2 | 清除“顶峰论”的反对者" /><published>2022-12-17T00:00:00-06:00</published><updated>2022-12-17T00:00:00-06:00</updated><id>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-2-2</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-2-2"><![CDATA[<h2 id="格式说明">格式说明</h2>
-
-<ul>
-  <li><em>下划线</em> 包括的内容，是对应章节的内容梗概。</li>
-  <li><code class="language-plaintext highlighter-rouge">&gt; blockquote</code> 引用的内容是对原文的摘抄。</li>
-  <li>没有下划线的内容，是根据引文的个人引申和感想。<del>一般来说是引文在前，感想在后</del>。各段感想之间以分割线 <code class="language-plaintext highlighter-rouge">&lt;hr /&gt;</code> 区分。</li>
-  <li>无序列表的内容，是对应章节的时间线整理。很多章节的时间线互相重叠，这在第二卷和第三卷中会更加常见，所以我另外维护了一份总的时间线，笔记全部完成后发布。</li>
-</ul>
-
-<h2 id="内容梗概">内容梗概</h2>
-
-<p><em>林彪因为身体不好，难以胜任国防部长的实际职责，具体工作多由罗瑞卿负责。为了将权力抓在自己手里，罗织罪名批斗之，导致罗瑞清跳楼，摔成残疾。</em></p>
-
-<p><em>为了交好江青，作为投名状，在军队系统举办“部队文艺工作座谈会”。</em></p>
-
-<p><em>作为“部队文艺工作座谈会”内容的延申，中宣部长陆定一及其妻子成为斗争目标。</em></p>
-
-<p>本章内容非常没劲，无非是红色贵族之间的勾心斗角。但是，如果不是这些无聊的勾心斗角，使得众多的红色贵族也成为了这场运动的受害者，这场运动还能短暂地获得“彻头彻尾的动乱”的定性，无数被构陷的普通百姓还能恢复名誉吗？唉……</p>
-
-<hr class="slender" />
-
-<h2 id="摘抄随想">摘抄随想</h2>
-
-<p>简体影印版第197页缺失，根据“本土与世界”修订新版，补录如下：</p>
-
-<blockquote>
-  <p>……进市后，罗瑞卿没被安排在他每次去上</p>
-
-  <p>海时住的锦江饭店，而是安排在他从来未住过的地方。罗瑞卿心中生疑，问了一句，得到的答复是锦江饭店住满了。按照惯例，罗瑞卿每到一处，秘书的第一件事就是把电话机架好，这次却受到婉转而坚决的阻挡。接着，通知罗瑞卿，有关领导人正在房间里等他谈话。他觉得蹊跷，有些紧张，又猜不透可能会发生什么事情。他没有发觉，这里警戒森严，不同于以往，便径直走向目的地。在房间里等待罗瑞卿的几位领导人是他熟悉又深为敬重的老战友，但谈话时却犹犹豫豫，经常中断话语，似乎有难以启齿之言。然而，为了服从上级部门的决定，他们最终还是说明了，正在开的会议是对罗瑞卿进行批判。罗瑞卿急于想知道会议情况，但自始至终被拒绝在会场门外。</p>
-
-  <p>罗瑞卿不得而知，被拒之门外的会议是林彪策划的一次对罗瑞卿进行突击的紧急会议。这次会议从1965年12月8日开始，到15日结束，由林彪主持。</p>
-
-  <p>事情源于1965年11月末。在杨尚昆被调离中央办公厅后，林彪立即向罗瑞卿发难了。林彪亲自给毛泽东写了一封信，说有重要情况需要报告，欲先派叶群送材料并作初步口头汇报。在得到毛泽东的应允后，叶群到杭州向毛泽东作了六七个小时的汇报，主要是利用海军的材料诬陷罗瑞卿。12月2日，毛泽东在一份报告上对罗瑞卿问题作了如下披语：“那些不相信突出政治，对于突出政治表示阳奉阴违，而袭击另外散布一套折中主义（即机会主义）的人们，大家应当有所警惕。”会议遵照毛泽东的批示，揭发、批判了罗瑞卿的所谓“反党篡军的罪行”。
-这次会议是中共中央政治局常委扩大会议。连中央委会都不是的叶群不仅出席了会议，还在会上就罗瑞卿问题作了三次发言，总计约十小时，成了会上“最有分量”的“炮弹”。叶群这个被称为“浑身上下都是假”的女人，早就使罗瑞卿十分厌恶。六十年代初部队评级定勋时，由于叶群自四九年后不断调动工作，从军队到地方，又从地方到军队……每次调动，都伴随着职级的提升，因此对她来说，职级已经很不低了，罗瑞卿考虑到这些因素，按照规定将叶群评为上校，而没有满足叶群要定大校的愿望，使叶群记恨在心；1965年春，林彪</p>
-
-  <p>关于“突出政治五项原则”发到部队前，罗瑞卿建议改掉文件中提到叶群名字的地方……</p>
-</blockquote>
-
-<hr class="slender" />
-
-<h2 id="时间线">时间线</h2>
-
-<ul>
-  <li>1959年
-    <ul>
-      <li>林彪主持中央军委工作，任国防部长后， 由于身体的原因，军内许多事务实际上是由罗瑞卿具体来抓，刘少奇就曾公开表示过，罗瑞卿是国防部长的接班人。【2.2.对“顶峰论”的异议】</li>
-    </ul>
-  </li>
-  <li>1960年
-    <ul>
-      <li>林彪拋出“顶峰论”和“最高最活”等极左口号时，罗瑞卿针锋相对地指出：“难道马列主义、毛泽东思想就不再发展了？把革命导师的理论说成‘顶峰’，这本身就违 背了毛泽东思想。” “‘最高最活’，难道还有次高次活？毛主席知道了也不会同意。”【2.2.对“顶峰论”的异议】</li>
-    </ul>
-  </li>
-  <li>1961年
-    <ul>
-      <li>林彪提出“背警句”、“立竿见影”等口号。罗瑞卿明确表示同意罗荣桓元帅的观点。【2.2.对“顶峰论”的异议】</li>
-    </ul>
-  </li>
-  <li>1960年代初
-    <ul>
-      <li>部队评级定勋时，由于叶群自四九年后不断调动工作，从军队到地方，又从地方到军队……每次调动，都伴随着职级的提升，因此对她来说，职级已经很不低了，罗瑞卿考虑到这些因素，按照规定将叶群评为上校，而没有满足叶群要定大校的愿望，使叶群记恨在心。【2.2.1965年底的上海“紧急会议”】</li>
-    </ul>
-  </li>
-  <li>1965年初
-    <ul>
-      <li>抓住这一时代特征，林彪就在学习毛泽 东著作上，更用心地大作文章。他不断地宣传，“应该用毛泽东思想，用毛主席著作，去提高群众的觉悟，提高群众的思想。地方工作总要有一个武器么！现成的武器不用，是最笨的了！ ”“中国要兴旺，就要用毛泽东思想武装人民群众。毛主席的思想武装了群众，中国就兴旺起来了。”“毛主席的话， 水平最髙，威力最大，句句是真理，一句顶一万句。”林彪企图用这些讲话来赢得毛泽东对他的更大欢心。【2.2.部队文艺工作座谈会】</li>
-    </ul>
-  </li>
-  <li>1965年春
-    <ul>
-      <li>林彪关于“突出政治五项原则”发到部队前，罗瑞卿建议改掉文件中提到叶群名字的地方。【2.2.1965年底的上海“紧急会议”】</li>
-    </ul>
-  </li>
-  <li>1965年11月
-    <ul>
-      <li>《评新编历史剧<海瑞罢官>》发表前后，江青多次打电话给罗瑙卿，说她要召开一个 “部队文艺工作座谈会”，请罗瑞卿参加。罗瑞卿对江 青反感，对江青的要求置之不理。【2.2.嫉妒与怨恨的结合】</海瑞罢官></li>
-      <li>江青还要求发给她军装，罗瑞卿又明确交待：军衣可以发一套，她没有军籍，领 章、帽徵不给她发。【2.2.嫉妒与怨恨的结合】</li>
-      <li>月末，杨尚昆被调离中央办公厅后，林彪立即向罗瑞卿发难了。林彪亲自给毛泽东写了一封信，说有重要情况需要报告，欲先派叶群送材料并作初步口头汇报。在得到毛泽东的应允后，叶群到杭州向毛泽东作了六七个小时的汇报，主要是利用海军的材料诬陷罗瑞卿。【2.2.1965年底的上海“紧急会议”】</li>
-    </ul>
-  </li>
-  <li>1965年12月2日
-    <ul>
-      <li>毛泽东在一份报告上对罗瑞卿问题作了如下披语：“那些不相信突出政治，对于突出政治表示阳奉阴违，而袭击另外散布一套折中主义（即机会主义）的人们，大家应当有所警惕。”【2.2.1965年底的上海“紧急会议”】</li>
-    </ul>
-  </li>
-  <li>1965年秋冬之际
-    <ul>
-      <li>林彪叫秘书打电话授意海军副司令员李作鹏写一个《关于近年来海军两种思想斗争 的情况》，重点是罗瑞卿的表现。【2.2.1965年底的上海“紧急会议”】</li>
-      <li>林彪的老婆叶群则亲自打电 活给李作鹏，说罗瑞卿“有野心”，“想当国防部长”，“正在组织新班子”，要李作鹏“从海军角度”写材料。【2.2.1965年底的上海“紧急会议”】</li>
-      <li>林彪、叶群又指使空军司令员吴法宪利用前空军司令员刘亚楼等问题诬陷罗瑞卿。【2.2.1965年底的上海“紧急会议”】</li>
-      <li>罗瑞卿作为总参谋长从北京去云南落实中央军委的军事部署。突然接到通知，要他 马上到上海开会，却没有透露会议内容。在上海机场前来接他的是上海市委的一位负责人和空军司令员吴法宪，以往那种见到上司满脸堆着殷勤献媚的笑容无影无踪了。【2.2.1965年底的上海“紧急会议”】</li>
-    </ul>
-  </li>
-  <li>1965年12月8日-15日
-    <ul>
-      <li>中共中央政治局常委扩大会议。【2.2.1965年底的上海“紧急会议”】
-        <ul>
-          <li>罗瑞卿不得而知，被拒之门外的会议是林彪策划的一次对罗瑞卿进行突击的紧急会议。</li>
-          <li>会议遵照毛泽东的批示，揭发、批判了罗瑞卿的所谓“反党篡军的罪行”。</li>
-          <li>这次会议是连中央委会都不是的叶群不仅出席了会议，还在会上就罗瑞卿问题作了三次发言，总计约十小时，成了会上“最有分量”的“炮弹”。</li>
-          <li>林彪在紧急会议上宣布了撤销罗瑞卿中共中央书记处书记、国务院副总理、公安部部长，国防部副部长、中国人民解放军参谋长、中央军委秘书长、国防委员会副主席等一切职务。</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>1966年2月2日-20日
-    <ul>
-      <li>江靑勾结林彪召开了一次部队文艺工作座谈会。为了夺取她对文艺界的领导权，为了向全国抛出她制造的“文艺黑线专政论”。【2.2.部队文艺工作座谈会】</li>
-      <li>林彪积极配合江青百开部队文艺工作座谈会。会前，他亲自向与会者宣布他与江青关系的密切。会后， 起草了《林彪同志委托江青同志召开的部队文艺工作座谈会纪要》。江青梦寐以求的领导中国文艺的愿望，从军队幵始打开了缺口，而林彪利用江青亲近毛泽东的目标也大大地进了一 步。【2.2.部队文艺工作座谈会】</li>
-      <li>《林彪同志委托江青同志召开的部队文艺工作座谈会纪要》中提到，自建国以来，文艺界被一条与毛泽东思想相对立的反党反社会主义的黑线专了我们的政”。江青的“文艺黑线专政论”，就是针对陆定一等人提出的。【2.2.对陆定一和严慰冰的打击】</li>
-    </ul>
-  </li>
-  <li>1966年3月
-    <ul>
-      <li>在北京连续召开了批判罗瑞卿的会议，并指定罗瑞卿在会上做检查。如果罗瑞卿不承认林彪所罗列的他的一系列罪行，检査便休想通过。因此，会议开得很特别，没有确定的日程，停停开开，开开停停。每次休会意味着罗瑞卿失去一次陈述真相的机会，而每次复会，却是对罗瑞卿狂暴的又一次升级。【2.2.把罗瑞卿逼上绝路】</li>
-      <li>罗瑞卿女儿点点在《生命的歌》一文中所叙述的那样：“看见的 是，他所崇敬的德高望重者沉然地背过脸去，卖身求荣者的敢 噪淹没了仗义执言的呼声，心地善良的人被迫缄口不言或违心附合，反复无常的人则高举顺风旗，脸上堆满狞笑，血口喷 人。他好象被推进茫茫黑夜中，黎明没有盼头，他好象被推上悬崖绝壁，却只能往前走。他面前的一切使他心境徬徨，迷惑 无法解，他意识到有人在逼他，逼他离开这个世界。”【2.2.把罗瑞卿逼上绝路】</li>
-    </ul>
-  </li>
-  <li>1966年3月18日深夜
-    <ul>
-      <li>罗瑞卿孤寂、郁闷，觉得再也忍受不到天明。当他觉得一切终将结束时，他给妻子郝治平，留下了一张字条：“治平：会议的事没有告诉你，为了守纪律 ……永别了，要叫孩子们永远听党的话，听毛主席的话！我们 的党永远是光荣的、正确的、伟大的，你要继续改造自已！永远革命。”便从他住房的楼顶纵身跳了下去。【2.2.把罗瑞卿逼上绝路】</li>
-      <li>罗瑞卿没有失去生命，只是左腿骨折。当他躺在医院里，睁开眼猜看见正在流泪的妻子时，一再嘱咐她“要把孩子们养大，不要让他们斩草除根。总有一天， 党会把事情搞清楚的。”【2.2.把罗瑞卿逼上绝路】</li>
-      <li>罗瑞卿失却了自由。他被送进了一个不知名的地方，陪伴他的是一张硬板床，一张小方 桌，一个难得见到阳光的小窗户，严密的看守，无昼无夜的自 责和思索，以及难以忍受的断肢的疼痛和不断发作的心绞痛。【2.2.把罗瑞卿逼上绝路】</li>
-      <li>林彪则把罗瑞卿看作是“身残名裂”的敌人，以自杀这种形式来表示“叛党叛国”的“罪犯”。他幸灾乐祸，并要一步步把 罗瑞卿逼到绝路。【2.2.把罗瑞卿逼上绝路】</li>
-    </ul>
-  </li>
-  <li>1966年3月底
-    <ul>
-      <li>毛泽东说：“一九六二年十中全会作出了进行阶级斗争的决议，为什么吴晗写了那么许多反动文章，中宣部都不要打招呼，而发表姚文元的文章却偏偏要跟中宣部打招呼呢？难道中央的决议不算数吗？”“扣压左派稿件、包庇反共知识分子的人是‘大学阀’。中宣部是阎王殷。要‘打倒阎王、解放小鬼！’”是对中宣部长陆定一更尖锐的批评。【2.2.对陆定一和严慰冰的打击】</li>
-    </ul>
-  </li>
-  <li>1966年4月28日
-    <ul>
-      <li>为了加紧对陆定一的打击陷害，严慰冰被诱捕入狱。【2.2.对陆定一和严慰冰的打击对陆定一和严慰冰的打击】</li>
-    </ul>
-  </li>
-  <li>1966年5月18日
-    <ul>
-      <li>林彪在会议上说：“有人可能搞鬼，他们现 在已经在搞鬼。野心家，大有人在，他们是资产阶级的代表，想推翻我们的无产阶级专政。不能让他们得逞。有一批王八蛋，他们要冒险，他们待机而动。他们想杀我们，我们就要 镇压他们，他们是假革命，他们是假马克思主义，他们是假毛泽东思想，他们是背叛分子，毛主席健在，他们就背叛，他们就阳奉阴违，他们是野心家，他们搞鬼，他们现在就想杀人，用种种手法杀人。陆定一就是一个，陆定一的老婆就是一个。”【2.2.对陆定一和严慰冰的打击】</li>
-      <li>严慰冰曾多次隐蔽地掲露林彪、叶群的虚伪，并对叶群在延安时期生活作风问题提出斥责，还对叶群自称十六岁入党的问题提出质疑，这些造成了林彪、叶群对严慰冰的怨恨。【2.2.对陆定一和严慰冰的打击】</li>
-    </ul>
-  </li>
-</ul>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[本章内容非常没劲，无非是红色贵族之间的勾心斗角。但是，如果不是这些无聊的勾心斗角，使得众多的红色贵族也成为了这场运动的受害者，这场运动还能短暂地获得“彻头彻尾的动乱”的定性，无数被构陷的普通百姓还能恢复名誉吗？唉……]]></summary></entry></feed>
+</ul>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[在读 PyTorch 的文档和源码的时候，发现写文档的人也不怎么解释啥是卷积，卷积的各个参数是什么意思，只在文档里扔了个链接就完事了……]]></summary></entry></feed>

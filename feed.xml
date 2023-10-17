@@ -1,4 +1,223 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-10-13T11:39:34-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.py | 让自己的代码可以被别人使用</title><link href="https://mountaye.github.io/blog/articles/python-packaging" rel="alternate" type="text/html" title=".py | 让自己的代码可以被别人使用" /><published>2023-10-13T00:00:00-05:00</published><updated>2023-10-13T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/python-packaging</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/python-packaging"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-10-16T21:22:45-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.py | Python 测试笔记</title><link href="https://mountaye.github.io/blog/articles/Python-test-notes" rel="alternate" type="text/html" title=".py | Python 测试笔记" /><published>2023-10-16T00:00:00-05:00</published><updated>2023-10-16T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/Python-test-notes</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/Python-test-notes"><![CDATA[<h2 id="一些名词">一些名词</h2>
+
+<h3 id="调试和测试">调试和测试</h3>
+
+<p>调试一般是由代码的作者进行，用于自行检查程序运行过程，是否存在思路和实现不匹配的错误，调试的代码一般和程序主体写在一起，主要包括错误处理和日志记录。简单的可以用 print 和 assert，复杂的程序可以用 logging。</p>
+
+<p>测试一般由第三方进行，测试代码和程序代码分离，写测试的人甚至不需要理解程序的具体工作原理，只关注给定的输入能否得到程序宣称的输出。</p>
+
+<h3 id="单元测试">单元测试</h3>
+
+<p>对一个模块、一个函数或者一个类来进行正确性检验的测试工作。</p>
+
+<p>检验的方法是写一堆测试用例，把测试员拍脑袋想的输入交给相应的模块，看模块的输出是否正确；以及不合理的输入是否被程序识别，抛出异常。</p>
+
+<p>单元测试全通过了不代表程序整体一定就没错误，但是单元测试通不过的程序一定有问题。</p>
+
+<h3 id="文档测试">文档测试</h3>
+
+<p>文档是对代码的功能介绍，其中不免要举例子，给出实例代码和相应的输出，这个过程很像是单元测试，只不过是纯嘴炮。</p>
+
+<p>文档测试就是自动寻找文档中的示例代码，运行之后，和文档中的结果进行比对。</p>
+
+<h3 id="集成测试">集成测试</h3>
+
+<p>集成测试模拟用户的行为，测试各个模块之间的配合，测试结果应该保证程序可以在生产环境中工作。</p>
+
+<h2 id="python-中的测试">Python 中的测试</h2>
+
+<h3 id="文件结构">文件结构</h3>
+
+<p>上一篇文章里面提到了 src-layout，在 setuptools 的官方文档里提供了<a href="https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure">一篇博客文章</a>，里面提到，这种文件结构的一个优点就是，测试代码的文件夹一般和 <code class="language-plaintext highlighter-rouge">src/</code> 而不是 package 平级，这就导致运行测试的时候只能先（在虚拟环境里）安装待测试的包，而不会无意中出现测试的代码和用户下载到的内容不同的问题。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;project_name&gt;
+├── LICENSE
+├── pyproject.toml
+├── README.md
+├── src/
+│   └── &lt;package_name&gt;/
+│       ├── __init__.py
+│       └── example.py
+└── tests/
+</code></pre></div></div>
+
+<h3 id="单元测试unittest">单元测试·<code class="language-plaintext highlighter-rouge">unittest</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">unittest</code> 是 Python 自带的单元测试库。</p>
+
+<p>测试脚本的内容基本如下：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import unittest
+
+class TestName1(unittest.TestCase):
+
+    def test_sum(self):
+        self.assertEqual(sum([1, 2, 3]), 6, "Should be 6")
+
+    def test_sum_tuple(self):
+        self.assertEqual(sum((1, 2, 2)), 6, "Should be 6")
+
+class TestName2(unittest.TestCase):
+
+    def test_sum(self):
+        self.assertEqual(sum([1, 2, 3]), 6, "Should be 6")
+
+    def test_sum_tuple(self):
+        self.assertEqual(sum((1, 2, 2)), 6, "Should be 6")
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre></div></div>
+
+<ul>
+  <li>测试用例包装在一个 class 里面，这个 class 继承自 <code class="language-plaintext highlighter-rouge">unittest.TestCase</code></li>
+  <li>所有测试方法名字以 “test” 开头，能测试的性质有限，都是类自带的方法，以 <code class="language-plaintext highlighter-rouge">self.</code> 开头。支持的方法见下表，感觉 <code class="language-plaintext highlighter-rouge">[assertTrue(x)](https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertTrue)</code> 和 <code class="language-plaintext highlighter-rouge">assertRaises(Exception)</code> 包打一切</li>
+  <li>作为 <code class="language-plaintext highlighter-rouge">'__main__'</code> 运行，运行的是自带的函数 <code class="language-plaintext highlighter-rouge">unittest.main()</code>。</li>
+  <li>运行时需要 python 指明脚本的文件名。安装了 nose2 这个库的话，可以直接运行 <code class="language-plaintext highlighter-rouge">python -m nose2</code>, 它会自动寻找所有的测试依次运行。（后面发现 <code class="language-plaintext highlighter-rouge">unittest</code> 好像也有自动发现功能）</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Checks that</th>
+      <th>New in</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertEqual</td>
+      <td>a == b</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotEqual</td>
+      <td>a != b</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertTrue</td>
+      <td>bool(x) is True</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertFalse</td>
+      <td>bool(x) is False</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIs</td>
+      <td>a is b</td>
+      <td>3.1</td>
+    </tr>
+    <tr>
+      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsNot</td>
+      <td>a is not b</td>
+      <td>3.1</td>
+    </tr>
+    <tr>
+      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsNone</td>
+      <td>x is None</td>
+      <td>3.1</td>
+    </tr>
+    <tr>
+      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsNotNone</td>
+      <td>x is not None</td>
+      <td>3.1</td>
+    </tr>
+    <tr>
+      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIn</td>
+      <td>a in b</td>
+      <td>3.1</td>
+    </tr>
+    <tr>
+      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotIn</td>
+      <td>a not in b</td>
+      <td>3.1</td>
+    </tr>
+    <tr>
+      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsInstance</td>
+      <td>isinstance(a, b)</td>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotIsInstance</td>
+      <td>not isinstance(a, b)</td>
+      <td>3.2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="文档测试-1">文档测试</h3>
+
+<p><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017605739507840">https://www.liaoxuefeng.com/wiki/1016959663602400/1017605739507840</a></p>
+
+<p>Python 的文档测试用的是 <code class="language-plaintext highlighter-rouge">doctest</code> 库，写法如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+    <span class="s">'''
+    Simple dict but also support access as x.y style.
+
+    &gt;&gt;&gt; d1 = Dict()
+    &gt;&gt;&gt; d1['x'] = 100
+    &gt;&gt;&gt; d1.x
+    100
+    &gt;&gt;&gt; d1.y = 200
+    &gt;&gt;&gt; d1['y']
+    200
+    &gt;&gt;&gt; d2 = Dict(a=1, b=2, c='3')
+    &gt;&gt;&gt; d2.c
+    '3'
+    &gt;&gt;&gt; d2['empty']
+    Traceback (most recent call last):
+        ...
+    KeyError: 'empty'
+    &gt;&gt;&gt; d2.empty
+    Traceback (most recent call last):
+        ...
+    AttributeError: 'Dict' object has no attribute 'empty'
+    '''</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">(</span><span class="n">Dict</span><span class="p">,</span> <span class="n">self</span><span class="p">).</span><span class="nf">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">except</span> <span class="nb">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nc">AttributeError</span><span class="p">(</span><span class="sa">r</span><span class="s">"'Dict' object has no attribute '%s'"</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">'__main__'</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="n">doctest</span>
+    <span class="n">doctest</span><span class="p">.</span><span class="nf">testmod</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>在保持 docstring 缩进的前提下，<code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;</code>  开头的注释会被当作测试运行，紧随其后的行将作为对比基准。只有当预期报错的时候，可以用 <code class="language-plaintext highlighter-rouge">...</code> 省略中间的报错信息。</p>
+
+<h3 id="集成测试-1">集成测试</h3>
+
+<p>也可以用 <code class="language-plaintext highlighter-rouge">unittest</code> 完成。</p>
+
+<p>和单元测试的区别在于，一般来说需要构建测试数据集等等。这需要重写 <code class="language-plaintext highlighter-rouge">unittest.TestCase.setup()</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">TestComplexData</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># load test data
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">app</span> <span class="o">=</span> <span class="nc">App</span><span class="p">(</span><span class="n">database</span><span class="o">=</span><span class="s">'fixtures/test_complex.json'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_customer_count</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">app</span><span class="p">.</span><span class="n">customers</span><span class="p">),</span> <span class="mi">10000</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_existence_of_customer</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">customer</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">app</span><span class="p">.</span><span class="nf">get_customer</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">9999</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="n">customer</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="sa">u</span><span class="s">"バナナ"</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="n">customer</span><span class="p">.</span><span class="n">address</span><span class="p">,</span> <span class="s">"10 Red Road, Akihabara, Tokyo"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="p">.</span><span class="nf">main</span><span class="p">()</span>
+</code></pre></div></div>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[如题]]></summary></entry><entry><title type="html">.py | 让自己的代码可以被别人使用</title><link href="https://mountaye.github.io/blog/articles/python-packaging" rel="alternate" type="text/html" title=".py | 让自己的代码可以被别人使用" /><published>2023-10-13T00:00:00-05:00</published><updated>2023-10-13T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/python-packaging</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/python-packaging"><![CDATA[<blockquote>
   <p>这里所说的“别人”，也包括6个月之后，已经不记得当初如何写出这段代码的自己。</p>
 
 </blockquote>
@@ -1886,388 +2105,4 @@ npx tailwindcss init <span class="nt">-p</span>
 
 <h3 id="8-死亡的本性-death">8. 死亡的本性 (Death)</h3>
 
-<h3 id="9-生活的意义-the-meaning-of-life">9. 生活的意义 (The Meaning of Life)</h3>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[这是编程随想 [电子书库/哲学/通俗读物] 中的一本，他重回赛博空间的可能性已经越来越小了，读书，写读书笔记，也是对他进行纪念的一种方式。]]></summary></entry><entry><title type="html">.ai | 神经网络中的卷积及其参数</title><link href="https://mountaye.github.io/blog/articles/parameters-in-convolution-in-neural-network-and-transposeconv" rel="alternate" type="text/html" title=".ai | 神经网络中的卷积及其参数" /><published>2022-12-29T00:00:00-06:00</published><updated>2022-12-29T00:00:00-06:00</updated><id>https://mountaye.github.io/blog/articles/parameters-in-convolution-in-neural-network-and-transposeconv</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/parameters-in-convolution-in-neural-network-and-transposeconv"><![CDATA[<p>在读 PyTorch 的文档和源码的时候，发现写文档的人也不怎么解释啥是卷积，卷积的各个参数是什么意思，只在文档里扔了个链接就完事了，链接那头是一个 GitHub 上的动图演示仓库，是一篇论文《A guide to convolution arithmetic for deep learning》（链接在文末）的附件。于是这篇文章，基本上就是论文的读书笔记了。</p>
-
-<h2 id="数学的卷积连续-vs-离散">数学的卷积：连续 vs. 离散</h2>
-
-<h3 id="定义">定义</h3>
-
-<p>连续的情况，两个单变量函数 \(f(\cdot)\) 和 \(g(\cdot)\) 的卷积，定义为：</p>
-
-\[\left(f*g\right)(x):=\int_{-\infty}^{\infty}f(\tau)g(x-\tau)d\tau\]
-
-<p>离散的情况，两个向量（也就是一阶张量） \(\vec f\) 和 \(\vec g\) 的卷积，定义为：</p>
-
-\[\left(\vec f * \vec g\right)_i := \sum_{j=-\infty}^{\infty} f_j g_{i-j}\]
-
-<p>多变量函数/高阶张量的情况，只需要多加几重积分/求和号就可以类推了。</p>
-
-<p>看这两个定义——</p>
-
-<p>只看等号左边的话，可以把卷积看作是一种特殊的乘法，也就是一种<strong>运算。</strong>f 和 g 的地位是平等的，卷积甚至还满足交换律，你甚至可以把两者的顺序变一变；</p>
-
-<p>但是看等号右边的话，卷积就应该被看作是一种<strong>变换</strong>。f 和 g 的地位不再平等，f 是被变换的函数/向量，g 是变换的核 (kernel)。函数的情况里，g 把定义在 \(\tau\) 空间里的函数 f 变换成了 x 空间里的另一个函数；向量的情况里，g 把一个 J (j 所有可能取值的数量) 维向量 f 变换成了一个 I (i 所有可能取值的数量) 维向量。</p>
-
-<p>神经网络中的卷积，<strong>借用</strong>的主要是第二种<strong>理解</strong>。</p>
-
-<h3 id="手算一个例子">手算一个例子</h3>
-
-<p>例如 \(\vec f = (1,2,3,4)\), \(\vec g = (1,2,3)\)，而且约定下标从 0 开始的话——</p>
-
-<p>  \((\vec f*\vec g)_0 = f_0g_0 = 1\)</p>
-
-<p>  \((\vec f*\vec g)_1 = f_0g_1 + f_1g_0  = 4\)</p>
-
-<p>  \((\vec f*\vec g)_2 = f_0g_2 + f_1g_1 + f_2g_0 = 10\)</p>
-
-<p>  \((\vec f*\vec g)_3 = f_1g_2 + f_2g_1 + f_3g_0 = 16\)</p>
-
-<p>  \((\vec f*\vec g)_4 = f_2g_2 + f_3g_1 = 17\)</p>
-
-<p>  \((\vec f*\vec g)_5 = f_3g_2 = 12\)</p>
-
-<p>不想手算？</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">from</span> <span class="n">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
-<span class="n">signal</span><span class="p">.</span><span class="nf">convolve</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]),</span><span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]))</span>
-</code></pre></div></div>
-
-<h3 id="形象化表示">形象化表示</h3>
-
-<p>上面的计算过程，可以看作是——</p>
-
-<ol>
-  <li>把 g 向量的<strong>顺序反过来；</strong></li>
-  <li>把 g 的最右一个元素和 f 的最左元素对齐，</li>
-  <li>上下两行都有数字的列相乘（也就是把没有数字的地方看作 0），然后把所有乘积相加，得到 f*g 的第一项；</li>
-  <li>把 g 向右移动一格</li>
-  <li>重复第3、4步</li>
-  <li>直到 g 的最左项移动到 f 的最右一个元素。</li>
-</ol>
-
-<p>形如下列各表：</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>f</th>
-      <th> </th>
-      <th> </th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-    </tr>
-    <tr>
-      <th>g</th>
-      <th>3</th>
-      <th>2</th>
-      <th>1</th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>(f*g)(0) = 1</td>
-      <td> </td>
-      <td> </td>
-      <td>1</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<hr class="slender" />
-
-<table>
-  <thead>
-    <tr>
-      <th>f</th>
-      <th> </th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-    </tr>
-    <tr>
-      <th>g</th>
-      <th>3</th>
-      <th>2</th>
-      <th>1</th>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>(f*g)(1) = 4</td>
-      <td> </td>
-      <td>2</td>
-      <td>2</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<hr class="slender" />
-
-<table>
-  <thead>
-    <tr>
-      <th>f</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>g</td>
-      <td>3</td>
-      <td>2</td>
-      <td>1</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>(f*g)(2) = 10</td>
-      <td>3</td>
-      <td>4</td>
-      <td>3</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<hr class="slender" />
-
-<table>
-  <thead>
-    <tr>
-      <th>f</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-    </tr>
-    <tr>
-      <th>g</th>
-      <th> </th>
-      <th>3</th>
-      <th>2</th>
-      <th>1</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>(f*g)(3) = 16</td>
-      <td> </td>
-      <td>6</td>
-      <td>6</td>
-      <td>4</td>
-    </tr>
-  </tbody>
-</table>
-
-<hr class="slender" />
-
-<table>
-  <thead>
-    <tr>
-      <th>f</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th> </th>
-    </tr>
-    <tr>
-      <th>g</th>
-      <th> </th>
-      <th> </th>
-      <th>3</th>
-      <th>2</th>
-      <th>1</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>(f*g)(4) = 17</td>
-      <td> </td>
-      <td> </td>
-      <td>9</td>
-      <td>8</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<hr class="slender" />
-
-<table>
-  <thead>
-    <tr>
-      <th>f</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th> </th>
-      <th> </th>
-    </tr>
-    <tr>
-      <th>g</th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th>3</th>
-      <th>2</th>
-      <th>1</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>(f*g)(5) = 12</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>12</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="机器学习的卷积是卷积吗">机器学习的卷积，是卷积吗？</h2>
-
-<p>看论文给出的图 Figure 1.1，在卷积核是灰色 3*3 矩阵的情况下，对蓝色 5*5 矩阵的卷积就是直接把核对齐到蓝色矩阵上，<strong>并没有把核的元素顺序颠倒过来</strong>。</p>
-
-<p>这玩意能叫卷积吗？</p>
-
-<p><img src="/blog/assets/photos/2022-12-29-convolution.png" alt="convolution" /></p>
-
-<p>有人强行挽尊，说我们画图示的时候已经把核给颠倒过来了，想知道卷积核就把灰色小矩阵再颠倒回去——</p>
-
-<p>但是，不颠倒就对齐相乘的运算也是有名字的，叫 cross correlation。核有没有颠倒，convolution 还是 cross correlation 一组合，可以带来升维打击般的混乱，堪比高中化学的“还原剂被氧化，氧化剂被还原”……所以，对于计算机专业的数学水平，不予置评～</p>
-
-<p>（你这样纠缠有意思吗？.jpg）</p>
-
-<h2 id="卷积torchnnconv-及其各个参数">卷积<code class="language-plaintext highlighter-rouge">torch.nn.Conv</code> 及其各个参数</h2>
-
-<h3 id="in_channels--out_channels"><code class="language-plaintext highlighter-rouge">in_channels</code> &amp; <code class="language-plaintext highlighter-rouge">out_channels</code></h3>
-
-<p>“卷积”的意义在于用一种比较省内存的方式，考虑输入张量中各个元素，和空间上相近的邻居元素之间的关系。所以只需要在真的存在空间关系的维度做卷积，其他维度可以留着不动。</p>
-
-<p>比如一张彩色图片，是一个 (颜色<em>高度</em>宽度) 的 3 阶张量，我们只需要对高度和宽度两个维度做卷积，颜色就是不参与“卷积”的 channel。</p>
-
-<p><code class="language-plaintext highlighter-rouge">in_channel</code> 就是被“卷积”的张量的 channel 数，<code class="language-plaintext highlighter-rouge">out_channel</code> 是“卷积”结果的 channel 数。比如我们想从一张 RGB 三色图片中分辨出前景和背景两种不同区域，<code class="language-plaintext highlighter-rouge">in_channel=3</code>, <code class="language-plaintext highlighter-rouge">out_channel=2</code>。</p>
-
-<p>而 <code class="language-plaintext highlighter-rouge">in_channel</code> 如何能够与 <code class="language-plaintext highlighter-rouge">out_channel</code> 取值不同，原理见 Figure 1.3。我们使用 <code class="language-plaintext highlighter-rouge">out_channel</code> 个不含 channel 维度的“卷积”核，每一个核都与每一个 in channel 做卷积，得到图中的蓝、紫色小矩阵，然后直接把不同的 in channel 暴力求和，得到的结果分别作为卷积结果的 out channel。（这个暴力求和与我以前想得不一样，我以为是什么每一元素都做了一个<code class="language-plaintext highlighter-rouge">in_channel</code>*<code class="language-plaintext highlighter-rouge">out_channel</code> 的全联通层）</p>
-
-<p><img src="/blog/assets/photos/2022-12-29-channels.png" alt="channels" /></p>
-
-<p>PyTorch 的习惯，对于一个 N 阶“卷积”，参与卷积的是张量的最后 N 阶，<code class="language-plaintext highlighter-rouge">in_channel</code> 和 <code class="language-plaintext highlighter-rouge">out_channel</code> 也就是被卷张量和卷积结果的 <code class="language-plaintext highlighter-rouge">Tensor.shape[-(N+1)]</code></p>
-
-<p>后面图示的例子都没有考虑 <code class="language-plaintext highlighter-rouge">in_channel</code> 和 <code class="language-plaintext highlighter-rouge">out_channel</code> 的数量，也就是都当作 1 了。</p>
-
-<h3 id="kernel_size"><code class="language-plaintext highlighter-rouge">kernel_size</code></h3>
-
-<p>就是灰色矩阵“卷积”核，每边有几个数字。如果不同方向的边长不一，该参数就需要用一个 tuple 来表示。Figure 1.1 的灰色卷积核，<code class="language-plaintext highlighter-rouge">kernel_size=(3,3)</code></p>
-
-<p><img src="/blog/assets/photos/2022-12-29-kernel.png" alt="kernel" /></p>
-
-<h3 id="padding--padding_mode"><code class="language-plaintext highlighter-rouge">padding</code> &amp; <code class="language-plaintext highlighter-rouge">padding_mode</code></h3>
-
-<p>前面手算例子的时候很鸡贼地把 0 作为向量下标的起点。如果采用日常 1 开头的下标来算，第 1 项结果为零，整个卷积结果的长度会长很多，而且多出来的后面几项也都是零。</p>
-
-<p>而且在这个过程中，我们实际上是把一个有限长度的向量，看作了一个以所有整数 \(\Z\) 为定义域的函数，除了那有限的几项之外，其余地方都定义函数值为 0。</p>
-
-<p>用计算机计算的话显然没法如此奢侈地谈“无限多个”，例子中实际用到的，在 \(\vec f\) 左右两边各需要 2 个 0，也就是说 <code class="language-plaintext highlighter-rouge">padding=2</code>, <code class="language-plaintext highlighter-rouge">padding_mode='zeros'</code></p>
-
-<p>Figure 1.2 表示的就是 <code class="language-plaintext highlighter-rouge">padding=(1,1)</code> 的情况（蓝色是被卷张量，白色是 padding，灰色是卷积核，绿色是卷积结果）：</p>
-
-<p><img src="/blog/assets/photos/2022-12-29-padding.png" alt="padding" /></p>
-
-<p>既然神经网络中的卷积并不是真正的卷积，所以他们索性不装了——</p>
-
-<p>正常卷积的结果往往比被卷张量大一圈（具体大多少取决于  <code class="language-plaintext highlighter-rouge">kernel_size</code>, <code class="language-plaintext highlighter-rouge">padding</code>, <code class="language-plaintext highlighter-rouge">stride</code> 多个参数），但是图像处理的时候经常希望输出图片和输入图片一样大，此时可以用字符串 <code class="language-plaintext highlighter-rouge">“same”</code> 作为 <code class="language-plaintext highlighter-rouge">padding</code> 的参数，自动计算 padding 的大小。<code class="language-plaintext highlighter-rouge">“strict”</code> 则表示 <code class="language-plaintext highlighter-rouge">padding=0</code>, 这样输出图片尺寸会变小，但是没有 padding，也就没有往图片里掺杂研究者对图片边缘以外信息的臆测。</p>
-
-<p>同时 <code class="language-plaintext highlighter-rouge">padding_mode</code> 参数表示往被卷张量四周填充的数字也不一定是 0。比如对于图片，0 往往表示纯黑，而绝大多数图片的视野之外，往往是和图片边缘像素值相差不大的值。所以 <code class="language-plaintext highlighter-rouge">padding_mode</code> 除了 <code class="language-plaintext highlighter-rouge">zeros</code> 之外，还接受以下取值：</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">reflect</code>: 以图片边缘为镜面，把边缘附近的像素值对陈反射出去；</li>
-  <li><code class="language-plaintext highlighter-rouge">replicate</code>: 只取边缘的像素值作为常数，直接向外延拓；</li>
-  <li><code class="language-plaintext highlighter-rouge">circular</code>: 类似于物理中的周期性边界条件，取对边附近的像素值作为 padding 内容。</li>
-</ul>
-
-<h3 id="stride"><code class="language-plaintext highlighter-rouge">stride</code></h3>
-
-<p>前面手算卷积的第4步，把卷积核向右移动了1格，如果每次移动超过1格，就需要这个参数指定移动步长。如果不同方向的步长不同，也是用 tuple 来表示。</p>
-
-<p>Figure 1.4 表示的就是 <code class="language-plaintext highlighter-rouge">stride=(2,2)</code> 的情况（蓝色是被卷张量，蓝色中的深色块是卷积核，绿色是卷积结果）：</p>
-
-<p><img src="/blog/assets/photos/2022-12-29-stride.png" alt="stride" /></p>
-
-<h3 id="dilation"><code class="language-plaintext highlighter-rouge">dilation</code></h3>
-
-<p>这个参数把“卷积”核撑开，也就相当于在“卷积”核的相邻元素之间加 0。Figure 1.5 表示的就是 <code class="language-plaintext highlighter-rouge">dilation=(1,1)</code> 的情况（蓝色是被卷张量，蓝色中的深色块是卷积核，绿色是卷积结果）：</p>
-
-<p><img src="/blog/assets/photos/2022-12-29-dilation.png" alt="dilation" /></p>
-
-<p>比如 <code class="language-plaintext highlighter-rouge">dilation=1</code> 时，(1,2,3) 的卷积核就相当于 (1,0,2,0,3)</p>
-
-<p>比如 <code class="language-plaintext highlighter-rouge">dilation=2</code> 时，(1,2,3) 的卷积核就相当于 (1,0,0,2,0,0,3)</p>
-
-<p>这样可以让卷积核在尺寸比较小的情况下，覆盖到更大面积的被卷张量。当然具体实现时，不可能直接补 0 这么浪费内存。</p>
-
-<h3 id="groups"><code class="language-plaintext highlighter-rouge">groups</code></h3>
-
-<p>该参数必须是 <code class="language-plaintext highlighter-rouge">in_channel</code> 和 <code class="language-plaintext highlighter-rouge">out_channel</code> 的公约数，当其不为 1 时，就相当于同时做 <code class="language-plaintext highlighter-rouge">groups</code> 个卷积，其中每个卷积的 <code class="language-plaintext highlighter-rouge">in_channel=in_channel/groups</code>, <code class="language-plaintext highlighter-rouge">out_channel=out_channel/groups</code></p>
-
-<h3 id="bias"><code class="language-plaintext highlighter-rouge">bias</code></h3>
-
-<p>该参数是一个布尔值，卷积类似于一种高维空间里的乘法，这个参数就决定是否要拟合 <code class="language-plaintext highlighter-rouge">y=kx+b</code> 中的 <code class="language-plaintext highlighter-rouge">b</code></p>
-
-<h2 id="卷积的逆运算-transposeconv">“卷积”的“逆运算”： <code class="language-plaintext highlighter-rouge">TransposeConv</code></h2>
-
-<p>卷积的结果比 padding 之后的被卷张量要小。尤其当“卷积”的 <code class="language-plaintext highlighter-rouge">stride</code> 约等于 <code class="language-plaintext highlighter-rouge">kernel_size</code> 时，卷积的就变成了某些池化 (pooling)（求最大值不是一种线性算子，所以最大值池化不能用卷积表示，但是平均值池化可以）。</p>
-
-<p>那么在类似 U-net 这样的模型里，右半边的数据升维（下图中的绿箭头），就需要一种“卷积”的“逆运算”。有人把这种运算叫做 deconvolution，有人叫做 transposed convolution，还有人叫做 convolution with fractional strides。</p>
-
-<p><img src="/blog/assets/photos/2022-12-29-unet.png" alt="Unet" /></p>
-
-<p>PyTorch 取的是第二种名字。论文解释了为什么这么取名字，笔记以后有时间再补上把……</p>
-
-<p>因为这个与运算本身就是作为“卷积”的逆运算出现的，所以 PyTorch 的文档里这么说：</p>
-
-<blockquote>
-  <p>This is set so that when a <code class="language-plaintext highlighter-rouge">Conv2d</code> and a <code class="language-plaintext highlighter-rouge">ConvTranspose2d</code> are initialized with same parameters, they are inverses of each other in regard to the input and output shapes.</p>
-
-</blockquote>
-
-<p>也就是说，把 <code class="language-plaintext highlighter-rouge">ConvTranspose</code> 的输入和输出反过来，然后按照 <code class="language-plaintext highlighter-rouge">Conv</code> 的规则确定各个参数，填入 <code class="language-plaintext highlighter-rouge">ConvTranspose</code> 的括号里就可以了，除了 <code class="language-plaintext highlighter-rouge">output_padding</code></p>
-
-<h3 id="output_padding"><code class="language-plaintext highlighter-rouge">output_padding</code></h3>
-
-<p><code class="language-plaintext highlighter-rouge">ConvTranspose</code> 的输出就是对应 <code class="language-plaintext highlighter-rouge">Conv</code> 的输入。看 Figure 2.7：</p>
-
-<p><img src="/blog/assets/photos/2022-12-29-output-padding.png" alt="padding_output" /></p>
-
-<p>当 \((input+2*padding)/stride\) 不能整除的时候，最右的几列最下的几行就被卷积核忽略掉了。那么在逆运算 <code class="language-plaintext highlighter-rouge">TransposeConv</code> 中，这就意味着同一个输入可能对应着 \(stride-1\) 种可能的输出。<code class="language-plaintext highlighter-rouge">output_padding</code>参数就可以消除这种歧义，调整 <code class="language-plaintext highlighter-rouge">TransposeConv</code> 输出张量的尺寸。</p>
-
-<h2 id="参考链接">参考链接</h2>
-
-<ul>
-  <li>给卷积正名: <a href="https://www.kaggle.com/general/225375">https://www.kaggle.com/general/225375</a></li>
-  <li>PyTorch Conv2d 源码: <a href="https://pytorch.org/docs/stable/_modules/torch/nn/modules/conv.html#_ConvNd">https://pytorch.org/docs/stable/_modules/torch/nn/modules/conv.html#_ConvNd</a></li>
-  <li>论文: <a href="https://arxiv.org/abs/1603.07285">https://arxiv.org/abs/1603.07285</a></li>
-  <li>动图演示: <a href="https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md">https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md</a></li>
-  <li>U-net: <a href="https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/">https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/</a></li>
-  <li>PyTorch TransposeConv 文档: <a href="https://pytorch.org/docs/stable/generated/torch.nn.ConvTranspose2d.html">https://pytorch.org/docs/stable/generated/torch.nn.ConvTranspose2d.html</a></li>
-</ul>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[在读 PyTorch 的文档和源码的时候，发现写文档的人也不怎么解释啥是卷积，卷积的各个参数是什么意思，只在文档里扔了个链接就完事了……]]></summary></entry></feed>
+<h3 id="9-生活的意义-the-meaning-of-life">9. 生活的意义 (The Meaning of Life)</h3>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[这是编程随想 [电子书库/哲学/通俗读物] 中的一本，他重回赛博空间的可能性已经越来越小了，读书，写读书笔记，也是对他进行纪念的一种方式。]]></summary></entry></feed>

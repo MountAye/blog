@@ -1,4 +1,712 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-10-16T21:22:45-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.py | Python 测试笔记</title><link href="https://mountaye.github.io/blog/articles/Python-test-notes" rel="alternate" type="text/html" title=".py | Python 测试笔记" /><published>2023-10-16T00:00:00-05:00</published><updated>2023-10-16T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/Python-test-notes</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/Python-test-notes"><![CDATA[<h2 id="一些名词">一些名词</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-10-22T00:05:13-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">2023年哈马斯-以色列战争</title><link href="https://mountaye.github.io/blog/articles/war-in-2023-between-hamas-and-israel" rel="alternate" type="text/html" title="2023年哈马斯-以色列战争" /><published>2023-10-21T00:00:00-05:00</published><updated>2023-10-21T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/war-in-2023-between-hamas-and-israel</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/war-in-2023-between-hamas-and-israel"><![CDATA[<h2 id="2023年10月7日冲突爆发哈马斯对以色列南部发动地面突击">2023年10月7日·冲突爆发·哈马斯对以色列南部发动地面突击</h2>
+
+<h3 id="地面突击与暴行个案">地面突击与暴行个案</h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/20231007-%E5%93%88%E9%A9%AC%E6%96%AF%E5%87%BA%E5%85%B6%E4%B8%8D%E6%84%8F%E6%94%BB%E5%87%BB%E4%BB%A5%E8%89%B2%E5%88%97-%E5%8A%A0%E6%B2%99%E7%88%86%E5%8F%91%E5%85%A8%E9%9D%A2%E6%88%98%E4%BA%89">法广</a>] （2023年10月7日）哈马斯出其不意攻击以色列 加沙陷入全面战争</p>
+
+<ul>
+  <li>10月7日国际标准时间3时30分，巴黎时间6时30分，近至边境定居点远至特拉维夫和耶路撒冷近郊，密集发射5000多枚火箭弹。</li>
+  <li>哈马斯枪手趁以色列措手不及，乘坐机动车，船只，甚至机动滑翔伞，利用 (?) 以色列在加沙地带周围设置的严密安全屏障，袭击军事阵地或街头平民。</li>
+  <li>在靠近加沙边境的以色列小镇斯德洛特，一名法新社记者清点了街上散落的至少八具平民尸体。</li>
+  <li>记者看到数十名武装的巴勒斯坦人围绕着一辆燃烧的坦克车庆祝胜利，其他人驾驶着以色列悍马车穿过加沙城的街道。</li>
+  <li>哈马斯武装组织埃泽丁·卡萨姆旅声称在一段视频中声称“抓获了数名敌方士兵”，视频显示至少三名明显受到惊吓的便衣男子被一队面部模糊的武装人员拘留。</li>
+  <li>巴勒斯坦伊斯兰圣战组织的军事组织圣城旅也宣称他们扣押了“许多”以色列士兵。</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/NiKiTa_32156/status/1710611667514720683">NiKITa</a>, <a href="https://twitter.com/alinaworld1122/status/1711453922588844061">鏟蛇人IAN（依銀）</a>, <a href="https://twitter.com/qingdaofu0/status/1710664381770633472">清道夫</a>, <a href="https://twitter.com/a2zumi/status/1710560184643547208">ZrA2zumi</a>] 哈马斯无人机空投炸弹击毁以军梅卡瓦坦克，另有以军基地中的梅卡瓦坦克被俘获后击毁</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/RCIZhongwen/status/1711534572901450088">加拿大国际广播</a>] 加籍和平组织人士恐被绑架，其子呼吁加拿大关注</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/remonwangxt/status/1711533992313339923">变态辣椒RebelPepper</a>] Adar 和 Itay Berdychivsky 來自 Kfar Aza，是以色列軍人，家中備有武器。當哈馬斯恐怖份子靠近他們家時，他們將10個月大的雙胞胎藏在一個安全密室中，並決定轉移恐怖份子們的注意力。他們成功地擊斃了7名恐怖份子，不幸的是，這對夫婦還是被殺害了。孩子們後來被親戚找到，他們倖免於難。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/AP/status/1711448142762201431">AP</a>] 以色列救援服务 Zaka 称，超过 100 具尸体在一处农业社区被发现。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/Osinttechnical/status/1711498539040141358">OSINTtechnical</a>] 以色列公布行车记录仪影像，以色列汽车司机行驶中被哈马斯民兵打死。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/DanHongTang/status/1711386366192300284">唐丹鸿</a><strong>,</strong> <a href="https://twitter.com/MonicaLMarks/status/1711049323973140669">MonicaLMarks</a>] 被哈马斯劫持的人质之一 Vivian Silver 是一位倡导和平的女性。她住在以色列最南端靠近加沙的一个基布兹，公认的以色列领土内，不是定居点。她被哈马斯绑架到了加沙。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<strong><a href="https://twitter.com/remonwangxt/status/1712595685688631573">变态辣椒RebelPepper</a>,</strong> i24news] 目擊者回憶哈馬斯對孕婦、兒童和無辜以色列平民的殘忍行為的可怕細節。[<a href="https://twitter.com/i/status/1712595685688631573">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<strong><a href="https://twitter.com/DanHongTang/status/1712843855937044711">唐丹鸿</a></strong>] 正在书桌前写“以色列-加沙战争手记”，突然警报响了。街上的路人跑来我们楼躲避。女儿昨天就去了好友家，在一幢建国前修的包豪斯建筑里，没有掩体。大卫给女儿打电话，说警报解除就去接她。新闻报道一枚火箭弹落在了Rehovot的一幢民房上。电视一直在采访人质和遇难者家属，再叙危情绝境令人焦灼颤栗。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<strong><a href="https://twitter.com/DanHongTang/status/1713617001959084213?utm_source=pocket_saves">唐丹鸿</a></strong>] 共情巴勒斯坦人民和加沙平民，不必共情哈马斯吧，也不必将以色列媒体都说成骗子吧。[<a href="https://pbs.twimg.com/media/F8f9lMuXIAABzG7?format=jpg&amp;name=medium">截图</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/MASONDO_TW/status/1713928631880491070?utm_source=pocket_saves">梅森DO</a>] 隨著擊殺，俘虜，繳獲哈馬斯當日襲擊的人員，越來越多類Gopro的胸口攝影鏡頭出現。恐怖分子闖入奧法基姆市，挨家挨戶殺害平民，包括老人。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/22HomoPoliticus/status/1713697428887503069">Ignatius Lee</a>] <a href="https://twitter.com/hashtag/%E5%93%88%E9%A9%AC%E6%96%AF?src=hashtag_click">#哈马斯</a> 成员在闯入一间房间前朝里面扔了一枚手榴弹，房间里有几名新入伍的女兵被吓得躲在桌子底下。<a href="https://twitter.com/hashtag/%E5%93%88%E9%A9%AC%E6%96%AF?src=hashtag_click">#哈马斯</a> 成员闯入以后，发现了躲在桌子底下的几名女兵，并现场处决了她们。<a href="https://twitter.com/hashtag/GoPro?src=hashtag_click">#GoPro</a> 记录下来了这可怕的一幕。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/music3club/status/1713785163350782003?s=20&amp;utm_source=pocket_reader">QQ.FM Zhang Lei</a>] 展示哈马斯的罪行，不是拉仇恨，而是声讨恐怖份子的罪行，让世间的人们知道恐怖份子是多么的残忍，那些阻止人们了解真相的，就是恐怖份子的同谋，是最邪恶的人。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/IDF/status/1714028835916652675?utm_source=pocket_reader">Israel Defense Forces</a>] Last week, Mia was abducted by Hamas. In the video published by Hamas, they try to portray themselves as humane. However, they are a horrorific terrorist organization responsible for the murder and abduction of babies, children, men, women and the elderly. At this time, we are deploying all intelligence and operational measures for the return of all hostages—including Mia.</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/YaxueCao/status/1714998921074815193?utm_source=pocket_reader">Yaxue Cao</a>, <a href="https://twitter.com/LanceForman/status/1714761685947298230">Lance Forman</a>] “我們進的第一座房子，一對夫妻跪在地上，手被綁在身後。在餐室另一面，兩個小孩同樣姿勢，男孩大概7歲，女孩6歲的樣子。他們的身體遭到了酷刑。用一下你們的想像，孩子看著父母被酷刑，父母看著孩子被酷刑。這樣做是故意的。當我說酷刑，我是說眼睛被挖出，指頭[被剁掉]。到最後，他們全被射殺。這還不是全部。房間中央是餐桌，這些恐怖份子一邊酷刑這家人，一邊吃這家人為星期六準備的一頓飯。”</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/jiongnasen/status/1714918783922610398?s=20&amp;utm_source=pocket_reader">约拿坦</a>] 我发自内心地希望他们说的是假的。我对人类已经足够失望了，不需要更多素材。但如果你看过1972年以色列运动员在慕尼黑的遭遇，尤其是发生在Yossef Romano身上的事情，恐怕就很难有足够的信心说这是假的了。[<a href="https://twitter.com/i/status/1714761685947298230">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/world/story20231020-1444625">联合早报</a>] 以色列军方说，在以色列被巴勒斯坦激进组织哈马斯绑架到加沙地带的人质，大多数都还活着。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/xadr666/status/1715393771117174838?s=20&amp;utm_source=pocket_reader">社長劉洋</a>] 强奸少女，把腿折断，裸体游街欢呼。就这一件事就够了，可以看出所有不同。还有什么好争的。</p>
+
+<h3 id="伤亡数字更新">伤亡数字更新</h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/world/story20231009-1440890">联合早报</a>]（2023年10月8日）路透社报道，“伊斯兰圣战组织”（Islamic Jihad）领袖纳哈拉（Ziad al-Nakhala）说，哈马斯向以色列发动袭击后，在加沙地带被掳走的30多名以色列人现由他的武装组织扣押。法新社同日引述德国外交部消息人士说，被哈马斯绑架的人包括几名德国公民，这些德国公民同时持有以色列公民身份。美国有线电视新闻网（CNN）报道，美国一份备忘录显示，至少三名美国人在哈马斯突袭行动中丧命。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/china/story20231009-1440901">联合早报</a>]（2023年10月8日）以色列政府称，此次冲突已导致超过600名以色列人死亡、逾2000人受伤。哈马斯已俘虏超过100名以色列人。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/AP/status/1711530777073316236">AP</a>] Tribe of Nova 音乐节有 3500 人参加，至少 260 人被杀。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/shokoshen/status/1711474488989339954">stella沈</a><strong>,</strong> NHK] NHK報導至昨天（10月9日）晚上九點為止雙方加起來已有1200人在攻擊和報復攻擊中死亡。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/news/world/story20231009-1441178">联合早报</a>] （2023年10月9日）加沙卫生部门说，此次冲突导致当地至少560人死亡、2900人受伤。以色列则有超过800人丧命，2300人受伤。此外，还有来自美国、英国、柬埔寨、加拿大、德国、法国等多国的数十名外国人在这场冲突中死伤、失踪或被挟持。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/bbcchinese/status/1711674241521770850">BBC</a>] 泰国政府确认有18名泰国公民在哈马斯对以色列的突袭行动中遇难，尼泊尔亦表示，已有10名该国公民在冲突中丧生。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/whyyoutouzhele/status/1711504788699955704">李老师不是你老师</a>] 以色列唐人街在脸书上公布了5名失踪中国工人的资料. 他们此前在以色列南部阿什凯隆和斯德罗特工作</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1712068223720435718">李老师不是你老师</a>, <a href="https://twitter.com/RFI_Cn/status/1712418133452169603">法广</a>] （2023年10月11日）文汇报消息，目前失踪中国人中有两人确定遇难。中国通报在以色列遭哈马斯袭击中3死2失踪 或未提中比混血公民</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<strong><a href="https://twitter.com/whyyoutouzhele/status/1711711180119519312?utm_source=pocket_saves">李老师不是你老师</a></strong>] （2023年10月10日）目前，在哈马斯的恐怖袭击中至少3名中国人受伤。目前至少4名中国工人失踪。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<strong><a href="https://twitter.com/zhanglifan/status/1714078463139647537?s=20&amp;utm_source=pocket_reader">章立凡</a></strong>] 【以色列外交部公布了被哈马斯打死的五名中国人】让中国驻以色列大使馆去认领，迟迟没有回应。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/__Inty__/status/1715132921710075962?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>, <a href="https://twitter.com/ItayBlumental/status/1715119930528477384">ItayBlumental</a>] 哈马斯恐怖分子谋杀了28名在以色列生活和工作的泰国公民。另有16人被枪击和手榴弹炸伤，17人被绑架到加沙</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E4%B8%9C/20231021-%E4%BB%A5%E8%89%B2%E5%88%97%E5%9B%BD%E9%98%B2%E5%86%9B%E8%AF%81%E5%AE%9E%E8%87%B3%E5%B0%91210%E4%BA%BA%E5%9C%A8%E5%8A%A0%E6%B2%99%E5%9C%B0%E5%B8%A6%E8%A2%AB%E5%8A%AB%E6%8C%81%E4%B8%BA%E4%BA%BA%E8%B4%A8?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>] （2023年10月21日）以色列国防军证实至少210人在加沙地带被劫持为人质</p>
+
+<h3 id="以色列南部音乐节遇袭">以色列南部音乐节遇袭</h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1710662071501615607">李老师不是你老师</a>] （北京时间2023年10月8日）巴勒斯坦武装组织哈马斯宣布向以色列发动“阿克萨洪水”行动，动用火炮和无人机发动袭击，并在街头向平民开枪。</p>
+
+<ul>
+  <li>视频显示，攻入以色列后，哈马斯掠夺了大量妇女和物资运回加沙。</li>
+  <li>视频中的女孩被确认，名叫Noa. 哈马斯发动袭击时，她正在当地举行的和平音乐节上</li>
+  <li>另一名在音乐节上遇袭的女子来自德国，沙尼-卢克，30岁，是一位母亲。在今天一段广为流传的视频中，她的尸体被哈马斯赤裸着拖回了加沙，一个哈马斯用她的身体垫脚，另一个则拽着她的头发。</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<strong><a href="https://twitter.com/whyyoutouzhele/status/1712407448491897187?utm_source=pocket_saves">李老师不是你老师</a></strong>] 10月7日哈马斯袭击当天的音乐节现场视频。【注意】视频中有极度血腥的画面，为防止内容警告失效，前6秒为空白。[<a href="https://twitter.com/i/status/1712407448491897187">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/AP/status/1711487269247594695">AP</a>] 一名 Tribe of Nova 音乐节幸存者讲述其经历，包括灌木中藏身 8 小时 [<a href="https://twitter.com/i/status/1711487269247594695">视频</a>]</p>
+
+<h3 id="一名中以混血女子被哈马斯掳走"><strong>一名中以混血女子被哈马斯掳走</strong></h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/china/story20231009-1440901">联合早报</a>] 以色列驻港总领事馆向香港01证实，被掳女子名为阿伽玛尼（Noa Argamani），今年26岁，父亲是以色列人，母亲是中国人。她在以色列参加聚会期间被哈马斯分子绑架。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1711021331439817101">李老师不是你老师</a>] 10月8日晚，以色列驻华大使馆证实，被哈马斯掠走的Noa是一名在北京出生的中以混血。她当时正在参加当地的一个和平音乐节。目前，在微博上无法直接搜索到以色列驻华使馆的账号。在关于中以混血儿Noa被绑架的新闻下方，有中国网友向Noa的父亲行纳粹礼</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/RFA_Chinese/status/1711471971001639074">自由亚洲电台</a>] 中国该不该救诺雅？</p>
+
+<h3 id="卡法-阿扎地区对未成年人的战争罪">卡法-阿扎地区对未成年人的战争罪</h3>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/remonwangxt/status/1711777333445640506?utm_source=pocket_saves">变态辣椒</a>] （2032年10月10日）以色列報告發現了四十具嬰兒的屍體，其中一些被斬首</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/JohnZhangSV/status/1712322850844250227">John Zhang</a><a href="https://twitter.com/JohnZhangSV">,</a> <a href="https://www.cnn.com/middleeast/live-news/israel-hamas-war-gaza-10-11-23/h_a63b0fd57f2df717147ea8e26a2f758c">CNN</a>] （2023年10月11日）Babies and toddlers were found with “heads decapitated” in Kfar Aza, Netanyahu spokesperson says</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/JohnZhangSV/status/1712347875752181957">John Zhang</a>, FOX] 这是拜登总统谈到婴儿被斩首的事件，他说：”我从来没想过我会看到、经过证实的恐怖分子将儿童斩首的照片……”</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/mranti/status/1712301644346777723">Michael Anti,</a> <a href="https://twitter.com/spectatorindex/status/1712286535050269124">The Spectator Index</a>] 白宫发言人表示，美国官员尚未看到或证实以色列发生暴行的照片，并表示拜登总统关于被斩首儿童的评论是基于以色列的声明和媒体报道。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/majuismail1122/status/1712317519145406643">马聚</a>] 这事儿白宫也能不慎重，太让人震惊啦. 多少人，义愤填膺的，这可把人害惨了</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/xumouren_yt/status/1712339678878195837?utm_source=pocket_saves">说真话的徐某人</a>] 其实拜登原话说的是：children ，估计死者大于1岁了，不能算babies。但这事的关键其实在于：到底认不认为哈马斯有这么变态。我认为它有，而且这还不是它最变态的时刻。如果打算以哈马斯没杀婴儿/儿童，或许没杀那么多来减轻它的罪恶感。那么这变态已经传播到了全世界。</p>
+
+<h2 id="以色列反击">以色列反击</h2>
+
+<h3 id="情报与溯源">情报与溯源</h3>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://www.bbc.com/zhongwen/simp/world-67045776?at_campaign_type=owned&amp;at_ptr_name=twitter&amp;at_format=link&amp;at_medium=social&amp;at_bbc_team=editorial&amp;at_link_type=web_link&amp;at_campaign=Social_Flow&amp;at_link_id=03507548-65DA-11EE-91B8-D612D99D5CC3&amp;at_link_origin=bbcchinese">BBC</a>] 《分析：哈马斯袭击震惊以色列，但接下来会发生什么？》</p>
+
+<ul>
+  <li>上个月，当数百名巴勒斯坦人开始加入加沙地带安全围栏旁的抗议活动，以提醒人们五年前开始的大规模示威活动时，人们认为这是哈马斯放行的活动，旨在迫使以色列做出更多让步，并获得来自卡塔尔（卡达）的金援。现在看来，这些小规模的集会似乎是为了转移注意力。一些人猜测他们实际上是否是在渗透之前，对安全围栏进行了解。</li>
+  <li>透过这次最新的突击，哈马斯似乎热衷于再次提升其作为激进组织的名声——其纲领仍然致力于要摧毁以色列。</li>
+  <li>毫无疑问，以色列认为这场战争可能会在多个前线上爆发。最糟糕的情况是，它可能会吸引强大的黎巴嫩激进组织真主党（Hezbollah）的参与。</li>
+  <li>巴勒斯坦激进分子希望将捉拿的以色列士兵和平民，作人肉盾牌或交换筹码，这也是一个严重的麻烦。</li>
+  <li>尽管对该地带的全面检视可能还有一段时间，但毫无疑问，以色列的情报和安全机构将审视自己，为什么他们没有预见到这一行动的到来，以及为什么没有设法阻止其巨大后果。</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/20231010-%E5%93%88%E9%A9%AC%E6%96%AF%E5%A4%A7%E9%87%8F%E7%9A%84%E6%AD%A6%E5%99%A8%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84">法广</a>] 哈马斯大量的武器是怎么来的</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/jakobsonradical/status/1714096117707939891?s=20&amp;utm_source=pocket_reader">Jacobson</a>] 这最好是护栏，而不是别的什么东西。扬州江都诚德钢管、龙川钢管出口倍增</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://www.dw.com/zh/%E7%AD%96%E5%88%92%E8%A2%AD%E5%87%BB%E4%BB%A5%E8%89%B2%E5%88%97-%E5%93%88%E9%A9%AC%E6%96%AF%E6%8C%87%E6%8C%A5%E5%AE%98%E4%BD%95%E8%AE%B8%E4%BA%BA%E4%B9%9F/a-67079562">德国之声</a>] 策划袭击以色列 哈马斯指挥官何许人也？穆罕默德·德伊夫（Mohammed Deif）</p>
+
+<ul>
+  <li>迄今的德伊夫照片只有三张</li>
+  <li>德伊夫的下落不明。以色列空袭加沙的一处房屋属于德伊夫的父亲。其兄弟和另外两名家庭成员丧生。</li>
+  <li>德伊夫1965年出生于阿拉伯-以色列战争后建立的汗尤尼斯难民营（Khan Yunis Refugee Camp），原名穆罕默德·马斯里（Mohammed Masri）。在1987年开始的第一次<a href="https://www.dw.com/zh/%E4%BD%A0%E5%BA%94%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E5%B7%B4%E5%8B%92%E6%96%AF%E5%9D%A6%E5%A4%A7%E8%B5%B7%E4%B9%89/a-41712830">巴勒斯坦大起义</a>（Intifada）期间加入哈马斯后，被称为穆罕默德·德伊夫。</li>
+  <li>哈马斯消息人士表示，在以色列的暗杀行动中，德伊夫失去一只眼睛，一条腿受重伤。2014年，他的妻子、七个月大的儿子和三岁的女儿在以色列空袭中丧生。</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/Willoug60125499/status/1711203691469189224">三日月やよい</a>] 以色列这次情报到应变还是有点拉，和以往印象大相径庭，以至于产生“内塔养蛊”阴谋论…一是承平日久，二是以色列神话来源，梅厄贝京沙龙这些狠人，其实都是同一代东欧锻炼的阿什肯纳兹犹太人，背景环境不可复制。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/Willoug60125499/status/1711203691469189224">三日月やよい</a>] 路透报道近年以色列提供大量工签允许加沙人去西岸/以色列工作-工资能翻10倍。哈马斯成功扮演被打怂形象，以色列以为缓和能释放善意，不料对方要干票大的，是此次误判根源。大家都习惯指责强势方咄咄逼人，幻想他们退让释放善意来解决问题。再次证明此仇已无法化解，指望跟哈马斯谈和解过于乡愿</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/remonwangxt/status/1712256113276506311">变态辣椒RebelPepper</a>, <a href="https://twitter.com/__Inty__/status/1712490134204186940">Inty热点新闻</a>] Ali Baraka是哈馬斯高級官員，海外國家關係主管。 在接受今日俄羅斯採訪時他表示：我們秘密計劃這次入侵已有兩年，只有不到 5 名哈馬斯高階領導人確切知道會發生什麼事以及何時發生。[<a href="https://twitter.com/i/status/1712256113276506311">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/mranti/status/1711725838293455280">Michael Anti</a>] 伊朗最高领袖哈梅内伊在一次罕见的讲话中表示，虽然伊朗支持巴勒斯坦，但认为伊朗是袭击的幕后黑手是错误的。他表示，假设袭击者不是巴勒斯坦人，将是一个误判。所以西方和以色列判断是对的，伊朗不是影舞者。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<strong><a href="https://twitter.com/Willoug60125499/status/1712762793970290928">三日月やよい</a></strong>] 刚看完NBC的节目，美国官方根据信息源，越来越倾向于，伊朗虽然一直支持并给哈马斯提供资金训练装备技术，但伊朗高级领袖此次并不知情，也被哈马斯惊到了。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://apnews.com/article/israel-palestinians-hamas-north-korea-weapons-703e33663ea299f920d0d14039adfbb8?taid=6530b41ed1045700016ae3cc&amp;utm_campaign=TrueAnthem&amp;utm_medium=AP&amp;utm_source=Twitter">AP</a>] 哈马斯可能在袭击中使用了北朝鲜的武器。</p>
+
+<h3 id="以色列动员">以色列动员</h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/haivri/status/1710902846588166311">haivri</a>] 临时征召的以色列预备役士兵聚集在集合点，唱以色列国歌。[<a href="https://twitter.com/i/status/1710902846588166311">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/War_Mapper/status/1711579273306206596">War Mapper</a>] 最初攻击 72 小时后，以军重夺南方各社区控制权。然少数敌民兵仍在境内，清剿工作仍在进行。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E4%B8%9C/20231010-%E4%BB%A5%E8%89%B2%E5%88%97%E5%8F%91%E6%9E%AA%E6%AD%A6%E8%A3%85%E8%BE%B9%E5%A2%83%E5%B1%85%E6%B0%91?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>] （2023年10月10日）以色列发枪武装边境居民</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/new27brigade/status/1711627475783135316">new27brigade</a>] 以色列友人清光美國軍品店商品，準備回國打仗（Source: 極光訓練）</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24/status/1711751012162183316?utm_source=pocket_saves">Visegrád 24</a>] （2023年10月10日）American Special Operations Forces trained in hostage situations have arrived in Israel.</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/Osinttechnical/status/1712225906494709963">OSINTtechnical</a>] Footage of Israeli forces dropping a depth charge on a Hamas diver attempting to infiltrate via the coast. [<a href="https://twitter.com/Osinttechnical/status/1712225906494709963">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/remonwangxt/status/1712608042447937841">变态辣椒RebelPepper</a>] 一家位於約旦河西岸城鎮Huwara的比薩店店主認為使用一名在最近的恐怖突襲中被哈馬斯俘獲並目前被關押在加沙的以色列人質的形象製作比薩廣告是個有趣的點子；而以色列國防軍顯然不這麼認為，他們抓捕了店主並用推土機摧毀了這家餐廳。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/DogChinaShow/status/1712845036461740180">狗哥狗哥DogChinaShow</a><strong>,</strong> <a href="https://twitter.com/TheMossadIL">The Mossad: Satirical</a>] 以色列审问一名哈马斯恐怖分子，一名00后。Watch how he nonchalantly says “we raped them” and “we cut off their heads”. [<a href="https://twitter.com/i/status/1712834788116050411">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/AlexChe31659937/status/1713920390651596986?s=20&amp;utm_source=pocket_reader">Alex Chen</a>] 自哈马斯袭击以色列后已有超过16.5万以色列人从海外回国，绝大部分重新加入以色列国防军规模已从18万人急剧扩大到54万人。总统赫尔佐格展示以军缴获的一l哈马斯行动手册记录了如何闯入民宅找到平民以及如何绑架、折磨平民的具体指示有力反驳了哈马斯领导人阿鲁里关于哈马斯没有参与杀戮和绑架的谎言。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/sentdefender/status/1714996790334820600?s=20&amp;utm_source=pocket_reader">OSINTdefender</a>] Israeli Media is reporting that some of the roughly 360,000 IDF Reservists that were Called-Up to Active Service following the Hamas Surprise Attack have begun to be Released Home to their Families, but have been told to prepare for Immediate Reactivation in the coming Days and Weeks ahead.</p>
+
+<h3 id="以色列空袭加沙地带">以色列空袭加沙地带</h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1711441464180281512">李老师不是你老师</a>] 目前（10月9日），以色列军方提醒所有以色列公民储备在紧急情况下足够维持 72 小时的水和食物。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/Osinttechnical/status/1711410842342735982">OSINTtechnical</a>] 空袭视频 [<a href="https://twitter.com/i/status/1711410842342735982">视频1</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://www.reddit.com/r/LOOK_CHINA/comments/172wj4z/2023%E5%B9%B410%E6%9C%888%E6%97%A5%E5%93%88%E9%A9%AC%E6%96%AF%E9%A2%86%E5%AF%BC%E4%BA%BA%E8%89%BE%E6%9B%BC%E5%B0%A4%E5%B0%BC%E6%96%AF%E8%A2%AB%E6%96%A9%E9%A6%96%E6%8D%AE%E6%8A%A5%E9%81%93%E4%BB%96%E7%9A%84%E5%B0%B8%E4%BD%93%E6%98%AF%E5%9C%A8%E4%B8%80%E5%BA%A7%E6%8D%AE%E7%A7%B0%E9%81%AD%E5%88%B0%E4%BB%A5%E8%89%B2%E5%88%97%E5%86%9B%E9%98%9F%E8%A2%AD%E5%87%BB%E7%9A%84%E6%88%BF%E5%B1%8B%E5%BA%9F/">Reddit</a>, <a href="https://twitter.com/NiKiTa_32156/status/1710941202286289248">NiKITa</a>, <a href="https://twitter.com/TheMossadIL/status/1711274130320826692">TheMossadIL</a>] 2023年10月8日哈马斯领导人艾曼·尤尼斯被斩首</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/whyyoutouzhele/status/1711443298764587454">李老师不是你老师</a>] 10月9日，作为对哈马斯恐怖袭击的反击，以色列对加沙地带进行了多次轰炸，摧毁了多处主要建筑，同时造成了大量平民和儿童丧生。超过 680 人死，超过 3700 人伤 [<a href="https://twitter.com/i/status/1711443298764587454">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1711443298764587454">李老师不是你老师</a>] 9日稍晚间哈马斯称，针对以色列的轰炸，他们将处决一名人质。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1711389099574059210">李老师不是你老师</a>] 10月9日，加沙居民控诉以色列对加沙地带进行的报复性轰炸。而在两天前，哈马斯在这条街上拖着珊妮·卢克的尸体庆祝着他们的胜利。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E4%B8%9C/20231010-%E4%BB%A5%E8%89%B2%E5%88%97%E6%8A%A5%E5%A4%8D-2%E5%90%8D%E5%93%88%E9%A9%AC%E6%96%AF%E9%AB%98%E5%B1%82%E8%A2%AB%E5%87%BB%E6%AF%99?utm_source=pocket_saves">法广</a>, <a href="https://twitter.com/new27brigade/status/1712613238402343415">new27brigade</a>, <a href="https://twitter.com/sentdefender/status/1712537800833380455">OSINTdefender</a>] （2023年10月9日）哈马斯军事领导人之一的辛瓦尔（Yahya Sinwar），在以国空袭轰炸中身亡。巴勒斯坦媒體現已證實。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E4%B8%9C/20231010-%E4%BB%A5%E8%89%B2%E5%88%97%E6%8A%A5%E5%A4%8D-2%E5%90%8D%E5%93%88%E9%A9%AC%E6%96%AF%E9%AB%98%E5%B1%82%E8%A2%AB%E5%87%BB%E6%AF%99?utm_source=pocket_saves">法广</a> ] （2023年10月10日）2名哈马斯高层被击毙，分别为沙马拉（Jawad Abu Shamala）和穆阿马尔（Zakaria Abu Muammar）。IDF指出</p>
+
+<ul>
+  <li>沙马拉掌管哈马斯的资金，负责筹措并运用资金投入到加萨地区内外的恐怖行动</li>
+  <li>穆阿马尔则是哈玛斯政治局成员，是该组织内部与其他加萨地区恐怖组织协调的负责人</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/NiKiTa_32156/status/1712070154996380043">NiKITa</a>] 以色列「梅納特茨」改型M270多管火箭向加薩走廊哈馬斯組織開火。[<a href="https://twitter.com/i/status/1712070154996380043">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/front_ukrainian/status/1712830932850290912">Ukrainian Front</a>] Allegedly, footage of the detonation of rockets hidden in underground tunnels by Hamas militants after another strike by the Israeli Air Force [<a href="https://twitter.com/i/status/1712830932850290912">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/koiiok17/status/1713320181458735604?utm_source=pocket_saves">川和 koi iok</a>, <a href="https://twitter.com/Osinttechnical/status/1713241560752533662">OSINTtechnical</a>] Salah Al Deen Gaza Wadi bridge explosion tweet. 一个军事博主的分析，我也觉得这样的爆炸规模和以色列战机的武器完全不匹配，两千镑到五百磅的炸药至少能掀起一栋楼高的灰尘。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/ZhaoMingObserve/status/1714200869737246930?s=20&amp;utm_source=pocket_reader">昭明</a>, <a href="https://twitter.com/IDF">Israel Defense Forces</a>, <a href="https://twitter.com/IAFsite/status/1714136061289300196">Israeli Air Force</a>] （2023年10月16日）夜间以色列空军空袭了：1. 一个哈马斯军事总部；2. 一个金融支持哈马斯的银行</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/IDF/status/1714289932842488024?s=20&amp;utm_source=pocket_reader">Israel Defense Forces</a>] （2023年10月17日）以色列空军消灭了 Ayman Nofal，哈马斯高级指战员</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/__Inty__/status/1714897746711433488?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>] 迄今为止，以色列在加沙地带的空袭中打死了哈马斯中央政治局的四名委员</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/__Inty__/status/1714885841007661178?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>, <a href="https://twitter.com/TheMossadIL/status/1714947740822581331?s=20&amp;utm_source=pocket_reader">The Mossad: Satirical</a>] （2023年10月19日）巴勒斯坦媒体报道，哈马斯中央政治局常委贾米拉·尚蒂今天上午在以色列的空袭中被炸死。 也是巴勒斯坦国会议员。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/cskun1989/status/1715098497761099887?utm_source=pocket_reader">蔡慎坤</a>] 以色列国防军消息，哈马斯最高领导人伊斯梅尔•哈尼亚的儿子哈兹姆•伊斯梅尔•哈尼亚在17日以色列国防军对加沙的袭击中丧生。至于哈尼亚本人有消息以色列并不打算击毙，而是从卡塔尔活捉回以色列受审，从而挖出这次哈马斯恐袭背后指示者。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/__Inty__/status/1715048266805703095?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>] 以色列空军打死了加沙地带巴勒斯坦安全部队指挥官吉哈德·穆海森少将。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/__Inty__/status/1715131932517040621?utm_source=pocket_reader">Inty热点新闻</a><strong>,</strong> <a href="https://twitter.com/koiiok17/status/1715352224321372560?s=20&amp;utm_source=pocket_reader">川和 koi iok</a>, <a href="https://twitter.com/sentdefender/status/1715339342124572745">OSINTdefender</a>, <a href="https://twitter.com/pingzhang632/status/1715456107831754802?s=20&amp;utm_source=pocket_reader">张平</a>] 昨天哈马斯又叫说自己的东正教堂被以色列空袭，又死了一百多人，这次没八百。结果天一亮 now appears to have only suffered Moderate Damage and was not the Actual Target of the Strike</p>
+
+<h3 id="哈马斯发声">哈马斯发声</h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/world/story20231010-1441201">联合早报</a>, <a href="https://twitter.com/whyyoutouzhele/status/1711461525330796625">李老师不是你老师</a>, <a href="https://twitter.com/spectatorindex/status/1711441351953572011">The Spectator Index</a>] （2023年10月9日）巴勒斯坦激进组织哈马斯一高级官员马祖克（Moussa Abu Marzouk）说，哈马斯“已经实现目标”，愿意就与以色列休战的可能性进行讨论。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/world/story20231010-1441201">联合早报</a>, 彭博社, <a href="https://twitter.com/bbcchinese/status/1711654019268001966?s=20">BBC</a>] 以色列星期一（10月7日）宣布<a href="https://www.zaobao.com/news/world/story20231009-1441178">“全面封锁”加沙</a>后，哈马斯发言人乌拜达（Abu Obaida）告诉半岛电视台，如果以色列不加警告地袭击加沙地带民宅，哈马斯将每小时处死一名人质。还说哈马斯不会在“被轰炸”的情况下就释放以色列俘虏进行谈判。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/bright_hawkins/status/1713075648191926647">落日海盗</a>] 哈马斯头目萨利赫·阿鲁里表示：加沙人突击以色列定居点并俘虏平民并不是哈马斯的计划，是临时工的行为。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/__Inty__/status/1714162323970207974?utm_source=pocket_reader">Inty热点新闻</a>] 杨贝贝直接下哈马斯藏匿的加沙地道采访哈马斯恐怖组织成员！杨贝贝问：你们在平民区下面挖地道，发射火箭，不担心伤害无辜平民吗？哈马斯：我们别无选择，为了我们的未来，只能这样做，老百姓支持我们。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://web.archive.org/web/20231021190359/https://www.dapenti.com/blog/more.asp?id=174430&amp;name=xilei">喷嚏网-浮世绘802-存档</a>] 经济学人主编 Zanny Minton Beddoes 与Hamas的高级官员Moussa Abu Marzouk进行了一个小时的采访，播客是25分钟长。</p>
+
+<ul>
+  <li>Abu Marzouk完全不承认哈马斯杀害了无辜平民，还说死的1000+以色列人里面没有儿童。提起在音乐节上被枪杀的260名参加者，他说只是一个“巧合”；袭击的战士认为对方是“在休息的士兵”。</li>
+  <li>即使是哈马斯的许多领导层也可能对袭击计划一无所知。由于进出加沙非常困难，哈马斯宁愿将其一些zz领导人留在国外。但内部和外部团体之间一直关系紧张。留在加沙的人看不起躲在多哈五星级酒店的。</li>
+  <li>他无法解释屠杀数百名平民为什么会改善巴勒斯坦人的困境。对一些细节持明确态度：说哈马斯不会处决任何人质，也不会释放任何以色列平民。现在谈论囚犯交换还为时过早。</li>
+  <li>Abu Marzouk一度否认了以色列在加沙发动严重攻势的可能性。“我们知道他们是懦夫，”他说。“我们知道他们不能在地面上战斗。”</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/Military_idv_tw/status/1714277584022978780?utm_source=pocket_reader">新台灣國防軍事網</a>, <a href="https://news.ltn.com.tw/news/world/breakingnews/4461413">自由时报</a>] 哈瑪斯稱把外國人質當「賓客」並有意釋放 喊話以色列滿足1要求</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/JohnZhangSV/status/1715400182928679393?s=20&amp;utm_source=pocket_reader">John Zhang</a>] （2023年10月20号）沙特阿拉伯电视台Al Arabiya女记者对哈马斯领袖Khalid Marshaal发出了尖锐的拷问。</p>
+
+<ul>
+  <li>她质问Khalid Marshaal：哈马斯突然发起对以色列的攻击，你考虑过加巴勒斯坦人民吗？因为你那么对待以色列平民，现在西方把哈马斯比做伊斯兰国，你的行为符合伊斯兰教义吗？你会为10月7号对以色列平民（的屠杀）道歉吗？你号召阿拉伯世界一起消灭以色列，你从伊朗、黎巴嫩那儿得到了你想要的支持吗？你会释放人质吗？</li>
+  <li>Khalid Marshaal的回答是：二战苏联死了三千万，越战时越南死了三百万，… 他们是烈士。他的意思非常清楚，巴勒斯坦人、阿拉伯人就得死几百万，只要能把以色列消干掉。哈马斯就是要绑架整个巴勒斯坦人，把阿拉伯世界拖下水，与以色列决战。至于死多少人，他不在乎！</li>
+</ul>
+
+<h3 id="以色列封锁加沙地带">以色列封锁加沙地带</h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1711383989599056308">李老师不是你老师</a>, <a href="https://www.zaobao.com.sg/news/world/story20231009-1441178">联合早报</a>, <a href="https://twitter.com/dw_chinese/status/1711451209523982660">德国之声</a>, <a href="https://twitter.com/bbcchinese/status/1711654019268001966?s=20">BBC</a>] （2023年10月7日）以色列国防部长表示已经对加沙进行了全面的围困，并将切断加沙地带的水，食物和电以及一切能源。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/news/world/story20231009-1441178">联合早报</a>] （2023年10月9日）过去两天，以色列已动员30万名预备役军人，这是以军可能很快会对加沙地带发动地面攻势的迹象。以色列官员未证实是否会对加沙展开地面攻势。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://www.youtube.com/watch?v=P_IItqtZRKk">文昭</a>] 以色列的復仇計劃：第六次中東戰爭為什麼是一場前所未有的「熬」戰？认为以军将对加沙地带围而不攻，且将一并处理约旦河西岸。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/20231010-%E4%BB%A5%E8%89%B2%E5%88%97%E5%89%8D%E6%83%85%E6%8A%A5%E9%AB%98%E5%AE%98-%E6%B6%88%E7%81%AD%E5%93%88%E9%A9%AC%E6%96%AF%E9%99%A4%E4%BA%86%E5%9C%B0%E9%9D%A2%E8%BF%9B%E6%94%BB%E5%88%AB%E6%97%A0%E9%80%89%E6%8B%A9?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>] 以色列前情报高官：消灭哈马斯除了地面进攻别无选择</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/spectatorindex/status/1712268428609036542">spectatorindex</a>] BREAKING: Reuters reports that Egypt has rejected the setting up of safe corridors for refugees fleeing the Gaza Strip</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1712807494378995733">李老师不是你老师</a>, <a href="https://twitter.com/bbcchinese/status/1712673575608651852">BBC</a>] （2023年10月12日）联合国发言人表示，以色列军方已告知联合国，居住在瓦迪加沙（Wadi Gaza）以北的所有人都应在24小时内迁移到加沙南部。该警告是在加沙和耶路撒冷时间午夜（07:00 GMT+8）前发出的。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/nexta_tv/status/1712830961287631071">NEXTA</a>] （2023年10月13日）Bild shows footage of IDF work: the Israeli military has regained control of one of the Israeli bases seized by terrorists.</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<strong><a href="https://twitter.com/whyyoutouzhele/status/1712807494378995733">李老师不是你老师</a></strong>] 哈马斯方面以“以方虚假政治宣传”为由促请巴勒斯坦平民不要离开。联合国批评称以色列要求民众24小时内南撤的行为是“强人所难”。此前，哈马斯方面就表示，哈马斯和巴勒斯坦人不会同意从人道走廊离开加沙。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/Osinttechnical/status/1713267311061192930?utm_source=pocket_saves">OSINTtechnical</a>] （2023年10月14日）以色列国防部画面，哈马斯设置路障阻止巴勒斯坦人南逃。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.dw.com/zh/%E4%BB%A5%E8%89%B2%E5%88%97%E6%8E%A8%E8%BF%9F%E5%8F%91%E5%8A%A8%E5%9C%B0%E9%9D%A2%E8%BF%9B%E6%94%BB-%E4%B8%AD%E5%9B%BD%E7%89%B9%E4%BD%BF%E5%B0%86%E8%AE%BF%E4%B8%AD%E4%B8%9C/a-67102422">德国之声</a>, <a href="https://twitter.com/RFI_Cn/status/1713887793641136292?utm_source=pocket_saves">法广</a>] （2023年10月15日）以色列军方原定于周末开始进攻，但由于多云天气，能见度差，令军机和无人机带难以给地面攻击提供空中支持，进攻被推迟。恢复对加沙南部供水 百万加沙人继续向南转移</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24/status/1713646764081721530?utm_source=pocket_saves">Visegrád 24</a>]（2023年10月15日）以色列驻美大使称以色列不打算占领加沙地带</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/AP/status/1713821413360959541?s=20&amp;utm_source=pocket_saves">AP</a>]（2023年10月16日）All eyes are on Egypt’s Rafah crossing, where international mediators appeared close to a deal for a cease-fire to allow aid in and foreigners to exit Gaza, but the Israeli prime minister’s office said there was no cease-fire.</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://www.bbc.com/zhongwen/simp/world-67155144?at_bbc_team=editorial&amp;at_campaign=Social_Flow&amp;at_campaign_type=owned&amp;at_format=link&amp;at_link_id=1F21CE1A-6E69-11EE-83DE-EAE8D89D5CC3&amp;at_link_origin=bbcchinese&amp;at_link_type=web_link&amp;at_medium=social&amp;at_ptr_name=twitter&amp;utm_source=pocket_reader">BBC</a>] 以色列步伐突然放缓 攻入加沙前有何盘算</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://www.zaobao.com.sg/realtime/world/story20231020-1444375">联合早报</a>] 以色列国防部长加兰特说，以色列军队很快就会从巴勒斯坦飞地“里面”看到一切，这表明以色列旨在消灭巴勒斯坦激进组织哈马斯的地面战可能已箭在弦上。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/world/story20231020-1444589">联合早报</a>] 埃及安全人士透露，埃及已经拆除了与加沙地带交界处附近的混凝土块。这给被困在加沙的巴勒斯坦人带来了希望，他们亟需的救援物资或许很快就能开始进入加沙。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/JohnZhangSV/status/1715740142672208315?s=20&amp;utm_source=pocket_reader">John Zhang</a>]  （2023年10月21日）以色列空军今天再次在加沙地带北部投放传单，其中写道：“致加沙居民： 你们在瓦迪加沙以北的存在正在将你们的生命置于危险之中。任何选择不从加沙地带北部撤离到加沙地带南部的人都可能被认定为恐怖组织的合作伙伴。”</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/zaobaosg/status/1715639071698035009?s=20&amp;utm_source=pocket_reader">联合早报</a>] 美国驻以大使馆在社交媒体平台贴文，称已“收到信息”，位于加沙地带和埃及边境的拉法过境点，将在星期六（10月21日）上午10时（新加坡时间星期六下午3时）开放。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/news/world/story20231022-1444847">联合早报</a>] （2023年10月21日）以色列首次开放位于埃及和加沙地带边境的拉法口岸，允许少量急需的援助物资进入加沙地带，但在20辆卡车物资进入加沙后迅速关闭口岸。</p>
+
+<h3 id="黎巴嫩真主党也门胡塞武装叙利亚土耳其伊朗战事扩大之风险">黎巴嫩真主党、也门胡塞武装、叙利亚、土耳其、伊朗：战事扩大之风险</h3>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/Tendar/status/1711435734551232996">Tendar</a>] 以色列北部靠近黎巴嫩边境地区，一队 M109 自行火炮出动，在公路行驶。[<a href="https://twitter.com/i/status/1711435734551232996">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/Military_idv_tw/status/1711544586726940965">新台灣國防軍事網</a>, <a href="https://twitter.com/YWNReporter/status/1711524193035039011">Moshe Schwartz</a>] 以色列防範真主黨進攻！目前有數千名以色列國防軍裝甲旅部隊在黎巴嫩邊境增援集結。[<a href="https://twitter.com/i/status/1711524193035039011">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/new27brigade/status/1711519302543945978">new27brigade</a>, <a href="https://twitter.com/BabakTaghvaee1/status/1711500172432191779">BabakTaghvaee1</a>] （2023年10月9日）當地晚間貝魯特，黎巴嫩民眾自發性利用機車組成一道牆，阻止真主黨成員通過他們的社區，民眾已經厭倦對以色列的恐怖行為，長年真主黨利用民眾當肉盾</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/Natsecjeff/status/1711440903922212875">FJ</a>, <a href="https://www.ynet.co.il/news/article/sktkysb11a">ynet</a>] 以色列警告真主党和阿萨德，如果加入哈马斯的行动，将使用美国海军打击大马士革和叙利亚总统。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/AP/status/1712139196964463044">AP</a>] （2023年10月11日）Israel’s military said unspecified hostile aircraft had entered the country from Lebanon, setting off sirens.</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://web.archive.org/web/20231014101251/https://www.dapenti.com/blog/more.asp?name=xilei&amp;id=174334">喷嚏图卦20231011</a>] 黎巴嫩真主党星期一（10月9日）晚炮击以色列北部地区，报复以色列袭击黎巴嫩南部。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24/status/1712434916313461018?utm_source=pocket_saves">Visegrád 24</a>] （2023年10月12日）The airport in Damascus, Syria is on fire after it was struck by the Israeli Air Force moments ago</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/remonwangxt/status/1713320633273143476?s=20&amp;utm_source=pocket_saves">变态辣椒RebelPepper</a>] （2023年10月14日）伊朗國家廣播公司號召伊朗公民報名參加志願軍，準備參加針對以色列的戰爭。伊斯蘭革命衛隊的法爾斯通訊社也發起了類似的活動。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/world/story20231015-1443003">联合早报</a>, <a href="https://www.rfi.fr/cn/%E5%9B%BD%E9%99%85/20231015-%E9%BB%8E%E5%B7%B4%E5%AB%A9%E4%BB%A5%E8%89%B2%E5%88%97%E8%BE%B9%E5%A2%83%E4%BA%A4%E7%81%AB-%E4%B8%80%E5%90%8D%E4%BB%A5%E8%89%B2%E5%88%97%E4%BA%BA%E6%AD%BB%E4%BA%A1?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>] （2023年10月15日）在以色列准备向加沙地带发动地面攻击之际，以色列军方在北部边境与黎巴嫩真主党再爆冲突，造成至少一人死亡。（法广）一名以色列人死亡</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E5%9B%BD%E9%99%85/20231015-%E8%81%94%E5%90%88%E5%9B%BD%E9%A9%BB%E9%BB%8E%E5%B7%B4%E5%AB%A9%E7%BB%B4%E5%92%8C%E9%83%A8%E9%98%9F%E6%80%BB%E9%83%A8%E8%A2%AB%E6%9D%A5%E8%B7%AF%E4%B8%8D%E6%98%8E%E7%81%AB%E7%AE%AD%E5%BC%B9%E5%87%BB%E4%B8%AD?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>]（2023年10月15日）联合国驻黎巴嫩维和部队总部被来路不明火箭弹击中</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E4%B8%9C/20231015-%E7%BE%8E%E5%9B%BD%E8%AD%A6%E5%91%8A%E4%BC%8A%E6%9C%97%E4%B8%8D%E8%A6%81%E5%B0%86%E4%BB%A5%E5%93%88%E6%88%98%E4%BA%89%E5%8D%87%E7%BA%A7%E4%B8%BA%E5%9C%B0%E5%8C%BA%E5%86%B2%E7%AA%81-%E4%BB%BB%E4%BD%95%E5%85%B6%E4%BB%96%E8%A1%8C%E4%B8%BA%E4%BD%93%E4%B8%8D%E5%BA%94%E5%88%A9%E7%94%A8%E5%B1%80%E5%8A%BF?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>]（2023年10月15日）美国警告伊朗不要将以哈战争升级为地区冲突</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24/status/1713563835682996423?utm_source=pocket_saves">Visegrád 24</a>]（2023年10月15日）Israeli fighter jets are striking Hezbollah positions in Lebanon</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/world/story20231017-1443357">联合早报</a>, <a href="https://twitter.com/__Inty__/status/1714009828333605267?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>] （2023年10月17日）伊朗最高外交官预计未来数小时抵抗阵线将采取“先发制人行动”，并警告以色列，在加沙地带采取任何行动必将面临后果。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24/status/1714355721171558907?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] （2023年10月17日）All Israeli citizens currently in Turkey have been called on to leave the country as soon as possible by Israel’s national security council.</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/entropy_01/status/1714653674302284209?s=20&amp;utm_source=pocket_reader">entropy</a>, <a href="https://twitter.com/TheInsiderPaper/status/1714651842930700363">Insider Paper</a>] （2023年10月18日）沙特：沙特人必须立刻离开黎巴嫩。黎巴嫩事态陡然升温。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/TheMossadIL/status/1714733291343872179?s=20&amp;utm_source=pocket_reader">The Mossad: Satirical</a>] 两名黎巴嫩真主党成员被击毙</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24/status/1715115991342948690?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] 3 American military bases or military installations have been attacked in Syria tonight</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/sentdefender">OSINTdefender</a>, <a href="https://twitter.com/ELINTNews/status/1715091247721832786">ELINT</a>, <a href="https://twitter.com/ELINTNews/status/1715096989786918941?s=20&amp;utm_source=pocket_reader">ELINT</a>, <a href="https://twitter.com/EnEn07739518/status/1715145494748594633?s=20&amp;utm_source=pocket_reader">·ĘÑŚåMÀ·</a>, <a href="https://twitter.com/__Inty__/status/1715104928589550048?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>, <a href="https://twitter.com/Breaking911/status/1715103968232165433">Breaking911</a>, <a href="https://twitter.com/sentdefender/status/1715451285690896401?s=20&amp;utm_source=pocket_reader">OSINTdefender</a>] （2023年10月19日）阿利-伯克级驱逐舰 USS Carney (DDG-64) 在红海也门海岸附近拦截了胡塞武装的巡航导弹和无人机。这些武器向北飞行，据信目标为以色列。three land-attack cruise missiles and several drones. Iranian 2000km+ range Soumar &amp; 2000km+ range Shahed-136. 本次攔截的導彈是11枚標準二，沒有用上先進海麻雀，美軍上一次攔截則是2016葉門，發射了數枚標準二和少量先進海麻雀</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/sentdefender/status/1715075757561545055">OSINTdefender</a>, <a href="https://twitter.com/music3club/status/1715191835377995894">QQ.FM Zhang Lei</a>] The Attack on U.S. Al-Asad Airbase in Western Iraq appears to have been much more Significant than Initial Reports indicated; there so far has been no word on Damage or Casualties. 昨天，美国国会通过授权，如果伊朗参战哈以战争，美国总统有权决定直接对伊宣战。一位美国官员告诉美联社，昨天两架无人机瞄准了美军使用的伊拉克西部阿萨德空军基地，一架无人机瞄准了伊拉克北部的一个基地。根据美国周三的一份声明，美军拦截了这三只飞机，摧毁了两只，但只损坏了第三只，这导致西部基地的联军人员受轻伤。昨天，以色列直接点名宣布，如果哈马斯从俄、叙、伊三国得到武器和军援，以色列将采取行动打击他们的主持者。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/new27brigade/status/1714989501620298104?s=20&amp;utm_source=pocket_reader">new27brigade</a>, <a href="https://defence-blog.com/israel-deploys-submarines-amid-rising-tensions-with-iran/">defence blog</a>] 由於以色列與伊朗和黎巴嫩真主黨的緊張關係不斷升級，以色列國防軍在中東各地部署潛艦艦隊</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/__Inty__/status/1715202237264507043?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>, <a href="https://twitter.com/sentdefender/status/1715184124472840550">OSINTdefender</a>] 最新消息：火箭弹击中驻伊拉克美军军事基地</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://theinitium.com/article/20231020-whatsnew-international-gaza-fake-news?utm_source=twitter&amp;utm_medium=twitter&amp;utm_campaign=twpost">端傳媒</a>] 以哈戰爭蔓延網絡空間，伊朗、俄國和印度網軍亦有參戰</p>
+
+<h3 id="加沙圣公会阿赫利医院被炸与相关舆论战">加沙圣公会阿赫利医院被炸，与相关舆论战</h3>
+
+<p><code class="language-plaintext highlighter-rouge">错误</code> [<a href="https://twitter.com/AP/status/1714336328312144180?s=20&amp;utm_source=pocket_reader">AP</a>, <a href="https://twitter.com/i/birdwatch/n/1714697136280137768">Twitter</a>]（2023年10月17日）<del>BREAKING: The Gaza Health Ministry says at least 500 people killed in an explosion at a hospital that it says was caused by an Israeli airstrike.</del> The Gaza Health Ministry is under the control of Hamas, which has been designated as a terrorist organization by the US State Department. Other sources have claimed that the rocket explosion at the hospital was the result of a failed Hamas rocket launch.</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24/status/1714422773513072641?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] The death toll from the attack on a hospital in Gaza has now risen to 800 casualties, <strong>according to Al Arabiya</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/visegrad24/status/1714380437299109906">Visegrád 24</a>, <a href="https://twitter.com/__Inty__/status/1714396454318719478?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>] （2023年10月17日）Growing street protests in the West Bank after the strike on the Al-Ahly hospital. “the people want the regime to fall”. This is chanted against the Palestinian Authorities. 在阿赫利医院遭到袭击后，约旦河西岸的街头抗议活动愈演愈烈。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/ChengWeiLai2/status/1714437522506522978">Cheng-Wei Lai</a>] 我有看到以色列著名的記者一開始以為是以色列炸的，然後他使用「恐怖份子都躲在醫院、清真寺和學校」這個理由來為戰爭罪行開脫。[<a href="https://pbs.twimg.com/media/F8rn1aLbsAA6OB4?format=jpg&amp;name=900x900">截图</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/dw_chinese/status/1714430445696229700?s=20&amp;utm_source=pocket_reader">德国之声</a>, <a href="https://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/20231017-%E5%8A%A0%E6%B2%99%E5%8C%BB%E9%99%A2%E9%81%AD%E8%A2%AD-%E5%93%88%E9%A9%AC%E6%96%AF%E8%B0%B4%E8%B4%A3%E4%BB%A5%E8%89%B2%E5%88%97-%E4%BB%A5%E5%86%9B%E6%8C%87%E4%BC%8A%E6%96%AF%E5%85%B0%E5%9C%A3%E6%88%98%E7%BB%84%E7%BB%87%E7%81%AB%E7%AE%AD%E5%BC%B9-%E8%AF%AF%E4%B8%AD-%E5%8A%A0%E6%B2%99%E5%8C%BB%E9%99%A2?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>, <a href="https://twitter.com/bbcchinese/status/1714452677479043194?s=20&amp;utm_source=pocket_reader">BBC</a>, <a href="https://twitter.com/bbcchinese/status/1714588226223276316?s=20&amp;utm_source=pocket_reader">BBC</a>, <a href="https://twitter.com/bbcchinese/status/1714981437106204847?s=20&amp;utm_source=pocket_reader">BBC</a>] <a href="https://twitter.com/hashtag/%E5%8A%A0%E6%B2%99%E5%8C%BB%E9%99%A2%E9%81%AD%E7%A9%BA%E8%A2%AD%E9%85%BF500%E6%AD%BB?src=hashtag_click">加沙医院遭空袭酿500死</a> 以巴互推责任。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24">Visegrád 24</a>] 以色列提供的医院爆炸时的监控视频，声称哈马斯发射的系列火箭弹中的一个误击了医院。[<a href="https://twitter.com/i/status/1714379637839573451">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/koiiok17/status/1714388910997196862?s=20&amp;utm_source=pocket_saves">川和 koi iok</a>] 然后哈马斯控制媒体都说是以色列干的，然后穆斯林都信了，说实话只要看看医院废墟就知道了，JDAM因为巨大扬尘一般不会着火。可惜我估计哈马斯不会允许照，不然就被发现了。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/sentdefender/status/1714388439884279889">OSINTdefender</a>]（2023年10月17日）Footage has been released from Northern Gaza. this is Direct Evidence that the Explosion was indeed caused by a Misfired-Rocket and not by an Israeli Airstrike. The Building seen on Fire in the Footage is Confirmed to be the Hospital in Northern Gaza. [<a href="https://twitter.com/i/status/1714383923881373908">视频1</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/IDF/status/1714370853465387395?s=20&amp;utm_source=pocket_reader">Israel Defense Forces</a>] Following an analysis by the IDF’s operational systems, a barrage of rockets was launched toward Israel, which passed in the vicinity of the hospital, when it was hit. Islamic Jihad terrorist organization is responsible for the failed rocket launch that hit the hospital.</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/AJEnglish/status/1714348326412243119">Al Jazeera</a>, <a href="https://twitter.com/Imamofpeace/status/1714386149337104854?s=20&amp;utm_source=pocket_reader">Imam of Peace</a>, <a href="https://twitter.com/IDF/status/1714442617201586220?s=20&amp;utm_source=pocket_reader">IDF</a>] 根据阿拉伯媒体的视频进行的分析，仍得出爆炸来自火箭弹的结论。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/IDF/status/1714548529538953637?s=20&amp;utm_source=pocket_reader">Israel Defense Forces</a>] Islamic Jihad struck a Hospital in Gaza—the IDF did not. Listen to the terrorists as they realize this themselves: [<a href="https://twitter.com/i/status/1714548529538953637">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/torontobigface">多伦多方脸</a>, <a href="https://twitter.com/spectatorindex/status/1714540546503631017">The Spectator Index</a>, <a href="https://twitter.com/IsraelinChina/status/1714599486197203184?s=20&amp;utm_source=pocket_reader">以色列在中国</a>] 以色列方面公布了窃听到的，两名恐怖组织成员的通话记录，他们在通话中谈到了该医院爆炸是因为自己的导弹出现问题导致的。并且以色列发布了数张照片，展示了导弹的轨迹。同时以色列称哈马斯夸大了爆炸造成的伤亡人数</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/Osinttechnical/status/1714509053588582774">OSINTtechnical</a>, <a href="https://twitter.com/jiongnasen/status/1714563053315051560?s=20&amp;utm_source=pocket_reader">约拿坦</a>] The IDF released drone footage showing the Ahli Hospital in Gaza both before and after the explosion overnight. 从爆炸对医院建筑的破坏情况来看，我觉得基本上可以排除JDAM制导炸弹了。甚至连哈马斯方面公布的伤亡人数也显得非常可疑。以军公布的无人机照片跟医院现场照片里的车辆位置是一致的。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/visegrad24/status/1714528134198923697?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] 天亮之后的第一张现场照片。被炸处为停车场。[<a href="https://pbs.twimg.com/media/F8s553UWsAEAo08?format=jpg&amp;name=small">照片</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/koiiok17/status/1714520531888914712?s=20&amp;utm_source=pocket_reader">川和 koi iok</a>, <a href="https://twitter.com/IAFsite/status/1714516199059472884">Israeli Air Force</a>, <a href="https://twitter.com/pingzhang632/status/1714548151816773691?s=20&amp;utm_source=pocket_reader">张平</a>] 非常清晰，这个毁伤不太可能是GBU或者JDAM，我现在怀疑有些视频是剪辑和加音轨的了。另外谁原因更清晰展现现场并且愿意允许第三方进场的更清白：以色列 1，哈马斯 0。以军轰炸后留下来的弹坑 vs 医院现场。[<a href="https://pbs.twimg.com/media/F8s_83nXkAA3P2p?format=jpg&amp;name=large">照片</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/visegrad24/status/1714598373230088346?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] 弹坑照片：[<a href="https://pbs.twimg.com/media/F8t52m5XcAAXniF?format=jpg&amp;name=small">照片</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/koiiok17/status/1714601150673281031?s=20&amp;utm_source=pocket_reader">川和 koi iok</a>] 看得出来，昨天晚上哈马斯的道具组和舞美组真的用了很大力气，可惜有点力气用的太大了。他们也没办法一晚上修一座方舱医院然后炸了不是吗？找到穿帮细节了
+这男人提着两包他孩子，字幕是我孩子死了！然后还笑，你笑你🐎呢？一会儿才反应过来，开始悲伤。[<a href="https://twitter.com/i/status/1714402017223815437">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/visegrad24/status/1714606810013811170?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] Channel 12 公布的新视频，展示了火箭弹发射点和医院。[<a href="https://twitter.com/i/status/1714606810013811170">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/entropy_01/status/1714484385872044077?s=20&amp;utm_source=pocket_reader">entropy</a>, <a href="https://twitter.com/GeoConfirmed/status/1714390254935851272">GeoConfirmed</a>] 该贴分析之后确认了半岛电视台直播的爆炸地点就是医院。（注：无法确认是失败的火箭弹部件坠落导致爆炸还是两次独立爆炸，仅能证明半岛台直播画面捕捉到的加沙火箭发射后地面爆炸位置确为医院）</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/AP/status/1714675086484005168?s=20&amp;utm_source=pocket_reader">AP</a>] The White House says its current assessment is that Israel is not responsible for the deadly Gaza hospital explosion, but the U.S. is still collecting evidence.</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/AP/status/1714647548328030428?s=20&amp;utm_source=pocket_reader">AP</a>] Doctors in Gaza are rushing to save people badly wounded in the massive blast at a Gaza City hospital, performing surgery on hospital floors — often without anesthesia.</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/bbcchinese/status/1714941166603403327">BBC</a>] 以色列与哈马斯互相指责对方是加沙阿赫利医院爆炸事件的幕后黑手。我们能从事发后的现场殘骸发现什么？</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/Willoug60125499/status/1714990241625629073?utm_source=pocket_reader">三日月やよい</a>] 这条bbc的fact check，就是我前几条推说的，从火箭轨迹/爆炸规模强度/弹坑这些核心技术问题，都能证明之前对以色列的指责问题很大。而另一方没提供任何有力证据，包括他们自称拥有的弹头残骸。很多网民没有处理消化新闻的能力，不知道这种公案的point在哪里。左壬要把bbc打成挺以色列极右媒体吗？</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://www.youtube.com/channel/UCiL5EGUQfROCmRokN2q1LCg/community?lb=Ugkxh9OkcWIyPL_gEe9ofWD8GqffKORqH2ku">说真话的徐某人</a>] 如果一个人真心支持巴勒斯坦民众，那么一定会对医院被炸刨根究底，并尊重事实谴责发动攻击的那一方。如果是一上来就咬定是以色列干的，那就说明其根本不在乎巴勒斯坦人的死活，只想消灭以色列，精神上和哈马斯无异。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/SuTNkwfrFkMhHsG/status/1714901614853750882?s=20&amp;utm_source=pocket_reader">艾布拉姆斯</a>] 那些洗空爆的差不多得了。注意看用的量，还有图3的那个30磅炸药对一架武直的最大毁伤半径（接近9米了）然后回看图4，真的，我十分支持你蝈各种自媒体大V公开真实身份，我想看看其中有多少是爆炸物专家</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/jiongnasen/status/1714914664205922501?s=20&amp;utm_source=pocket_reader">约拿坦</a>, <a href="https://twitter.com/seannewbs/status/1714706735125197208">Sean</a>] CNN安德森在报道加沙医院爆炸事件时同步播放的画面是与医院完全无关的其他建筑。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/JohnZhangSV/status/1715084659628077558?utm_source=pocket_reader">John Zhang</a>, <a href="https://twitter.com/LePoint/status/1714968013068230783">Le Point</a>] 法国杂志Le Point援引欧洲情报机构的评估，加沙医院的死亡人数在15-50人之间。不是恐怖分子很聪明，而是我们自己太愚蠢！</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://www.xiaoyuzhoufm.com/episode/65314b9c75608281a9c043f6?utm_source=pocket_reader">翻电Special</a>]  从加沙医院争议，再谈几个媒介素养的“真问题” VOL.126</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<strong><a href="https://twitter.com/fangshimin/status/1715084107955466528?utm_source=pocket_reader">方舟子</a></strong>] 以色列军方要人们去看半岛电视的视频，说它<strong>证明了医院是加沙发射失败的火箭炸的。现在被狠狠打脸了。</strong>半岛电视台的详细分析表明，当时加沙发射的火箭全部成功发射并被以色列铁穹拦截， 是在最后一枚火箭被拦截之后医院才发生爆炸。<strong>半岛电视台很牛，基本证明是以色列炸了嫁祸于人</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/cskun1989/status/1714878239284642240?s=20&amp;utm_source=pocket_reader">蔡慎坤</a>] 连巴勒斯坦媒體也不得不澄清阿赫利 (Al-Ahli) 醫院停車場區域，出現火箭彈打擊的坑洞，事實証明是哈瑪斯的火箭彈發射失敗所為，并非以色列的 JDAM 导弹。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/jiongnasen/status/1715065906114769057?s=20&amp;utm_source=pocket_reader">约拿坦</a>, <a href="https://twitter.com/JerylBier/status/1715016410185744884">Jeryl Bier</a>] 纽约时报给加沙医院爆炸的报道追加了一条说明，说医院本身没有被炸，爆炸发生在停车场。报道中间还悄悄修改了一个细节，纽时引述医院工作人员的话时，形容她“穿过医院的残垣断壁”，现在把残垣断壁给去掉了。这几个字完全是纽时凭想象加进去的。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.cnn.com/2023/10/21/middleeast/cnn-investigates-forensic-analysis-gaza-hospital-blast/index.html?utm_source=pocket_saves">CNN</a>] 对图片和视频证据的分析认为加沙医院爆炸来自火箭弹而非以军空袭</p>
+
+<h2 id="官方反应">官方反应</h2>
+
+<h3 id="国际">国际</h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/bbcchinese/status/1711215806724682100">BBC</a>] 联合国安全理事会10月8日举行紧急会议，讨论以色列与巴勒斯坦哈马斯武装之间的军事冲突。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://weibo.com/6725906589/Nn5aG0gRX">财小僧</a>] （2023年10月9日）以色列常驻联合国代表吉拉德·埃尔丹在安理会特别会议之后表示，不会与哈马斯谈判。他说：“与这些野蛮人交谈的时代已经结束。现在是摧毁哈马斯恐怖主义基础设施、彻底消灭它的时候了，这样类似的恐怖就不会再发生了。”</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%BA%9A%E6%B4%B2/20231010-%E6%9C%9D%E9%B2%9C%E8%B0%B4%E8%B4%A3%E4%BB%A5%E8%89%B2%E5%88%97%E9%80%A0%E6%88%90%E5%8A%A0%E6%B2%99%E6%B5%81%E8%A1%80">法广</a>] （2023年10月10日）朝鲜官方媒体今天指责以色列在加沙造成流血事件。称解决巴以冲突危机的出路，在建立巴勒斯坦国。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E5%9B%BD%E9%99%85/20231015-%E8%81%94%E5%90%88%E5%9B%BD%E7%A7%98%E4%B9%A6%E9%95%BF-%E4%B8%96%E5%8D%AB%E6%80%BB%E5%B9%B2%E4%BA%8B%E6%95%A6%E4%BF%83%E5%93%88%E9%A9%AC%E6%96%AF%E7%AB%8B%E5%8D%B3%E9%87%8A%E6%94%BE%E4%BA%BA%E8%B4%A8?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>] （2023年10月15日）联合国秘书长、世卫总干事敦促哈马斯立即释放人质</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/zaobaosg/status/1714147982013030791?s=20">联合早报</a>] （2023年10月17日）在以色列和巴勒斯坦激进组织哈马斯的冲突越演越烈之际，马来西亚指责法兰克福书展主办方偏向以色列，并为此退出这个国际书展。</p>
+
+<h3 id="中东">中东</h3>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/AzukaDM/status/1711410413651276153">ArukuSageMind</a>] 沙特阿拉伯停止与以色列关系正常化的谈判</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E4%B8%9C/20231010-%E4%BC%A0%E5%8D%A1%E5%A1%94%E5%B0%94%E6%96%A1%E6%97%8B%E5%93%88%E9%A9%AC%E6%96%AF%E4%B8%8E%E4%BB%A5%E8%89%B2%E5%88%97%E8%BF%9B%E8%A1%8C%E4%BA%BA%E8%B4%A8%E8%B0%88%E5%88%A4-%E4%BB%A5%E8%89%B2%E5%88%97%E6%96%B9%E6%88%96%E5%90%A6%E8%AE%A4">法广</a>] 传卡塔尔斡旋哈马斯与以色列进行人质谈判。以色列官员仅告诉路透社：“目前没有正在进行任何谈判。”</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E4%B8%9C/20231013-%E4%BC%8A%E6%9C%97%E8%AD%A6%E5%91%8A%E4%BB%A5%E8%89%B2%E5%88%97-%E9%A6%96%E6%8F%90%E8%BD%B4%E5%BF%83%E5%9B%BD%E5%8F%8D%E5%87%BB">法广</a>] 伊朗外交部长阿米拉卜杜拉希安警告，针对巴勒斯坦人的持续犯罪行为将得到“轴心国家”的回应，以色列将对由此产生的后果负责。但伊朗方面没有列出轴心国名单。伊朗领袖此前呼吁阿拉伯国家联合针对以色列。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E4%B8%9C/20231015-%E9%98%BF%E5%B7%B4%E6%96%AF-%E5%93%88%E9%A9%AC%E6%96%AF%E7%9A%84%E8%A1%8C%E5%8A%A8%E4%B8%8D%E4%BB%A3%E8%A1%A8%E5%B7%B4%E5%8B%92%E6%96%AF%E5%9D%A6%E4%BA%BA?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>, <a href="https://twitter.com/bbcchinese/status/1713773404313260474?utm_source=pocket_saves">BBC</a>] （2023年10月15日）阿巴斯：哈马斯的行动不代表巴勒斯坦人民。巴勒斯坦官方通讯社在引述总统阿巴斯（Mahmoud Abbas）称“哈马斯的行动和政策不代表巴勒斯坦人民”后，删除了这句表态。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/torontobigface/status/1713678910423253087?s=20&amp;utm_source=pocket_saves">多伦多方脸</a>] 这个讲的其实是没有问题的。哈马斯在一定程度上真的代表不了巴勒斯坦人。而最近的民调也显示哈马斯并没有那么受欢迎。</p>
+
+<h3 id="美国">美国</h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/news/world/story20231009-1441178">联合早报</a>] （2023年10月8日）美国国防部长奥斯汀当天与美国总统拜登开会后宣布，把美国海军最先进的福特号航母与随行军舰部署到地中海东部，并增加在当地的战斗机数量，以加强对那片地区的威慑态势。美国政府也将迅速为以色列国防军提供包括弹药在内的额外军备和资源。奥斯汀强调，美国对以色列国防军与以色列人民的支持坚定不移。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/YWNReporter/status/1712114849839280525">Moshe Schwartz</a>, <a href="https://twitter.com/i/status/1712162849198375273">NSC Spokesperson John Kirby</a>] （2023年10月11日）美国部署第二个航母打击群。The USS Dwight D. Eisenhower aircraft carrier Strike Group will be deployed to the Eastern Mediterranean joining the USS Gerald R. Ford carrier strike group.</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://web.archive.org/web/20231014101251/https://www.dapenti.com/blog/more.asp?name=xilei&amp;id=174334">喷嚏图卦20231011</a>] 美国务卿布林肯11日启程访问以色列和约旦</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://web.archive.org/web/20231014101251/https://www.dapenti.com/blog/more.asp?name=xilei&amp;id=174334">喷嚏图卦20231011</a>] 拜登周二召集国安团队商讨巴以局势，再次与内塔尼亚胡通话，并将发表电视讲话。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/Willoug60125499/status/1712803443843424347">三日月やよい</a>] 中东利害关系一目了然。美国无法接受控制中东包括海湾并拥核的伊朗系，这比原俄罗斯后院乌克兰重要得多。没以色列，海湾废物王爷拿美械打不过穿拖鞋的胡塞，会被伊朗系迅速消灭。（王爷军为什么这么菜呢？换成外国雇佣兵行不行）前现代活化石面对现代革命政权，当然是废物点心。你拿江户幕府碰碰明治政府也一样…别的不说，现在政府的控制动员汲取力，民族主义作为文宣的号召凝聚力，更别说现代革命政权都是枪杆子打出来，天然倚重军队，前现代不仅远离惧怕康米/民族/民主/军国各种主义，也远力害怕防范它们的容器-军队。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://apnews.com/article/blinken-hamas-israel-war-egypt-saudi-arabia-cb925bb41b99b4c190f026e9e9ff8fab?utm_campaign=TrueAnthem&amp;utm_medium=AP&amp;utm_source=Twitter">AP</a>] （2023年10月16日）访问6个阿拉伯国家后，布林肯周一返回以色列</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E5%9B%BD%E9%99%85/20231015-%E7%BE%8E%E4%BB%A5%E4%B8%A4%E5%9B%BD%E5%AE%98%E5%91%98%E8%AE%A8%E8%AE%BA%E6%8B%9C%E7%99%BB%E6%9C%AC%E5%91%A8%E8%AE%BF%E9%97%AE%E4%BB%A5%E8%89%B2%E5%88%97%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>] （2023年10月15日）美以两国官员讨论拜登本周访问以色列的可能性</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/POTUS/status/1714090576076038360?s=20&amp;utm_source=pocket_reader">President Biden</a>] （2023年10月16日）On Wednesday, I’ll travel to Israel to stand in solidarity in the face of Hamas’s brutal terrorist attack. I’ll then travel to Jordan to address dire humanitarian needs, meet with leaders, and make clear that Hamas does not stand for Palestinians’ right to self-determination.</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/world/story20231018-1443918">联合早报</a>]（2023年10月18日）美国总统拜登星期三上午11时（新加坡时间下午4时）乘空军一号飞抵以色列特拉维夫的本·古里安机场（Ben Gurion）</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/sentdefender">OSINTdefender</a>, <a href="https://www.c6f.navy.mil/Press-Room/News/Article/3560858/uss-mount-whitney-departs-homeport/">U.S. Sixth Fleet</a>] 美海军第6舰队旗舰，在意大利前出部署的 USS Mount Whitney (LCC-20) 蓝岭级指挥舰，加入东地中海美军舰队</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/zaobaosg/status/1714974726269940090?s=20&amp;utm_source=pocket_reader">联合早报</a>] （2023年10月19日）美国总统拜登将针对俄乌战争和以哈冲突发表罕见<strong>椭圆形办公室演说</strong>，以争取美国人的支持，为以色列和乌克兰提供军事援助。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/entropy_01/status/1714868833733976147?s=20&amp;utm_source=pocket_reader">entropy</a>, <a href="https://twitter.com/sentdefender/status/1714845841947574554">OSINTdefender</a>] The Director of Congressional and Public Affairs at the U.S. State Department’s Bureau of Political-Military Affairs, Josh Paul who is in Charge of U.S. Arms Transfers to Foreign Nations has just Resigned. 这位要是辞职信说自己反对美国当局巴以政策还显得自己高尚一些，结果辞职信里面大谈特谈人权自由，让人笑掉大牙。合着你老在局里干了十一年，前面都觉得没事，结果今天突然良心发现觉得转让武器就侵犯人权了。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/entropy_01/status/1715045981711139086?s=20&amp;utm_source=pocket_reader">entropy</a>, <a href="https://twitter.com/samosaur/status/1714962125980901873">Sam Shoemate</a>, <a href="https://twitter.com/__Inty__/status/1715144112440230331?utm_source=pocket_reader">Inty热点新闻</a>] 拜登会见特种部队士兵，媒体照片泄露军人面容。白宫证实在 Instagram 照片中意外曝光了驻以色列的美国特种部队。一位发言人表示：“我们对这个错误感到遗憾”</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24/status/1715086853429166471?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] The U.S. plans to send Israel tens of thousands of 155mm artillery shells designated for Ukraine - Axios</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.bbc.com/zhongwen/simp/world-67166368?at_medium=social&amp;at_ptr_name=twitter&amp;at_campaign=Social_Flow&amp;at_link_origin=bbcchinese&amp;at_campaign_type=owned&amp;at_bbc_team=editorial&amp;at_link_id=9BBBA7C4-6F41-11EE-A203-57FBD89D5CC3&amp;at_format=link&amp;at_link_type=web_link">BBC</a>] 美国总统拜登宣布将向国会提出紧急预算申请，向以色列与乌克兰提供军事援助。乌克兰总统泽连斯基说感到“让人难以置信地鼓舞”，并称“美国投资在乌克兰防卫之上，将能确保欧洲整体以至于世界的长期安全”。</p>
+
+<h3 id="欧洲">欧洲</h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E4%B8%9C/20231009-%E6%9C%94%E5%B0%94%E8%8C%A8-%E5%BE%B7%E5%9B%BD%E5%9D%9A%E5%AE%9A%E4%B8%8D%E7%A7%BB%E5%9C%B0%E7%AB%99%E5%9C%A8%E4%BB%A5%E8%89%B2%E5%88%97%E4%B8%80%E8%BE%B9?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>] 朔尔茨：德国坚定不移地站在以色列一边</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/world/story20231010-1441200">联合早报</a>] 美英法德意领导人矢言“坚定团结”支持以色列</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/world/story20231012-1442062">联合早报</a>] （2023年10月12日）德国总理朔尔茨宣布打击支持巴勒斯坦激进组织哈马斯的组织萨米杜恩（Samidoun），德国将在国内禁止所有为哈马斯筹款和提供其他支持的活动，并将禁止支持国际活动组织萨米杜恩。同时表明伊朗对允许哈马斯发展壮大并对以色列发动袭击负有责任。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.dw.com/zh/%E5%BE%B7%E5%9B%BD%E6%80%BB%E7%90%86%E4%BB%A5%E8%89%B2%E5%88%97%E7%9A%84%E5%AE%89%E5%85%A8%E4%B9%9F%E6%98%AF%E5%BE%B7%E5%9B%BD%E7%9A%84%E5%9B%BD%E5%AE%B6%E5%88%A9%E7%9B%8A/a-67076804">德国之声</a>] “以色列的安全是德国的国家利益”这句话最早出自德国前总理默克尔。德国本届政府将这句话写进了三党联合执政协定，表明德国对以色列的安全担负著特殊的责任。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/region776/status/1712823603967008958">Getty</a>] 德國警察開始逮捕支持哈瑪斯的示威者 [<a href="https://twitter.com/i/status/1712823603967008958">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E6%B3%95%E5%9B%BD/20231013-%E4%BB%8E%E4%BB%A5%E8%89%B2%E5%88%97%E6%92%A4%E7%A6%BB%E7%9A%84%E7%AC%AC%E4%B8%80%E6%89%B9%E6%B3%95%E5%9B%BD%E4%BA%BA%E8%B0%88%E6%92%A4%E4%BE%A8%E6%84%9F%E5%8F%97">法广</a>] （2023年10月13日）从以色列撤离的第一批法国人谈撤侨感受</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.dw.com/zh/%E6%97%A0%E6%9D%A1%E4%BB%B6%E5%8A%9B%E6%8C%BA%E4%BB%A5%E8%89%B2%E5%88%97%E5%86%AF%E5%BE%B7%E8%8E%B1%E6%81%A9%E8%A1%A8%E6%80%81%E9%81%AD%E6%89%B9/a-67103220">德国之声</a>] （2023年10月13日）无条件力挺以色列？冯德莱恩表态遭批</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E6%B3%95%E5%9B%BD/20231015-%E5%B7%B4%E9%BB%8E%E4%B8%80%E6%B8%85%E7%9C%9F%E5%AF%BA%E4%BC%8A%E7%8E%9B%E7%9B%AE%E8%A6%81%E6%B1%82%E5%B0%86-s%E5%90%8D%E5%8D%95%E4%B8%8A%E7%9A%84%E9%9D%9E%E6%B3%95%E5%9B%BD%E4%BA%BA-%E7%BB%9F%E7%BB%9F%E9%A9%B1%E9%80%90%E5%87%BA%E5%A2%83?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>] （2023年10月15日）巴黎一清真寺伊玛目要求将”S名单上的非法国人”统统驱逐出境。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E4%B8%9C/20231015-%E9%A9%AC%E5%85%8B%E9%BE%99%E8%AD%A6%E5%91%8A%E4%BC%8A%E6%9C%97%E6%80%BB%E7%BB%9F%E4%B8%8D%E8%A6%81%E8%AE%A9%E5%86%B2%E7%AA%81%E5%8D%87%E7%BA%A7%E6%89%A9%E5%A4%A7%EF%BC%8C%E6%B3%95%E5%9B%BD%E5%90%91%E4%BB%A5%E8%89%B2%E5%88%97%E6%8F%90%E4%BE%9B%E6%83%85%E6%8A%A5?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>] （2023年10月15日）马克龙警告伊朗总统不要让冲突升级扩大，法国向以色列提供情报</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/NiKiTa_32156/status/1713851867573440625?utm_source=pocket_saves">NiKITa</a>, <a href="https://twitter.com/visegrad24/status/1715436909957144925?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] 德國警察揍哈馬斯支持者。Anti-Israel protesters clash with German police in Berlin</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/20231016-%E5%BE%B7%E5%9B%BD%E6%80%BB%E7%90%86%E6%9C%94%E5%B0%94%E8%8C%A8%E5%B0%86%E8%AE%BF%E9%97%AE%E4%BB%A5%E8%89%B2%E5%88%97?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>]（2023年10月16日）德国总理朔尔茨将访问以色列</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/20231016-%E5%86%AF%E5%BE%B7%E8%8E%B1%E6%81%A9%E4%BB%A5%E8%89%B2%E5%88%97%E8%A1%8C%E5%9C%A8%E6%AC%A7%E7%9B%9F%E5%86%85%E9%83%A8%E5%BC%95%E5%8F%91%E7%9A%84%E4%B8%80%E5%9C%BA%E9%A3%8E%E6%9A%B4?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>]（2023年10月17日）冯德莱恩以色列行在欧盟内部引发的一场风暴</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/__Inty__/status/1714283814929990136?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>]（2023年10月17日）德国总理抵达以色列</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/__Inty__/status/1714369006302532070?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>, <a href="https://twitter.com/sara__si/status/1714363378708148588">Sara Sievert</a>]（2023年10月17日）德国总理奥拉夫-肖尔茨（Olaf Scholz）的代表团在从特拉维夫起飞前往开罗之前，因导弹警报而不得不突然下机全部趴在地上。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/sentdefender/status/1715369640090570838?s=20&amp;utm_source=pocket_reader">OSINTdefender</a>] The Interior Minister of Germany, Nancy Faeser has stated today that Hamas Propaganda will not be Tolerated in Germany and that their Supporters should be Arrested and Deported from the Country.</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.dw.com/zh/%E5%BE%B7%E5%9B%BD%E5%AF%B9%E7%8A%B9%E5%A4%AA%E4%BA%BA%E6%9D%A5%E8%AF%B4%E4%BB%8D%E6%98%AF%E4%B8%80%E4%B8%AA%E5%AE%89%E5%85%A8%E7%9A%84%E5%9B%BD%E5%AE%B6/a-67165011">德国之声</a>] 德国犹太人中央委员会主席舒斯特对德国编辑部网络（RND）表示，在他看来，安全部门正在尽其所能，维持在德国犹太人的安全处境。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/__Inty__/status/1715436505420988662?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>] 荷兰警察驱散亲巴勒斯坦的群体</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.rfi.fr/cn/%E6%B3%95%E5%9B%BD/20231020-%E4%B8%8D%E5%88%B0%E4%B8%80%E5%91%A8%EF%BC%8C%E6%B3%95%E5%9B%BD%E5%87%A1%E5%B0%94%E8%B5%9B%E5%AE%AB%E4%BA%94%E6%AC%A1%E5%9B%A0%E7%82%B8%E5%BC%B9%E5%A8%81%E8%83%81%E7%96%8F%E6%95%A3%E6%B8%B8%E5%AE%A2?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>]  不到一周，法国凡尔赛宫五次因炸弹威胁疏散游客</p>
+
+<h3 id="中华人民共和国">中华人民共和国</h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://mr.people.cn/davmu/share/mp/video/2023/10/yNV8xsV8pl/index.html">人民视频</a>] （2023年10月9日）中方回应是否认为哈马斯袭击是恐怖行为：</p>
+
+<ul>
+  <li>外交部发言人毛宁主持例行记者会。有记者提问，哈马斯周六发动的袭击造成700多人死亡，其中大多数是平民，还有数十名被绑架者被带到加沙，中国政府是否认为这些行为是恐怖行为？</li>
+  <li>毛宁表示，中方已经就当前巴以局势升级表明了立场，我们对紧张局势加剧和暴力升级深表关切，对于冲突造成平民伤亡感到十分痛心，我们反对和谴责伤害平民的行为，我们认为当务之急是尽快停火止战、恢复和平，共同推动局势降温。</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<strong><a href="https://twitter.com/whyyoutouzhele/status/1712774843244949753">李老师不是你老师,</a></strong> <a href="https://twitter.com/spectatorindex/status/1712737562853507334">The Spectator Index</a>, <a href="https://twitter.com/remonwangxt/status/1712795043164033307">变态辣椒RebelPepper</a>, <a href="https://twitter.com/bbcchinese/status/1712755347277205805">BBC</a>] 以色列驻北京外交人员被捅。[<a href="https://twitter.com/i/status/1712795043164033307">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<strong><a href="https://twitter.com/whyyoutouzhele/status/1712821368423604412">李老师不是你老师</a></strong>] （2023年10月13日）朝阳警方通报，确认凶手是一名外籍53岁男子，在京从事小商品经营工作，没有透露国籍。遇刺者是一名外交人员家属</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://x.com/whyyoutouzhele/status/1713182456180810232?s=20">李老师不是你老师</a><a href="https://twitter.com/whyyoutouzhele">,</a> <a href="https://twitter.com/IsraelinChina/status/1713035067646451828">以色列在中国</a>] （2023年10月12日）受以色列外交部长埃利•科亨指示，以色列外交部亚太事务副总司长兼大使拉菲•哈帕兹同中国政府中东问题特使翟隽通话。哈帕兹表示，以色列就中国对于以色列南部最新事件的声明与媒体报道深表失望。在这些信息当中，并没有对恐怖主义组织哈马斯针对无辜平民发起的恐怖袭击和恶毒屠杀，以及将数十人绑架到加沙地带的行径做出清晰明确的谴责。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1713548938433761559?utm_source=pocket_saves">李老师不是你老师</a>, <a href="https://twitter.com/bbcchinese/status/1713737694847869047?s=20&amp;utm_source=pocket_saves">BBC</a>] （2023年10月15日）中国外交部长王毅先后同沙特，伊朗，土耳其外长通话，并表示：以色列的行为已经超出自卫范畴。中方支持伊斯兰国家在巴勒斯坦问题上加强团结协调，发出一致声音</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1713317777560219985">李老师不是你老师</a>, <a href="https://www.rfi.fr/cn/%E4%B8%AD%E4%B8%9C/20231015-%E7%8E%8B%E6%AF%85%E4%B8%8E%E4%BC%8A%E6%9C%97%E5%8F%8A%E5%9C%9F%E8%80%B3%E5%85%B6%E5%A4%96%E9%95%BF%E9%80%9A%E8%AF%9D-%E5%B9%B6%E7%A7%B0%E8%A6%81%E4%B8%8E%E5%90%84%E6%96%B9%E6%B2%9F%E9%80%9A?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>] （2023年10月14日）据以色列当地华人透露，目前中国驻以色列大使馆已经彻底摆烂。甚至连大使馆电话也已经打不通了。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/world/story20231016-1443347">联合早报</a>] （2023年10月16日）巴勒斯坦驻华大使呼吁中国帮助结束以哈冲突</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.dw.com/zh/%E4%BB%A5%E5%93%88%E5%86%B2%E7%AA%81-%E4%B8%AD%E5%9B%BD%E5%BB%BA%E8%AE%AE%E6%B0%91%E4%BC%97%E6%90%AD%E4%B9%98%E5%95%86%E4%B8%9A%E8%88%AA%E7%8F%AD%E8%BF%94%E5%9B%BD/a-67119754">德国之声</a>]（2023年10月17日）中国外交部则要求中国公民搭乘商业航班返国。以色列中国留学群的聊天记录显示，留学生询问何时安排撤侨，却被使馆人员警告“不要在群里发无关内容和闲聊”。有留学生感叹“出了国才知道，战狼是最大的谣言”</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://www.dw.com/zh/%E5%BE%B7%E8%AF%AD%E5%AA%92%E4%BD%93%E4%BB%A5%E5%93%88%E5%86%B2%E7%AA%81%E4%B8%8E%E4%B8%AD%E7%BE%8E%E5%8D%9A%E5%BC%88/a-67123766">德国之声</a>] （2023年10月17日）德语媒体：以哈冲突与中美博弈</p>
+
+<h3 id="东亚">东亚</h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/xijinpingdiguo/status/1714863802456719494?s=20&amp;utm_source=pocket_reader">習献平</a>, <a href="https://twitter.com/mainichi/status/1714826341592531383">每日新闻</a>] 自卫队也在安排军机撤侨的时候捎带了20个韩国人～</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1715249026851856594?s=20&amp;utm_source=pocket_reader">李老师不是你老师</a>]（2023年10月20日）泰国接回在以色列遇难的泰国公民遗体。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/bbcchinese/status/1715290490416087115?s=20&amp;utm_source=pocket_reader">BBC</a>, <a href="https://www.rfi.fr/cn/%E5%9B%BD%E9%99%85/20231020-%E5%8F%B0%E6%B9%BE%E6%92%A4%E4%BE%A8%E4%B8%93%E6%9C%BA%E5%B7%B2%E9%A3%9E%E7%A6%BB%E4%BB%A5%E8%89%B2%E5%88%97-35%E4%BD%8D%E4%B8%AD%E5%9B%BD%E4%BA%BA%E4%B8%80%E5%BA%A6%E5%B8%8C%E6%9C%9B%E6%90%AD%E4%B9%98?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>]（2023年10月20日）随着以色列和哈马斯的冲突升级，台湾宣布将在周五（10月20日）下午进行撤侨。他补充说，尽管经过劝说，但有137名台湾人仍决定留在以色列。台湾撤侨专机已飞离，以色列 35位中国人一度希望搭乘</p>
+
+<h2 id="民间舆论">民间舆论</h2>
+
+<h3 id="支持巴勒斯坦的舆论">支持巴勒斯坦的舆论</h3>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/remonwangxt/status/1711207417684308133">变态辣椒RebelPepper</a>] 哈佛大學有幾十個親巴勒斯坦的學生組織發佈了一份聯合聲明，開頭第一段就明確告知：“我們簽名的學生組織，認為以色列政權對所有正在發生的暴力行為負全部責任。”</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/Willoug60125499">三日月やよい</a>] “MAGA另类右”站队巴勒斯坦</p>
+
+<p><code class="language-plaintext highlighter-rouge">错误</code> [<a href="https://twitter.com/jakobsonradical">Jacobson贴贴BOT</a>] 俄罗斯卫星通讯社在微博上把自家T-90M “突破”坦克误认为被哈马斯摧毀的梅卡瓦坦克。[<a href="https://pbs.twimg.com/media/F79qxzlbIAAHoXk?format=jpg&amp;name=large">图片</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/whyyoutouzhele/status/1711436283254284370">李老师不是你老师</a>] 纽约广场上，一名哈马斯的支持者向以色列人嘲讽。而同一时间，在以色列，一些以色列人企图烧死一名巴勒斯坦男孩。不断加深的仇恨让一切变的无解。她在她最仇恨的土地上安全地支持着恐怖组织。而她的行为最终会转化成新的仇恨，降临在她的同胞身上。[<a href="https://twitter.com/i/status/1711436283254284370">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/remonwangxt/status/1711541162522149200">变态辣椒RebelPepper</a>, <a href="https://twitter.com/visegrad24/status/1711535948922577124">Visegrád 24</a>] 在澳大利亞地標建築悉尼歌劇院附近，支持巴勒斯坦的民眾舉行了集會。过程中有人喊口号 “gas the Jews”，已遭澳大利亚警方调查。[<a href="https://twitter.com/i/status/1711541162522149200">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/SuTNkwfrFkMhHsG/status/1711405342251491790">艾布拉姆斯</a><strong>,</strong> <a href="https://twitter.com/_weilunhuang/status/1711404931738190304">Alan Huang MD</a>] 数小时内，哈马斯支持者从庆祝到求救</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/NOELreports/status/1711467027209093625">NOELREPORTS</a>] 车臣僭主卡德罗夫表示支持巴勒斯坦，愿意提供“维和部队”驱逐 “troublemakers”</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://web.archive.org/web/20231010141020/https://www.dapenti.com/blog/more.asp?id=174308&amp;name=xilei">喷嚏网-浮世绘799-存档</a>] 2021年巴以冲突时，纽约时报来自加沙的翻译和编辑巴斯玛·加莱尼（Basma Ghalayini）女士，在时报观点版上从自身的经历出发，阐述了对当下巴以冲突的看法。</p>
+
+<ul>
+  <li>9岁的时候，我被以色列国防军枪击了。</li>
+  <li>为什么有些人仍然固执地说加沙的局势很复杂，或者这与宗教有关呢？对我们很多人来说，这两者都不是。这也与哈马斯无关。</li>
+  <li><strong>哈马斯是民主选举产生的</strong>。</li>
+  <li>2006年布什政府强加于加沙的选举中，他们轻率地认为由美国在那里的代理人、硬汉穆罕默德 · 达赫兰(Mohammed Dahlan)领导的<strong>主流世俗政党法塔赫</strong>将获胜。</li>
+  <li>不幸的是，加沙没有每四年举行一次选举，而哈马斯的胜利很快让加沙人后悔。政府的批评者经常被打，有时被打到半死，自由也受到限制。但是我们还没有机会让哈马斯下台，<strong>2006年是我们最后一次选举</strong>。</li>
+  <li>这对以色列来说是完美的。哈马斯的铁腕手段和发起的火箭弹袭击，是一个理想的钩子，可以把所有的责任挂在上面。</li>
+  <li>这就是为什么把焦点集中在哈马斯上是忽略重点的，并且强化了这样一种神话，即冲突在某种基本方式上是关于哈马斯的。不是的，这场冲突是关于以色列的占领。</li>
+  <li>对以色列持续侵略的自卫权，属于所有巴勒斯坦人；<strong>正当的抵抗</strong>不能仅仅是那些<strong>只相信非暴力自卫的巴勒斯坦人</strong>的权利，在我们所忍受暴力时这是不对的。</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/fei_max/status/1711654406360580392?utm_source=pocket_saves">文疯而动</a>] 哈马斯的支持者们在联合国总部前打出了前苏联和中共国血旗。[<a href="https://twitter.com/i/status/1711654406360580392">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://web.archive.org/web/20231010140336/https://www.dapenti.com/blog/more.asp?id=174306&amp;name=xilei">图卦20231009</a>] 陈卫华（中国日报社欧盟分社社长）在外网“杀”疯了</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/NiKiTa_32156/status/1711823597353009591?utm_source=pocket_saves">NiKITa</a>] 委內瑞拉總統馬杜羅公開談巴以衝突. [<a href="https://twitter.com/i/status/1711823597353009591">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/hrw_chinese/status/1711891868252868846">人权观察 HRW Chinese</a>] <a href="https://twitter.com/hashtag/%E4%BB%A5%E8%89%B2%E5%88%97?src=hashtag_click">#以色列</a> 当局数十年来对巴勒斯坦人进行有系统镇压，并自2007年开始对加沙居民实施严酷封锁。<a href="https://twitter.com/hashtag/%E5%B7%B4%E5%8B%92%E6%96%AF%E5%9D%A6?src=hashtag_click">#巴勒斯坦</a> 被占领土内的巴勒斯坦人近来遭受空前压迫。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/Willoug60125499">三日月やよい</a>] 为什么是2007年开始“对加沙居民实施严酷封锁”？完整时间线就能看出根源。2005.2以色列决定撤离加沙。2005.8.15以色列关闭加沙古什·卡提夫犹太定居点，正式撤出。2007.6，哈马斯加沙之战击败法塔赫，夺得加沙控制权。以色列封锁加沙，埃及关闭加沙南部边界</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24/status/1712583857864605878">Visegrád 24</a>] （2023年10月12日）Major riots erupted tonight in Paris. The riot police is clashing with Hamas supporters [<a href="https://twitter.com/i/status/1712583857864605878">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/rainbow78521/status/1712674569478181205">rainbow7852</a>, <a href="https://twitter.com/BabakTaghvaee1/status/1712575939178086544">Babak Taghvaee</a>] 在 美国圣地亚哥，一群正在庆祝屠杀以色列人民的哈马斯支持者遭到了一名犹太人的批评。当他们发现批评者是一名犹太人时，便对他进行了残忍的攻击和殴打。[<a href="https://twitter.com/i/status/1712575939178086544">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://www.zaobao.com.sg/realtime/world/story20231014-1442538">联合早报</a>] 声援以色列和巴勒斯坦 中东欧美出现抗议集会</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/remonwangxt">变态辣椒RebelPepper</a>] 北卡羅來納大學的學生在集會中：“我們都是哈馬斯” [<a href="https://twitter.com/i/status/1713223183912796472">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/bbcchinese/status/1713248619753799743?utm_source=pocket_saves">BBC</a>] （2023年10月14日）大批手持巴勒斯坦国旗的示威者聚集在伦敦市中心BBC总部大楼外，表达对巴勒斯坦的声援，他们一路行至唐宁街。根据此前警告，任何支持哈马斯或偏离路线的人都将面临拘捕。警方表示，已有七人被逮捕。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<strong><a href="https://twitter.com/visegrad24/status/1713596172877668661?utm_source=pocket_saves">Visegrád 24</a></strong>] Anti-Israel protesters attack people with Israeli flags at a protest in Los Angeles, USA</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<strong><a href="https://twitter.com/visegrad24/status/1713854537860096002?utm_source=pocket_saves">Visegrád 24</a></strong>] 在加拿大，支持巴勒斯坦的示威者截停挥舞塔利班旗帜的车辆，要求划清界限</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/sentdefender/status/1714371648252490199">OSINTdefender</a>] Pro-Hamas/Palestinian Riots and Protests have broken out across the Middle East and Europe following the Explosion at Al-Ahli Arabi Baptist Hospital in Gaza which is said to have Killed over 500 and is claimed by Hamas to have been caused by an Israeli Airstrike.</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24/status/1714720345930830050?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] 希腊雅典的大规模反以色列抗议</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24/status/1715295099779719247?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] 北欧环保少女 Greta Thunberg 在 Instagram 上支持巴勒斯坦</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/pingzhang632/status/1715329949773570128?utm_source=pocket_reader">张平</a>] 不奇怪，极端环保主义的本质是反文明。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/__Inty__/status/1715131071262802302?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>] 一名黑人妇女在伦敦市中心撕毁被哈马斯绑架或杀害的失踪平民的照片</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/CollinRugg/status/1715386125978923172?s=20&amp;utm_source=pocket_reader">Collin Rugg</a>] CNN reporter Sara Sidner gets blasted by angry Palestinians who chant “F*** CNN” as they called the liberal network “genocide supporters.” Looks like literally no one likes CNN.</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/__Inty__/status/1715264805387530475?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>] 伯克利大学的两名蒙面亲巴勒斯坦左派抗议者试图通过暴力抢夺一名犹太男子的以色列国旗，他们还咒骂周围的人。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/remonwangxt/status/1715704894651236657?s=20&amp;utm_source=pocket_reader">变态辣椒</a>]（2023年10月21日）昨天，一大群支持巴勒斯坦的抗議者聚集在我國首都華盛頓特區的國家廣場進行大規模伊斯蘭祈禱，當然，婦女們只能在後面祈禱。我從未想到可以在華盛頓紀念碑下看到如此壯觀的畫面。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24/status/1715497953505247312?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] 纽约时报重新雇佣一名多次赞扬希特勒的记者。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/JohnZhangSV">John Zhang</a>, <a href="https://twitter.com/i/status/1715835904382931355">NEXTA</a>] （2023年10月21日）支持巴勒斯坦的游行，他们支持什么？反对什么？他们怎么看10月7号那天哈马斯对以色列人的大屠杀？他们的回答让人震惊，值得深思</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/MrAndyNgo/status/1715778277498126471?s=20&amp;utm_source=pocket_reader">Andy Ngô</a>]</p>
+
+<h3 id="支持巴勒斯坦的示威者占领美国国会">支持巴勒斯坦的示威者占领美国国会</h3>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/JohnZhangSV/status/1714743374912340436?s=20&amp;utm_source=pocket_reader">John Zhang</a>, <a href="https://twitter.com/CollinRugg/status/1714731258247606752?s=20&amp;utm_source=pocket_reader">Collin Rugg</a>, <a href="https://twitter.com/visegrad24/status/1714732871250809244?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] （2023年10月18日）支持巴勒斯坦的示威者占领了美国国会，要求立即停火。来自底特律选区的巴勒斯坦裔国会议员 Rashida Tlaib 罔顾事实，情绪激动，一口咬定加沙医院是以色列炸的。The United States Capitol has been taken over inside and outside by pro-Palestine protesters as Rep. Rashida Tlaib spoke with a crowd nearby.</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/__Inty__/status/1714880901170307172?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>, <a href="https://twitter.com/CollinRugg">Collin Rugg</a>, <a href="https://twitter.com/JohnZhangSV">John Zhang</a>, <a href="https://abcnews.go.com/Politics/protesters-detained-after-gathering-capitol-complex-israel-hamas/story?id=104103420">ABC</a>] Rep. Marjorie Taylor Greene has called for the individuals at the pro-Palestine protest at the Capitol to be “prosecuted to the fullest extent of the law.” <del>More than 100 people were arrested according to CBS News.</del> 300多名在国会大厦聚集抗议以色列与哈马斯战争的人被捕</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/__Inty__/status/1714862641741746444?s=20&amp;utm_source=pocket_reader">Inty热点新闻</a>] 美国众议员布兰登·威廉姆斯（Brandon Williams）站在今天占领国会的反以色列抗议群体上方</p>
+
+<h3 id="反对哈马斯的舆论">反对哈马斯的舆论</h3>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/DanHongTang/status/1711615639792550268">唐丹鸿</a>, <a href="https://twitter.com/niracohen77/status/1711447866726666597?s=61&amp;t=w2WjTuoIh8glTnJalHsV9w">NirACohen</a>] 「打破沉默」组织的前发言人，《我是如何变成这样的一个以色列人的故事》一书作者，他身为预备役人员应招归队前发出的推文。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/xumouren_yt/status/1712036798136795245\">说真话的徐某人</a>] “说哈马斯砍头，你亲眼见到了吗？为什么不发照片上来？”这问题问的有些变态了。[<a href="https://twitter.com/xumouren_yt/status/1712036798136795245/photo/1">截图</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/koiiok17/status/1711907056347918499">川和 koi iok</a>, <a href="https://twitter.com/LernerIsaak/status/1711836152167280777">Unofficial NAFO Rabbi</a>] 哈马斯老父亲在督促自己的孩子向警察冲刺冲刺，并且说让他们射杀孩子，快射！[<a href="https://twitter.com/i/status/1711836152167280777">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/koiiok17/status/1712435075676316049">川和 koi iok</a>, <a href="https://twitter.com/LernerIsaak/status/1712138760354456054">Unofficial NAFO Rabbi</a>] 来看看哈马斯是如何生产恐怖分子的。[<a href="https://twitter.com/i/status/1712138760354456054">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<strong><a href="https://twitter.com/qinglongzui/status/1712334362270896232">莫之许</a></strong>] 很多自由派沉迷于批判粉红的亲哈马斯言论，但不免沦于简单，甚至与之同构。</p>
+
+<ul>
+  <li>首先（无论巴勒斯坦人以前多么艰困）如何看待哈马斯攻击行为</li>
+  <li>其次（无论以色列消灭哈马斯多么困难）如何看待以军（应否）无差别攻击加沙</li>
+  <li>最后，区分以色列右翼政权和左翼，避免将以色列抽象化。</li>
+  <li>就如同巴勒斯坦人以前和当下多么苦难，都要谴责哈马斯的恐怖行为一样，无论以军当前消灭哈马斯多么困难，无差别攻击涉及到无辜的平民，就是一个需要面对的价值判断，是不能用现实必要性就加以辩护的问题。或许，这像许多著名的哲学悖论一样，并没有容易的答案，但如何回答，折射出的是你的价值观</li>
+  <li>（针对「無差別攻擊」）我括号里特意加了“应否”两个字，就是说这是一个假设性问题..…</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/IDF/status/1712489646536482827?utm_source=pocket_saves">Israel Defense Forces</a>] THIS is what the world needs to know about the civilians in Gaza</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/koiiok17">川和 koi iok</a>, <a href="https://twitter.com/Maks_NAFO_FELLA/status/1712417359950983573">MAKS 23</a>] 哈马斯放出挖供水管道造火箭弹的画面 [<a href="https://twitter.com/i/status/1712417359950983573">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/NiKiTa_32156/status/1713399841022423183?utm_source=pocket_saves">NiKITa</a>] 以色列情報機構-摩薩德：從卡法阿扎一名死去的哈馬斯恐怖分子的 GoPro 相機中恢復的鏡頭顯示了巴勒斯坦兒童軍事訓練。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<strong><a href="https://twitter.com/SydneyDaddy1/status/1713824491460268484?s=20&amp;utm_source=pocket_reader">悉尼奶爸</a>,</strong> <a href="https://twitter.com/GLNoronha/status/1713594256001036569">Gabriel Noronha</a>] 2022年美国休斯顿的一所穆斯林学校“伊斯兰教育中心”. 孩子们穿戴整齐高声歌颂伊朗最高领袖哈梅内伊：“我们愿成为你的战士，我们愿成为你的烈士”</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/IDF">Israel Defense Forces</a>] 以色列国防部：揭示哈马斯基础设施。[<a href="https://twitter.com/i/status/1714483112023846926">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/IDF/status/1714320476825112808?s=20&amp;utm_source=pocket_reader">Israel Defense Forces</a>] 以色列国防部：你疑惑过，加沙的人道主义支援都去哪了吗？[<a href="https://twitter.com/i/status/1714320476825112808">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/CollinRugg/status/1714317688988938580?s=20&amp;utm_source=pocket_reader">Collin Rugg</a>]（2023年10月17日）Billionaire Victoria’s Secret founder Leslie Wexner has officially cut all ties and financial support to Harvard in a blistering letter after Harvard’s “dismal failure” condemning the Hamas terror attacks.</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/pingzhang632">张平</a>, <a href="https://twitter.com/Jerusalem_Post/status/1715187281479242217">The Jerusalem Post</a>] 以色列人呼吁抵制中国廉价成衣销售网站Shein，因为：1、哈马斯屠杀发生后，Shein廉价供应巴勒斯坦旗子，却中断了以色列国旗的供应。2、shein禁止以色列人发布有关屠杀的信息。3、shein中止了给以色列用户的免运费优惠。</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/mikepompeo/status/1715030841355624790">Mike Pompeo</a>] We need to give Israel the support and space to do what is necessary.</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/zhaoxin8964/status/1715034567449674229?s=20&amp;utm_source=pocket_reader">赵昕</a>] 所有按着以色列的手，以人道主义名号拉偏架的，都是恐怖分子的流氓帮凶。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/visegrad24/status/1715465729393267103?utm_source=pocket_reader">Visegrád 24</a>] 在斯坦福执教的以色列教授控诉支持恐怖组织的学生组织。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/IDF/status/1715829279781433621?s=20&amp;utm_source=pocket_reader">Israel Defense Forces</a>] 以国防军空降旅的 1LT Roi Nahary 因公殉职，捐献器官拯救了 5 条生命</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/visegrad24/status/1715844325181964716?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] 维尔纽斯市政厅前，1400 支蜡烛，为了 1400 名以色列遇难者</p>
+
+<h3 id="双方仇恨暴力事件">双方仇恨暴力事件</h3>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<strong><a href="https://x.com/whyyoutouzhele/status/1712788863112851838?s=20">李老师不是你老师</a></strong>] （2023年10月13日）法国也发生了袭击事件。一名20岁车臣裔男子闯入校园，高喊安拉胡安克巴持刀杀死了一名老师，并刺伤多人。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/entropy_01/status/1714185867655528784">entropy</a>, <a href="https://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/20231016-%E5%B8%83%E9%B2%81%E5%A1%9E%E5%B0%94%E5%8F%91%E7%94%9F%E6%9E%AA%E5%87%BB%E6%A1%88%E9%80%A0%E6%88%90%E4%B8%A4%E4%BA%BA%E6%AD%BB%E4%BA%A1-%E6%AF%94-%E6%B3%95-%E6%84%8F%E5%8F%8A%E6%AC%A7%E7%9B%9F%E9%A2%86%E5%AF%BC%E4%BA%BA%E7%BA%B7%E7%BA%B7%E8%B0%B4%E8%B4%A3%E8%A2%AD%E5%87%BB%E4%BA%8B%E4%BB%B6?utm_medium=social&amp;utm_campaign=x&amp;utm_source=shorty">法广</a>, <a href="https://www.washingtonpost.com/world/2023/10/16/brussels-shooting-terrorist-attack-sweden/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=wp_main">Washington Post</a>, <a href="https://twitter.com/koiiok17/status/1714094986277556486?s=20">川和 koi iok</a>] （2023年10月16日）伊斯兰国独狼刚刚在布鲁塞尔发动枪击恐怖袭击，两名瑞典公民遇难。危险警告：恐怖分子仍然在逃，且手中持枪，请布鲁塞尔的人员务必小心！比、法、意及欧盟领导人纷纷谴责袭击事件。警方彻夜找寻均没有抓获恐怖分子，结果第二天早上发现这伙计在咖啡馆喝咖啡，遂发生枪战击毙之………布鲁斯那个恐怖袭击的穆斯林在没被抓住的时间里又突突了一辆车</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/visegrad24/status/1714066692848947209?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] 布鲁塞尔袭击者身份确定，突尼斯公民，非法居留，之前在突尼斯有过恐怖主义行为。死亡人数上升至 5.</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://abcnews.go.com/US/man-71-charged-murder-hate-crimes-stabbing-death/story?id=103999857">ABC</a>]（2023年10月16日）伊利诺伊 71 岁白人房东捅杀穆斯林租户儿子，捅伤母亲</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24">Visegrád 24</a>] An Islamist terrorist murdered a man in Hartlepool, England last Sunday in an act of revenge for “Israel killing kids in Gaza 英格兰哈特普一名恐怖分子谋杀一人</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/visegrad24/status/1715677213083795831?s=20&amp;utm_source=pocket_reader">Visegrád 24</a>] 塞浦路斯·尼克西亚的以色列大使馆门口发生爆炸，4名叙利亚难民被捕，车内发现 2刀1锤</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/visegrad24">Visegrád 24</a>, <a href="https://www.cnn.com/2023/10/21/us/detroit-synagogue-president-killing/index.html?utm_content=2023-10-21T20%3A51%3A46&amp;utm_term=link&amp;utm_source=twCNN&amp;utm_medium=social">CNN</a>, <a href="https://twitter.com/JohnZhangSV/status/1715847702347739308?s=20&amp;utm_source=pocket_reader">John Zhang</a>, <a href="https://www.freep.com/story/news/local/michigan/detroit/2023/10/21/samantha-woll-dead-isaac-agree-downtown-detroit-synagogue-president/71271616007/">Detroit Free Press</a>, <a href="https://www.zaobao.com.sg/realtime/world/story20231022-1444868">联合早报</a>] 底特律一犹太会堂的主席 Samantha Woll 在家门口被捅杀。她同时是底特律穆斯林-犹太论坛的创始人，该组织致力于改善两社群关系。</p>
+
+<h3 id="中国国内舆论">中国国内舆论</h3>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code>[<a href="https://twitter.com/gaoyu200812/status/1711582004775719138">高瑜</a>] 鳳凰新聞8號文章“你動我台海，我就動你以色列”正在國內流傳，如此直言不諱，到底是誰的意思？毛寧肯定回答不了，那李書磊呢？[<a href="https://twitter.com/gaoyu200812/status/1711582004775719138/photo/1">图片</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/torontobigface/status/1711751473418379458?utm_source=pocket_saves">多伦多方脸</a>] “虽然我不知道巴勒斯坦和巴基斯坦的区别。但是我还是支持！”</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/22HomoPoliticus/status/1712230091248345318">Ignatius Lee</a>] 一段德国人拍摄于2014年的记录片显示哈马斯成员在街头痛打并抓捕反对哈马斯政府的巴勒斯坦人。其中一位老奶奶痛斥哈马斯说：你们比犹太人坏多了！[<a href="https://twitter.com/i/status/1712230091248345318">视频</a>]</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1712492437602549993">李老师不是你老师</a>] 受巴以冲突影响，大量网友前往著名洋五毛，以色列人高佑思的视频下方进行辱骂。2021年，高佑思在官方安排下前往新疆拍摄视频以驳斥所谓新疆存在“强制劳动”的无端指责，引发墙内外热议。而如今，以色列人的身份让他背负了属于他的简中互联网原罪。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1712511007057391926">李老师不是你老师</a>] 微博上的伊拉克洋五毛直接出言羞辱被绑架的中以混血女孩Noa [<a href="https://twitter.com/whyyoutouzhele/status/1712511007057391926/photo/1">截图</a>] （<a href="https://twitter.com/whyyoutouzhele/status/1714620637363187732?s=20&amp;utm_source=pocket_saves">2023年10月18日</a>）封了</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://x.com/whyyoutouzhele/status/1713231879522988072?s=20">李老师不是你老师</a>] （2023年10月14日）一男子因为听到有人支持以色列而崩溃发疯。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://x.com/whyyoutouzhele/status/1713123799132987401?s=20">李老师不是你老师</a>] 媒体报道中国游客滞留以色列。网友评论：不要回来，不欢迎你们</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1713527187393929577">李老师不是你老师</a>] 一名此前在耶路撒冷读书，实际上已经回国的留学生私信很多同学，希望找当地留学生拍正能量视频。视频的要求：在防空洞里拍摄，说领事馆一直在安抚留学生的情绪，中国飞机一直保持运力输送学生回国等。被网友发现她的IP在北京。随后有不少同学在网上发出该学生此前找他们录视频并承认自己不在以色列的截图。</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/whyyoutouzhele/status/1713586319975235935">李老师不是你老师</a>] 这名同学三天前在抖音发布这些视频时，不仅没有收获大家对大使馆的赞美和当地留学生的同情，反而因为其长相酷似一名生活在河南开封的中犹混血而被怀疑是“以色列间谍”而遭到爱国网友的谩骂，并惨遭爱国网友开盒。还被私信辱骂是“犹太鬼子”</p>
+
+<p><code class="language-plaintext highlighter-rouge">消息</code> [<a href="https://twitter.com/ChengWeiLai2/status/1713363230712889695?s=20&amp;utm_source=pocket_saves">Cheng-Wei Lai</a>] （2023年10月14日）中國共產黨政府的英語媒體在以色列還沒正式發動進攻時就說以色列斬首十名巴勒斯坦幼兒，當眾製造假新聞</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://chinadigitaltimes.net/chinese/701146.html?utm_source=pocket_saves">押沙龙yashl</a>] 不管你有什么立场，也得先有起码的人性</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://web.archive.org/web/20231021190359/https://www.dapenti.com/blog/more.asp?id=174430&amp;name=xilei">喷嚏网-浮世绘802-存档</a>] 《外交学者》：中国人在巴以冲突的观点存在“教育差距”</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://web.archive.org/web/20231021190359/https://www.dapenti.com/blog/more.asp?id=174430&amp;name=xilei">喷嚏网-浮世绘802-存档</a>]  以色列和哈马斯的冲突至今，庞大的阿拉伯世界仍没有同意接收巴勒斯坦难民的表态。相反，跟加沙有陆路口岸的埃及却明确表示拒绝开放口岸让加沙人民撤离。</p>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/Gu2020Marks">Mocking Jay</a>] 中推圈一帮 Islamophobic 谣棍说巴勒斯坦难民狗都嫌弃，其他穆斯林国家不愿意收留他们。下边几个图是一些不全面的数据，第一个图是UN机构的数据，后面三个是维基</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://www.xiaoyuzhoufm.com/episode/65314b9c75608281a9c043f6?utm_source=pocket_reader">翻电Special</a>]  从加沙医院争议，再谈几个媒介素养的“真问题” VOL.126 （评论区）</p>
+
+<p><code class="language-plaintext highlighter-rouge">观点</code> [<a href="https://twitter.com/koiiok17/status/1715265620240220160?s=20&amp;utm_source=pocket_reader">川和 koi iok</a>] 我是认真的，中国人确实是把自己带入到哈马斯上了。巴勒斯坦伞兵是收复故土啊，你门不觉得这句话眼熟吗？那个以前给澳门用过呀。到时候中国解放军伞兵空突台湾肯定是这个文案你信不信。[<a href="https://pbs.twimg.com/media/F83Y_SPbwAAc7E6?format=jpg&amp;name=small">截图</a>]</p>
+
+<h3 id="关于以色列使用违禁武器白磷弹的信息战">关于以色列使用违禁武器白磷弹的信息战</h3>
+
+<p><code class="language-plaintext highlighter-rouge">传言</code> [<a href="https://twitter.com/whyyoutouzhele/status/1711746029857452161">李老师不是你老师</a>] 10月10日，中国网主导了一则关于以色列向加沙使用了白磷弹的谣言，这则谣言在一天前出现在推特上，但是因为使用的是7年前在叙利亚的图片而被辟谣。中国的官媒很聪明的使用了“资料画面”来规避造谣风险。</p>
+
+<p><code class="language-plaintext highlighter-rouge">错误</code> [<a href="https://twitter.com/zambos01/status/1711794005565210819">zambos</a>, <a href="https://twitter.com/whyyoutouzhele/status/1711851848028610635">李老师不是你老师</a>, <a href="https://twitter.com/xumouren_yt/status/1712018572115919305">说真话的徐某人</a>] <del>请李老师证伪。</del>[<a href="https://twitter.com/i/status/1711794005565210819">视频</a>] （李：）这是中国网发布这则假消息几小时之后发生在黎巴嫩和以色列边境上的行为，而非加沙人口稠密地区。我没有否认过以色列曾经使用过白磷弹。但是我们不应该用一个几个小时后才发生的事情去证明一个此前的谎言。（徐：）此视频拍摄地点应该是黎以边境，那里以谷地/丘陵地形为主，而加沙则是城市密集区。此外视频中并不是白磷燃烧弹，而是155mm M825烟雾弹。其装药为白磷，但不用于杀伤而用于发烟。该烟雾弹不在任何武器限制条约的约束下，也不违背任何人道主义原则。</p>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[2023年10月7日·冲突爆发·哈马斯对以色列南部发动地面突击]]></summary></entry><entry><title type="html">.py | Python 测试笔记</title><link href="https://mountaye.github.io/blog/articles/Python-test-notes" rel="alternate" type="text/html" title=".py | Python 测试笔记" /><published>2023-10-16T00:00:00-05:00</published><updated>2023-10-16T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/Python-test-notes</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/Python-test-notes"><![CDATA[<h2 id="一些名词">一些名词</h2>
 
 <h3 id="调试和测试">调试和测试</h3>
 
@@ -1693,416 +2401,4 @@ npx tailwindcss init <span class="nt">-p</span>
     </ol>
   </li>
   <li>Conclusion</li>
-</ol>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[本文是《Scientific Machine Learning Through Physics–Informed Neural Networks: Where we are and What’s Next》这篇综述的读书笔记。]]></summary></entry><entry><title type="html">.pdf | 《你的第一本哲学书》笔记（更新中）</title><link href="https://mountaye.github.io/blog/articles/your-first-philosophy-course-what-does-it-all-mean" rel="alternate" type="text/html" title=".pdf | 《你的第一本哲学书》笔记（更新中）" /><published>2023-03-03T00:00:00-06:00</published><updated>2023-03-03T00:00:00-06:00</updated><id>https://mountaye.github.io/blog/articles/your-first-philosophy-course-what-does-it-all-mean</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/your-first-philosophy-course-what-does-it-all-mean"><![CDATA[<p>托马斯·内格尔 (Thomas Nagel) 的《What Does It All Mean?——A Very Short Introduction to Philosophy》，中文版将标题译作“你的第一本哲学书”。</p>
-
-<p>原作者在中译版前面写了如下一段话：</p>
-
-<blockquote>
-  <p>本书将传达在当代西方哲学中最为核心的东西——思想自由的理念。它会使读者感到，要评估每一种主张、每一条论证和每一套理论，并且尝试着判断它们是否可以被接受，这最终都依赖于每一个人的独立思考，而非听命于权威。</p>
-</blockquote>
-
-<hr class="slender" />
-
-<p>该书依据讨论的问题共分为9章，每章涉及正反方的多个哲学流派：</p>
-
-<ol>
-  <li>外部世界是否存在
-    <ol>
-      <li>存在：常识、科学思维、验证论 (verificationism)</li>
-      <li>不存在/不知道：唯我论 (Solipsism)、怀疑论 (skepticism)</li>
-    </ol>
-  </li>
-  <li>关于他人心灵的知识
-    <ol>
-      <li>能了解：常识</li>
-      <li>不能了解：怀疑论 (skepticism)</li>
-    </ol>
-  </li>
-  <li>心灵与大脑之间的关系
-    <ol>
-      <li>心理活动就是脑的生理过程：常识、物理主义(physicalism)/唯物主义(materialism)</li>
-      <li>心理活动不是/不止生理过程：二元论 (dualism)、两面论(dual aspect theory)</li>
-    </ol>
-  </li>
-  <li>语言如何可能
-    <ol>
-      <li>词语和指代的对象之间存在特殊的联系。</li>
-      <li>词语和指代的对象之间存在怎样的联系，这种联系如何存在？</li>
-    </ol>
-  </li>
-  <li>我们是否有自由意志
-    <ol>
-      <li>有：非决定论 (non-determinism)、科学思维(?)</li>
-      <li>没有：决定论 (determinism)</li>
-    </ol>
-  </li>
-  <li>道德的基础：在何种程度上是普遍和客观的
-    <ol>
-      <li>存在普世道德：道德整体一致</li>
-      <li>不存在普世道德：道德相对主义</li>
-    </ol>
-  </li>
-  <li>何种不平等是不公正的</li>
-  <li>死亡的本性</li>
-  <li>生活的意义</li>
-</ol>
-
-<hr class="slender" />
-
-<p>本科时候计算物理老师的教学水平不敢恭维，但是他说过一句我深感认同的话：“当你知道该用哪种数据结构装下你对问题的描述的时候，你就几乎已经解决了这个问题。”我决定用 YAML 格式总结全书内容，每一章的结构如下，：</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">辩题</span><span class="pi">:</span>
-<span class="na">总结</span><span class="pi">:</span> <span class="c1"># 总结放在正反方论点前面，是因为后两者实在是太长了~ </span>
-<span class="na">正方</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【流派 (translation)】</span> <span class="c1"># 支持正方的第1种流派</span>
-  <span class="na">主张</span><span class="pi">:</span> <span class="c1"># 该流派的各条观点</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="c1"># 第1条观点</span>
-    <span class="na">论证</span><span class="pi">:</span> 
-    <span class="na">反驳</span><span class="pi">:</span> <span class="c1"># 其他流派对这一观点的反驳</span>
-    <span class="pi">-</span> <span class="na">反方</span><span class="pi">:</span> <span class="s">【流派 (translation)】</span> <span class="c1"># 第1条反驳来自的流派</span>
-      <span class="na">内容</span><span class="pi">:</span> <span class="c1"># 第1条反驳的内容</span>
-    <span class="pi">-</span> <span class="na">反方</span><span class="pi">:</span> <span class="c1"># 第2条反驳，其他字段同上</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="c1"># 第2条观点，其他字段同上</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【流派 (translation)】</span> <span class="c1"># 支持正方的第2种流派</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="c1"># 该流派的第1条观点</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="c1"># 同上</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-<span class="na">反方</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【流派 (translation)】</span> <span class="c1"># 支持反方的第1种流派</span>
-  <span class="na">主张</span><span class="pi">:</span> <span class="c1"># 同上</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> 
-    <span class="na">论证</span><span class="pi">:</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">反方</span><span class="pi">:</span> 
-      <span class="na">内容</span><span class="pi">:</span> 
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="c1"># 同上</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="c1"># 同上</span>
-</code></pre></div></div>
-
-<hr class="slender" />
-
-<p>以下是 YAML 格式的全书内容总结。</p>
-
-<h3 id="1-外部世界是否存在-how-do-we-know-anything">1. 外部世界是否存在 (How Do We Know Anything?)</h3>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">辩题</span><span class="pi">:</span> <span class="s">在你的心灵之外是否存在别的东西，你能否证明其存在或不存在。</span>
-<span class="na">总结</span><span class="pi">:</span> <span class="s">这就给我们留下了如下三个问题：</span>
-<span class="pi">-</span> <span class="s">1. 你心灵之内的东西是惟一存在的东西，或者说即使有一个你意识之外的世界，这个世界也和你所相信的世界大相径庭，这种可能性有意义吗？</span>
-<span class="pi">-</span> <span class="s">2．如果这些可能性是存在的，你是否有办法向自己证明它们实际上并不是真的？</span>
-<span class="pi">-</span> <span class="s">3．如果不能证明在你的心灵之外还有别的东西存在，你可以继续若无其事地相信外部世界的存在吗？</span> 
-<span class="na">正方</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【常识】</span>
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">外部世界客观存在。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">因为如果不是在你之外有东西可以发光或反光，将光照射到你眼睛里，并且使你产生了视觉经验，你就看不到建筑、人群或者星星这些东西了。</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">你能说出的理由仍然是关于外在世界以及你与这个世界之间的联系，而它必须建立在你的感官证据之上。然而，你之所以能够用这些感官证据来说明视觉经验是如何产生的，只是因为你已经在心灵之内预设了外在世界的存在。如果你用自己的感觉印象去证明感觉印象的可靠性，你就是在循环论证，无法得出任何东西。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">一定得有一个外在世界。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">否则的话你就是在没有任何外在原因的情况下拥有了所有的体验，而这实在是令人难以置信。</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">反方</span><span class="pi">:</span> <span class="s">【怀疑论 (skepticism)】</span>
-      <span class="na">内容</span><span class="pi">:</span> <span class="s">第一，即使有外在原因，你也不能从你的经验内容中发现这些原因是什么样的，因为你从来没有直接观察过这些原因。第二，你凭什么认为，万事万物都得有一个原因呢？</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">客观世界是存在的</span>
-    <span class="na">论据</span><span class="pi">:</span> <span class="s">实际上你并不能认真地让自己相信周围的东西可能并不真实存在。我们关于外部世界存在的信念是发自本能而坚定有力的：我们不可能经过哲学论证就丢掉这个信念。如果我们对于心灵之外的世界的信念是如此自然，也许我们就不需要为此寻找根据。我们可以就这么相信着，并且权当自己是对的。事实上，这也正是绝大多数人在找不到这种根据之后所做的：他们不能提出反对怀疑论的理由，也不愿意接受怀疑论。但是，这也就意味着，我们虽然可以坚持关于这个世界的大多数通常信念，却不得不面对两个事实：1）这些信念可能完全是错误的；2）我们无法排除这种错误的可能性。</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【科学思维】</span> 
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">我们相信外部世界存在，这就像科学家相信原子的存在是一样的道理</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">从世界最初看上去的样子，过渡到与这种样子有所不同的实在。我们尝试用理论去解释现象，这种理论被认为是描述了现象背后的某种“实在”，而这种“实在”我们是不能直接观察到的。通过这种方式，物理学和化学研究得出结论说：我们所看到的周围一切东西都是由看不到的微小原子构成的。</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">反方</span><span class="pi">:</span> <span class="s">【怀疑论 (skepticism)】</span>
-      <span class="na">内容</span><span class="pi">:</span> <span class="s">科学推理的过程同样会引起我们一直在思考的怀疑论难题：科学和知觉一样经不起推敲。即使科学观念从理论上很好地解释了我们的观察，可是我们又怎么知道在我们意识之外的世界对应于这些观念呢？如果不能建立起感觉经验和外部世界之间的可靠联系，我们也就没有理由去信赖建立在这种联系基础上的科学理论。</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【验证论 (verificationism)】</span>
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">极端怀疑论是没有意义的。有时候我们的观察是被歪曲的，但是这意味着它们能够被其他的观察所纠正。</span>
-    <span class="na">论据</span><span class="pi">:</span> <span class="s">说存在着一个永远没有人能够发现的外在实在，这种说法是毫无意义的。具体论证如下：如果你做了一个梦，你就能够从中醒来，并且发现自己刚才睡着了；如果你看到了一幕幻象，其他人（或者你本人在稍后的时间里）就能够看出它不是真的。与实在不相符合的印象和现象必须能够与那些与实在相符合的印象和现象相互比照，否则现象和实在之间的区分也就没有意义了。</span>
-    <span class="na">反驳</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">反方</span><span class="pi">:</span> <span class="s">【怀疑论 (skepticism)】</span>
-      <span class="na">内容</span><span class="pi">:</span> <span class="s">如果有一个外在世界，那么，其中的东西是因为它们存在，所以才能被观察到，而不是相反。存在并不等同于可观察性。虽然当我们能够观察到经验和实在之间的差别时，就可以形成梦和幻象这样的观念，但是，似乎即使这种差别不能够被观察到，这类观念仍然可以形成。</span>
-<span class="na">反方</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【唯我论 (Solipsism)】</span>
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">只有你的心灵才是惟一存在的东西。</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-      <span class="na">反方</span><span class="pi">:</span> <span class="s">【验证论 (verificationism)】</span>
-      <span class="na">内容</span><span class="pi">:</span> <span class="s">除非有人能观察到物质世界是不存在的，否则就不能说实际上它是不存在的。而怀疑论者所认为的恰恰是除了他在心灵之内所做的观察之外，没有人能够观察到物质世界或者别的什么东西。因此，唯我论是没有意义的。它想要从我的印象整体中抽掉外部世界，但却失败了，因为一旦外部世界被抽掉，这些印象就不仅仅是印象，而成为了对实在的感知本身。</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【怀疑论 (skepticism)】</span>
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">你只能知道自己的感觉印象和经验，除此之外就一无所知。或许有一个外在世界，或许没有。如果有一个外在世界的话，它和你所看到的世界或许完全不同，或许大体类似，但是无论怎样，你都对此一无所知。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">你甚至根本不能确信自己过去的存在与经验。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">因为你所接触的一切都只不过是心灵中当下呈现的内容――包括记忆中的印象。要证明自己不可能是几分钟前才开始存在的，你只有依赖诸如“人是怎样产生的以及他们的记忆是怎么产生的”等等这样一些信念，可是这些信念本身就是从一些被你认为在过去确曾发生的另外一些事情上总结出来的。然而，如果从这些信念出发来证明你自己过去就是存在的，这还是一个循环论证。你这是假定了过去的实在性，再用它来证明过去的实在性。</span>
-  <span class="pi">-</span> <span class="na">观点</span><span class="pi">:</span> <span class="s">【自我中心困境】你总是无法跳出自己心灵的牢笼。如果对验证论的反驳是正确的，那么认为这个世界一无所有而所有的东西都只是在你的心灵中存在，这种想法也就不是没有意义的，尽管无论是你还是其他任何人都不可能发现这一点是真是假。而且，如果它不是无意义的，而是你必须思考的一种可能性，那么似乎你就没有办法证明它是错误的，因为一切这样的尝试都只能是循环论证而已。</span>
-</code></pre></div></div>
-
-<h3 id="2-关于他人心灵的知识-other-minds">2. 关于他人心灵的知识 (Other Minds)</h3>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">辩题</span><span class="pi">:</span> <span class="s">在多大程度上能知道他者是否有意识</span>
-<span class="na">总结</span><span class="pi">:</span> <span class="s">因此问题就在于：除了你知道自己是有意识的这个事实之外，关于世界中其他有意识的生命的情况，你还能知道些什么呢？是否可能，有意识的生命比你设想的要少得多（除了你自己的意识之外再没有别的意识），或者要多得多（即使你认为是无意识的东西实际上也是有意识的）？</span>
-<span class="na">正方</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【常识】</span>
-  <span class="na">主张</span><span class="pi">:</span> 
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">可以把两个人的味觉经验进行直接比较。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">因为你们都是人，并且你们都能把不同的冰淇淋的味道区别开来。都能说出草莓冰淇淋和香草冰淇淋的区别何在――所以说你们的味觉经验就应当是相同的。</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">反方</span><span class="pi">:</span> <span class="s">【怀疑论 (skepticism)】</span>
-      <span class="na">内容</span><span class="pi">:</span> <span class="s">有什么理由认为，其他人察觉到的联系和你所察觉到的相同呢？要是他所尝到的巧克力味和你所尝到的香草味一样，而他所尝到的香草味又和你所尝到的巧克力味一样，这不也完全说得通么？</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">味觉和色觉经验总是可以无一例外地联系到某些特定的作用在感官上的物理刺激，无论接受这些刺激的人是谁。</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">反方</span><span class="pi">:</span> <span class="s">【怀疑论 (skepticism)】</span>
-      <span class="na">内容</span><span class="pi">:</span> <span class="s">你做这样的假设并无证据，并且因为这种假设本身的特点，你也不可能有任何证据：你所能观察到的一切都只是你自身经验之内的联系而已。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">内在经验和特定的可观察到的反应之间有关联。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">的确有一些不确定的成分，外在刺激与内在经验之间的联系或许并不是在每个人身上都一模一样的。然而，这种彼此经验中的差异不可能太极端，否则我们就能够察觉到了。</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">反方</span><span class="pi">:</span> <span class="s">【怀疑论 (skepticism)】</span>
-      <span class="na">内容</span><span class="pi">:</span> <span class="s">你观察到了龇牙咧嘴的表现和你自身经验中称为“酸”的味道之间的联系，然而你怎么知道别人身上也有同样的联系呢？或许让你朋友龇牙咧嘴的，恰恰是你喝麦片粥时的味觉体验呢。</span>
-<span class="na">反方</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【怀疑论 (skepticism)】</span>
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">除了你自己的心灵之外，其他人的心灵或者经验的性质，都值得怀疑。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">你只能观察到人类以及其他动物的身体。你看到他们做的事情，听到他们讲话和发出其他声音，并且看到他们如何对自己的环境做出反应。你也能把其他生灵给剖开，看到他们的身体内部，或许还可以将他们的身体结构与你自己的作个对比。这些都不能使你直接接触到他们的体验、思想和感觉。如果你相信他人精神生活中发生的事情，这只能通过观察他们的生理构造和身体行为。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">无法知道你的朋友是有意识的，无法知道在你自己的心灵之外，还有任何别的心灵存在。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">1. 你认为在心灵、行为、身体结构和物质环境之间有一种关系，但是对于这种关系，你所直接观察到的惟一例证就是你自己。即使其他人和动物根本没有任何经验，没有任何一种内在精神生活，而只是比较精致的生物机器，你也根本看不出其中有什么区别。2. 我们相信其他人是有意识的，并且绝大多数人都相信哺乳动物和鸟类也是有意识的。然而，说到鱼、昆虫、毛虫或者水母有没有意识，人们的意见就不尽一致了。我们绝大多数人会认为（如果我们能想到这个问题的话）组成我们身体的单个细胞是没有意识的。可是，你怎么知道事情是这样的呢？</span>
-</code></pre></div></div>
-
-<h3 id="3-身心关系-the-mind-body-problem">3. 身心关系 (The Mind-Body Problem)</h3>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">辩题</span><span class="pi">:</span> <span class="s">你的思想、感受、知觉、感情和愿望等等，是附加在你的大脑中所发生的生理过程之上的东西呢，还是本身就是这些生理过程呢？</span>
-<span class="na">总结</span><span class="pi">:</span> <span class="s">看起来，在世界上有两种完全不同种类的东西：一是属于物质实在的东西，许多不同的人都能够从外部观察这些东西；二是另外一些属于心理实在的东西，我们每个人都从自身的内部体验到这些东西。这不仅仅是对人类才成立的，狗、猫、马和鸟看起来也是有意识的，鱼、蚂蚁和甲壳虫可能也一样。谁知道这个列举应当停止于何处呢？为什么把一大堆物质元素以某种方式放在一起，不仅会产生出一个自己运转的生物有机体，而且能产生出一个有意识的存在者？除非我们能解释这一点，否则就不能对这个世界形成一个充分而普遍的看法。如果意识自身能够等同于某种物理状态，那么就有可能找到一种统一的物理理论解释身心关系，甚至从而可以找到一种统一的物理理论来解释整个宇宙。然而，反对把意识仅仅视为一种物理状态的那些理由是如此的有力，以至于似乎不可能用一种物理理论来解释实在整体。</span>
-<span class="na">正方</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【常识】</span> 
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">对于任何发生在你的心灵或意识中的活动，你的脑中同时也要发生一些活动。</span>
-    <span class="na">论据</span><span class="pi">:</span> <span class="s">人人都知道，意识活动依赖于肉体上的活动。你要是扎一下脚趾就会感到疼痛，要是闭上眼睛就看不到眼前的东西，要是咬一口“好时”，就会尝到巧克力的味道；要是有人在你脑袋上猛击一下，你就昏倒了。</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">反方</span><span class="pi">:</span> <span class="s">【二元论(Dualism)】</span>
-      <span class="na">内容</span><span class="pi">:</span> <span class="s">如果一个科学家在你吃巧克力的时候把你的头盖骨打开进行观察，他所能看到的不过是一堆灰色的神经细胞。如果他用工具去探测在这些细胞里都发生了什么，他会发现许多不同种类的生理作用。但是，他能发现巧克力的“味道”吗？似乎不能。由于你品尝巧克力的体验以一种特定的方式被嵌入到你的心灵中，所以它不可能被其他任何人观察到――即使打开你的头盖骨，观察你的大脑也是徒劳。你的体验以一种特殊的方式隐藏在你的心灵里，它不同于大脑隐藏在脑袋里的方式。</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【物理主义(Physicalism)】/【唯物主义(Materialism)】</span>
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">人只是由物质材料构成的，而人的心理状态只是他们大脑的生理状态。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">正如我们熟悉的其他一些事物的真实本质（我们原先不可能料想到）是由科学研究最终揭示出来的一样，我们最终也可以发现心灵体验实际上是脑部的生理作用。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">虽然主张品尝巧克力的体验只不过是你脑中复杂的生理事件，这听起来有点奇怪，但是，比起人们发现许许多多普通的东西具有出人意料的真实本质这一点来，它并不更加让人奇怪。科学家已经发现了光是什么，植物如何生长，肌肉如何运动，因此，发现心灵的生物学本性也不过是时间问题而已。比如说，人们发现钻石是由碳元素构成的，就和煤一样，只不过原子排列有些不同。又比如，众所周知水是由氢和氧构成的，但是这两种元素分开来看一点也不像水。</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">反方</span><span class="pi">:</span> <span class="s">【二元论(Dualism)】</span>
-      <span class="na">内容</span><span class="pi">:</span> <span class="s">其他的东西与心灵有所不同。譬如，当我们发现水的化学构成时，我们与之打交道的是某种明显存在于物质世界中的东西，某种我们看得见摸得着的东西。当我们分析出水是由氢和氧构成的时候，不过是把一个外在的物质实体分解成更小的物质成分而已。这种分析的关键在于，我们并不是以化学分析的方式来分解水给我们带来的外观、触感和味道。这些东西发生在我们的内在体验中，而不是发生在我们将其分解为原子的水中。而一种滋味的感觉是不可能由许许多多脑中的物理事件构成的，不管这些事件有多么复杂。一个物质的整体能被分解成较小的物质部分，但是一个心理状态不能。物质部分不能加总为心理整体。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">唯有能够被科学研究的物质世界才是存在的，这就是客观实在的世界。</span>
-    <span class="na">反驳</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">这样一来,他们就得为感受、欲望、思想、经验――还有你和我――在物质世界上找到容身之所。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">你的心理状态的本质在于这些状态与引起它们的东西以及与它们所引起的东西之间的关联。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">比如说，当你绊伤了脚趾感到疼痛的时候，这种疼痛就是某种在你脑中所发生的事件。它不只是物理属性的总和，也并非某种神秘的、非物理的属性。毋宁说，使得疼痛之为疼痛的东西，乃是通常由伤害引起的一种脑的状态。这种状态通常使你喊叫跳跃并且躲避弄伤你的东西。它可以是脑的一种纯粹的生理状态。</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">但是这些东西看起来似乎并不足以构成一种疼痛。疼痛也以某种特定的方式被感到，而这个“感到”看起来与一切有关它的因果联系都不同，也不同于疼痛的一切物理属性</span>
-<span class="na">反方</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【二元论(Dualism)】</span>
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">人是由两种极为不同的东西组成的：一个复杂的生理有机体，加上一个完全精神性的灵魂。存在着一个灵魂。它以一种特殊的方式附着在你的身体上，因此二者可以相互作用。</span>
-    <span class="na">论据</span><span class="pi">:</span> <span class="s">别人能打开你的脑袋，观察里面的大脑，但是他们不能够打开你的心灵，观察里面的内容――至少不能像打开你的脑袋那样去打开你的心灵。</span>
-    <span class="na">反驳</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">反方</span><span class="pi">:</span> <span class="s">【物理主义(Physicalism)】/【唯物主义(Materialism)】</span>
-      <span class="na">内容</span><span class="pi">:</span> <span class="s">既然世界上其他一切东西都是由物质材料构成的，只是同一些化学元素不同的组合而已，为什么我们就不是如此？精子和卵子在受精的时候结合起来，产生出一个单一的细胞，然后再经由一个复杂的生理过程长成了我们的身体。通过添加一些普通的材料，一个细胞逐渐演化成了一个带有胳膊、腿、眼睛、耳朵还有大脑的人体，使得我们能够移动、感觉、看到东西，最后还能说话和思考。有些人认为，这个复杂的生理过程本身就能够产生出有意识的生命。难道不是这样吗？无论如何，难道说单凭哲学论证就能否认这一点么？既然哲学不能告诉我们星星或者钻石是由什么构成的，那么，它又怎么能告诉我们人是由某种东西或者不是由某种东西构成的呢？</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【两面论(Dual Aspect Theory)】</span>
-  <span class="na">主张</span><span class="pi">:</span> 
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">脑是意识的发生地，但是它的意识状态并非仅仅是物理状态。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">当你咬一口巧克力的时候，在你的脑中就产生了一个两方面的状态或者作用：一个物质方面，它包括许多不同的电化学反应；一个心理方面，也就是对巧克力的味觉体验。当这个作用发生的时候，科学家如果观察你的大脑，只会看到物质方面，但是你自己却可以从内部感受到心理方面：你会有尝到巧克力的感觉。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">你并不是一个身体加一个灵魂，而只是一个身体。你的身体或至少是你的脑，不仅仅是一个物理系统，它同时有物质和精神两个方面，它可以被拆解掉，但是它有一种内在的方面，是不可能通过拆解而显露出来的。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">你之所以在这个内在方面有尝到巧克力味的体验，是因为当你吃巧克力的时候，大脑就会出现某种状态，这种状态就其内在方面而言，就是吃巧克力的体验。</span>
-</code></pre></div></div>
-
-<h3 id="4-语言如何可能-the-meaning-of-words">4. 语言如何可能 (The Meaning of Words)</h3>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">辩题</span><span class="pi">:</span> <span class="s">我们所说的声音、所写的符号，如何可能具有意义？</span>
-<span class="na">总结</span><span class="pi">:</span> <span class="s">我们是有限的、渺小的造物，但是凭着声音或者纸上符号的帮助，意义却能够使我们把握整个世界以及其中的万事万物，甚至发明一些不存在而且或许永远也不会存在的东西。</span>
-<span class="na">正方</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">无</span>
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">词语和它指代的事物之间的关系不是拟声或者象形的关系。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">词语不能只当作标签，在句子或陈述里才有意义。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">一些词能用另一些词来定义，但是定义不能充当一切词语意义的基础，最后我们总是要还原到直接具有意义的词。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">人在使用一个词语的时候，指的是这种东西在世界上过去、现在和未来所有的样本，超出了一个人所见过的所有这种东西，涵盖了一个极其广大而又特定的范围。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">无论一个词和它所指的对象之间的关系是什么，在其他语言中也具有这种关系。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">词和指代的对象的关系是间接的，词背后有某种别的东西：概念、观念或思想，这些东西以某种方式涵盖了宇宙中的所有对象。</span>
-    <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">这个“中介”是什么东西？他是你心灵中的某种东西吗，还是心灵之外，而你以某种方式捕捉了它？</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">我们用同一个词指称同样的事物，但我们关于这个词和事物的经验都各不相同，如何做到这一点呢？一开始我们的问题是词语如何表示一类物体，现在问题变成了词语如何表示概念，并没有解决问题。</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">还产生了新的问题：这些概念是如何与一切现实的物体样本联系在一起的。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">【可能有人认为】，这一普遍因素就是当我们使用这个词的时候某种在我们心灵中所共同拥有的东西。</span>
-    <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">这种东西是什么？可能当我说这个词的时候，我的脑海里会出现某种意象，但是其他人心里的图像也可能与我的完全不同，这不妨碍我们用这个词表示同样的意思。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">意义的神秘之处在于，看上去它似乎不在任何地方：不在词语中，不在心灵中，也不在词语、心灵和我们所谈论的事物之间盘旋的、独立的概念或观念中。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">虽然如此，我们仍时时处处使用着语言，它使得我们能够思考复杂的、跨越了广袤时空的思想。</span>
-    <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">语言的普遍涵盖性说的太过头了，日常生活中，我们用语言表达的大多数陈述和思想要具体的多。“把盐递给我。”这里的语言只是一个“信号-反应”系统。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">是不是大部分语言都只是一个“信号-反应”系统呢？</span>
-    <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">语言并不仅此而已，不只是用一两个词简单交流，而是对远远超出当下周围环境的描述或者虚构。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">利用词语在较大范围内的使用来帮助我们理解它在较小范围内的使用，似乎更为可能。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">“盐在桌子上。”这样的话，无论是在吃午饭的时候，还是作为一种对可能出现的想想场景的假设性陈述，都有着相同的意义。因此，处于日常的、实用的目的所说的话中一定有某种普遍的东西，这种东西应该同样能被用来解释那些出于其他完全不同的目的而说的话，从而使这些话的意义都相同。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">语言是一种社会现象，当我们还是小孩子的时候就开始学说话，落入一个业已存在的系统中。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">把我使用的词语放在一个更大的语境中，这对解释他们的普遍意义似乎有所帮助。</span>
-    <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">一个词的意义包含了它所有可能的，或真或假的使用，现实的使用仅仅是所有可能的使用中极小的一部分而已。</span>
-</code></pre></div></div>
-
-<h3 id="5-我们是否有自由意志-free-will">5. 我们是否有自由意志 (Free Will)</h3>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">辩题</span><span class="pi">:</span> <span class="s">当一个人说自己能够做一些与实际所做的不同的事的时候，这话是什么意思？如果一个人的确可以做与实际所做的不同的事情，我们和世界需要具有哪些特点？</span>
-<span class="na">总结</span><span class="pi">:</span> 
-<span class="na">正方</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">非【决定论(Determinism)】</span>
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">人们在外在条件一模一样的情况下，并不需要发生任何不同的事情作为前提，就能够做某些他们实际上并没有做的事情。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">在你最终决定自己的选择是什么的那一刻之前，一切都不是无可挽回的。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">有人（也许还有一些高等动物）才具有这种“能够”或“本来可以”。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">自由行为是世界的一种基本特性，不能再加以分析</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">某件事情不需要原因而发生，和一个行为不需要原因而被做出，这是两个不同的问题。这种不同我们大家都知道，即使我们都不能对其加以解释。</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">如果说你的行为并未被你的愿望、信念和人格及其他东西所事先决定，它看起来就是无缘无故自己发生的事情。这样一来，你在什么情况下，在什么意义上能够去“做”它呢？</span>
-    <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">两种选择在事先皆有可能，除非是“我”决定选其中某个，否则我仍然不需要对这种选择负责，如果没有东西决定它，我又如何能够决定它呢？</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">科学</span>
-  <span class="na">主张</span><span class="pi">:</span> 
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">决定论也许并不是正确的.</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">对于基本粒子而言，决定论是不适用的。(量子力学。)也许决定论对于人的行为也是不适用的，这就给自由意志和责任留下了余地。</span>
-<span class="na">反方</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【决定论(Determinism)】</span>
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">某些事情是先前就被决定的。比如说，太阳明天将在一个特定的钟点升起</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">在绝对的意义上，我们永远不可能做与我们事实上所做的不同的事。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">在任何情况下，我们行动的各种条件决定了我们的行为，并且使它成为不可避免的。一个人的经验、欲望和知识、他的遗传因子、社会环境、各种选择的性质，以及其他我们尚不知晓的因素，这一切加在一起，共同使得一个在具体情境下的行为成为必然。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="err">*</span><span class="nv">*不主张</span><span class="err">**</span> <span class="s">我们能够知道宇宙中的一切法则，并且用这些法则来预言未来会发生什么。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">首先，我们不可能知道影响人类行为的一切复杂条件；其次，即使我们知道了若干条件，并且尝试着做出预言，但是这一预言本身就会导致条件的变化，它本身就可能改变被预言的结果。</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【决定论(Determinism)】分支1</span>
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">不能责备干坏事的人和夸奖做好事的人。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">在当时的条件下，他们不可能做别的事情。这样一来我们就没有理由让他们为自己的行为负责了。</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【决定论(Determinism)】分支2</span>
-  <span class="na">主张</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">即使人的行为是不可避免的，扬善斥恶的做法仍然是有意义的。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">就算一个人被事先决定了要做坏事，这也并不意味着他所做的就不是坏事了。进一步来说，如果我们不去责备或者甚至惩罚他，那就难保他下次不会再犯。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">如果我们认为他的行为是被事先决定的，而仍然要责罚他，这并不意味着我们认为他应该对他所做的负责，我们只是试图以此来改变他将来的行为。</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">【决定论(Determinism)】分支3</span>
-  <span class="na">主张</span><span class="pi">:</span> 
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">只有我们的行为是被决定的，而非自由选择的，才谈得上责任。</span>
-    <span class="na">论证</span><span class="pi">:</span> <span class="s">如果一个行为是你所做的，那么它就是被你身上的某些东西所引起的。这一解释看起来意味着你的行为最终仍然是被事先决定的。因果决定论本身并不对自由构成威胁，仅仅是某些特定种类的原因才与自由相悖。</span>
-</code></pre></div></div>
-
-<h3 id="6-道德的基础-right-and-wrong">6. 道德的基础 (Right and Wrong)</h3>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">辩题</span><span class="pi">:</span> <span class="s">道德来自于何处/道德的动机是什么？</span>
-  <span class="na">总结</span><span class="pi">:</span> <span class="s">道德论证想要诉诸于每个人心中追求公义的能力。这种能力被深深埋藏着，需要与其他自私或不自私的私人性动机相竞争。为道德辩护的困难在于人存在着太多种动机。</span>
-  <span class="na">正方</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">对与错和是否违反规定不是一回事。</span>
-    <span class="na">主张</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">否则，人们就不能像评价行为的对错一样来评价一条规定的对错了。</span>
-  <span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">道德考虑的是一个行为对他人的影响</span>
-    <span class="na">主张</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">并不一定直接影响他人的感受，因为他们可能永远也发现不了。</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">认为做某事是错误的，是因为这件事会影响其他人，其他人不喜欢你做这样的事，而且一旦发现还会加以反对。</span>
-      <span class="na">反驳</span><span class="pi">:</span> 
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">“可是谁在乎他们呢，我就是想做某事，干嘛在乎他们高不高兴？”</span>
-  <span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">找出这个人在乎的某种东西，然后把这种东西和道德联系起来</span>
-  <span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">承上，宗教是道德的基础</span>
-    <span class="na">主张</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">即使你能在世时坏事做尽，但是死后上帝会惩罚你</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">遵守上帝的诫命，并不是出于害怕惩罚，而是对上帝的爱</span>
-      <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">很多人不信上帝，却依然能够判断是非</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">即使上帝存在且禁止某些事，仍不能使这些事成为错误的。上帝不能通过禁止某些多年的习惯（比如穿袜子先穿左脚）就让这些习惯成为错误的。</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">害怕惩罚、追求奖赏、对上帝的爱，看起来并不是遵守道德的正确动机。不应该做某些事，是因为它们对受害者是坏事，而不是你害怕对自己不利的后果，或上帝不高兴。</span>
-  <span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">承上，道德力量归结为行为者自身的利益</span>
-    <span class="na">主张</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">你想要别人怎么对你，你就应该怎么对别人。</span>
-      <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">假如你做的好事不被人发现，或者做了坏事却能及时逃走，这种说法就不适用了。</span>
-  <span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">对于他人直接的关心乃是道德的无可替代的基础。</span>
-    <span class="na">主张</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">即使一个人自私心非常强烈，但他仍有某种理由去关心他人。</span>
-      <span class="na">论证</span><span class="pi">:</span> <span class="s">“要是别人也这么对你，你会怎么想？”</span>
-      <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">“我当然很不高兴，但是幸运的是没人这么对我，而是我这么对待别人，我可不在乎别人怎么想。”</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">“我根本不会感到怨恨，我不认为他有什么理由去在乎我的感受。”</span>
-  <span class="na">反方</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">道德考虑的不是一个行为对他人的影响</span>
-    <span class="na">主张</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">道德论证的就是不做一件事的理由，如果某人根本不把其他人当回事，假如他能逃避惩罚的话，他有什么理由不去做这些事？如果没有理由解释他为什么不应该这么做，说这种行为错误的意义何在？</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">“我当然很不高兴，但是幸运的是没人这么对我，而是我这么对待别人，我可不在乎别人怎么想。”</span>
-      <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">这种感觉不只是不高兴而已，你会怨恨做这件事的人。如果你感到怨恨，你就承认了你认为这个人不应当伤害你。那就得考虑这个不应当的理由是什么。这个理由不是因为他伤害的是你，因为他没有理由只伤害你而不伤害别人。这个理由应当是普遍有效的，因此你自己也不能例外。</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">“我根本不会感到怨恨，我不认为他有什么理由去在乎我的感受。”</span>
-      <span class="na">反驳</span><span class="pi">:</span> 
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">有多少人会问心无愧地这么说呢，绝大多数人都认为他们的切身利害，不仅对于他们自己是重要的，在某种意义上其他人也不该忽视。当我们被伤害的时候，不仅对我们来说是件坏事，这本身就是坏事。</span>
-<span class="pi">-</span> <span class="na">辩题</span><span class="pi">:</span> <span class="s">我们应该做到多大程度的不偏不倚？</span> 
-  <span class="na">总结</span><span class="pi">:</span> <span class="s">道德的动机并未告诉我们如何考虑他人的利益，孰是孰非的细节仍然众说纷纭。</span>
-  <span class="na">正方</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">主张</span><span class="pi">:</span> <span class="s">人应该像关心自己一样关心其他人。</span>
-    <span class="pi">-</span> <span class="na">反驳</span><span class="pi">:</span> 
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">你每次去看电影的时候都应当问自己：“如果我把买票的钱送给别人，或者救济贫民，这对于他们来说不是更大的幸福吗？”</span>
-  <span class="pi">-</span> <span class="na">主张</span><span class="pi">:</span> <span class="s">他对和自己比较亲密的人或许会有某种特殊的情感，但是，如果他是完全不偏不倚的话，他就不能更为偏向他们。</span>
-<span class="pi">-</span> <span class="na">辩题</span><span class="pi">:</span> <span class="s">对与错的标准对每个人来说都一样吗？</span>
-  <span class="na">正方</span><span class="pi">:</span> 
-  <span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">道德一般被认为是普遍的。</span>
-    <span class="na">主张</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">对错对每个人来说都是一样的，但并非每个人都有理由去扬善避恶。</span>
-      <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">这种说法承认了道德的普遍性，却牺牲了道德的力量。</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">人人都有理由做好事而不做坏事，但这些理由并不依赖于人的实际动机。</span>
-      <span class="na">论证</span><span class="pi">:</span> <span class="s">毋宁说，这些理由是用来改变人的不良动机的。</span>
-      <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">没有说清楚这些不依赖于人人都有的实际动机的普遍理由是什么。</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">道德的标准是普遍的，但是道德动机依赖于他对一般人的关心程度。</span>
-      <span class="na">论证</span><span class="pi">:</span> <span class="s">如果他有强烈的道德动机，也就会有强烈的道德理由和道德要求；如果他的道德动机非常薄弱，甚至根本没有，其道德要求也就</span>
-  <span class="na">反方</span><span class="pi">:</span> 
-  <span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">不会有一个人人都有理由遵守的基本行为标准。</span>
-    <span class="na">主张</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">如果不去做某事是因为他是错的，并且人做事总是处于一定的动机，而人们的动机是千变万化的，那么就很难有唯一的对错标准。</span>
-      <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">对错对每个人来说都是一样的，但并非每个人都有理由去扬善避恶。</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">人人都有理由做好事而不做坏事，但这些理由并不依赖于人的实际动机。</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">道德的标准是普遍的，但是道德动机依赖于他对一般人的关心程度。</span>
-  <span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">道德相对性</span>
-    <span class="na">主张</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">对于错的最基本标准，完完全全依赖于你所生活的社会接受的是什么样的道德标准。</span>
-      <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">你总是能够批评在自己的社会中被接受的标准，这就必须诉诸于一个更客观的标准，而这个标准在此处是和大多数人的看法相悖的。</span>
-  <span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> <span class="s">让自己高兴</span>
-    <span class="na">主张</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">人们无论做什么事情，其唯一动机只是这么做让他高兴，或不这么做让他不高兴。那么，要把对别人的关心作为道德的基础自然毫无希望。</span>
-      <span class="na">论证</span><span class="pi">:</span> <span class="s">即便是损己利人的明显道德行为，也不过是想避免不做正确的事给他的内疚感，或者想体会做了好事的自豪感。如果他没有这种感觉，也就没有动机变得道德了。</span>
-      <span class="na">反驳</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">反方</span><span class="pi">:</span> <span class="s">作者</span>
-        <span class="na">内容</span><span class="pi">:</span> <span class="s">进行道德行为时的快乐和反之的不快，并不意味着这种感觉就是他们行为的动机。也有可能是另有动机产生了道德行为，而这些感觉同样是那些动机的结果。</span>
-</code></pre></div></div>
-
-<h3 id="7-何种不平等是不公正的-justice">7. 何种不平等是不公正的 (Justice)</h3>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">辩题</span><span class="pi">:</span> <span class="s">那些并不由受苦的人自己造成的不平等在何种程度上是件坏事呢？政府是否应当为此运用权力去减少这种不平等呢？</span>
-<span class="na">总结</span><span class="pi">:</span> 
-<span class="na">正方</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> 
-  <span class="na">主张</span><span class="pi">:</span> 
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">某些不平等是刻意强加的。种族歧视有意剥夺某些种族的人民工作，性别歧视把工作机会和特权都留给男人。这些不仅仅是运气问题，这种不平等是由于一些本不应当人民的基本权益的因素造成的。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">公平的做法是人人机会均等，有能力就能得到。如果政府努力促进这种机会的平等，是件好事。在刻意的歧视的情况下，造成不平等的原因是错误的，补救措施也就只是制止这种歧视而已。</span> 
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">反对非歧视下的不公，是因为我们反对仅仅由于社会经济通常运行机制的缘故，而让无辜的人一生下来就承受种种困境。补救措施要么干预这些原因本身，要么直接干预这些不平等的结果。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">对于社会地位差异造成的不公，如果政府要减少时代积累的、财产上不平等的发展趋势，可取的方案是间接干涉人们的经济生活，例如税收，要点是不让人们掌控全部的财富。国家税收提供健康、食品、住宅和教育方面的基本福利。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">对于能力造成的不平等，唯一可能的替代方案是中央集权的经济，由中央权力分配给人们工作，并且付给人们大致一样的薪金。</span>
-    <span class="na">反驳</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">一些国家实施过这种经济体制，但是付出了高昂的代价。既牺牲了自由，又缺乏效率。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">要减少能力差异的不平等，同时保留自由竞争经济，只有改变不平等的结果。可以对高收入者课以重税，并对低收入者提供福利。</span>
-    <span class="na">反驳</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">这些方式都只能减弱而不能完全摆脱不应有的不平等，并且任何一种税收体系都会对经济有其他影响，难以事先预测。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">从世界范围来说，问题还要复杂得多，因为缺乏可以征“世界税”并被监督有效使用的世界政府。如此很难说何种补救措施才是可行的。</span>
-    <span class="na">反驳</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">不太可能有一个世界范围内的正义的政府，若有这样的政府，它可能在很多方面都是非常可怕的。</span>
-<span class="na">反方</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">主义</span><span class="pi">:</span> 
-  <span class="na">主张</span><span class="pi">:</span> 
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">如果没有刻意的种族或者性别歧视，在一般的情况下也会造成不平等的现象。对此我们很难指责什么。</span>
-    <span class="na">反驳</span><span class="pi">:</span> 
-    <span class="pi">-</span> <span class="na">内容</span><span class="pi">:</span> <span class="s">如果这些差别使得某些人的境况非常悲惨的话，这会令人非常不安。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">社会地位的差异，出生于富裕家庭的人会受到较好的教育，拥有较多的资源。即使在一个机会平等的社会里，对于自然天赋相同的人而言，如果某人生来就比别人占优势，最终也会比别人得到更多的收益。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">社会需要的自然天赋或才能上的差异，而自然天赋的不同造成的结果也会相当不同。</span>
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">再分配税是不合理的，除非人们做了错事，否则政府就不该干涉。</span>
-<span class="pi">-</span> <span class="na">主张</span><span class="pi">:</span>  
-  <span class="pi">-</span> <span class="na">论点</span><span class="pi">:</span> <span class="s">更应该反对社会经济造成的不平等，而非个人天赋或才能造成的不平等。</span>
-</code></pre></div></div>
-
-<h3 id="8-死亡的本性-death">8. 死亡的本性 (Death)</h3>
-
-<h3 id="9-生活的意义-the-meaning-of-life">9. 生活的意义 (The Meaning of Life)</h3>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[这是编程随想 [电子书库/哲学/通俗读物] 中的一本，他重回赛博空间的可能性已经越来越小了，读书，写读书笔记，也是对他进行纪念的一种方式。]]></summary></entry></feed>
+</ol>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[本文是《Scientific Machine Learning Through Physics–Informed Neural Networks: Where we are and What’s Next》这篇综述的读书笔记。]]></summary></entry></feed>

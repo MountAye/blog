@@ -1,12 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
 
-
-
-<title>.py | python.subprocess执行bash命令 | 阿掖山：一个博客</title>
+<title>.py | python.subprocess执行bash命令 | 阿掖山</title>
 <link rel="shortcut icon" href="https://mountaye.github.io/blog/favicon.ico" >
 <link rel="canonical" href="https://mountaye.github.io/blog/articles/python-subprocess-run-bash" />
 <meta name="generator" content="Jekyll v4.3.2" />
@@ -24,72 +23,78 @@
     {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MountAye"},"dateModified":"","datePublished":"2022-07-08","description":"让 python 读 bash 的命令结果，写 bash 的命令语句。","headline":"让 python 读 bash 的命令结果，写 bash 的命令语句。","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/python-subprocess-run-bash"},"url":"https://mountaye.github.io/blog/articles/python-subprocess-run-bash"}
 </script>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3X9B5LN42L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3X9B5LN42L');
-</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
-     crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="/blog/assets/css/style.css?v=">
-    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/blog/assets/css/main.css">
     <script src="/blog/assets/js/main.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <!--[if lt IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
-    <![endif]-->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <body>
-    <header>
-      <a href="/blog/"><h1>阿掖山：一个博客</h1></a>
-      <p>智力活动是一种生活态度</p>
-    </header>
-    <div id="banner">
-      <span id="logo"></span>
-      <span class="button fork">
-        <a href="/blog/articles/python-subprocess-run-bash"><strong>汉</strong></a> | 
-        <a href="/blog/en/articles/python-subprocess-run-bash"><strong>En</strong></a>
-      </span>
-      <div class="downloads">
-        <span></span>
-        <ul>
-          <li><a href="/blog/history" class="button">历史</a></li>
-          <li><a href="/blog/topics" class="button">分类</a></li>
-          <li><a href="/blog/about" class="button">关于</a></li>
-        </ul>
+    <div class="flex-all">
+      <aside id="left" class="flex-left">
+        <a class="flex-left-avatar"
+           href="https://mountaye.github.io/blog/"
+        >
+          <div id="avatar"></div>
+          <div id="sitename">阿掖山</div>
+        </a>
+        <div id="side-quote" class="flex-left-quote">
+          <p 
+            id="quote-line"
+            
+              style="text-orientation: upright;"
+            
+          >
+            智力活动是一种生活态度
+          </p>
+          <p>
+            <span style="text-orientation: sideways; line-height: 60%;">——</span>
+            <span 
+              id="quote-author"
+              
+                style="text-orientation: upright;"
+              
+            >
+            阿掖山·一个博客
+            </span>
+          </p>
+        </div>
+        <footer id="side-footer" class="flex-left-footer">
+          <div id="social-icons">
+            <a href="/blog/feed.xml" class="icon-Popular_RSS"></a>
+            <a href="" class="icon-Popular_GitHub"></a>
+            <a href="" class="icon-Popular_Twitter"></a>
+            <a href="" class="icon-Popular_mail"></a>
+          </div>
+          <p>Pencil - a Jekyll theme <br>
+             by MountAye</p>
+        </footer>
+      </aside>  
+      <div class="flex-mid">
+  <header id="header">
+    <h1 id="header-title">阿掖山.py | python.subprocess执行bash命令</h1>
+    <div id="toc-button" class="changable-icon dropdown-button" onclick="tocButton(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+      <div id="toc-dropdown-container" class="dropdown-content">
+        <div id="toc-dropdown"></div>
       </div>
     </div>
-
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section id="ad-head"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
-     crossorigin="anonymous"></script>
-<!-- blog-header -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1920275466226790"
-     data-ad-slot="4291489170"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script></section>
-<section class="outlined">
-  <h1>.py | python.subprocess执行bash命令</h1>
-  <p style="text-indent: 0;">2022 年 7 月 8 日 </p>
-  <p style="text-indent: 0;"><code>.md</code><code>.py</code></p>
-  
-  <hr>
-  <p>笔记本的触摸屏被我摔了道裂纹，一开始还不影响使用，但是最近几周情况恶化，有时鼠标光标会突然暴走，不听指挥。所以需要禁用触摸屏作为输入设备。</p>
+  </header>
+  <div id="title-banner" class="written">
+    
+    <h1>.py | python.subprocess执行bash命令</h1>
+    <div id="author-card">
+    <div id="author-avatar" style='background-image: url("/blog/assets/img/before_h2.png");'></div>
+      <div id="author-texts">
+        <p><strong>MountAye</strong></p>
+        <p>Jul 8, 2022</p>
+      </div>
+    </div>
+    <hr>  
+  </div>
+  <main class="written">
+    <p>笔记本的触摸屏被我摔了道裂纹，一开始还不影响使用，但是最近几周情况恶化，有时鼠标光标会突然暴走，不听指挥。所以需要禁用触摸屏作为输入设备。</p>
 
 <p>在 xorg 的桌面环境之下，可以用 <code class="language-plaintext highlighter-rouge">xinput list</code> 显示出所有输入设备，以及对应的 id 号码。然后把找到的 id 填入 <code class="language-plaintext highlighter-rouge">xinput disable ##</code> 就可以了。一般来说这个 id 的数值是稳定的，所以我就直接把禁用命令写到 <code class="language-plaintext highlighter-rouge">~/.bashrc</code> 里面去了。</p>
 
@@ -100,15 +105,15 @@
 <p>Googles搜索给到了这个结果：<a href="https://stackoverflow.com/questions/4256107/running-bash-commands-in-python">https://stackoverflow.com/questions/4256107/running-bash-commands-in-python</a>，稍微看了一下 subprocess 的官方文档，写了下面的一段，存到 <code class="language-plaintext highlighter-rouge">~/disable_touchscreen.py</code>, 然后在 <code class="language-plaintext highlighter-rouge">~/.bashrc</code> 里加一句 <code class="language-plaintext highlighter-rouge">python ~/disable_touchscreen.py</code></p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">subprocess</span>
-<span class="n">check</span> <span class="o">=</span> <span class="n">subprcess</span><span class="p">.</span><span class="nf">run</span><span class="p">([</span><span class="s">"xinput"</span><span class="p">,</span><span class="s">"list"</span><span class="p">],</span><span class="n">capture_output</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">check</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">).</span><span class="nf">split</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">):</span>
-    <span class="k">if</span> <span class="s">"touchscreen"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-        <span class="n">device</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="nf">partition</span><span class="p">(</span><span class="s">"id="</span><span class="p">)[</span><span class="mi">2</span><span class="p">].</span><span class="nf">partition</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">disable</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="nf">run</span><span class="p">([</span><span class="s">"xinput"</span><span class="p">,</span><span class="s">"disable"</span><span class="p">,</span><span class="nf">str</span><span class="p">(</span><span class="n">device</span><span class="p">)])</span>
+<span class="n">check</span> <span class="o">=</span> <span class="n">subprcess</span><span class="p">.</span><span class="nf">run</span><span class="p">([</span><span class="sh">"</span><span class="s">xinput</span><span class="sh">"</span><span class="p">,</span><span class="sh">"</span><span class="s">list</span><span class="sh">"</span><span class="p">],</span><span class="n">capture_output</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">check</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="sh">"</span><span class="s">utf-8</span><span class="sh">"</span><span class="p">).</span><span class="nf">split</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">):</span>
+    <span class="k">if</span> <span class="sh">"</span><span class="s">touchscreen</span><span class="sh">"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="nf">partition</span><span class="p">(</span><span class="sh">"</span><span class="s">id=</span><span class="sh">"</span><span class="p">)[</span><span class="mi">2</span><span class="p">].</span><span class="nf">partition</span><span class="p">(</span><span class="sh">"</span><span class="se">\t</span><span class="sh">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">disable</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="nf">run</span><span class="p">([</span><span class="sh">"</span><span class="s">xinput</span><span class="sh">"</span><span class="p">,</span><span class="sh">"</span><span class="s">disable</span><span class="sh">"</span><span class="p">,</span><span class="nf">str</span><span class="p">(</span><span class="n">device</span><span class="p">)])</span>
         <span class="k">if</span> <span class="n">disable</span><span class="p">.</span><span class="n">returncode</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Successfully disabled touchscreen device </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Successfully disabled touchscreen device </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Failed to disable touchscreen device </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Failed to disable touchscreen device </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <ul>
@@ -123,22 +128,8 @@
   <li>上面管道的结果还需要裁剪出 id 号，也就是 <code class="language-plaintext highlighter-rouge">line.partition("id=")[2].partition("\t")[0]</code>，估计需要用到 awk, 虽然难，但可以学，至少知道该学什么；</li>
   <li>但是把 id 号传递给一个变量，然后把这个变量填进 <code class="language-plaintext highlighter-rouge">xinput disable</code>, 这一步就连该学什么也不知道了。</li>
 </ul>
-
-  <hr>
-</section>
-<section id="ad-tail"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
-     crossorigin="anonymous"></script>
-<!-- blog-header -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1920275466226790"
-     data-ad-slot="4291489170"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script></section>
-<section id="comments">
+    
+  </main>
   <script src="https://giscus.app/client.js"
         data-repo="MountAye/comments"
         data-repo-id="R_kgDOJe4FmQ"
@@ -155,17 +146,46 @@
         crossorigin="anonymous"
         async>
 </script>
-</section>
-
+  <div class="giscus" style="margin-bottom: 2em;"></div>
+</div>
+<aside id="right" class="flex-right">
+  <nav id="toc-side-container" class="flex-right-toc">
+    <div id="toc-side"></div>
+  </nav>
+  <div class="flex-right-navbar">
+    <a class="side-nav-button" href="https://mountaye.github.io/blog/history">
+      <span class="material-symbols-outlined">calendar_month</span>
+      <span class="side-nav-text">History</span>
+    </a>
+    <a class="side-nav-button" href="https://mountaye.github.io/blog/topics" >
+      <span class="material-symbols-outlined">bookmarks</span>
+      <span class="side-nav-text">Topics</span>
+    </a>
+    <a class="side-nav-button" href="/blog/articles/python-subprocess-run-bash">
+      <span class="material-symbols-outlined">language_pinyin</span>
+      <span class="side-nav-text">中文</span>
+    </a>
+    <a class="side-nav-button" href="/blog/en/articles/python-subprocess-run-bash">
+      <span class="material-symbols-outlined">language_us</span>
+      <span class="side-nav-text">English</span>
+    </a>
+  </div>
+</aside>
     </div>
-    <footer>
-      <p><small>Hosted on GitHub Pages
-            <br>Theme by <a href="https://twitter.com/mattgraham">mattgraham</a>
-            <br>Modified by <a href="https://www.github.com/MountAye">MountAye</a>
-      </small></p>
+    <footer id="nav-mobile">
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/history">
+        <span class="material-symbols-outlined">calendar_month</span>
+      </a>
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/topics" >
+        <span class="material-symbols-outlined">bookmarks</span>
+      </a>
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/"><div class="nav-mobile-avatar"></div></a>
+      <a class="nav-mobile-item" href="/blog/articles/python-subprocess-run-bash">
+        <span class="material-symbols-outlined">language_pinyin</span>
+      </a>
+      <a class="nav-mobile-item" href="/blog/en/articles/python-subprocess-run-bash">
+        <span class="material-symbols-outlined">language_us</span>
+      </a>
     </footer>
-
   </body>
 </html>
-
-  

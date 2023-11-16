@@ -1,12 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
 
-
-
-<title>.tex | 整理一些关于实验记录的文章 | 阿掖山：一个博客</title>
+<title>.tex | 整理一些关于实验记录的文章 | 阿掖山</title>
 <link rel="shortcut icon" href="https://mountaye.github.io/blog/favicon.ico" >
 <link rel="canonical" href="https://mountaye.github.io/blog/articles/lab-note" />
 <meta name="generator" content="Jekyll v4.3.2" />
@@ -24,72 +23,78 @@
     {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MountAye"},"dateModified":"","datePublished":"2020-09-21","description":"摸鱼的方式有很多种，琢磨如何完美地进行实验记录就是个挺不错的由头。","headline":"摸鱼的方式有很多种，琢磨如何完美地进行实验记录就是个挺不错的由头。","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/lab-note"},"url":"https://mountaye.github.io/blog/articles/lab-note"}
 </script>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3X9B5LN42L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3X9B5LN42L');
-</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
-     crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="/blog/assets/css/style.css?v=">
-    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/blog/assets/css/main.css">
     <script src="/blog/assets/js/main.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <!--[if lt IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
-    <![endif]-->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <body>
-    <header>
-      <a href="/blog/"><h1>阿掖山：一个博客</h1></a>
-      <p>智力活动是一种生活态度</p>
-    </header>
-    <div id="banner">
-      <span id="logo"></span>
-      <span class="button fork">
-        <a href="/blog/articles/lab-note"><strong>汉</strong></a> | 
-        <a href="/blog/en/articles/lab-note"><strong>En</strong></a>
-      </span>
-      <div class="downloads">
-        <span></span>
-        <ul>
-          <li><a href="/blog/history" class="button">历史</a></li>
-          <li><a href="/blog/topics" class="button">分类</a></li>
-          <li><a href="/blog/about" class="button">关于</a></li>
-        </ul>
+    <div class="flex-all">
+      <aside id="left" class="flex-left">
+        <a class="flex-left-avatar"
+           href="https://mountaye.github.io/blog/"
+        >
+          <div id="avatar"></div>
+          <div id="sitename">阿掖山</div>
+        </a>
+        <div id="side-quote" class="flex-left-quote">
+          <p 
+            id="quote-line"
+            
+              style="text-orientation: upright;"
+            
+          >
+            智力活动是一种生活态度
+          </p>
+          <p>
+            <span style="text-orientation: sideways; line-height: 60%;">——</span>
+            <span 
+              id="quote-author"
+              
+                style="text-orientation: upright;"
+              
+            >
+            阿掖山·一个博客
+            </span>
+          </p>
+        </div>
+        <footer id="side-footer" class="flex-left-footer">
+          <div id="social-icons">
+            <a href="/blog/feed.xml" class="icon-Popular_RSS"></a>
+            <a href="" class="icon-Popular_GitHub"></a>
+            <a href="" class="icon-Popular_Twitter"></a>
+            <a href="" class="icon-Popular_mail"></a>
+          </div>
+          <p>Pencil - a Jekyll theme <br>
+             by MountAye</p>
+        </footer>
+      </aside>  
+      <div class="flex-mid">
+  <header id="header">
+    <h1 id="header-title">阿掖山.tex | 整理一些关于实验记录的文章</h1>
+    <div id="toc-button" class="changable-icon dropdown-button" onclick="tocButton(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+      <div id="toc-dropdown-container" class="dropdown-content">
+        <div id="toc-dropdown"></div>
       </div>
     </div>
-
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section id="ad-head"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
-     crossorigin="anonymous"></script>
-<!-- blog-header -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1920275466226790"
-     data-ad-slot="4291489170"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script></section>
-<section class="outlined">
-  <h1>.tex | 整理一些关于实验记录的文章</h1>
-  <p style="text-indent: 0;">2020 年 9 月 21 日 </p>
-  <p style="text-indent: 0;"><code>.tex</code></p>
-  
-  <hr>
-  <ol>
+  </header>
+  <div id="title-banner" class="written">
+    
+    <h1>.tex | 整理一些关于实验记录的文章</h1>
+    <div id="author-card">
+    <div id="author-avatar" style='background-image: url("/blog/assets/img/before_h2.png");'></div>
+      <div id="author-texts">
+        <p><strong>MountAye</strong></p>
+        <p>Sep 21, 2020</p>
+      </div>
+    </div>
+    <hr>  
+  </div>
+  <main class="written">
+    <ol>
   <li><a href="https://www.sciencemag.org/careers/2019/09/how-keep-lab-notebook">微信公众号“BioArt植物”，原作者 Elisabeth Pain ，《实验记录到底怎么记？》</a></li>
   <li><a href="https://files.eric.ed.gov/fulltext/ED344734.pdf">Howard Kannare, 《Writing the Laboratory Notebook》</a></li>
   <li><a href="http://web.mit.edu/me-ugoffice/communication/labnotebooks.pdf">MIT Department of Mechanical Engineering, 《Instructions for Using Your Laboratory Notebook》</a></li>
@@ -161,22 +166,8 @@
 <h2 id="4">4</h2>
 
 <p>对于这篇文章没有太多可说的，覆盖范围和《实验记录到底怎么记？》类似，感觉就相当于颜宁女士自己一个人对那篇文章中的问题的回答，由于是一个人的回答，所以不会有前一篇文章中不同观点混在一起的分裂感。看过了《Writing the Laboratory Notebook》之后，会发现文中的每一个点都在书中可以找到。</p>
-
-  <hr>
-</section>
-<section id="ad-tail"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
-     crossorigin="anonymous"></script>
-<!-- blog-header -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1920275466226790"
-     data-ad-slot="4291489170"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script></section>
-<section id="comments">
+    
+  </main>
   <script src="https://giscus.app/client.js"
         data-repo="MountAye/comments"
         data-repo-id="R_kgDOJe4FmQ"
@@ -193,17 +184,46 @@
         crossorigin="anonymous"
         async>
 </script>
-</section>
-
+  <div class="giscus" style="margin-bottom: 2em;"></div>
+</div>
+<aside id="right" class="flex-right">
+  <nav id="toc-side-container" class="flex-right-toc">
+    <div id="toc-side"></div>
+  </nav>
+  <div class="flex-right-navbar">
+    <a class="side-nav-button" href="https://mountaye.github.io/blog/history">
+      <span class="material-symbols-outlined">calendar_month</span>
+      <span class="side-nav-text">History</span>
+    </a>
+    <a class="side-nav-button" href="https://mountaye.github.io/blog/topics" >
+      <span class="material-symbols-outlined">bookmarks</span>
+      <span class="side-nav-text">Topics</span>
+    </a>
+    <a class="side-nav-button" href="/blog/articles/lab-note">
+      <span class="material-symbols-outlined">language_pinyin</span>
+      <span class="side-nav-text">中文</span>
+    </a>
+    <a class="side-nav-button" href="/blog/en/articles/lab-note">
+      <span class="material-symbols-outlined">language_us</span>
+      <span class="side-nav-text">English</span>
+    </a>
+  </div>
+</aside>
     </div>
-    <footer>
-      <p><small>Hosted on GitHub Pages
-            <br>Theme by <a href="https://twitter.com/mattgraham">mattgraham</a>
-            <br>Modified by <a href="https://www.github.com/MountAye">MountAye</a>
-      </small></p>
+    <footer id="nav-mobile">
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/history">
+        <span class="material-symbols-outlined">calendar_month</span>
+      </a>
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/topics" >
+        <span class="material-symbols-outlined">bookmarks</span>
+      </a>
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/"><div class="nav-mobile-avatar"></div></a>
+      <a class="nav-mobile-item" href="/blog/articles/lab-note">
+        <span class="material-symbols-outlined">language_pinyin</span>
+      </a>
+      <a class="nav-mobile-item" href="/blog/en/articles/lab-note">
+        <span class="material-symbols-outlined">language_us</span>
+      </a>
     </footer>
-
   </body>
 </html>
-
-  

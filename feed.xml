@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-10-22T11:29:50-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">2023年哈马斯-以色列战争</title><link href="https://mountaye.github.io/blog/articles/war-in-2023-between-hamas-and-israel" rel="alternate" type="text/html" title="2023年哈马斯-以色列战争" /><published>2023-10-21T00:00:00-05:00</published><updated>2023-10-21T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/war-in-2023-between-hamas-and-israel</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/war-in-2023-between-hamas-and-israel"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2023-11-16T16:22:03-06:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">·如是我闻 | 2023年哈马斯-以色列战争</title><link href="https://mountaye.github.io/blog/articles/war-in-2023-between-hamas-and-israel" rel="alternate" type="text/html" title="·如是我闻 | 2023年哈马斯-以色列战争" /><published>2023-10-21T00:00:00-05:00</published><updated>2023-10-21T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/war-in-2023-between-hamas-and-israel</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/war-in-2023-between-hamas-and-israel"><![CDATA[<blockquote>
   <p>更新至 2023 年 10 月 21 日，大约每周更新</p>
 </blockquote>
 
@@ -798,62 +798,62 @@ if __name__ == '__main__':
   </thead>
   <tbody>
     <tr>
-      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertEqual</td>
+      <td><a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertEqual">unittest.TestCase.assertEqual</a></td>
       <td>a == b</td>
       <td> </td>
     </tr>
     <tr>
-      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotEqual</td>
+      <td><a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotEqual">unittest.TestCase.assertNotEqual</a></td>
       <td>a != b</td>
       <td> </td>
     </tr>
     <tr>
-      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertTrue</td>
+      <td><a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertTrue">unittest.TestCase.assertTrue</a></td>
       <td>bool(x) is True</td>
       <td> </td>
     </tr>
     <tr>
-      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertFalse</td>
+      <td><a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertFalse">unittest.TestCase.assertFalse</a></td>
       <td>bool(x) is False</td>
       <td> </td>
     </tr>
     <tr>
-      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIs</td>
+      <td><a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIs">unittest.TestCase.assertIs</a></td>
       <td>a is b</td>
       <td>3.1</td>
     </tr>
     <tr>
-      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsNot</td>
+      <td><a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsNot">unittest.TestCase.assertIsNot</a></td>
       <td>a is not b</td>
       <td>3.1</td>
     </tr>
     <tr>
-      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsNone</td>
+      <td><a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsNone">unittest.TestCase.assertIsNone</a></td>
       <td>x is None</td>
       <td>3.1</td>
     </tr>
     <tr>
-      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsNotNone</td>
+      <td><a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsNotNone">unittest.TestCase.assertIsNotNone</a></td>
       <td>x is not None</td>
       <td>3.1</td>
     </tr>
     <tr>
-      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIn</td>
+      <td><a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIn">unittest.TestCase.assertIn</a></td>
       <td>a in b</td>
       <td>3.1</td>
     </tr>
     <tr>
-      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotIn</td>
+      <td><a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotIn">unittest.TestCase.assertNotIn</a></td>
       <td>a not in b</td>
       <td>3.1</td>
     </tr>
     <tr>
-      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsInstance</td>
+      <td><a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertIsInstance">unittest.TestCase.assertIsInstance</a></td>
       <td>isinstance(a, b)</td>
       <td>3.2</td>
     </tr>
     <tr>
-      <td>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotIsInstance</td>
+      <td><a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertNotIsInstance">unittest.TestCase.assertNotIsInstance</a></td>
       <td>not isinstance(a, b)</td>
       <td>3.2</td>
     </tr>
@@ -867,28 +867,28 @@ if __name__ == '__main__':
 <p>Python 的文档测试用的是 <code class="language-plaintext highlighter-rouge">doctest</code> 库，写法如下：</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Dict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
-    <span class="s">'''
+    <span class="sh">'''</span><span class="s">
     Simple dict but also support access as x.y style.
-
-    &gt;&gt;&gt; d1 = Dict()
-    &gt;&gt;&gt; d1['x'] = 100
-    &gt;&gt;&gt; d1.x
-    100
-    &gt;&gt;&gt; d1.y = 200
-    &gt;&gt;&gt; d1['y']
-    200
-    &gt;&gt;&gt; d2 = Dict(a=1, b=2, c='3')
-    &gt;&gt;&gt; d2.c
-    '3'
-    &gt;&gt;&gt; d2['empty']
-    Traceback (most recent call last):
-        ...
-    KeyError: 'empty'
-    &gt;&gt;&gt; d2.empty
-    Traceback (most recent call last):
-        ...
-    AttributeError: 'Dict' object has no attribute 'empty'
-    '''</span>
+</span><span class="gp">
+    &gt;&gt;&gt;</span> <span class="n">d1</span> <span class="o">=</span> <span class="nc">Dict</span><span class="p">()</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d1</span><span class="p">[</span><span class="sh">'</span><span class="s">x</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d1</span><span class="p">.</span><span class="n">x</span>
+    <span class="mi">100</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d1</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d1</span><span class="p">[</span><span class="sh">'</span><span class="s">y</span><span class="sh">'</span><span class="p">]</span>
+    <span class="mi">200</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d2</span> <span class="o">=</span> <span class="nc">Dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="sh">'</span><span class="s">3</span><span class="sh">'</span><span class="p">)</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d2</span><span class="p">.</span><span class="n">c</span>
+    <span class="sh">'</span><span class="s">3</span><span class="sh">'</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d2</span><span class="p">[</span><span class="sh">'</span><span class="s">empty</span><span class="sh">'</span><span class="p">]</span>
+    <span class="nc">Traceback </span><span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">...</span>
+    <span class="nb">KeyError</span><span class="p">:</span> <span class="sh">'</span><span class="s">empty</span><span class="sh">'</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">d2</span><span class="p">.</span><span class="n">empty</span>
+    <span class="nc">Traceback </span><span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+        <span class="bp">...</span>
+    <span class="nb">AttributeError</span><span class="p">:</span> <span class="sh">'</span><span class="s">Dict</span><span class="sh">'</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="sh">'</span><span class="s">empty</span><span class="sh">'</span>
+    <span class="sh">'''</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
         <span class="nf">super</span><span class="p">(</span><span class="n">Dict</span><span class="p">,</span> <span class="n">self</span><span class="p">).</span><span class="nf">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
 
@@ -896,12 +896,12 @@ if __name__ == '__main__':
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
         <span class="k">except</span> <span class="nb">KeyError</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="nc">AttributeError</span><span class="p">(</span><span class="sa">r</span><span class="s">"'Dict' object has no attribute '%s'"</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="nc">AttributeError</span><span class="p">(</span><span class="sa">r</span><span class="sh">"'</span><span class="s">Dict</span><span class="sh">'</span><span class="s"> object has no attribute </span><span class="sh">'</span><span class="s">%s</span><span class="sh">'"</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="n">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
-<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
     <span class="kn">import</span> <span class="n">doctest</span>
     <span class="n">doctest</span><span class="p">.</span><span class="nf">testmod</span><span class="p">()</span>
 </code></pre></div></div>
@@ -917,17 +917,17 @@ if __name__ == '__main__':
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">TestComplexData</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
         <span class="c1"># load test data
-</span>        <span class="n">self</span><span class="p">.</span><span class="n">app</span> <span class="o">=</span> <span class="nc">App</span><span class="p">(</span><span class="n">database</span><span class="o">=</span><span class="s">'fixtures/test_complex.json'</span><span class="p">)</span>
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">app</span> <span class="o">=</span> <span class="nc">App</span><span class="p">(</span><span class="n">database</span><span class="o">=</span><span class="sh">'</span><span class="s">fixtures/test_complex.json</span><span class="sh">'</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">test_customer_count</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
         <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">app</span><span class="p">.</span><span class="n">customers</span><span class="p">),</span> <span class="mi">10000</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">test_existence_of_customer</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
         <span class="n">customer</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">app</span><span class="p">.</span><span class="nf">get_customer</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">9999</span><span class="p">)</span>
-        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="n">customer</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="sa">u</span><span class="s">"バナナ"</span><span class="p">)</span>
-        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="n">customer</span><span class="p">.</span><span class="n">address</span><span class="p">,</span> <span class="s">"10 Red Road, Akihabara, Tokyo"</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="n">customer</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="sa">u</span><span class="sh">"</span><span class="s">バナナ</span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="n">customer</span><span class="p">.</span><span class="n">address</span><span class="p">,</span> <span class="sh">"</span><span class="s">10 Red Road, Akihabara, Tokyo</span><span class="sh">"</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
     <span class="n">unittest</span><span class="p">.</span><span class="nf">main</span><span class="p">()</span>
 </code></pre></div></div>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[如题]]></summary></entry><entry><title type="html">.py | 让自己的代码可以被别人使用</title><link href="https://mountaye.github.io/blog/articles/python-packaging" rel="alternate" type="text/html" title=".py | 让自己的代码可以被别人使用" /><published>2023-10-13T00:00:00-05:00</published><updated>2023-10-13T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/python-packaging</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/python-packaging"><![CDATA[<blockquote>
   <p>这里所说的“别人”，也包括6个月之后，已经不记得当初如何写出这段代码的自己。</p>
@@ -1042,6 +1042,10 @@ if __name__ == '__main__':
 </ul>
 
 <p>文件的路径相对于 <code class="language-plaintext highlighter-rouge">setup.py</code> 而言</p>
+
+<h3 id="py_modules"><code class="language-plaintext highlighter-rouge">py_modules</code></h3>
+
+<p>参数是一个文件路径的列表，几乎专为单文件结构而存在。</p>
 
 <h2 id="打包和上传">打包和上传</h2>
 

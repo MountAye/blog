@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
     itemDrop.classList.add("toc-h" + level);
     linkDrop.appendChild(itemDrop);
     
-    linkSide.style.marginLeft = (level - 1) * 20 + 'px';
-    linkDrop.style.marginLeft = (level - 1) * 20 + 'px';
+    linkSide.style.textIndent = (level - 1) * 20 + 'px';
+    linkDrop.style.textIndent = (level - 1) * 20 + 'px';
     
     currentSide.appendChild(linkSide);
     currentDrop.appendChild(linkDrop);

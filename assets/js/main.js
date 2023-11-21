@@ -61,9 +61,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var linkDrop = document.createElement('a');
     linkDrop.classList.add("toc-link");
+    linkDrop.classList.add("touch-screen-button");
     linkDrop.href = '#' + heading.id;
 
-    var itemDrop = document.createElement('span');
+    var itemDrop = document.createElement('p');
     itemDrop.textContent = heading.textContent;
     itemDrop.classList.add("toc-h" + level);
     linkDrop.appendChild(itemDrop);

@@ -46,9 +46,12 @@
           <div id="avatar"></div>
           <div id="sitename">阿掖山</div>
         </a>
-        <div class="left-quote side-vertical">
-          <p><span id="quote-line">智力活动是一种生活态度</span></p>
-          <p>——<span id="quote-author">阿掖山·一个博客</span></p>
+        <div class="left-quote">
+          <div class="fade-out-left"></div>
+          <div class="overflow-x side-vertical">
+            <p><span id="quote-line">智力活动是一种生活态度</span></p>
+            <p>——<span id="quote-author">阿掖山·一个博客</span></p>
+          </div>
         </div>
         <footer class="left-footer side-vertical">
           <div id="social-icons">
@@ -57,34 +60,37 @@
             <a href="" class="icon-Popular_Twitter"></a>
             <a href="" class="icon-Popular_mail" style="font-size: 13px;"></a>
           </div>
-          <p>Pencil - a Jekyll theme <br>
-             by MountAye</p>
+          <p>Fading Snow <br>
+             a theme by MountAye</p>
         </footer>
       </aside> 
+      <!--  --> 
       <div class="layout-mid">
-  <header id="header">
-    <h1 id="header-title">阿掖山.py | Fedora 上安装 CPU 版 pytorch</h1>
-    <div id="toc-button" class="changable-icon dropdown-button" onclick="tocButton(this)">
-      <div class="bar1"></div><div class="bar2"></div><div class="bar3"></div>
-      <div id="toc-dropdown-container" class="dropdown-content">
-        <div id="toc-dropdown"></div>
-      </div>
-    </div>
-  </header>
-  <div id="title-banner" class="written">
-    
-    <h1>.py | Fedora 上安装 CPU 版 pytorch</h1>
-    <div id="author-card">
-    <div id="author-avatar" style='background-image: url("/blog/assets/img/before_h2.png");'></div>
-      <div id="author-texts">
-        <p><strong>MountAye</strong></p>
-        <p>Oct 13, 2021</p>
-      </div>
-    </div>
-    <hr>  
-  </div>
-  <main class="written">
-    <p>马上要参加一个暑期学校，关于深度学习在显微图像处理当中的应用。</p>
+        <header id="header">
+          <h1 id="header-title">阿掖山.py | Fedora 上安装 CPU 版 pytorch</h1>
+          <div id="toc-button" class="changable-icon dropdown-button" onclick="tocButton(this)">
+            <div class="bar1"></div><div class="bar2"></div><div class="bar3"></div>
+          </div>
+          <div id="toc-dropdown-container" class="dropdown-content">
+            <div id="toc-dropdown"></div>
+          </div>
+        </header>
+      
+        <div id="title-banner" class="written">
+          
+          <h1>.py | Fedora 上安装 CPU 版 pytorch</h1>
+          <div id="author-card">
+            <div id="author-avatar" style='background-image: url("/blog/assets/img/before_h2.png");'></div>
+            <div id="author-texts">
+              <p><strong>MountAye</strong></p>
+              <p>Oct 13, 2021</p>
+            </div>
+          </div>
+          <hr>  
+        </div>
+      
+        <main class="written">
+          <p>马上要参加一个暑期学校，关于深度学习在显微图像处理当中的应用。</p>
 
 <p>深度学习是机器学习的一个分支，机器学习中的绝大多数数据都可以抽象为向量（一阶张量），绝大多数的算法都可以分解为向量之间的运算，或者对向量的变换，表示为矩阵（二阶张量）。这就对张量计算相关算法的库函数产生了很大的需求。PyTorch 和 TensorFlow，还有其他的一些库，比如 Keras，Caffe 等等等等，都是为此而生。早期版本的 pytorch 和 tensorflow 有很大的区别，但是随着版本的迭代，两者逐渐兼并和挤掉了其他的竞争者，两者的相似之处也越来越多，“变成了自己曾经最讨厌的样子”。lol</p>
 
@@ -177,8 +183,8 @@ tf.Tensor<span class="o">(</span><span class="nt">-1338</span>.4773, <span class
 
 <p><a href="https://stackoverflow.com/questions/47068709/your-cpu-supports-instructions-that-this-tensorflow-binary-was-not-compiled-to-u">stackoverflow 的这个回答</a> 说，需要从源码编译 tensorflow，具体的方法在<a href="https://www.tensorflow.org/install/source#linux">官网也有</a>，但是实在是太麻烦了，<del>（还是鸽了）</del> 下次单独写成一篇吧。</p>
     
-  </main>
-  <div class="giscus" style="margin-bottom: 2em;"><script src="https://giscus.app/client.js"
+        </main>
+        <div class="giscus" style="margin-bottom: 2em;"><script src="https://giscus.app/client.js"
         data-repo="MountAye/comments"
         data-repo-id="R_kgDOJe4FmQ"
         data-category="BLOG"
@@ -194,7 +200,7 @@ tf.Tensor<span class="o">(</span><span class="nt">-1338</span>.4773, <span class
         crossorigin="anonymous"
         async>
 </script></div>
-  <div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
+        <div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
      crossorigin="anonymous"></script>
 <!-- blog-header -->
 <ins class="adsbygoogle"
@@ -206,31 +212,36 @@ tf.Tensor<span class="o">(</span><span class="nt">-1338</span>.4773, <span class
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script></div>
-</div>
-<aside id="right" class="layout-right">
-  <nav id="toc-side-container" class="right-toc">
-    <div id="toc-side"></div>
-  </nav>
-  <div class="right-navbar">
-    <a class="right-nav-button" href="https://mountaye.github.io/blog/history">
-      <span class="material-symbols-outlined">calendar_month</span>
-      <span class="right-nav-text">日期归档</span>
-    </a>
-    <a class="right-nav-button" href="https://mountaye.github.io/blog/topics" >
-      <span class="material-symbols-outlined">bookmarks</span>
-      <span class="right-nav-text">话题归档</span>
-    </a>
-    <a class="right-nav-button" href="/blog/articles/install-pytorch-cpu-on-fedora">
-      <span class="material-symbols-outlined">language_pinyin</span>
-      <span class="right-nav-text">简体中文</span>
-    </a>
-    <a class="right-nav-button" href="/blog/en/articles/install-pytorch-cpu-on-fedora">
-      <span class="material-symbols-outlined">language_us</span>
-      <span class="right-nav-text">English</span>
-    </a>
-  </div>
-</aside>
-
+      </div>
+      <aside id="right" class="layout-right">
+        <div id="toc-side-container" class="right-toc">
+          <div class="overflow-y">
+            <div id="toc-side">
+              <div class="fade-out-right"></div>
+            </div>
+          </div>
+          <div class="fade-out-bottom"></div>
+        </div>
+        <div class="right-navbar">
+          <a class="right-nav-button" href="https://mountaye.github.io/blog/history">
+            <span class="material-symbols-outlined">calendar_month</span>
+            <span class="right-nav-text">日期归档</span>
+          </a>
+          <a class="right-nav-button" href="https://mountaye.github.io/blog/topics" >
+            <span class="material-symbols-outlined">bookmarks</span>
+            <span class="right-nav-text">话题归档</span>
+          </a>
+          <a class="right-nav-button" href="/blog/articles/install-pytorch-cpu-on-fedora">
+            <span class="material-symbols-outlined">language_pinyin</span>
+            <span class="right-nav-text">简体中文</span>
+          </a>
+          <a class="right-nav-button" href="/blog/en/articles/install-pytorch-cpu-on-fedora">
+            <span class="material-symbols-outlined">language_us</span>
+            <span class="right-nav-text">English</span>
+          </a>
+        </div>
+      </aside>
+      <!--  -->
     </div>
     <footer id="nav-mobile">
       <a class="nav-mobile-item" href="https://mountaye.github.io/blog/history">

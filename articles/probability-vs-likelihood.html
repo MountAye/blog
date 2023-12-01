@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN" class="scrollbar-hidden">
   <head>
@@ -32,21 +33,20 @@
 
   gtag('config', 'G-3X9B5LN42L');
 </script>
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400;1,8..60,700&display=swap" rel="stylesheet">
-    <script>
-      (function(d) {
-        var config = {
-          kitId: 'oau8puo',
-          scriptTimeout: 3000,
-          async: true
-        },
-        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-      })(document);
-    </script>
-    <!-- End Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400;1,8..60,700&display=swap" rel="stylesheet">
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'oau8puo',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
     <link rel="stylesheet" href="/blog/assets/css/main.css">
     <script src="/blog/assets/js/main.js"></script>
     
@@ -55,8 +55,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <body>
-    <div class="layout-all">
-      <aside id="left" class="layout-left">
+    <div id="layout-all">
+      <aside id="layout-left">
         <a class="left-avatar"
            href="https://mountaye.github.io/blog/"
         >
@@ -65,9 +65,9 @@
         </a>
         <div class="left-quote">
           <div class="fade-out-left"></div>
-          <div class="overflow-x side-vertical scrollbar-hidden">
-            <p><span id="quote-line">智力活动是一种生活态度</span></p>
-            <p>——<span id="quote-author">阿掖山·一个博客</span></p>
+          <div class="side-vertical scrollbar-hidden">
+            <p><span id="quote-line">智力活动是一种生活态度</span></p> <!-- This id is used by js --> 
+            <p>——<span id="quote-author">阿掖山·一个博客</span></p>   <!-- This id is used by js --> 
           </div>
         </div>
         <footer class="left-footer side-vertical">
@@ -77,22 +77,19 @@
             <a href="" class="icon-Popular_Twitter"></a>
             <a href="" class="icon-Popular_mail" style="font-size: 13px;"></a>
           </div>
-          <!-- Please keep this to comply with MIT liscence -->
-          <a href="https://www.github.com/MountAye" style="display: block; text-decoration: none; color: black;">
-            <p>Fading Snow <br>
-               a theme by MountAye</p>
-          </a>
+          <p>阿掖山 &copy; 2023
+          <br>Rights Reserved
+          <br>Theme by <a href="https://www.github.com/MountAye" style="font-size: inherit; text-decoration: none; color: #3C70C6;">MountAye</a></p>
         </footer>
       </aside> 
-      <!--  --> 
-      <div class="layout-mid">
-        <header id="header">
+      <div id="layout-mid">
+        <header id="header"> <!-- This id is used by js --> 
           <h1 id="header-title">阿掖山.tex | 概率 (probability) 和似然性 (likelihood)</h1>
-          <div id="toc-button" class="changable-icon dropdown-button" onclick="tocButton(this)">
+          <div id="toc-button" class="changable-icon" onclick="tocButton(this)">
             <div class="bar1"></div><div class="bar2"></div><div class="bar3"></div>
           </div>
           <div id="toc-dropdown-container" class="dropdown-content">
-            <div id="toc-dropdown"></div>
+            <div id="toc-dropdown"><!-- This id is used by js --></div> 
           </div>
         </header>
       
@@ -110,7 +107,7 @@
         </div>
       
         <main class="written">
-          <p>一个随机变量 X 取值为 x 的概率 (probability)/概率密度，一般可以用一个有若干参数的函数来表示。这个函数的参数记作  \(\theta\)：</p>
+  <p>一个随机变量 X 取值为 x 的概率 (probability)/概率密度，一般可以用一个有若干参数的函数来表示。这个函数的参数记作  \(\theta\)：</p>
 
 \[prob_X(x)=f(x|\theta)\]
 
@@ -124,8 +121,8 @@
 
 <p>比较明显，比起一个正态分布 \(f(x)=\frac{1}{ \sigma \sqrt{2\pi} } e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}\)，这些数据更像是来自不同均值和方差的两个分布。那么对于每个数据点 \(x_0\)，它到底来自哪个分布呢？可以分别计算 \(L_1(\mu_1,\theta_1\vert x_0) = f(x_0\vert\mu_1,\theta_1)\) 和 \(L_2(\mu_2,\theta_2\vert x_0) = f(x_0\vert\mu_2,\theta_2)\)，然后比较 \(L_1\) 和 \(L_2\) 的大小。</p>
     
-        </main>
-        <div class="giscus" style="margin-bottom: 2em;">
+</main>
+<div class="giscus" style="margin-bottom: 2em;">
   <script src="https://giscus.app/client.js"
           data-repo="MountAye/comments"
           data-repo-id="R_kgDOJe4FmQ"
@@ -143,7 +140,7 @@
           async>
   </script>
 </div>
-        <div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
+<div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
      crossorigin="anonymous"></script>
 <!-- blog-header -->
 <ins class="adsbygoogle"
@@ -155,38 +152,39 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script></div>
-      </div>
-      <aside id="right" class="layout-right">
-        <div id="toc-side-container" class="right-toc">
-          <div class="overflow-y scrollbar-hidden">
-            <div id="toc-side">
-              <div class="fade-out-right"></div>
-            </div>
-          </div>
-          <div class="fade-out-bottom"></div>
+
+    </div>
+      <aside id="layout-right">
+        <div id="right-top">
+          <div class="scrollbar-hidden">
+  <div id="toc-side"> <!-- This id is used by js --></div>
+  <div class="fade-out-bottom"></div>
+</div>
+
         </div>
-        <div class="right-bottom">
-          <a class="right-nav-button" href="https://mountaye.github.io/blog/history">
-            <span class="material-symbols-outlined">calendar_month</span>
-            <span class="right-nav-text">日期归档</span>
-          </a>
-          <a class="right-nav-button" href="https://mountaye.github.io/blog/topics" >
-            <span class="material-symbols-outlined">bookmarks</span>
-            <span class="right-nav-text">话题归档</span>
-          </a>
-          <a class="right-nav-button" href="/blog/articles/probability-vs-likelihood">
-            <span class="material-symbols-outlined">language_pinyin</span>
-            <span class="right-nav-text">简体中文</span>
-          </a>
-          <a class="right-nav-button" href="/blog/en/articles/probability-vs-likelihood">
-            <span class="material-symbols-outlined">language_us</span>
-            <span class="right-nav-text">English</span>
-          </a>
+        <div id="right-bottom">
+          <div id="right-nav-container">
+            <a class="right-nav-button" href="https://mountaye.github.io/blog/history">
+              <span class="material-symbols-outlined">calendar_month</span>
+              <span class="right-nav-text">日期归档</span>
+            </a>
+            <a class="right-nav-button" href="https://mountaye.github.io/blog/topics" >
+              <span class="material-symbols-outlined">bookmarks</span>
+              <span class="right-nav-text">话题归档</span>
+            </a>
+            <a class="right-nav-button" href="/blog/articles/probability-vs-likelihood">
+              <span class="material-symbols-outlined">language_pinyin</span>
+              <span class="right-nav-text">简体中文</span>
+            </a>
+            <a class="right-nav-button" href="/blog/en/articles/probability-vs-likelihood">
+              <span class="material-symbols-outlined">language_us</span>
+              <span class="right-nav-text">English</span>
+            </a>
+          </div>
         </div>
       </aside>
-      <!--  -->
     </div>
-    <footer id="nav-mobile">
+    <footer id="nav-mobile"> <!-- This id is used by js -->
       <a class="nav-mobile-item" href="https://mountaye.github.io/blog/history">
         <span class="material-symbols-outlined">calendar_month</span>
       </a>

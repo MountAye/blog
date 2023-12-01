@@ -1,7 +1,6 @@
 // When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
 var prevScrollpos = window.scrollY;
 window.onscroll = function() {
-  var viewport = window.innerWidth;
   var currentScrollPos = window.scrollY;
   if (prevScrollpos > currentScrollPos) {
     document.getElementById("nav-mobile").style.bottom = "0";
@@ -63,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     linkDrop.classList.add("toc-link");
     linkDrop.classList.add("touch-screen-button");
     linkDrop.href = '#' + heading.id;
+    linkDrop.addEventListener("click",tocItem);
 
     var itemDrop = document.createElement('p');
     itemDrop.textContent = heading.textContent;
@@ -75,27 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
     currentSide.appendChild(linkSide);
     currentDrop.appendChild(linkDrop);
   });
-
-
-  navSide.querySelector('li:first-child a').parentElement.classList.add('active');
-
-  var navLinks = document.querySelectorAll('#toc-side li a');
-  navLinks.forEach(function(link) {
-    link.addEventListener('click', function(event) {
-      event.preventDefault();
-      var targetId = this.getAttribute('href');
-      var position = document.querySelector(targetId).offsetTop - 50;
-      window.scrollTo({ top: position, behavior: 'smooth' });
-      navSide.querySelectorAll('li a').forEach(function(a) {
-        a.parentElement.classList.remove('active');
-      });
-      this.parentElement.classList.add('active');
-    });
-  })
 })
 
 // effects of the ToC button
 function tocButton(x) {
   x.classList.toggle("change");
+  document.getElementById("toc-dropdown-container").classList.toggle("show");
+}
+function tocItem() {
+  document.getElementById("toc-button").classList.toggle("change");
   document.getElementById("toc-dropdown-container").classList.toggle("show");
 }

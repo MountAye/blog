@@ -266,10 +266,6 @@
   font-size: 0.9rem;
 }
 
-.touch-screen-button {
-  height: 3em;
-}
-
 .toc-link:hover {
   font-weight: bold;
   color: var(--color-background);

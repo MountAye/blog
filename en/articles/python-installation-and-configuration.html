@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scrollbar-hidden">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+
+<title>.py | Setup a Python Dev Environment | MountAye</title>
+<link rel="shortcut icon" href="https://mountaye.github.io/blog/en/favicon.ico" >
+<link rel="canonical" href="https://mountaye.github.io/blog/en/articles/python-installation-and-configuration" />
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta name="author" content="MountAye" />
+<meta name="description" content="Setup a Python dev environment on a Windows machine, using barebone Python, virtualenvwrapper, vscode, and without Conda." />
+<meta property="og:title" content=".py | Setup a Python Dev Environment" />
+<meta property="og:locale" content="en" />
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://mountaye.github.io/blog/en/articles/python-installation-and-configuration" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-07 00:00:00 -0600" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content=".py | Setup a Python Dev Environment" />
+<script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MountAye"},"dateModified":"","datePublished":"2021-03-07","description":"Setup a Python dev environment on a Windows machine, using barebone Python, virtualenvwrapper, vscode, and without Conda.","headline":"Setup a Python dev environment on a Windows machine, using barebone Python, virtualenvwrapper, vscode, and without Conda.","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/en/articles/python-installation-and-configuration"},"url":"https://mountaye.github.io/blog/en/articles/python-installation-and-configuration"}
+</script>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3X9B5LN42L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3X9B5LN42L');
+</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400;1,8..60,700&display=swap" rel="stylesheet">
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'oau8puo',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+    <link rel="stylesheet" href="/blog/assets/css/main.css">
+    <script src="/blog/assets/js/main.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <div id="layout-all">
+      <aside id="layout-left">
+        <a class="left-avatar"
+           href="https://mountaye.github.io/blog/en/"
+        >
+          <div id="avatar"></div>
+          <div id="sitename">MountAye</div>
+        </a>
+        <div class="left-quote">
+          <div class="fade-out-left"></div>
+          <div class="side-vertical scrollbar-hidden">
+            <p><span id="quote-line">智力活动是一种生活态度</span></p> <!-- This id is used by js --> 
+            <p>——<span id="quote-author">阿掖山·一个博客</span></p>   <!-- This id is used by js --> 
+          </div>
+        </div>
+        <footer class="left-footer side-vertical">
+          <div id="social-icons">
+            <a href="/blog/en/feed.xml" class="icon-Popular_RSS"></a>
+            <a href="https://www.github.com/MountAye" class="icon-Popular_GitHub"></a>
+            <a href="https://www.twitter.com/MountAye" class="icon-Popular_Twitter"></a>
+            <a href="https://github.com/MountAye/comments/discussions/categories/blog" class="icon-Popular_mail" style="font-size: 13px;"></a>
+          </div>
+          <p>MountAye &copy; 2024
+          <br>Rights Reserved
+          <br>Theme by <a href="https://www.github.com/MountAye" style="font-size: inherit; text-decoration: none; color: #3C70C6;">MountAye</a></p>
+        </footer>
+      </aside> 
+      <div id="layout-mid">
+        <header id="header"> <!-- This id is used by js --> 
+          <h1 id="header-title">MountAye.py | Setup a Python Dev Environment</h1>
+          <div id="toc-button" class="changable-icon" onclick="tocButton(this)">
+            <div class="bar1"></div><div class="bar2"></div><div class="bar3"></div>
+          </div>
+          <div id="toc-dropdown-container" class="dropdown-content">
+            <div id="toc-dropdown"><!-- This id is used by js --></div> 
+          </div>
+        </header>
+      
+        <div id="title-banner" class="written">
+          
+          <h1>.py | Setup a Python Dev Environment</h1>
+          <div id="author-card">
+            <div id="author-avatar" style='background-image: url("/blog/assets/img/before_h2.png");'></div>
+            <div id="author-texts">
+              <p><strong>MountAye</strong></p>
+              <p>Mar 7, 2021</p>
+            </div>
+          </div>
+          <hr>  
+        </div>
+      
+        <main class="written">
+  <p>My Python version has been stuck at 3.7 for a while, but now the latest version is already at 3.9. Recently, I needed to study a piece of Python code written by someone else, who specifically requested Python version 3.6. So, I uninstalled the 3.7 version and reinstalled both Python versions 3.9 and 3.6.</p>
+
+<p>I’ve been trying to encourage my parents to learn programming for a long time, and I owe them a tutorial. Whether it’s for those who are committed to continuous improvement in their first programming language or for those who intend to dabble lightly in programming, Python is an excellent choice. So, even though my parents have no interest in programming whatsoever, I still completed this tutorial, hoping it could help others. Since it’s aimed at complete beginners, it’s based on the Windows 10 operating system. And because I also use this setup myself, based on personal preference, I didn’t directly use <code class="language-plaintext highlighter-rouge">conda</code>.</p>
+
+<h2 id="table-of-content">Table of Content</h2>
+<ul>
+  <li>python
+    <ul>
+      <li>Download <code class="language-plaintext highlighter-rouge">python</code> interpreter from the official website</li>
+      <li>Install <code class="language-plaintext highlighter-rouge">python</code> interpreter</li>
+    </ul>
+  </li>
+  <li>Virtual Environment
+    <ul>
+      <li>Set environment variable</li>
+      <li>Install <code class="language-plaintext highlighter-rouge">virtualenv</code> with <code class="language-plaintext highlighter-rouge">pip</code></li>
+      <li>Install <code class="language-plaintext highlighter-rouge">virtualenvwrapper</code> with <code class="language-plaintext highlighter-rouge">pip</code></li>
+      <li>Create a virtual env, and install <code class="language-plaintext highlighter-rouge">jupyter</code></li>
+    </ul>
+  </li>
+  <li>Editor/IDE
+    <ul>
+      <li>Download <code class="language-plaintext highlighter-rouge">vscode</code> from official website</li>
+      <li>Install <code class="language-plaintext highlighter-rouge">vscode</code> and related plugins</li>
+      <li>Verify it works</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="lets-go">Let’s go</h2>
+
+<h3 id="download-python-interpreter-from-the-official-website">Download <code class="language-plaintext highlighter-rouge">python</code> interpreter from the official website</h3>
+
+<p>Download from the official website of Python (<a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>).</p>
+
+<p><img src="/blog/assets/photos/2021-03-07-python-official-website.png" alt="" /></p>
+
+<h3 id="install-python-interpreter">Install <code class="language-plaintext highlighter-rouge">python</code> interpreter</h3>
+
+<p>After executing the downloaded file, you’ll see the interface as shown in the screenshot below. Click on the option highlighted in red box because I want to change the installation path. It seems that you can also check the “Add Python 3.9 to PATH” at the bottom. I didn’t select it during installation, but later I found out that this step needs to be done manually.</p>
+
+<p><img src="/blog/assets/photos/2021-03-07-python-install.png" alt="" /></p>
+
+<p>Following that, check each option in the next interface, then click “Next”.</p>
+
+<p><img src="/blog/assets/photos/2021-03-07-python-next.png" alt="" /></p>
+
+<p>In the upcoming interface, select “Install for all users” and then choose an installation path you prefer. The reason I choose C:\Python39 for this location is because:</p>
+
+<ol>
+  <li>The C drive is the system drive and it’s a solid-state drive on my machine, which is faster.</li>
+  <li>The default path is in the personal folder, which is quite hard to find.</li>
+  <li><code class="language-plaintext highlighter-rouge">C:\Program Files</code> requires administrator permissions, which is inconvenient for using pip for package management.</li>
+</ol>
+
+<p><img src="/blog/assets/photos/2021-03-07-python-install-path.png" alt="" /></p>
+
+<p>After the installation is complete, open the command prompt and type <code class="language-plaintext highlighter-rouge">py</code>. You should see a string of Python version information, and then the command prompt will change to <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;</code>, indicating that you have entered the Python environment, where you can execute Python commands line by line. Type <code class="language-plaintext highlighter-rouge">exit()</code> to exit Python.</p>
+
+<h3 id="set-environment-variable">Set environment variable</h3>
+
+<p>In the Windows search bar, type “environment variables,” and before you finish typing, you should see the suggested result as shown in the image below:</p>
+
+<p><img src="/blog/assets/photos/2021-03-07-environment-variable-search.png" alt="" /></p>
+
+<p>Then, follow the steps in the image below to complete two tasks:</p>
+<ol>
+  <li>Add two new values, <code class="language-plaintext highlighter-rouge">C:\Python39</code> and <code class="language-plaintext highlighter-rouge">C:\Python39\Scripts</code>, to the <code class="language-plaintext highlighter-rouge">Path</code> variable.</li>
+  <li>Create a new folder for storing Python virtual environments (such as <code class="language-plaintext highlighter-rouge">C:\PythonEnvs</code>). Create a new variable named <code class="language-plaintext highlighter-rouge">WORKON_HOME</code> and set its value to <code class="language-plaintext highlighter-rouge">C:\PythonEnvs</code>.</li>
+</ol>
+
+<p><img src="/blog/assets/photos/2021-03-07-environment-variable-box.png" alt="" /></p>
+
+<h3 id="install-virtualenv-and-virtualenvwrapper-with-pip">Install <code class="language-plaintext highlighter-rouge">virtualenv</code> and <code class="language-plaintext highlighter-rouge">virtualenvwrapper</code> with <code class="language-plaintext highlighter-rouge">pip</code></h3>
+
+<p>Following the steps just now, <code class="language-plaintext highlighter-rouge">pip</code> should now be installed. You should see similar feedback in the command line after entering the commands along the way:</p>
+
+<p><img src="/blog/assets/photos/2021-03-07-pip-check.png" alt="" /></p>
+
+<p>If the command line indicates that <code class="language-plaintext highlighter-rouge">pip</code> is not found, you may need to reinstall it using the method outlined in <a href="https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py">this link</a>.</p>
+
+<p>Type <code class="language-plaintext highlighter-rouge">py -m pip install virtualenv</code> in the command line to install the virtual environment manager:</p>
+
+<p><img src="/blog/assets/photos/2021-03-07-virtualenv-install.png" alt="" /></p>
+
+<p>After a successful installation message appears, type <code class="language-plaintext highlighter-rouge">py -m pip install virtualenvwrapper-win</code> in the command line. The result should be similar to the image above; I forgot to take a screenshot.</p>
+
+<h3 id="create-a-virtual-env-and-install-jupyter">Create a virtual env, and install <code class="language-plaintext highlighter-rouge">jupyter</code></h3>
+
+<p>After installing <code class="language-plaintext highlighter-rouge">virtualenv</code> and <code class="language-plaintext highlighter-rouge">virtualenvwrapper</code>, enter <code class="language-plaintext highlighter-rouge">mkvirtualenv base</code> in the command line to create a new virtual environment named base.</p>
+
+<p>Then enter <code class="language-plaintext highlighter-rouge">workon base</code>. At this point, you should see <code class="language-plaintext highlighter-rouge">(base)</code> at the beginning of the command prompt, indicating that we are now working within the base virtual environment. Now, when you check <code class="language-plaintext highlighter-rouge">pip --version</code>, you’ll notice that the Python location has changed from before.</p>
+
+<p><img src="/blog/assets/photos/2021-03-07-virtualenvwrapper-check.png" alt="Example Image" /></p>
+
+<p>Within this environment, install Jupyter by typing <code class="language-plaintext highlighter-rouge">pip install jupyter</code>. While this step is not mandatory, it allows us to have a similar experience to Spyder, which comes with Conda, once we install VSCode. This makes it very convenient for beginners to debug line by line.</p>
+
+<h3 id="download-and-install-vscode">Download and install <code class="language-plaintext highlighter-rouge">vscode</code></h3>
+
+<p>Download the installation package from the official website of VS Code (<a href="https://code.visualstudio.com/">link here</a>), where you’ll find a prominent download button:</p>
+
+<p><img src="/blog/assets/photos/2021-03-07-vscode-download.png" alt="" /></p>
+
+<p>After downloading, the installation process is similar to that of any other program (it’s been a while, so no screenshots).</p>
+
+<p>Once installed, open the program and click on the icon outlined in red on the left toolbar, then search for Python-related VS Code plugins. For Python development, you generally need <code class="language-plaintext highlighter-rouge">python</code>, <code class="language-plaintext highlighter-rouge">pylance</code>, and <code class="language-plaintext highlighter-rouge">jupyter</code>:</p>
+
+<p><img src="/blog/assets/photos/2021-03-07-vscode-plugin.png" alt="" /></p>
+
+<p>In the future, when you want to run VS Code, right-click in the folder where you want to start coding and select “Open with Code”:</p>
+
+<p><img src="/blog/assets/photos/2021-03-07-vscode-folder-open.png" alt="" /></p>
+
+<p>Next, in the VS Code interface, click on the button outlined in red in the file tree to create a new file, name it <code class="language-plaintext highlighter-rouge">*.py</code>, and here I just wrote something like “hello.”</p>
+
+<p><img src="/blog/assets/photos/2021-03-07-vscode-new-file.png" alt="" /></p>
+
+<p>In the subsequently opened document editing area, type <code class="language-plaintext highlighter-rouge">print("Hello World")</code>, place the cursor on this line, and press <code class="language-plaintext highlighter-rouge">Shift</code>+<code class="language-plaintext highlighter-rouge">Enter</code> to execute this line:</p>
+
+<p><img src="/blog/assets/photos/2021-03-07-vscode-run.png" alt="" /></p>
+
+<p>As it’s the first time executing and since <code class="language-plaintext highlighter-rouge">jupyter</code> is installed, you should see a prompt in the bottom right corner of VS Code asking if you want to execute the code using the Jupyter interactive window. Then close the terminal below (the cross in the top right corner of the bottom half). Press <code class="language-plaintext highlighter-rouge">Shift</code>+<code class="language-plaintext highlighter-rouge">Enter</code> again to execute. At this point, the result should look like the image below. Click on the variable explorer in the red circle, and it’s almost the same experience as Spyder.</p>
+
+<p><img src="/blog/assets/photos/2021-03-07-vscode-interactive.png" alt="" /></p>
+
+<p>In the future, the Jupyter Interactive Window could be called up by typing <code class="language-plaintext highlighter-rouge">Ctrl</code> + <code class="language-plaintext highlighter-rouge">Shift</code> + <code class="language-plaintext highlighter-rouge">P</code> and searching “interactive” in the command line that appears on top of the screen.</p>
+    
+</main>
+<div class="giscus" style="margin-bottom: 2em;">
+  <script src="https://giscus.app/client.js"
+          data-repo="MountAye/comments"
+          data-repo-id="R_kgDOJe4FmQ"
+          data-category="BLOG"
+          data-category-id="DIC_kwDOJe4Fmc4CWQuC"
+          data-mapping="title"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="1"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+<div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
+     crossorigin="anonymous"></script>
+<!-- blog-header -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1920275466226790"
+     data-ad-slot="4291489170"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+      </div>
+      <aside id="layout-right">
+        <div id="right-top">
+          <div class="scrollbar-hidden">
+  <div id="toc-side"> <!-- This id is used by js --></div>
+  <div class="fade-out-bottom"></div>
+</div>
+
+        </div>
+        <div id="right-bottom">
+          <div id="right-nav-container">
+            <a class="right-nav-button" href="https://mountaye.github.io/blog/en/history">
+              <span class="material-symbols-outlined">calendar_month</span>
+              <span class="right-nav-text">History</span>
+            </a>
+            <a class="right-nav-button" href="https://mountaye.github.io/blog/en/topics" >
+              <span class="material-symbols-outlined">bookmarks</span>
+              <span class="right-nav-text">Topics</span>
+            </a>
+            <a class="right-nav-button" href="/blog/articles/python-installation-and-configuration">
+              <span class="material-symbols-outlined">language_pinyin</span>
+              <span class="right-nav-text">简体中文</span>
+            </a>
+            <a class="right-nav-button" href="/blog/en/articles/python-installation-and-configuration">
+              <span class="material-symbols-outlined">language_us</span>
+              <span class="right-nav-text">English</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <footer id="nav-mobile"> <!-- This id is used by js -->
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/en/history">
+        <span class="material-symbols-outlined">calendar_month</span>
+      </a>
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/en/topics" >
+        <span class="material-symbols-outlined">bookmarks</span>
+      </a>
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/en/"><div class="nav-mobile-avatar"></div></a>
+      <a class="nav-mobile-item" href="/blog/articles/python-installation-and-configuration">
+        <span class="material-symbols-outlined">language_pinyin</span>
+      </a>
+      <a class="nav-mobile-item" href="/blog/en/articles/python-installation-and-configuration">
+        <span class="material-symbols-outlined">language_us</span>
+      </a>
+    </footer>
+  </body>
+</html>

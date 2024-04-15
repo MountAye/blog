@@ -1,4 +1,141 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2024-03-27T13:47:36-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.tex | 意识理论笔记</title><link href="https://mountaye.github.io/blog/articles/note-consciousness-theories" rel="alternate" type="text/html" title=".tex | 意识理论笔记" /><published>2024-01-10T00:00:00-06:00</published><updated>2024-01-10T00:00:00-06:00</updated><id>https://mountaye.github.io/blog/articles/note-consciousness-theories</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/note-consciousness-theories"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2024-04-15T18:31:10-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.tex | MC→MCMC 蒙特卡洛模拟，基于马尔科夫链采样</title><link href="https://mountaye.github.io/blog/articles/mc-mcmc-markov-chain-monte-carlo-gibbs-sampling" rel="alternate" type="text/html" title=".tex | MC→MCMC 蒙特卡洛模拟，基于马尔科夫链采样" /><published>2024-04-15T00:00:00-05:00</published><updated>2024-04-15T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/mc-mcmc-markov-chain-monte-carlo-gibbs-sampling</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/mc-mcmc-markov-chain-monte-carlo-gibbs-sampling"><![CDATA[<p>Monte Carlo 蒙特卡洛模拟，简称 MC.</p>
+
+<p>Markov Chain Monte Carlo 是用马尔科夫链采样的蒙特卡洛模拟，简称 MCMC.</p>
+
+<h2 id="monte-carlo-模拟">Monte Carlo 模拟</h2>
+
+<p>这个比较简单了，举个例子，要计算 π 的近似值，可以在一块正方形板子里画一个内接圆，然后以均匀的概率往正方形里一粒一粒地扔沙子，每扔一粒，就判断并且记录这里沙子在圆内还是圆外，然后把沙子吹掉，如此往复。圆的面积是 πr²，正方形的面积是 4r²，所以落在圆内的概率（圆内沙子的数量和总数的比值）乘 4，就是所求。</p>
+
+<p><img src="/blog/assets/photos/2024-04-15-monte-carlo-pi.png" alt="" /></p>
+
+<p>归纳一下：当问题的解用一个随机变量的概率分布、期望值、二阶矩……等等来表示的时候，就生成一个符合该概率分布的随机样本，用样本的统计量去近似原概率分布。</p>
+
+<h2 id="markov-chain-monte-carlo">Markov Chain Monte Carlo</h2>
+
+<p>但是前述例子有一个步骤，就是我们往板子上扔完沙子要把沙子吹掉，每粒沙子，每次扔沙子之间也应该看不出区别，这是为了保证取样之间<strong>相互独立且来自同一个概率分布</strong>。</p>
+
+<p>但是很多取样过程无法满足这种条件，或者达成条件所需的成本很高。比如计算一个高斯积分 \(\int_{-\infty}^{+\infty}e^{-x^2}dx\)，被积函数的取值范围涵盖整个实数集，想找一个在整个实数集上均匀分布的随机数发生器就比较难了。</p>
+
+<p><img src="/blog/assets/photos/2024-04-15-monte-carlo-gaussian.png" alt="" /></p>
+
+<p>但是学过物理的朋友应该知道，上面的被积函数是以狄拉克 δ(x) 函数为初值条件的一个扩散方程的解，在某一时刻的空间分布。（不想凑系数了，将就看吧）</p>
+
+<p>而扩散方程又是随机游走 (random walk) 在连续近似下的极限。</p>
+
+<p>所以我们直接模拟一堆粒子从原点出发作随机行走，向两个方向的概率相同，扩散系数以及积分里的常数对齐，统计粒子在整个过程中出现在不同 x 位置的频率，求和之后乘以步长就是积分结果。这个过程需要的随机数发生器容易获取得多，是一个以 0.5 为阈值的 [0,1) 的均匀分布，比如一个均匀硬币。</p>
+
+<p>而随机行走过程中走完每一步的位置，都只取决于前一步的位置，而与更久远的历史无关——这样的过程叫做马尔可夫过程。用这种方法取样获得随机样本的蒙特卡洛模拟，就是 MCMC.</p>
+
+<p>扩散方程和随机行走只是 MCMC 的一个很特殊很特殊的例子，而对于一般的 MCMC 模拟，有以下通用的 Markov Chain 采样的算法：</p>
+
+<h3 id="metropolis-hastings-算法">Metropolis-Hastings 算法</h3>
+
+<p>已知一个随机变量 x, 和一个与目标概率分布 P(x) 成正比的函数 f(x)（不要求 f 归一化）</p>
+
+<ol>
+  <li>初始化
+    <ol>
+      <li>选定初始采样点 \(x_0\)</li>
+      <li>选定一个采样函数 proposal function，也就是在已知当前 x 的取值时，下一个 x’ 取值的概率分布 \(g(x’\vert x)\)；其中对于 Metropolis 算法，这个采样函数是对称的：\(g(x’\vert x)=g(x\vert x’)\). 常用以两者之差为宗量的高斯函数。</li>
+    </ol>
+  </li>
+  <li>在得出 t 时刻的 \(x_t\) 之后：
+    <ol>
+      <li>根据 \(g(x'\vert x_t)\) 抽样得到一个 x’</li>
+      <li>计算 α = f(x’)/f(x) = P(x’)/P(x)</li>
+      <li>决定是否将 x’ 加入样本
+        <ol>
+          <li>如果 α ≥ 1, 直接加入</li>
+          <li>如果 α &lt; 1, 以 α 为概率加入</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<p>这种方法不保证采样的早期样本也符合目标概率分布，所以一般会抛弃最先加入的若干样本。</p>
+
+<h3 id="gibbs-采样">Gibbs 采样</h3>
+
+<p>只是一种思路，不算是完整的算法。</p>
+
+<p>当被采样的随机变量是一个多维向量的情况，在不使用 Gibbs 采样的情况下，在迭代的某一步骤 t，每个分量都应该是前一步骤的函数：\(x_{i,t}=f(\{x_{j,\ t-1}\})\)</p>
+
+<p>而 Gibbs 采样就是说，不必让每个维度 i 都根据前一个步骤的分量来取值，可以把当前 t 已经取样出来的分量直接带入到本回合后面的维度：\(x_{i,t}=f(\{x_{j,\ t}\}_{j&lt;i}\cup\{x_{k,\ t-1}\}_{k\ge i})\)</p>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[蒙特卡洛模拟、马尔科夫链采样、Metropolis-Hastings 算法、吉布斯采样]]></summary></entry><entry><title type="html">.doc | 爷爷没等到我回来</title><link href="https://mountaye.github.io/blog/articles/farewell-grandpa" rel="alternate" type="text/html" title=".doc | 爷爷没等到我回来" /><published>2024-04-08T00:00:00-05:00</published><updated>2024-04-08T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/farewell-grandpa</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/farewell-grandpa"><![CDATA[<p>去年春末夏初的时候，每周和爸妈视频电话的时间没人接听，一小时后他们发消息说爷爷住院了，接着视频电话就打过来了。爷爷听力早就不好了，画面里看他还戴着呼吸机，我没有看到他的反应，不知道听见我没有。</p>
+
+<p>这就是我最后一次见到爷爷。本来接下来的周末听说情况稳定了，结果迅速恶化，总共住院不到两周。</p>
+
+<p>看到消息的时候，脑子觉得我应该哭，心里却只是有点堵，哭不出来。当时这边是晚上，我在办公室，我们老板从来不黑脸，从他很有耐心的话中，我觉得他对我的论文初稿很不满意。于是浅呼一口气，继续作图继续写。</p>
+
+<hr />
+
+<p>我上小学前一直和爷爷奶奶住在一起，周末被爸爸妈妈接“回”家里去。那时候我爸白天工作，晚上复习考研；我妈在一个国企内部的小医院，经常上夜班。</p>
+
+<p>那段日子的绝大多数时间并不开心。小孩子哪懂什么考研和夜班，只怀疑爸爸妈妈是不是不要我了。和爷爷奶奶在一起按理说是一种安慰，但是要上幼儿园。</p>
+
+<p>奶奶退休前是小学老师。搞教育的人，经常对自己家孩子的教育有点不切实际的想法，入园就给我插到了中班去。发现跟大孩子一起根本融不进去之后，又给我调到小班，完美错过小孩子刚认识的时候交朋友的阶段。</p>
+
+<p>再加上幼儿园学的东西真的好难，老师教折纸，先这样折，那样折，翻过来，在这个地方剪一刀——三步以后我必然听不懂。只能在其他小朋友举起劳动成果的时候偷瞟左右，趁大家不注意把自己的纸团藏到桌洞里去。开始是伸手放进去，后来熟练了，手腕一抖就投进去了。半个学期就能攒满一桌洞，需要老师举起桌子倒出一摊，拿笤帚扫成一堆。</p>
+
+<p>于是毫无意外成为大家的笑柄，我们班里有个傻子，嘿嘿。</p>
+
+<p>所以不想上幼儿园。早上和爷爷一起走着去幼儿园，走两步我就战战兢兢嘱咐一句“可千万别忘了来接我啊”，很短的一段路，我能一字不差地问三百遍。爷爷攥着我的手，严肃认真地回“嗯，一定不会忘”，一字不差地回答三百遍。</p>
+
+<p>中午回家吃饭睡午觉，爷爷说，要是睡过头了的话，下午就不去幼儿园了吧。于是直到上小学的前一年，我每天中午都会睡过头，“睡醒了”就在家里跑来跑去，等到太阳西斜了，跟着爷爷去门球场，他跟老伙计们打门球，我在细红线勒出的边线外面玩沙子和计分板。</p>
+
+<p>就这样一直玩到天色幽蓝，那样的幽蓝仿佛日日如此，总有爷爷带我回家。</p>
+
+<hr />
+
+<p>这样的日子回不去是理所当然，但是没想到连这样的回忆也再难听到了。这种糗事本来是家里聚餐时饭桌上最常听到的谈资，毕业回国和伯伯、姑姑、叔叔家相聚，席间还是他们在说，话题却变成他们记得的爷爷奶奶的故事，我成了远方来客，成了不便开玩笑的别人家的孩子。</p>
+
+<p>我才意识到，和我记忆中的退休老人形象不同，父辈们眼中的爷爷，还是他年轻时候的样子。</p>
+
+<p>我又意识到，不是爷爷年轻时候的样子，而是和我一样，是记忆中我们小时候他的样子。</p>
+
+<p>那时候的爷爷在我市周围某县的一家半导体工厂，所谓半导体其实指的是收音机，所谓工厂是一间福利厂，就是给县里机关和事业单位的家属安排工作用的，不以赚钱为首要目的。比如厂里的会计是副县长的老婆，进厂的时候是个文盲，算账是和认字一起学的。</p>
+
+<p>姑姑说爷爷是厂长；我爸说不对，爷爷是厂里唯一的技术员。</p>
+
+<p>这些故事总有许多个版本，就比如厂房施工的时候，有辆满载一板车砖头的驴车上坡，结果有个熊孩子喊了一声“吁~”，驴子停在半坡不走了，把赶车的工人吓了一跳又气得不轻，但是不敢发作，因为不知道是谁家的孩子。</p>
+
+<p>那熊孩子是谁来着，是不是我爸？我爸说不是，是会计的儿子。真实情节说不清楚，只有“吁”是全世界驴子停车的通用口令，是无数大语言模型在甚高维嵌入空间的交点。</p>
+
+<p>后来改革开放，厂子散了，爷爷联系了隔壁县的一所师范类大专，成了一名物理老师。后来全家跟着学校搬迁到城市，我出生长大的地方。</p>
+
+<p>很奇怪，这些回忆日常得异常，那些惊天动地的大事，模糊得像烛光投在墙上的影子。</p>
+
+<p>日寇侵华的时候，往我们老家所在的海边渔村仍了一颗未爆的哑弹就再没来过；爷爷的叔叔带船队北上做生意，结果连人带货和船一起被扣了，爷爷的爸爸卖了好多田地去赎人，于是土改只被定了个中农；工农兵推荐取代高考前的一两届考上了大学；政治运动里整人没资格，被整也没把柄……</p>
+
+<p>可能也不奇怪，能活到今天的大家，要么是惊涛骇浪的幸存者，要么是幸存者的后代，除了史书上主角中胜利的那一小撮，谁还不是有点运气在身上呢。除了胜利的一小撮，比起一句顶一万句，一天顶一万年的狂飙突进，谁不更希望打门球，看孩子玩沙子，玩到天色深蓝呢？</p>
+
+<hr />
+
+<p>于是继续玩沙子，玩到天色幽蓝，爷爷带我回家。</p>
+
+<p>有一天在幼儿园里，画册上有一道益智题，一个四乘四的方阵，横竖斜线四个方向上四种水果排列起来。我觉得图案很漂亮很有趣，想回家给爷爷看，于是中午一到家，就要找纸笔要画下来。结果画到一半，剩下的图案就不记得了，急得我要哭。</p>
+
+<p>爷爷在旁边微笑着看，见我画不出来了，把笔要了过去，把剩下的水果补全。爷爷画不好水果，就把水果的名字写在空白的地方。这么神奇的吗？爷爷不是没看过那本画册吗？这两字是什么，真的是菠萝没骗我吗？</p>
+
+<p>这叫规律，世界上的所有事情都是有规律的。爷爷拉开木柜子上一个很沉的抽屉，金属和润滑油的气味飘散出来，他拿出好多小灯泡、电闸和电池盒，组了一个电路，拉下不同的电闸，不同地方的小灯泡次第亮起来。</p>
+
+<p>我还是不信，把那几个水果的名字认全了，下午要去幼儿园验证一下爷爷猜的对不对。晚上回家吃完晚饭看新闻，播音员说的话和电视上写的字是对应的吗？只有爷爷很高兴，出门溜弯的时候，逢人就说他孙子脑子开窍了。</p>
+
+<p>还是继续玩沙子，慢慢有其他小孩加入了进来，社恐的我也有了一两个朋友。在幼儿园还是不敢出去做广播体操，于是在教室里上凳子，算是帮老师打扫卫生。爷爷出门溜弯的时候，逢人就对他说，听说你孙子脑子开窍了……</p>
+
+<hr />
+
+<p>然后回到爸爸妈妈那里上小学，从朝夕相见，到周末不见，到只有周末相见，再到每个寒暑假相见，再到没能再见。</p>
+
+<p>这次回家，爸妈开车去接我，回城那日天气极好，车在河边新城一侧的快速路行驶，对岸的天际线满满当当是已经炒到上万一平米的住宅楼。师专的图书馆曾经是河边唯一的高楼，如今隐没难寻，仔细找到后却发现像人群中站着个矮胖墩，尴尬，不如不复相见。</p>
+
+<p>回到家里，旧桌旧椅旧沙发，其中一个沙发上坐着一只洗得干干净净的黄色玩具熊。小熊也已经等了我五年了啊，于是趁着爸妈还在收拾其他行李的机会，把行李箱推进自己房间，轻轻关门，无声地任由泪水流下。</p>
+
+<hr />
+
+<p>有一年我爸从外面回来，兴高采烈要找爷爷，进门就喊“老头儿呢？老头儿呢？”奶奶在包饺子，双手沾了面粉和馅料，只瞪了他一眼。当时的我坐在地上玩，抬头看我爸，感到很不高兴，这个大人怎么这么没大没小的。</p>
+
+<p>如今我也快到了当年我爸的年龄，被他抓到他笔记本电脑面前，问他的网页浏览器图标上怎么有一个头像。原来是不知道什么时候无意中打开了个没用的功能，这点小事都整不明白，想叫他“老头儿”的冲动愈发强烈。</p>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[消息的时候，脑子觉得我应该哭，心里却只是有点堵，哭不出来。]]></summary></entry><entry><title type="html">.tex | 意识理论笔记</title><link href="https://mountaye.github.io/blog/articles/note-consciousness-theories" rel="alternate" type="text/html" title=".tex | 意识理论笔记" /><published>2024-01-10T00:00:00-06:00</published><updated>2024-01-10T00:00:00-06:00</updated><id>https://mountaye.github.io/blog/articles/note-consciousness-theories</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/note-consciousness-theories"><![CDATA[<blockquote>
   <p>本文是《<strong><a href="https://mp.weixin.qq.com/s/S_nZFZD72Kq3sJmoXKplww">一场意识理论大混战，甚至“伪科学”帽子都飞出来了</a></strong>》一文的读书笔记。</p>
 
 </blockquote>
@@ -2450,312 +2587,4 @@ npx tailwindcss init <span class="nt">-p</span>
 <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">Page</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">className</span><span class="p">=</span><span class="s">"text-3xl font-bold underline"</span><span class="p">&gt;</span>Hello, Next.js!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 <span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[一直听说“全栈项目 = Next.js + TailwindCSS + HeadlessUI”，但是 TailwindCSS 到底是啥，之前一直妹整明白]]></summary></entry><entry><title type="html">·如是我闻 | 生成式人工智能</title><link href="https://mountaye.github.io/blog/articles/afaik-generative-ai" rel="alternate" type="text/html" title="·如是我闻 | 生成式人工智能" /><published>2023-09-11T00:00:00-05:00</published><updated>2023-09-11T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/afaik-generative-ai</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/afaik-generative-ai"><![CDATA[<h2 id="生成式语言模型">生成式语言模型</h2>
-
-<h3 id="模型">模型</h3>
-
-<ul>
-  <li>OpenAI/GPT</li>
-  <li>Claude</li>
-  <li><code class="language-plaintext highlighter-rouge">bloomchat</code>, 可以商用 [<a href="https://github.com/sambanova/bloomchat">GitHub</a>]</li>
-  <li><code class="language-plaintext highlighter-rouge">falcon40B</code>
-    <ul>
-      <li>apache 2.0 许可证，可商用[<a href="http://huggingface.co/tiiuae">huggingface</a>]</li>
-      <li>gpt3 的性能，更少的运算资源，其中Falcon 7B可以跑在苹果Mac上 [<a href="https://twitter.com/rickawsb/status/1666148546285043714">推特</a>]</li>
-    </ul>
-  </li>
-  <li><code class="language-plaintext highlighter-rouge">TigerBot</code>: 一款国产自研的多语言任务大模型，70亿参数和1800亿参数两个版本 [<a href="https://github.com/TigerResearch/TigerBot">GitHub</a>]</li>
-  <li><code class="language-plaintext highlighter-rouge">QLoRA</code>: 单个GPU，ChatGPT 99%的能力，消费级GPU微调12个小时就可以达到97%的ChatGPT水平，4B就可以保持16B精度的效果 [<a href="https://www.notion.so/Endocytic-trafficking-promotes-vacuolar-enlargements-for-fast-cell-expansion-rates-in-plants-6b8f0a313c184ccba9fb5a035bb04a0e?pvs=21">论文</a>] [<a href="https://www.notion.so/pdf-14a94950d61c42d3b03bb132f7655589?pvs=21">GitHub</a>]</li>
-  <li><code class="language-plaintext highlighter-rouge">MBT 30B</code>: 开源商用模型为数不多的选择里出现了一个比Falcon 40B更好的模型 [<a href="https://twitter.com/fi56622380/status/1672137540281974784">Twitter</a>]</li>
-  <li><code class="language-plaintext highlighter-rouge">GLM-6B</code> &amp; <code class="language-plaintext highlighter-rouge">GLM2-6B</code>: 智谱AI发布，对学术研究完全开放，并且在完成企业登记获得授权后，允许免费商业使用。[<a href="https://twitter.com/GanymedeNil/status/1679892021807550465">Twitter</a>][<a href="https://mp.weixin.qq.com/s?__biz=MzkxNjMzMjM3NA==&amp;mid=2247484214&amp;idx=1&amp;sn=e42153f987a74d1ffc7882f7cc09670d">微信公众号@GLM大模型</a>]</li>
-  <li><code class="language-plaintext highlighter-rouge">Llama 2</code>: Meta开源大语言模型Llama 2，可免费商用. [<a href="https://mp.weixin.qq.com/s/9pcmrCEyp2AQsL3MbPYx-Q?utm_source=pocket_saves">微信</a>介绍]
-    <ul>
-      <li>Jim Fan 评论 [<a href="https://twitter.com/dotey/status/1681553916373135362?utm_source=pocket_saves">推特，翻译</a>]</li>
-      <li>很多团队几乎都达成共识， RLHF 不重要，SFT 就够了。现在 Llama2 的论文说 RLHF 非常非常重要。[<a href="https://twitter.com/oran_ge/status/1681793774685659136?utm_source=pocket_saves">推特</a>]</li>
-      <li><code class="language-plaintext highlighter-rouge">LLaMA-2-7B-32K</code>, context为32K的模型 [<a href="https://twitter.com/JefferyTatsuya/status/1685423475979325440">推特</a>][<a href="https://twitter.com/togethercompute/status/1685048832168714240">Twitter</a>]</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="基于模型直接可用的产品">基于模型，直接可用的产品</h3>
-
-<ul>
-  <li>OpenAI/GPT
-    <ul>
-      <li>ChatGPT
-        <ul>
-          <li>2023年6月13日，GPT提供了函数调用，让ChatGPT来自己调用函数。[<a href="https://twitter.com/cryptonerdcn/status/1668733300070924288">Twitter</a>][<a href="https://openai.com/blog/function-calling-and-other-api-updates">OpenAI</a>][<a href="https://twitter.com/dotey/status/1668728109376450566">用法 Twitter@宝玉</a>]</li>
-        </ul>
-      </li>
-      <li>ChatGPT - Code Interpreter
-        <ul>
-          <li>介绍 [<a href="https://twitter.com/fuyufjh/status/1684191835210809344">推特</a>][<a href="https://www.youtube.com/watch?v=4wGlRrir_u4">YouTube</a>]</li>
-          <li>《ChatGPT 探索：Code Interpreter 高级指南》[<a href="https://mp.weixin.qq.com/s/K_csi1oWDv5tEaeeKSlvwA?utm_source=pocket_saves">微信@浮之静</a>]</li>
-          <li>源码可能被套出。[<a href="https://twitter.com/fuergaosi/status/1679457847237820416">Twitter</a>]</li>
-          <li>对 code interpreter 的逆向工程 [<a href="https://twitter.com/Yampeleg/status/1678045605527003136">Twitter</a>][<a href="https://mem.ai/p/xyy8ULiAce1BecTxnU0M">Mem</a>]</li>
-        </ul>
-      </li>
-      <li>OpenAI API
-        <ul>
-          <li>2023年8月23日，OpenAI 开放了 GPT-3.5 的微调的API [<a href="https://twitter.com/dotey/status/1694207797351616703">推特</a>]</li>
-        </ul>
-      </li>
-      <li>OpenAI on Azure 内置了一个内容过滤器 [<a href="https://twitter.com/jw1dev/status/1666613728106938368">推特1</a>][<a href="https://twitter.com/jw1dev/status/1666622878962548740">推特2</a>]</li>
-      <li><code class="language-plaintext highlighter-rouge">forefront</code>: 完全免费 GPT-4 的工具 [<a href="https://accounts.forefront.ai/">登录</a>]，大概基于 <code class="language-plaintext highlighter-rouge">gptfree-ts</code> [<a href="https://github.com/xiangsx/gpt4free-ts">GitHub</a>]</li>
-      <li><code class="language-plaintext highlighter-rouge">BratGPT</code>: ChatGPT的激进版本。[<a href="https://bratgpt.com/">官网</a>]</li>
-      <li><code class="language-plaintext highlighter-rouge">SmartStudy</code>: 提供文本文档，创建10个问题的小测验。[<a href="https://smartstudy.streamlit.app/">官网</a>]</li>
-      <li><code class="language-plaintext highlighter-rouge">XrayGPT</code>: 通过给定的 X 光片来促进围绕胸部 X 光片的自动化分析的研究。[<a href="https://twitter.com/CarsonYangk8s/status/1661588037892198401">GitHub</a>]</li>
-      <li><code class="language-plaintext highlighter-rouge">FinGPT</code>: 类似BloomBerg的开源方案，RLHF 和 Lora 的低秩技术 [<a href="https://twitter.com/JefferyTatsuya/status/1668433680887615488">Twitter</a>]</li>
-    </ul>
-  </li>
-  <li>微软
-    <ul>
-      <li>BingAI
-        <ul>
-          <li>本地部署方案 [<a href="https://twitter.com/geekbb/status/1665692703055552513">推特</a>][<a href="https://github.com/adams549659584/go-proxy-bingai">GitHub</a>]</li>
-        </ul>
-      </li>
-      <li>VsCode Copilot</li>
-      <li>Office 365 Copilot: 每月每名用户30美元. [<a href="https://www.theverge.com/2023/7/18/23798627/microsoft-365-copilot-price-commercial-enterprise">verge</a>][<a href="https://mp.weixin.qq.com/s/9pcmrCEyp2AQsL3MbPYx-Q?utm_source=pocket_saves">微信</a>]</li>
-    </ul>
-  </li>
-  <li>Claude+
-    <ul>
-      <li>例子：阅读多份行业报告 [<a href="https://twitter.com/iamshaynez/status/1684398211958730753">推特</a>]</li>
-    </ul>
-  </li>
-  <li><code class="language-plaintext highlighter-rouge">Llama</code>
-    <ul>
-      <li>llama2.ai: 一个基于 llama 2 的聊天机器人，非官方。[<a href="https://llama2.ai/">网站</a>]</li>
-      <li>WizardCoder 34B based on Code Llama 写代码 [<a href="https://twitter.com/dotey/status/1696202647269785875">推特</a>]</li>
-    </ul>
-  </li>
-  <li>WebGLM: 清华开源的带网络搜索功能的 GLM 实现 [<a href="https://www.notion.so/pdf-14a94950d61c42d3b03bb132f7655589?pvs=21">GitHub</a>]</li>
-  <li>mendable: 根据开发文档进行问答 [<a href="https://www.mendable.ai/usecases/documentation">官网</a>]</li>
-  <li>阅读 PDF 文档
-    <ul>
-      <li>Humata.ai</li>
-      <li>explainpaper</li>
-      <li>ChatPDF</li>
-      <li>[<a href="https://twitter.com/oran_ge/status/1683432444169711616?utm_source=pocket_saves">对比</a>] Claude2支持超长上下文，摘要信息量更大，更适合长文提炼。ChatDOC 具有页码溯源、表格解析、原文定位功能，数据找得准，也方便二次验证，能够限制大语言的幻觉问题。</li>
-    </ul>
-  </li>
-  <li>Obsidian-copliot: 快速获取文字的核心观点</li>
-  <li>视频内容梗概
-    <ul>
-      <li>Glarity: 浏览器插件，基于ChatGPT和字幕生成Youtube摘要，20秒看完梗概 [<a href="https://twitter.com/starzqeth/status/1640867876109422595">Twitter</a>]</li>
-      <li>summarize-tech: 5分钟了解长视频的要点. [<a href="https://twitter.com/starzqeth/status/1640867876109422595">Twitter</a>]</li>
-    </ul>
-  </li>
-  <li>webpilot: 可联网可读网页链接的插件 Webpilot 推出的 Chrome 版插件 [<a href="https://chrome.google.com/webstore/detail/webpilot-copilot-for-all/biaggnjibplcfekllonekbonhfgchopo?utm_source=link">chrome</a>]</li>
-</ul>
-
-<h3 id="模型教程评论二次开发">模型教程、评论、二次开发</h3>
-
-<ul>
-  <li>一般性原理
-    <ul>
-      <li>《Prompt 编写模式》[<a href="https://prompt-patterns.phodal.com">phodal</a>]</li>
-      <li>《LLM+Embedding构建问答系统的局限性及优化方案》[<a href="https://zhuanlan.zhihu.com/p/641132245">知乎</a>]</li>
-      <li>基于检索的 LM，外挂一个数据库用来检索。[<a href="https://twitter.com/cosmtrek/status/1678077835418955781">推特</a>][<a href="https://acl2023-retrieval-lm.github.io/">GitHub.io</a>]</li>
-      <li>一篇泼冷水的论文 [<a href="https://aclanthology.org/2023.findings-acl.426/">ACL Anthology</a>]</li>
-      <li>即刻出的Prompt调试工具。[<a href="https://twitter.com/vista8/status/1678784460786135040">Twitter</a>][<a href="https://promptknit.com/">官网</a>]</li>
-    </ul>
-  </li>
-  <li>GPT
-    <ul>
-      <li>GPT best practice [<a href="https://platform.openai.com/docs/guides/gpt-best-practices?utm_source=pocket_saves">OpenAI</a>]</li>
-      <li>Andrew Ng 吴恩达 &amp; Isa Fulford from OpenAI 《Build system with <a href="https://twitter.com/hashtag/ChatGPT?src=hashtag_click">#ChatGPT</a> API》[推特@<strong><a href="https://twitter.com/JefferyTatsuya">金田達也</a></strong>]
-        <ul>
-          <li>借助 CoT 的思路，翻译字幕，返回正确的 JSON 格式 [<a href="https://twitter.com/dotey/status/1665476562219573249">推特</a>]</li>
-          <li>同样的加入了CoT（Chain of Though）的Prompt，如果让GPT打印出来步骤，效果非常好，但是如果不让GPT打印（省点token，以及更容易解析），那么GPT就会偷懒 [<a href="https://twitter.com/dotey/status/1668736426286915590">Twitter</a>1][<a href="https://twitter.com/dotey/status/1664335473500626946">Twitter2</a>]</li>
-        </ul>
-      </li>
-      <li>熊猫吃短信是 Twitter@威力狈 开发的垃圾短信过滤工具。将其与 GPT 结合的一些讨论
-        <ul>
-          <li><a href="https://twitter.com/waylybaye/status/1664253928970788864">Twitter@威力狈</a>：尝试了下用 ChatGPT 自动标注数据，效果太差了。</li>
-          <li><a href="https://twitter.com/dotey/status/1669028955842650139">Twitter@宝玉</a>：通常如果我写的话，会做一些小调整</li>
-          <li><a href="https://twitter.com/IIInoki">Twitter@IIInoki</a>：是的，感觉八爷用 API 用得有点糙……就只是很简单的 prompt 达到的效果都还不错</li>
-        </ul>
-      </li>
-      <li>《ChatGPT 越过山丘之后，再来谈谈 LLM 应用方向》[<a href="https://quail.ink/orange/p/chatgpt-cross-over-the-hills-and-discuss-llm-application-directions">橘子汽水铺</a>]</li>
-    </ul>
-  </li>
-  <li><code class="language-plaintext highlighter-rouge">LangChain</code>:
-    <ul>
-      <li>官方教程 [<a href="https://twitter.com/LangChainAI/status/1665009694627250176">推特</a>][<a href="https://blog.streamlit.io/langchain-tutorial-1-build-an-llm-powered-app-in-18-lines-of-code/">streamlit</a>]</li>
-      <li>一个使用 LangChain 和 GPT Index 的教程 [<a href="https://leanpub.com/langchain">leanpub, 收费</a>][<a href="https://getpocket.com/read/3839490971">Pocket</a>]</li>
-      <li>LangChain for LLM Application Development 基于LangChain的大语言模型应用开发 [<a href="https://t.co/JXV1SBI2OA">YouTube</a>]
-        <ul>
-          <li>基于Embedding的文档问答。stuff, map reduce, refine, map rerank [<a href="https://twitter.com/dotey/status/1667790801420558342">Twitter@宝玉</a>]</li>
-        </ul>
-      </li>
-      <li>Chanin Nantasenamat: LangChain tutorial #1: Build an LLM-powered app in 18 lines of code [<a href="https://blog.streamlit.io/langchain-tutorial-1-build-an-llm-powered-app-in-18-lines-of-code/?utm_source=pocket_saves">streamlit</a>]</li>
-      <li>把一篇很长的 PDF 内容喂给 ChatGPT，然后向他提问
-        <ul>
-          <li>纯 JS 开源工具推荐 [<a href="https://twitter.com/Barret_China/status/1638119945749037056">推特</a>]</li>
-          <li>用 <code class="language-plaintext highlighter-rouge">LangChain</code> 六七行代码就可以搞定了 [<a href="https://js.langchain.com/docs/get_started/introduction">LangChain</a>]</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><code class="language-plaintext highlighter-rouge">AutoChain</code>
-    <ul>
-      <li>介绍 [<a href="https://twitter.com/zhangjintao9020/status/1683996172980199429">推特</a>][<a href="https://github.com/Forethought-Technologies/AutoChain">GitHub</a>]</li>
-      <li>《我为什么放弃了 LangChain》[<a href="https://twitter.com/Barret_China/status/1683135367862718465">推特</a>][<a href="https://mp.weixin.qq.com/s/jIbz9JYc8-_ua-QLENX__A">微信</a>] 推友提出的 AutoChain 替代方案 [<a href="https://twitter.com/Barret_China/status/1684211570186887170?utm_source=pocket_saves">推特</a>]</li>
-    </ul>
-  </li>
-  <li><code class="language-plaintext highlighter-rouge">OpenDAN</code>: 为各类 AI 模块提供运行环境，并提供它们之间的互操作性协议。可创建诸如律师、医生、教师，甚至男女朋友等角色 [<a href="https://twitter.com/Barret_China/status/1666455683758161920">GitHub</a>]</li>
-  <li>“视频语音↔文字”任务相关
-    <ul>
-      <li>指定视频URL，识别文字，翻译 [<a href="https://github.com/lewangdev/autotranslate">GitHub</a>]</li>
-      <li><code class="language-plaintext highlighter-rouge">WhisperX</code>: 按照单词对齐时间戳，生成的字幕都是完整的句子 [<a href="https://github.com/m-bain/whisperX">GitHub</a>]。[<a href="https://twitter.com/dotey/status/1667394662628204546">Twitter@宝玉</a>] 写了一个可以根据 YouTube Url 识别 YouTube 字幕的 <a href="https://github.com/JimLiu/whisper-subtitles/blob/main/whisperx_youtube_subtitle.ipynb">Jupyter Notebook</a></li>
-      <li><code class="language-plaintext highlighter-rouge">audiocraft</code>: audio processing and generation with deep learning. [<a href="https://github.com/facebookresearch/audiocraft">GitHub</a>]</li>
-      <li><a href="https://twitter.com/Barret_China/status/1684218981639413760">[推特]</a> 小作文</li>
-      <li><code class="language-plaintext highlighter-rouge">yt-dlp</code> 一行命令下载视频字幕的工具，不需 puppeteer 无头浏览器 [<a href="https://twitter.com/Barret_China/status/1684228477644570624">推特</a>][<a href="https://github.com/yt-dlp/yt-dlp">GitHub</a>]</li>
-    </ul>
-  </li>
-  <li>ChatGPT + AI agent + ScholarAI + Noteable 写的小综述 [<a href="https://t.co/eqVc2LIfSz">链接失效</a>]</li>
-  <li><code class="language-plaintext highlighter-rouge">MusicGen</code>: 将文本和旋律转化为完整乐曲 [<a href="https://twitter.com/Fenng/status/1668141100610248705">Twitter</a>][<a href="https://www.notion.so/3753e42dc4204a99ab83a725b655a632?pvs=21">ReadHub</a>]</li>
-  <li><code class="language-plaintext highlighter-rouge">MMS</code>: 一个声音模型 [<a href="https://huggingface.co/docs/transformers/main/en/model_doc/mms">HuggingFace</a>]</li>
-  <li><code class="language-plaintext highlighter-rouge">FRVR Forge</code>: AI-Powered End-to-End Game Creation [<a href="https://twitter.com/FRVRGames/status/1669758477789540365">Twitter</a>][<a href="https://www.notion.so/ai-University-Cloud-8078b4682e454a5fba982f67e4530498?pvs=21">官网</a>]</li>
-</ul>
-
-<h3 id="开发平台">开发平台</h3>
-
-<p>Runpod: 租用 GPU 跑模型并创建 Serverless API 一站式服务，最低只要0.2刀/hr。[<a href="http://runpod.io">官网</a>]</p>
-
-<h3 id="杂项">杂项</h3>
-
-<ul>
-  <li>2023年5月27日、28日，OpenAI 使用 Sentry 审计工具封禁来自中国的用户，解决方案：
-    <ul>
-      <li>路由器 Clash 规则 [<a href="https://twitter.com/wey_gu/status/1663003950214438912?utm_source=pocket_saves">推特</a>]</li>
-      <li>改用 Azure OpenAI service [<a href="https://twitter.com/zhangjintao9020/status/1662865819041402880">推特</a>]</li>
-      <li>Cloudflare WARP [<a href="https://haoel.github.io/">左耳朵</a>]</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="生成式图像模型">生成式图像模型</h2>
-
-<p>2023年5月31日，Adobe 添加人工智能相关功能 generative fill。[<a href="https://twitter.com/CodeByPoonam/status/1663824055164887040">推特</a>]</p>
-
-<ul>
-  <li>配置要求极低，连Win掌机都能跑，但是不能断网。[<a href="https://twitter.com/OfflineHelper/status/1666042746866663424">推特</a>]</li>
-  <li>填充将横屏的视频转换为竖屏。[<a href="https://twitter.com/Alex_Cerrato/status/1681677307843432449">推特</a>]</li>
-</ul>
-
-<p><code class="language-plaintext highlighter-rouge">MidJourney</code></p>
-
-<ul>
-  <li>在提示词中添加相机镜头信息。[<a href="https://twitter.com/4rtofficial/status/1663310457854099458">推特</a>]</li>
-  <li>zoom [<a href="https://twitter.com/jesselaunz/status/1674210886695923712">Twitter</a>]</li>
-</ul>
-
-<p><code class="language-plaintext highlighter-rouge">StableDiffusion</code></p>
-
-<ul>
-  <li>Eric Fu: 训练指南. [<a href="https://ericfu.me/stable-diffusion-finetune-guide/?utm_source=pocket_reader">Coding Husky</a>]</li>
-  <li>文字或者符号融合生成图片 [<a href="https://twitter.com/op7418/status/1680223090138316800">Twitter</a>][<a href="https://mp.weixin.qq.com/s/rvpU4XhToldoec_bABeXJw">微信</a>]</li>
-</ul>
-
-<p><code class="language-plaintext highlighter-rouge">StyleDrop</code>: Google 基于 MUSE 的样式迁移 transformer [<a href="https://twitter.com/recatm/status/1665056017107886080">推特</a>][<a href="https://styledrop.github.io/">GitHub.io</a>]</p>
-
-<p><code class="language-plaintext highlighter-rouge">Redream</code>: 从视频到二次元动画 [<a href="https://twitter.com/heyBarsee/status/1665034805384290307">推特</a>][<a href="https://github.com/Fictiverse/Redream">GitHub</a>]</p>
-
-<p><code class="language-plaintext highlighter-rouge">Runway</code> Gen-2: 文本生成视频和图片生成视频, 4 秒钟 [<a href="https://twitter.com/op7418/status/1666461595818504192">推特</a>][<a href="https://app.runwayml.com/login">需注册</a>]</p>
-
-<p>一个 AI 视频解决方案，来自南洋理工，代码尚未开源 [<a href="https://twitter.com/op7418/status/1669026494885285888">Twitter</a>] [<a href="https://anonymous-31415926.github.io/">GitHub.io</a>][<a href="https://twitter.com/rickawsb/status/1672310994390126593">Twitter2</a>][<a href="https://arxiv.org/abs/2306.07954">arxiv</a>]</p>
-
-<p><code class="language-plaintext highlighter-rouge">AWPortrait1.1</code>: 图像生成 [<a href="https://twitter.com/dynamicwangs/status/1673730591462928385">Twitter</a>][<a href="https://www.liblibai.com/modelinfo/721fa2d298b262d7c08f0337ebfe58f8">LibLibai</a>]</p>
-
-<p><code class="language-plaintext highlighter-rouge">Anything AI</code>: 可以取代照片中的任何物体。免费，不需要注册. [<a href="https://www.anything-ai.com/">官网</a>]</p>
-
-<p><code class="language-plaintext highlighter-rouge">PixelLab</code>: 草图创建2D图像. [<a href="https://www.pixellab.ai/">官网</a>]</p>]]></content><author><name>MountAye</name></author></entry><entry><title type="html">.doc | 博客咨文 2023</title><link href="https://mountaye.github.io/blog/articles/state-of-blog-2023" rel="alternate" type="text/html" title=".doc | 博客咨文 2023" /><published>2023-08-15T00:00:00-05:00</published><updated>2023-08-15T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/state-of-blog-2023</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/state-of-blog-2023"><![CDATA[<p>以往过年的时候，都会在博客写一篇年终总结。今年没写，主要是当时觉得自己春季学期结束就要毕业了，需要努力工作，至少要摆出一副努力工作的样子。</p>
-
-<p>之前的文章里大概也提到了，论文投稿之前各种小修小补、准备参加三月会、投简历、面试且自以为成功找到了工作，毕业已经是再努力也没办法在春季学期结束之前完成的事情，于是博客恢复了更新。</p>
-
-<p>跟老板说了一下，毕业推后到了暑假，<del>上周</del> 上上周完成。45 分钟的演讲，理论上无限实际上 20 来分钟的问答，难度最高的环节是演讲之前打领带，温莎结。</p>
-
-<p>越到这种时候越觉得，如果把人生比作道路，更准确的喻体应该是高速公路，显然不是因为速度高，而在于其中一个一个的进出口，真正留给人选择的机会有限，剩下的时间和路程里，能改变行程的基本都是事故。所谓答辩，不过是出口收费站过 ETC，其重要性还不如和老板半闲聊时，假装不经意地说自己想毕业。</p>
-
-<hr />
-
-<h3 id="数据">数据</h3>
-
-<p>毕竟是博客咨文，说回博客和各个内容平台的事。</p>
-
-<p>博客的流量比较稳定，每天都能有一点，一月无事也能有 300-400 访问，有更新的时候能到 600-700，碰巧击中流量密码的话能上千。最近新加了 Google Ads，迄今累计收益 50 美分，成了名副其实的洋五毛。(~_~;)</p>
-
-<p>微信公众号一如既往地店大欺客，一篇文章的展示周期在三天以内，不加星标的话几乎看不到推送，打开率基本是关注人数的 1/10。两次例外，可能是击中了流量密码，分别是 《python decorator 装饰器笔记》和《PINN 基于物理的神经网络笔记》，完全不知道为什么，后一篇文章甚至因为格式问题，根本没放读书笔记的主体部分，就因为提了一句《三体》？总之关注人数比上次年终总结多了两倍，接近 200 人了…… (−_−＃)</p>
-
-<p>Matters 吧，不提了，简体中文作者还剩几个？基本上成了微信被删文的备份站。(╯°□°）╯︵ ┻━┻</p>
-
-<p>作为对比，我的前女友·隔壁课题组的学妹·托洛茨基主义者·未明子粉丝，在 B 站发了一个未明子式的视频（一个白板写写画画，旁边一张帅脸，讲授哲学，时长半小时甚至一小时以上），内容是从哲学角度批判高等教育的布尔乔亚劣根性，一把子攒了几千粉丝，几十万观看量。我只看了文字稿和评论区——我看不懂，但我大受震撼.jpg</p>
-
-<p>两相比较，一言以蔽之，曰：彻底失败。</p>
-
-<hr />
-
-<h3 id="反省">反省</h3>
-
-<p>既然已经做了流量生意，说自己从来就不在乎做没做好是在是有点虚伪了。</p>
-
-<p>和前女友的交往，确实让我学到了很多东西。很多“常识”，要么不是那么寻“常”，要么只是观点而不是知“识”。世界的全貌，观众的参差，是从小走学习考试独木桥的我，需要时刻提醒自己才能意识到的现实。</p>
-
-<p>另一方面，自己作为一个内容消费者，看自己喜欢和订阅的自媒体的时候，也试图摸索出来一些成功密码。一言以蔽之曰：同义反复，频率恰当（前提是以视频为媒介，微博既出，阅读已死）</p>
-
-<p>看自媒体生产的内容这件事，毕竟是一个娱乐行为，只能从各种正事之外挤出来。正事不论多少，每天每周基本是固定的，自媒体要想干得长久，就必须把自己嵌入观众的生活习惯中，尽可能降低观众点进你作品的注意力成本。</p>
-
-<p>频率要求必然导致同义反复，批量生产已被证明是算法青睐的模式。在前期已经做出规模的自媒体大号已经拉起团队，进行专业化分工的当下，个人还想作出点东西，这些模式大概率是自己之前的专业技能，比如做饭之于王刚师傅，下象棋之于徐银川特大，玩红警之于月亮3。暂时能想到的例外，就是时评键政，在此不表。</p>
-
-<hr />
-
-<h3 id="嘴硬">嘴硬</h3>
-
-<p>作为一个物理博士·生物狗·小镇做题家·眼红美本富二代的苦逼研究生，我写博客的本意是践行费曼学习法，我的本职工作是学习，不是练习。</p>
-
-<p>练习可以同义反复，甚至以耐得住枯燥为法门；学习不行，学习需要耐得住枯燥，但不能以枯燥为荣。</p>
-
-<p>在公理化体系被发明之后，学习需要尽快摆脱同义反复的阶段，从排比句式的知识中识别逻辑关系，添加进自己已有的知识体系，用『逻辑推演』替代『倒背如流』，整个过程就叫领悟，如果这个相变过程比较快速，就叫顿悟。</p>
-
-<p>很多学习类网红搞不清这个道理，也做不到，所以学习笔记一篇一篇地晒，一考试就是大专。</p>
-
-<p>熟练之后，领悟也许可以重复，但无法保证频率的稳定，因为你不能保证所学的每件东西难度都相同。既然不能同义反复，这注定是个于流量无缘的分类，我们也看到，有些学人涉足流量之后，确实变了。</p>
-
-<hr />
-
-<h3 id="求职">求职</h3>
-
-<p>说到本职工作，之前谈好的博士后岗位无了。</p>
-
-<p>交上两封推荐信之后，那老哥来和我视频联系。他所在大学的研究生罢工活动前不久取得了胜利，博士和博士后的工资待遇提高了不少。老哥的入职 offer 是在工运之前谈妥的，所以启动资金不足以支付新的博士后工资。老哥推荐了一个基金会的资助机会，让我去申请一下。</p>
-
-<p>毕业前 Paul 办了个在家聚会，同学听了我的事之后骂声一片，说这一看就说明之前只打算给最低工资。此事我办得也不太体面，只在申请截止日期之前，用 ChatGPT 随手糊了一套申请材料。差老哥自己的推荐信，他看了一眼说算了。然后说还是瞄准其他资助机会，我也没说啥，基本默认结束了。</p>
-
-<p>老板写推荐信那周的全系茶歇，为了在同仁面前装叉，跟我说他认识那老哥的博导，我不如直接去找她，毕竟博后的门派声望重要得很——我心说，难道门派对博士就不重要了吗。</p>
-
-<p>发邮件过去完全没有回复，老板又给我列了个接近20人的名单。用 ChatGPT 写邮件挨个轰炸了一遍。收到两份回信。</p>
-
-<p>我比较感兴趣的是我们老板做博士时的隔壁。收到两封推荐信之后，约在答辩的第二天面试。面试的结果我拿不准，可能老大爷比较有经验吧，各方面都没有说死，比之前的老哥显得“渣男”一些。这样也好，博后本来就不是个稳定关系，像之前的老哥，话说得太好听反而更加让人失望。</p>
-
-<p>有两条困难，一是经费获批的时间不确定，二是明年他会 sabbatical，不见得有很多时间指导我。最后说 8 月底会有一场相对公开的组会，让我在那之前联系他拿 zoom 链接，了解一下组里的工作方向。</p>
-
-<p>即便顺利的话，入职时间也是明年，在此之前我会在现在的课题组里继续之前没完成的一些项目。</p>
-
-<hr />
-
-<h3 id="攀比">攀比</h3>
-
-<p>说到工作，之前的同学基本上今年或去年也都毕业了。</p>
-
-<p>本科同学里，风神在某公司深圳分部做量子计算，跟我说的年薪是 50 多万，因为入职的时机不好；木木在同一家公司的上海分部，做光刻胶材料，据风神说年薪 100。有望留在学界者，聊哥在锦屏山实验，毕业之后好像要 gap 一年；班长欧陆硕士英国两校读博，没听说毕业的消息，看 arxiv 好像在做凝聚态；潇洒哥继续在国内做天文。其他人都没有消息。</p>
-
-<p>博士同学里，同实验室的学姐在一家生物公司做临时工，年薪 6 万有望转正；小马去了一家量化交易商实习；低我一级的阿卷年底毕业，先去大摩实习。我们年级的天文美国三人组应该都会留在本专业，国际学生则不一定。凝聚态热门组的两人都在本组或合作组继续做博士后。方做粒子物理，回国做博士后。美国博后的普遍工资也就是 5 万上下。比较在意者，和我关系不好的一个女生去某芯片硬件公司做软件工程师，年薪 16 万，上网查了一下，这个工资是“资深软件工程师”，博士刚毕业就能资深吗？狠狠地嫉妒了。</p>
-
-<p>本来觉得毕业去搞钱挺划不来的，毕竟内卷一辈子，可能只是将将摸到别人的起跑线。而且学界身份比之企业界还是更唬人一点，作为一个自由派、民族主义者和中国人，看到前女友那种宗教狂热，又总觉得有些事需要有人做，而我依然有希望够身份去做。“够身份”是一种非形式逻辑谬误，但就像清教徒“上帝的选民”的信念一样，逻辑上不必然成立的东西，实践中却可能有效。</p>
-
-<p>但是看到自己的本职工作投出去连同行评议环节都到不了，直接被编辑就给毙了；业余玩票的天文反而水了两篇文章了，又觉得这评价体系，这逼科研，谁爱做谁做吧。</p>
-
-<p>现在的想法是，暂且做完下面一期的博士后，看看这个学界对我到底如何定价，稍不顺意，就去搞钱。趁休假改掉之前超时工作的毛病，业余时间继续搞点 IT 副业。以我的执行力，希望明年博客总结的时候能做出一些东西。</p>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[以往过年的时候，都会在博客写一篇年终总结。今年没写，主要是当时觉得自己春季学期结束就要毕业了，需要努力工作，至少要摆出一副努力工作的样子。]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[一直听说“全栈项目 = Next.js + TailwindCSS + HeadlessUI”，但是 TailwindCSS 到底是啥，之前一直妹整明白]]></summary></entry></feed>

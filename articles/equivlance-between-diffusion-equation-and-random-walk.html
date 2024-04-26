@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="scrollbar-hidden">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+
+<title>.tex | 扩散方程和随机游走的等价 | 阿掖山</title>
+<link rel="shortcut icon" href="https://mountaye.github.io/blog/favicon.ico" >
+<link rel="canonical" href="https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk" />
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta name="author" content="MountAye" />
+<meta name="description" content="之前 MCMC 讲错了" />
+<meta property="og:title" content=".tex | 扩散方程和随机游走的等价" />
+<meta property="og:locale" content="zh-CN" />
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-04-25 00:00:00 -0500" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content=".tex | 扩散方程和随机游走的等价" />
+<script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MountAye"},"dateModified":"","datePublished":"2024-04-25","description":"之前 MCMC 讲错了","headline":"之前 MCMC 讲错了","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk"},"url":"https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk"}
+</script>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3X9B5LN42L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3X9B5LN42L');
+</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400;1,8..60,700&display=swap" rel="stylesheet">
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'oau8puo',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+    <link rel="stylesheet" href="/blog/assets/css/main.css">
+    <script src="/blog/assets/js/main.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <div id="layout-all">
+      <aside id="layout-left">
+        <a class="left-avatar"
+           href="https://mountaye.github.io/blog/"
+        >
+          <div id="avatar"></div>
+          <div id="sitename">阿掖山</div>
+        </a>
+        <div class="left-quote">
+          <div class="fade-out-left"></div>
+          <div class="side-vertical scrollbar-hidden">
+            <p><span id="quote-line">智力活动是一种生活态度</span></p> <!-- This id is used by js --> 
+            <p>——<span id="quote-author">阿掖山·一个博客</span></p>   <!-- This id is used by js --> 
+          </div>
+        </div>
+        <footer class="left-footer side-vertical">
+          <div id="social-icons">
+            <a href="/blog/feed.xml" class="icon-Popular_RSS"></a>
+            <a href="https://www.github.com/MountAye" class="icon-Popular_GitHub"></a>
+            <a href="https://www.twitter.com/MountAye" class="icon-Popular_Twitter"></a>
+            <a href="https://github.com/MountAye/comments/discussions/categories/blog" class="icon-Popular_mail" style="font-size: 13px;"></a>
+          </div>
+          <p>阿掖山 &copy; 2024
+          <br>Rights Reserved
+          <br>Theme by <a href="https://www.github.com/MountAye" style="font-size: inherit; text-decoration: none; color: #3C70C6;">MountAye</a></p>
+        </footer>
+      </aside> 
+      <div id="layout-mid">
+        <header id="header"> <!-- This id is used by js --> 
+          <h1 id="header-title">阿掖山.tex | 扩散方程和随机游走的等价</h1>
+          <div id="toc-button" class="changable-icon" onclick="tocButton(this)">
+            <div class="bar1"></div><div class="bar2"></div><div class="bar3"></div>
+          </div>
+          <div id="toc-dropdown-container" class="dropdown-content">
+            <div id="toc-dropdown"><!-- This id is used by js --></div> 
+          </div>
+        </header>
+      
+        <div id="title-banner" class="written">
+          
+          <h1>.tex | 扩散方程和随机游走的等价</h1>
+          <div id="author-card">
+            <div id="author-avatar" style='background-image: url("/blog/assets/img/before_h2.png");'></div>
+            <div id="author-texts">
+              <p><strong>MountAye</strong></p>
+              <p>Apr 25, 2024</p>
+            </div>
+          </div>
+          <hr>  
+        </div>
+      
+        <main class="written">
+  <blockquote>
+  <p>这些内容总结自美国研究生级别的《数学物理方法》两次课的笔记，大约两个小时。
+<br />如果是中国大学本科的话，认真的老师半个小时庶几可以讲完;
+<br />念 PPT 就算上课的话 15 分钟可以讲完，附赠一个段子;
+<br />翻转课堂的话也就布置个作业，老师一句话可以讲完。
+<br />以上数据除第一句外纯属揣测，没有黑任何人的意思，love and peace~</p>
+
+</blockquote>
+
+<h3 id="扩散方程">扩散方程</h3>
+
+<p>带有初值条件的扩散方程表述如下：</p>
+
+\[\begin{cases}
+u(x,t=0)=f(x) \\
+\partial u(x,t)/\partial t=\sigma \cdot \partial^2 u(x,t)/ \partial x^2
+\end{cases}\]
+
+<p>方程的解为：</p>
+
+\[u(x,t) = \frac{1}{\sqrt{4\pi \sigma t}} \int_{-\infty}^{+\infty} f(s)\ e^{-\frac{(x-s)^2}{4\sigma t}}\ ds\]
+
+<p>解法是将 u(x,t) 对空间变量 x 作傅里叶变换为 U(k,t)，利用傅里叶变换的性质，变换后的方程将是关于时间 t 的一阶常微分方程。求解后作傅里叶逆变换 <del>即为上式。</del> <del>（完蛋，好久没做题了，那个 \(e^{-\frac{(x-s)^2}{4\sigma t}}\) 是怎么凑出来的，为什么我直接给消掉了啊）</del> 凑出来了凑出来了，初值条件代入频域 k 空间里的通解来确定积分常数，可以看到结果 \(F(k) e^{-\sigma t k^2}\) 是两项之积，所以根据傅里叶变换的卷积定理，实空间 x 里的解是 f(x) 和 \(\mathscr{F}_{k\rightarrow x}^{-1}\{e^{-\sigma t k^2}\}\) 的卷积（所以上式的指数项以 (x-s) 为宗量），而计算后者的时候需要用到高斯积分～</p>
+
+<h3 id="随机游走">随机游走</h3>
+
+<p>随机游走是一个离散过程，为了和连续时空中的扩散方程相对比，将空间变量 x 离散化为相隔 Δ 的格点 i，时间变量 t 离散化为相隔 δ 的 n。</p>
+
+<p>当一个粒子在 n 时刻位于格点 i 时，在下一个时刻 n+1, 它有 1/2 的概率移动到 i-1, 1/2 的概率移动到 i+1.</p>
+
+<p>所以，虽然每个进行随机游走的粒子在任意时刻都只有确定且唯一的位置，但是对于大量同样初始位置和运动规律的例子，n 时刻出现在 i 格点的概率 P(i,n) 有以下关系：</p>
+
+\[\begin{cases}
+P(i,0)= f_i \\
+P(i,n)=\frac{1}{2}\left[P(i-1,n-1)+P(i+1,n-1)\right]
+\end{cases}\]
+
+<p>在初值条件为 \(f_i=\delta_{i=0}\) 时，递推结果如下：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>x 轴 —</th>
+      <th>i = -4</th>
+      <th>i = -3</th>
+      <th>i = -2</th>
+      <th>i = -1</th>
+      <th>O</th>
+      <th>i = 1</th>
+      <th>i = 2</th>
+      <th>i = 3</th>
+      <th>i = 4</th>
+      <th>→</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>n = 0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>n = 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1/2</td>
+      <td>0</td>
+      <td>1/2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>n = 2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1/4</td>
+      <td>0</td>
+      <td>1/2</td>
+      <td>0</td>
+      <td>1/4</td>
+      <td>0</td>
+      <td>0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>n = 3</td>
+      <td>0</td>
+      <td>1/8</td>
+      <td>0</td>
+      <td>3/8</td>
+      <td>0</td>
+      <td>3/8</td>
+      <td>0</td>
+      <td>1/8</td>
+      <td>0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>t 轴 ↓</strong></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="/blog/assets/photos/2024-04-25-random-walk-probabilities.png" alt="" /></p>
+
+<p>离散的情况，很难对任意的初值条件写出解的表达式，但是对于上面的特殊情况，课上不加证明地给出了（可能是根据上图凑出来的）下面的解：</p>
+
+\[P(i,n)=\frac{1}{2^n}\frac{n!}{\left(\frac{n+i}{2}\right)!\left(\frac{n-i}{2}\right)!}\]
+
+<p>对的，以上关系只能表示 (n+i = 偶数) 的情况，但是康托尔告诉了我们，所有偶数和所有自然数的“数量”一样多，所以也没差太多～</p>
+
+<h3 id="方程的等价">方程的等价</h3>
+
+<p>概率的递推公式可以变换为：</p>
+
+\[\frac{1}{\delta}\left[P(i,n)-P(i,n-1)\right]=\frac{1}{2}\left [\frac{P(i-1,n-1)-2P(i,n-1)+P(i+1,n-1)}{\Delta^2}\right]\frac{\Delta^2}{\delta}\]
+
+<p>因为 \(x=i\Delta,\ t=n\delta\), 对两个变量的微分可以离散化成差分：</p>
+
+\[\frac{\partial}{\partial x}\rightarrow \frac{1}{\Delta}\left[()_i-()_{i-1}\right],\ \frac{\partial}{\partial t}\rightarrow \frac{1}{\delta}\left[()_n-()_{n-1}\right]\]
+
+<p>直接就能看出扩散方程和随机游走的等价，且系数之间存在关系：\(\sigma = \frac{\Delta^2}{2\delta}\)</p>
+
+<h3 id="解的等价">解的等价</h3>
+
+<p>只讨论一个 δ(x) 函数作为初值条件的情况，我们要证明此时扩散方程的解：</p>
+
+\[u(x,t) = \frac{1}{\sqrt{4\pi \sigma t}} e^{-\frac{x^2}{4\sigma t}}\ \xleftarrow[{\Delta,\delta \rightarrow 0;\ i,n\rightarrow \infty}]{x=i\Delta,\ t=n\delta} \frac{1}{2^n}\frac{n!}{\left(\frac{n+i}{2}\right)!\left(\frac{n-i}{2}\right)!} \frac{1}{2\Delta}\]
+
+<p>只需讨论这一个情况，因为 δ(x-s) 函数可以看作将一个函数 f(x) 在自变量 x=s 时切片为 f(s)，而任何一个（性质比较“优美”的）函数都可以看作把它自己在定义域上的所有点切片后再重新叠加起来：</p>
+
+\[f(x) = \int_{-\infty}^{+\infty}f(s)\delta(x-s)\ ds\]
+
+<p>过程需要用到 Sterling 公式对阶乘的近似：\(n! \approx \sqrt{2\pi n}\ n^n e^{-n}\)</p>
+
+\[\begin{array}{rcl}
+\frac{P(i,n)}{2\Delta} &amp; \approx &amp; \frac{1}{2\Delta} \frac{1}{2^n} \frac{\sqrt{2\pi n}\ n^n e^{-n}}{\sqrt{\frac{2\pi (n-i)}{2}}\ \left(\frac{n-i}{2}\right)^{\frac{n+i}{2}} e^{-\frac{n+i}{2}}\sqrt{\frac{2\pi (n+i)}{2}}\ \left(\frac{n+i}{2}\right)^{\frac{n+i}{2}} e^{-\frac{n+i}{2}}} \\
+&amp; = &amp; \frac{1}{2\Delta}\frac{\sqrt{2n}}{\sqrt{\pi(n^2-i^2)}}\frac{n^n}{(n-i)^{\frac{n}{2}-\frac{i}{2}}(n+i)^{\frac{n}{2}+\frac{i}{2}}} \\
+&amp; = &amp; \frac{1}{2\Delta}\frac{\sqrt{2n}}{\sqrt{\pi(n^2-i^2)}}\frac{n^n/n^n}{(n-i)^{\frac{n}{2}}(n+i)^{\frac{n}{2}}(n-i)^{-\frac{i}{2}}(n+i)^{\frac{i}{2}}/n^n} \\
+&amp; = &amp; \frac{1}{2\Delta}\frac{\sqrt{2n}}{\sqrt{\pi(n^2-i^2)}} \frac{1}{\left(1-\frac{i}{n}\right)^\frac{n}{2}\left(1+\frac{i}{n}\right)^\frac{n}{2}\left(1-\frac{i}{n}\right)^{-\frac{i}{2}}\left(1+\frac{i}{n}\right)^\frac{i}{2}} \\
+&amp; = &amp; \frac{1}{\sqrt{2}\Delta}\frac{1}{\sqrt{\pi(n-\frac{i^2}{n})}} \frac{1}{\left(1-\frac{i^2}{n^2}\right)^\frac{n}{2}\left(1-\frac{i}{n}\right)^{-\frac{i}{2}}\left(1+\frac{i}{n}\right)^\frac{i}{2}} \\
+&amp; \xrightarrow[\frac{i}{n}=\frac{x\Delta}{2\sigma t},\ \frac{i^2}{n}=\frac{x^2\delta}{\Delta^2 t}]{(1+a\epsilon)^{1/\epsilon}\rightarrow e^a} &amp; \frac{1}{\sqrt{4\pi\sigma t}}\frac{1}{e^\frac{x^2}{4\sigma t} e^\frac{x^2}{4\sigma t} e^{-\frac{x^2}{4\sigma t}} } \\
+&amp; = &amp; \frac{1}{\sqrt{4\pi\sigma t}}e^{-\frac{x^2}{4\sigma t}}
+\end{array}\]
+
+<h3 id="之前-mcmc-讲错了">之前 MCMC 讲错了</h3>
+
+<p>讲 Markov Chain Monte Carlo 模拟的时候举的例子是计算 \(\int_{-\infty}^{+\infty}e^{-x^2}dx\), 现在系数可以对上了：\(1=4\sigma t=4 \frac{\Delta^2}{2\delta} n\delta = 2\Delta^2n\), 随机游走的步数和步长之间存在一个确定的关系，在步长确定的情况下，我们需要重复模拟大量粒子作相同步数的随机游走，然后统计这一确定步数走完之后的每个粒子的终末位置。</p>
+
+<p>所以，这并不是一个 Markov Chain Monte Carlo 模拟，只是一个普通的 Monte Carlo 模拟，我们拿到了想要知道的随机变量的原始概率分布，只不过取得这一概率分布的过程是一个 Markov 过程。</p>
+
+<p>正经的 MCMC，应该是只模拟一个粒子作随机行走，然后把它每一步的位置记录下来，统计到样本里去。这样的话时间 t 的信息就被抹去了，而且由于扩散方程描述的状态并不是热力学平衡态，并不能通过统计物理中的遍历性 (ergodicity) 来得到正确结果。</p>
+
+<p>采用了 Metropolis 算法的 MCMC, 一个粒子作随机行走只是其中的一个步骤，还要计算这一步之前和之后 \(e^{-x^2}\) 的值，来决定这一步是否被加入样本，不成立的话要退回前一步继续走。</p>
+    
+</main>
+<div class="giscus" style="margin-bottom: 2em;">
+  <script src="https://giscus.app/client.js"
+          data-repo="MountAye/comments"
+          data-repo-id="R_kgDOJe4FmQ"
+          data-category="BLOG"
+          data-category-id="DIC_kwDOJe4Fmc4CWQuC"
+          data-mapping="title"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="1"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="zh-CN"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+<div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
+     crossorigin="anonymous"></script>
+<!-- blog-header -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1920275466226790"
+     data-ad-slot="4291489170"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+      </div>
+      <aside id="layout-right">
+        <div id="right-top">
+          <div class="scrollbar-hidden">
+  <div id="toc-side"> <!-- This id is used by js --></div>
+  <div class="fade-out-bottom"></div>
+</div>
+
+        </div>
+        <div id="right-bottom">
+          <div id="right-nav-container">
+            <a class="right-nav-button" href="https://mountaye.github.io/blog/history">
+              <span class="material-symbols-outlined">calendar_month</span>
+              <span class="right-nav-text">日期归档</span>
+            </a>
+            <a class="right-nav-button" href="https://mountaye.github.io/blog/topics" >
+              <span class="material-symbols-outlined">bookmarks</span>
+              <span class="right-nav-text">话题归档</span>
+            </a>
+            <a class="right-nav-button" href="/blog/articles/equivlance-between-diffusion-equation-and-random-walk">
+              <span class="material-symbols-outlined">language_pinyin</span>
+              <span class="right-nav-text">简体中文</span>
+            </a>
+            <a class="right-nav-button" href="/blog/en/articles/equivlance-between-diffusion-equation-and-random-walk">
+              <span class="material-symbols-outlined">language_us</span>
+              <span class="right-nav-text">English</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <footer id="nav-mobile"> <!-- This id is used by js -->
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/history">
+        <span class="material-symbols-outlined">calendar_month</span>
+      </a>
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/topics" >
+        <span class="material-symbols-outlined">bookmarks</span>
+      </a>
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/"><div class="nav-mobile-avatar"></div></a>
+      <a class="nav-mobile-item" href="/blog/articles/equivlance-between-diffusion-equation-and-random-walk">
+        <span class="material-symbols-outlined">language_pinyin</span>
+      </a>
+      <a class="nav-mobile-item" href="/blog/en/articles/equivlance-between-diffusion-equation-and-random-walk">
+        <span class="material-symbols-outlined">language_us</span>
+      </a>
+    </footer>
+  </body>
+</html>

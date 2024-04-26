@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
+        <loc>https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk</loc>
+    </url>
+  
+    <url>
         <loc>https://mountaye.github.io/blog/articles/mc-mcmc-markov-chain-monte-carlo-gibbs-sampling</loc>
     </url>
   

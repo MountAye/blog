@@ -1,4 +1,178 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2024-04-15T18:31:10-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.tex | MC→MCMC 蒙特卡洛模拟，基于马尔科夫链采样</title><link href="https://mountaye.github.io/blog/articles/mc-mcmc-markov-chain-monte-carlo-gibbs-sampling" rel="alternate" type="text/html" title=".tex | MC→MCMC 蒙特卡洛模拟，基于马尔科夫链采样" /><published>2024-04-15T00:00:00-05:00</published><updated>2024-04-15T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/mc-mcmc-markov-chain-monte-carlo-gibbs-sampling</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/mc-mcmc-markov-chain-monte-carlo-gibbs-sampling"><![CDATA[<p>Monte Carlo 蒙特卡洛模拟，简称 MC.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2024-04-25T19:27:00-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.tex | 扩散方程和随机游走的等价</title><link href="https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk" rel="alternate" type="text/html" title=".tex | 扩散方程和随机游走的等价" /><published>2024-04-25T00:00:00-05:00</published><updated>2024-04-25T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk"><![CDATA[<blockquote>
+  <p>这些内容总结自美国研究生级别的《数学物理方法》两次课的笔记，大约两个小时。
+<br />如果是中国大学本科的话，认真的老师半个小时庶几可以讲完;
+<br />念 PPT 就算上课的话 15 分钟可以讲完，附赠一个段子;
+<br />翻转课堂的话也就布置个作业，老师一句话可以讲完。
+<br />以上数据除第一句外纯属揣测，没有黑任何人的意思，love and peace~</p>
+
+</blockquote>
+
+<h3 id="扩散方程">扩散方程</h3>
+
+<p>带有初值条件的扩散方程表述如下：</p>
+
+\[\begin{cases}
+u(x,t=0)=f(x) \\
+\partial u(x,t)/\partial t=\sigma \cdot \partial^2 u(x,t)/ \partial x^2
+\end{cases}\]
+
+<p>方程的解为：</p>
+
+\[u(x,t) = \frac{1}{\sqrt{4\pi \sigma t}} \int_{-\infty}^{+\infty} f(s)\ e^{-\frac{(x-s)^2}{4\sigma t}}\ ds\]
+
+<p>解法是将 u(x,t) 对空间变量 x 作傅里叶变换为 U(k,t)，利用傅里叶变换的性质，变换后的方程将是关于时间 t 的一阶常微分方程。求解后作傅里叶逆变换 <del>即为上式。</del> <del>（完蛋，好久没做题了，那个 \(e^{-\frac{(x-s)^2}{4\sigma t}}\) 是怎么凑出来的，为什么我直接给消掉了啊）</del> 凑出来了凑出来了，初值条件代入频域 k 空间里的通解来确定积分常数，可以看到结果 \(F(k) e^{-\sigma t k^2}\) 是两项之积，所以根据傅里叶变换的卷积定理，实空间 x 里的解是 f(x) 和 \(\mathscr{F}_{k\rightarrow x}^{-1}\{e^{-\sigma t k^2}\}\) 的卷积（所以上式的指数项以 (x-s) 为宗量），而计算后者的时候需要用到高斯积分～</p>
+
+<h3 id="随机游走">随机游走</h3>
+
+<p>随机游走是一个离散过程，为了和连续时空中的扩散方程相对比，将空间变量 x 离散化为相隔 Δ 的格点 i，时间变量 t 离散化为相隔 δ 的 n。</p>
+
+<p>当一个粒子在 n 时刻位于格点 i 时，在下一个时刻 n+1, 它有 1/2 的概率移动到 i-1, 1/2 的概率移动到 i+1.</p>
+
+<p>所以，虽然每个进行随机游走的粒子在任意时刻都只有确定且唯一的位置，但是对于大量同样初始位置和运动规律的例子，n 时刻出现在 i 格点的概率 P(i,n) 有以下关系：</p>
+
+\[\begin{cases}
+P(i,0)= f_i \\
+P(i,n)=\frac{1}{2}\left[P(i-1,n-1)+P(i+1,n-1)\right]
+\end{cases}\]
+
+<p>在初值条件为 \(f_i=\delta_{i=0}\) 时，递推结果如下：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>x 轴 —</th>
+      <th>i = -4</th>
+      <th>i = -3</th>
+      <th>i = -2</th>
+      <th>i = -1</th>
+      <th>O</th>
+      <th>i = 1</th>
+      <th>i = 2</th>
+      <th>i = 3</th>
+      <th>i = 4</th>
+      <th>→</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>n = 0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>n = 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1/2</td>
+      <td>0</td>
+      <td>1/2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>n = 2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1/4</td>
+      <td>0</td>
+      <td>1/2</td>
+      <td>0</td>
+      <td>1/4</td>
+      <td>0</td>
+      <td>0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>n = 3</td>
+      <td>0</td>
+      <td>1/8</td>
+      <td>0</td>
+      <td>3/8</td>
+      <td>0</td>
+      <td>3/8</td>
+      <td>0</td>
+      <td>1/8</td>
+      <td>0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>t 轴 ↓</strong></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="/blog/assets/photos/2024-04-25-random-walk-probabilities.png" alt="" /></p>
+
+<p>离散的情况，很难对任意的初值条件写出解的表达式，但是对于上面的特殊情况，课上不加证明地给出了（可能是根据上图凑出来的）下面的解：</p>
+
+\[P(i,n)=\frac{1}{2^n}\frac{n!}{\left(\frac{n+i}{2}\right)!\left(\frac{n-i}{2}\right)!}\]
+
+<p>对的，以上关系只能表示 (n+i = 偶数) 的情况，但是康托尔告诉了我们，所有偶数和所有自然数的“数量”一样多，所以也没差太多～</p>
+
+<h3 id="方程的等价">方程的等价</h3>
+
+<p>概率的递推公式可以变换为：</p>
+
+\[\frac{1}{\delta}\left[P(i,n)-P(i,n-1)\right]=\frac{1}{2}\left [\frac{P(i-1,n-1)-2P(i,n-1)+P(i+1,n-1)}{\Delta^2}\right]\frac{\Delta^2}{\delta}\]
+
+<p>因为 \(x=i\Delta,\ t=n\delta\), 对两个变量的微分可以离散化成差分：</p>
+
+\[\frac{\partial}{\partial x}\rightarrow \frac{1}{\Delta}\left[()_i-()_{i-1}\right],\ \frac{\partial}{\partial t}\rightarrow \frac{1}{\delta}\left[()_n-()_{n-1}\right]\]
+
+<p>直接就能看出扩散方程和随机游走的等价，且系数之间存在关系：\(\sigma = \frac{\Delta^2}{2\delta}\)</p>
+
+<h3 id="解的等价">解的等价</h3>
+
+<p>只讨论一个 δ(x) 函数作为初值条件的情况，我们要证明此时扩散方程的解：</p>
+
+\[u(x,t) = \frac{1}{\sqrt{4\pi \sigma t}} e^{-\frac{x^2}{4\sigma t}}\ \xleftarrow[{\Delta,\delta \rightarrow 0;\ i,n\rightarrow \infty}]{x=i\Delta,\ t=n\delta} \frac{1}{2^n}\frac{n!}{\left(\frac{n+i}{2}\right)!\left(\frac{n-i}{2}\right)!} \frac{1}{2\Delta}\]
+
+<p>只需讨论这一个情况，因为 δ(x-s) 函数可以看作将一个函数 f(x) 在自变量 x=s 时切片为 f(s)，而任何一个（性质比较“优美”的）函数都可以看作把它自己在定义域上的所有点切片后再重新叠加起来：</p>
+
+\[f(x) = \int_{-\infty}^{+\infty}f(s)\delta(x-s)\ ds\]
+
+<p>过程需要用到 Sterling 公式对阶乘的近似：\(n! \approx \sqrt{2\pi n}\ n^n e^{-n}\)</p>
+
+\[\begin{array}{rcl}
+\frac{P(i,n)}{2\Delta} &amp; \approx &amp; \frac{1}{2\Delta} \frac{1}{2^n} \frac{\sqrt{2\pi n}\ n^n e^{-n}}{\sqrt{\frac{2\pi (n-i)}{2}}\ \left(\frac{n-i}{2}\right)^{\frac{n+i}{2}} e^{-\frac{n+i}{2}}\sqrt{\frac{2\pi (n+i)}{2}}\ \left(\frac{n+i}{2}\right)^{\frac{n+i}{2}} e^{-\frac{n+i}{2}}} \\
+&amp; = &amp; \frac{1}{2\Delta}\frac{\sqrt{2n}}{\sqrt{\pi(n^2-i^2)}}\frac{n^n}{(n-i)^{\frac{n}{2}-\frac{i}{2}}(n+i)^{\frac{n}{2}+\frac{i}{2}}} \\
+&amp; = &amp; \frac{1}{2\Delta}\frac{\sqrt{2n}}{\sqrt{\pi(n^2-i^2)}}\frac{n^n/n^n}{(n-i)^{\frac{n}{2}}(n+i)^{\frac{n}{2}}(n-i)^{-\frac{i}{2}}(n+i)^{\frac{i}{2}}/n^n} \\
+&amp; = &amp; \frac{1}{2\Delta}\frac{\sqrt{2n}}{\sqrt{\pi(n^2-i^2)}} \frac{1}{\left(1-\frac{i}{n}\right)^\frac{n}{2}\left(1+\frac{i}{n}\right)^\frac{n}{2}\left(1-\frac{i}{n}\right)^{-\frac{i}{2}}\left(1+\frac{i}{n}\right)^\frac{i}{2}} \\
+&amp; = &amp; \frac{1}{\sqrt{2}\Delta}\frac{1}{\sqrt{\pi(n-\frac{i^2}{n})}} \frac{1}{\left(1-\frac{i^2}{n^2}\right)^\frac{n}{2}\left(1-\frac{i}{n}\right)^{-\frac{i}{2}}\left(1+\frac{i}{n}\right)^\frac{i}{2}} \\
+&amp; \xrightarrow[\frac{i}{n}=\frac{x\Delta}{2\sigma t},\ \frac{i^2}{n}=\frac{x^2\delta}{\Delta^2 t}]{(1+a\epsilon)^{1/\epsilon}\rightarrow e^a} &amp; \frac{1}{\sqrt{4\pi\sigma t}}\frac{1}{e^\frac{x^2}{4\sigma t} e^\frac{x^2}{4\sigma t} e^{-\frac{x^2}{4\sigma t}} } \\
+&amp; = &amp; \frac{1}{\sqrt{4\pi\sigma t}}e^{-\frac{x^2}{4\sigma t}}
+\end{array}\]
+
+<h3 id="之前-mcmc-讲错了">之前 MCMC 讲错了</h3>
+
+<p>讲 Markov Chain Monte Carlo 模拟的时候举的例子是计算 \(\int_{-\infty}^{+\infty}e^{-x^2}dx\), 现在系数可以对上了：\(1=4\sigma t=4 \frac{\Delta^2}{2\delta} n\delta = 2\Delta^2n\), 随机游走的步数和步长之间存在一个确定的关系，在步长确定的情况下，我们需要重复模拟大量粒子作相同步数的随机游走，然后统计这一确定步数走完之后的每个粒子的终末位置。</p>
+
+<p>所以，这并不是一个 Markov Chain Monte Carlo 模拟，只是一个普通的 Monte Carlo 模拟，我们拿到了想要知道的随机变量的原始概率分布，只不过取得这一概率分布的过程是一个 Markov 过程。</p>
+
+<p>正经的 MCMC，应该是只模拟一个粒子作随机行走，然后把它每一步的位置记录下来，统计到样本里去。这样的话时间 t 的信息就被抹去了，而且由于扩散方程描述的状态并不是热力学平衡态，并不能通过统计物理中的遍历性 (ergodicity) 来得到正确结果。</p>
+
+<p>采用了 Metropolis 算法的 MCMC, 一个粒子作随机行走只是其中的一个步骤，还要计算这一步之前和之后 \(e^{-x^2}\) 的值，来决定这一步是否被加入样本，不成立的话要退回前一步继续走。</p>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[之前 MCMC 讲错了]]></summary></entry><entry><title type="html">.tex | MC→MCMC 蒙特卡洛模拟，基于马尔科夫链采样</title><link href="https://mountaye.github.io/blog/articles/mc-mcmc-markov-chain-monte-carlo-gibbs-sampling" rel="alternate" type="text/html" title=".tex | MC→MCMC 蒙特卡洛模拟，基于马尔科夫链采样" /><published>2024-04-15T00:00:00-05:00</published><updated>2024-04-15T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/mc-mcmc-markov-chain-monte-carlo-gibbs-sampling</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/mc-mcmc-markov-chain-monte-carlo-gibbs-sampling"><![CDATA[<p>Monte Carlo 蒙特卡洛模拟，简称 MC.</p>
 
 <p>Markov Chain Monte Carlo 是用马尔科夫链采样的蒙特卡洛模拟，简称 MCMC.</p>
 
@@ -2275,316 +2449,4 @@ if __name__ == '__main__':
 <ol>
   <li>这是一个 flat-layout 还是 src-layout？</li>
   <li>setup.py 应该怎么写？执行动态安装时的 <code class="language-plaintext highlighter-rouge">pwd</code> 结果是什么？</li>
-</ol>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[这里所说的“别人”，也包括6个月之后，已经不记得当初如何写出这段代码的自己。]]></summary></entry><entry><title type="html">.css | TailwindCSS 笔记</title><link href="https://mountaye.github.io/blog/articles/notes-on-TailwindCSS" rel="alternate" type="text/html" title=".css | TailwindCSS 笔记" /><published>2023-10-11T00:00:00-05:00</published><updated>2023-10-11T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/notes-on-TailwindCSS</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/notes-on-TailwindCSS"><![CDATA[<blockquote>
-  <p>一直听说“全栈项目 = Next.js + TailwindCSS + HeadlessUI”
-但是 TailwindCSS 到底是啥，之前一直妹整明白</p>
-
-</blockquote>
-
-<h2 id="思路utility-first">思路：utility-first</h2>
-
-<blockquote>
-  <p><a href="https://tailwindcss.com/docs/utility-first">https://tailwindcss.com/docs/utility-first</a></p>
-
-</blockquote>
-
-<p>传统设计需要根据 html 中的结构，在 CSS 中给相应的元素/class/id 定义所需要的所有样式 style。</p>
-
-<p>问题很明显：</p>
-
-<ul>
-  <li>最低效的情况下，每个 <code class="language-plaintext highlighter-rouge">&lt;div/&gt;</code> 都要定义一个 class。</li>
-  <li>每个定义里包含若干不同的性质，背景颜色、字体、边框样式等等都挤在一个大括号里，耦合过强。</li>
-</ul>
-
-<p>TailwindCSS 的思路名叫 utility-first, 预先定义一批“性质-取值”的组合，每个组合给出一个有规律命名的类。使用时，一个 <code class="language-plaintext highlighter-rouge">&lt;div/&gt;</code> 后面声明几个甚至几十个不同的 class。缺点就是不灵活了，每个性质只搭配有限几种取值，且类的数量很多。好处是——</p>
-
-<ul>
-  <li>不用绞尽脑汁给类取名字</li>
-  <li>CSS 不会再变大了（也可以说已经大得不能再大了）</li>
-  <li>修改视觉效果时更换一个类，而不是修改类的定义，也就不用担心对类的修改在自己不记得的地方生效。</li>
-</ul>
-
-<p>与之相对的另一种思路，是直接用 html 元素的 style 属性，或者用 module.css 让样式只对某一 component 生效。TailwindCSS 派对这种方法的批评是：</p>
-
-<ul>
-  <li>每个取值都是设计者拍脑袋想出来的，一个项目要拍太多次脑袋，容易风格不统一。</li>
-  <li>难以做 responsive design （真的吗？很怀疑）</li>
-  <li>难以处理鼠标悬浮、聚焦等等状态（这玩意应该由 CSS 处理吗？）</li>
-</ul>
-
-<p>utility-first 在维护性方面收到批评的一点是，很多地方要不断重用相同的组合，少了一点封装和抽象。TailwindCSS 对此的辩护是，可以抽象出 components 和 partials（见下节），或者使用编辑器的多光标功能。（绷……）</p>
-
-<h2 id="技术细节">技术细节</h2>
-
-<ul>
-  <li>样式重用</li>
-  <li>状态，比如鼠标悬浮、聚焦</li>
-  <li>Responsive design</li>
-  <li>夜间模式</li>
-  <li>添加自定义样式</li>
-  <li>函数和 directives</li>
-</ul>
-
-<h3 id="状态比如鼠标悬浮聚焦">状态，比如鼠标悬浮、聚焦</h3>
-
-<p>在正常的类名字之前添加 <code class="language-plaintext highlighter-rouge">&lt;状态&gt;:</code> 标记，用来指明在相应状态时的样式。这些状态可以叠加，之间用 <code class="language-plaintext highlighter-rouge">:</code> 分隔。比如 <code class="language-plaintext highlighter-rouge">&lt;button class="hover:bg-sky-700"&gt;</code></p>
-
-<p>可以标记的状态：<a href="https://tailwindcss.com/docs/hover-focus-and-other-states#appendix">https://tailwindcss.com/docs/hover-focus-and-other-states#appendix</a></p>
-
-<ul>
-  <li>Pseudo-classes
-    <ul>
-      <li>举例： <a href="https://tailwindcss.com/docs/hover-focus-and-other-states#pseudo-class-reference">https://tailwindcss.com/docs/hover-focus-and-other-states#pseudo-class-reference</a>
-        <ul>
-          <li><code class="language-plaintext highlighter-rouge">hover:</code>, <code class="language-plaintext highlighter-rouge">focus:</code>, <code class="language-plaintext highlighter-rouge">active:</code></li>
-          <li><code class="language-plaintext highlighter-rouge">first:</code>, <code class="language-plaintext highlighter-rouge">last:</code>, <code class="language-plaintext highlighter-rouge">odd:</code>, <code class="language-plaintext highlighter-rouge">even:</code></li>
-          <li><code class="language-plaintext highlighter-rouge">required:</code>, <code class="language-plaintext highlighter-rouge">invalid:</code>, <code class="language-plaintext highlighter-rouge">disabled:</code>: 主要用在 <code class="language-plaintext highlighter-rouge">&lt;form&gt;</code> 中</li>
-        </ul>
-      </li>
-      <li>需要父元素的状态信息时，
-        <ul>
-          <li>如果因为嵌套，存在多个 group 时，可以给每一个父元素的类命名 <code class="language-plaintext highlighter-rouge">group/&lt;name&gt;</code>, 子元素的类名需要写在伪类的后面，有点反直觉 <code class="language-plaintext highlighter-rouge">group-hover/&lt;name&gt;:</code></li>
-          <li>给父元素添加 <code class="language-plaintext highlighter-rouge">group</code> 的 class，然后给需要变化的子元素添加 <code class="language-plaintext highlighter-rouge">group-&lt;pseudo-class&gt;:</code> 前缀。如 <code class="language-plaintext highlighter-rouge">group-hover:</code></li>
-          <li>当需要更细致的选择时，可以在子元素的 group 后面添加自定义内容，如 <code class="language-plaintext highlighter-rouge">group-[.is-published]:</code>, <code class="language-plaintext highlighter-rouge">group-[:nth-of-type(3)_&amp;]:</code></li>
-        </ul>
-      </li>
-      <li>需要姊妹元素的状态信息时：
-        <ul>
-          <li>给被跟踪的姊妹元素添加 <code class="language-plaintext highlighter-rouge">peer</code> class, 被跟踪的元素只能在跟踪元素的前面。</li>
-          <li>其余特性类比 group</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#pseudo-elements">Pseudo-elements</a>, like <code class="language-plaintext highlighter-rouge">::before</code>, <code class="language-plaintext highlighter-rouge">::after</code>, <code class="language-plaintext highlighter-rouge">::placeholder</code>, and <code class="language-plaintext highlighter-rouge">::selection</code>
-    <ul>
-      <li>写作 <code class="language-plaintext highlighter-rouge">before:</code> 等等，默认相当于 <code class="language-plaintext highlighter-rouge">before:content-['*']</code></li>
-      <li>当想要调整 content 以外的性质时，需要指明 <code class="language-plaintext highlighter-rouge">before:block</code>, <code class="language-plaintext highlighter-rouge">before:absolute</code>, <code class="language-plaintext highlighter-rouge">before:-inset-1</code> 等等</li>
-      <li><code class="language-plaintext highlighter-rouge">placeholder:</code> 用于调整表格中代填内容的样式</li>
-      <li><code class="language-plaintext highlighter-rouge">file:</code> 上传文件按钮的样式</li>
-      <li><code class="language-plaintext highlighter-rouge">list:</code> 列表开头的</li>
-      <li><code class="language-plaintext highlighter-rouge">selection:</code> （鼠标）选中文字之后的样式</li>
-      <li><code class="language-plaintext highlighter-rouge">first-line:</code>, <code class="language-plaintext highlighter-rouge">first-letter:</code> 杂志常用的首行、首字母的特殊样式</li>
-    </ul>
-  </li>
-  <li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#media-and-feature-queries">Media and feature queries</a>, like responsive breakpoints, dark mode, and <code class="language-plaintext highlighter-rouge">prefers-reduced-motion</code>
-    <ul>
-      <li>结合响应式设计 responsive design 一节，使用 <code class="language-plaintext highlighter-rouge">md:</code>, <code class="language-plaintext highlighter-rouge">lg:</code> 等前缀</li>
-      <li><code class="language-plaintext highlighter-rouge">dark:</code> 黑夜模式</li>
-      <li><code class="language-plaintext highlighter-rouge">motion-reduce:</code> 用户选择屏蔽动画效果时的样式，<code class="language-plaintext highlighter-rouge">motion-safe:</code> 只有不屏蔽动画才会生效的样式</li>
-      <li><code class="language-plaintext highlighter-rouge">portrait</code>,<code class="language-plaintext highlighter-rouge">landscape</code> 屏幕朝向</li>
-      <li><code class="language-plaintext highlighter-rouge">print:</code> 打印时的样式</li>
-      <li><code class="language-plaintext highlighter-rouge">supports-[...]</code> 当浏览器支持某种特性时启动。也可在 <code class="language-plaintext highlighter-rouge">tailwind.config.js</code> 文件中设置 <code class="language-plaintext highlighter-rouge">theme.supports</code> 变量</li>
-    </ul>
-  </li>
-  <li><a href="https://tailwindcss.com/docs/hover-focus-and-other-states#attribute-selectors">Attribute selectors</a>, like <code class="language-plaintext highlighter-rouge">[dir="rtl"]</code> and <code class="language-plaintext highlighter-rouge">[open]</code>
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">aria-*</code> modifier to conditionally style things based on <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes">ARIA attributes</a>.</li>
-      <li><code class="language-plaintext highlighter-rouge">data-[key=value]</code> data 参数的值</li>
-      <li><code class="language-plaintext highlighter-rouge">ltr:</code> &amp; <code class="language-plaintext highlighter-rouge">rtl:</code> 从右往左书写的文字</li>
-      <li><code class="language-plaintext highlighter-rouge">open:</code> &amp; <code class="language-plaintext highlighter-rouge">close:</code> 用于可以展开的元素</li>
-      <li>自定义选择符：用中括号包围，<code class="language-plaintext highlighter-rouge">&amp;</code> 开头选择元素，下划线表示空格，如 <code class="language-plaintext highlighter-rouge">[&amp;:nth-child(3)]:</code>, <code class="language-plaintext highlighter-rouge">[&amp;_p]:mt-4</code>, <code class="language-plaintext highlighter-rouge">[@supports(display:grid)]:grid</code></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="responsive-design">Responsive design</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Breakpoint prefix</th>
-      <th>Minimum width</th>
-      <th>CSS</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>sm</td>
-      <td>640px</td>
-      <td>@media (min-width: 640px) { … }</td>
-    </tr>
-    <tr>
-      <td>md</td>
-      <td>768px</td>
-      <td>@media (min-width: 768px) { … }</td>
-    </tr>
-    <tr>
-      <td>lg</td>
-      <td>1024px</td>
-      <td>@media (min-width: 1024px) { … }</td>
-    </tr>
-    <tr>
-      <td>xl</td>
-      <td>1280px</td>
-      <td>@media (min-width: 1280px) { … }</td>
-    </tr>
-    <tr>
-      <td>2xl</td>
-      <td>1536px</td>
-      <td>@media (min-width: 1536px) { … }</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>移动端优先的思路，所有尺寸限定的都是大于该宽度时的样式。</p>
-
-<p>要限定上限，要用 <code class="language-plaintext highlighter-rouge">max-&lt;size&gt;:</code> 比如 <code class="language-plaintext highlighter-rouge">md:max-xl:flex</code></p>
-
-<p>要想自定义 breakpoints，可以看 <a href="https://tailwindcss.com/docs/breakpoints">customizing breakpoints documentation</a>.</p>
-
-<p>也可以单独设定 <code class="language-plaintext highlighter-rouge">min-[320px]:</code>, <code class="language-plaintext highlighter-rouge">max-[600px]:</code> 等等</p>
-
-<h3 id="夜间模式">夜间模式</h3>
-
-<p>默认使用操作系统的设定。</p>
-
-<p>要想手动设定，须在 tailwind.config.js 中加入</p>
-
-<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/** @type {import('tailwindcss').Config} */</span>
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">darkMode</span><span class="p">:</span> <span class="dl">'</span><span class="s1">class</span><span class="dl">'</span><span class="p">,</span>
-  <span class="c1">// ...</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>然后含有 <code class="language-plaintext highlighter-rouge">class=’dark’</code> 的元素的子元素都时夜间模式的效果</p>
-
-<p>这个<a href="https://tailwindcss.com/docs/dark-mode#supporting-system-preference-and-manual-selection">链接</a>包含了同时兼容系统设置和手动设置的做法</p>
-
-<h3 id="样式重用">样式重用</h3>
-
-<ul>
-  <li>编辑器的多光标功能：<a href="https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor">https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor</a></li>
-  <li>标记语言的循环语法</li>
-  <li>react 等框架的 component 概念</li>
-  <li><code class="language-plaintext highlighter-rouge">@apply</code> and <code class="language-plaintext highlighter-rouge">@layer</code> in the <a href="https://tailwindcss.com/docs/functions-and-directives#layer">Functions &amp; Directives</a> documentation.</li>
-  <li>避免提前过度抽象</li>
-</ul>
-
-<h3 id="添加自定义样式">添加自定义样式</h3>
-
-<ul>
-  <li>编辑 <code class="language-plaintext highlighter-rouge">tailwind.config.js</code>, 文档在此：<a href="https://tailwindcss.com/docs/theme">https://tailwindcss.com/docs/theme</a></li>
-  <li><a href="https://tailwindcss.com/docs/adding-custom-styles#arbitrary-properties">Arbitrary properties</a> 和 <a href="https://tailwindcss.com/docs/adding-custom-styles#arbitrary-variants">arbitrary variants</a></li>
-  <li><a href="https://tailwindcss.com/docs/adding-custom-styles#using-css-and-layer">Using CSS and @layer</a>, 使用多个 CSS 文件时，需在 postcss.config.js 文件中添加 <code class="language-plaintext highlighter-rouge">plugins: {’postcss-import’:  {},}</code> 字段</li>
-  <li><a href="https://tailwindcss.com/docs/adding-custom-styles#writing-plugins">Writing plugins</a></li>
-</ul>
-
-<h3 id="函数和-directives">函数和 directives</h3>
-
-<p>directives 是 CSS 文件中的 <code class="language-plaintext highlighter-rouge">@</code> 开头的语句</p>
-
-<p><code class="language-plaintext highlighter-rouge">@layer</code> 用来把一些需要打包的样式绑在一起，后面三个取值：base, components, utilities</p>
-
-<p><code class="language-plaintext highlighter-rouge">@apply</code> 后面接 TailwindCSS 已经定义的类，表示把类的定义移植于此处。</p>
-
-<p><strong><a href="https://tailwindcss.com/docs/functions-and-directives#config"><code class="language-plaintext highlighter-rouge">@config</code></a></strong> 指定所在 CSS 文件需要使用的 TailwindCSS 配置文件，放在 @import 语句后面</p>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@tailwind</span> <span class="n">base</span><span class="p">;</span>
-<span class="k">@tailwind</span> <span class="n">components</span><span class="p">;</span>
-<span class="k">@tailwind</span> <span class="n">utilities</span><span class="p">;</span>
-
-<span class="k">@layer</span> <span class="n">base</span> <span class="p">{</span>
-  <span class="nt">h1</span> <span class="p">{</span>
-    <span class="err">@apply</span> <span class="err">text-2xl;</span>
-  <span class="p">}</span>
-  <span class="nt">h2</span> <span class="p">{</span>
-    <span class="err">@apply</span> <span class="err">text-xl;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">@layer</span> <span class="n">components</span> <span class="p">{</span>
-  <span class="nc">.btn-blue</span> <span class="p">{</span>
-    <span class="err">@apply</span> <span class="err">bg-blue-500</span> <span class="py">hover</span><span class="p">:</span><span class="n">bg-blue-700</span> <span class="n">text-white</span> <span class="n">font-bold</span> <span class="n">py-2</span> <span class="n">px-4</span> <span class="n">rounded</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">@layer</span> <span class="n">utilities</span> <span class="p">{</span>
-  <span class="nc">.filter-none</span> <span class="p">{</span>
-    <span class="nl">filter</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="nc">.filter-grayscale</span> <span class="p">{</span>
-    <span class="nl">filter</span><span class="p">:</span> <span class="n">grayscale</span><span class="p">(</span><span class="m">100%</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>TailwindCSS 还自定义了一些 CSS 函数：</p>
-
-<ul>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">theme()</code>: 返回 config 文件中的参数，比如</p>
-
-    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nc">.content-area</span> <span class="p">{</span>
-    <span class="nl">height</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">100vh</span> <span class="n">-</span> <span class="n">theme</span><span class="p">(</span><span class="n">spacing</span><span class="m">.12</span><span class="p">));</span>
-  <span class="p">}</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p><a href="https://tailwindcss.com/docs/functions-and-directives#screen"><code class="language-plaintext highlighter-rouge">screen()</code></a>: 以预定义的 breakpoint 为参数，避免代码中间出现硬编码的数值</p>
-
-    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">@media</span> <span class="n">screen</span><span class="p">(</span><span class="n">sm</span><span class="p">)</span> <span class="p">{</span> <span class="c">/* ... */</span> <span class="p">}</span>
-</code></pre></div>    </div>
-  </li>
-</ul>
-
-<h2 id="在-nextjs-项目中安装-tailwindcss">在 Next.js 项目中安装 TailwindCSS</h2>
-
-<blockquote>
-  <p><a href="https://nextjs.org/docs/pages/building-your-application/styling/tailwind-css">https://nextjs.org/docs/pages/building-your-application/styling/tailwind-css</a></p>
-
-</blockquote>
-
-<p>在命令行</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> <span class="nt">-D</span> tailwindcss postcss autoprefixer
-npx tailwindcss init <span class="nt">-p</span>
-</code></pre></div></div>
-
-<p>如此会在项目的根目录新建 <code class="language-plaintext highlighter-rouge">tailwind.config.js</code> &amp; <code class="language-plaintext highlighter-rouge">postcss.config.js</code> 文件</p>
-
-<p>然后编辑 <code class="language-plaintext highlighter-rouge">tailwind.config.js</code> 文件，添加需要用到 TailwaindCSS 的路径</p>
-
-<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/** @type {import('tailwindcss').Config} */</span>
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">content</span><span class="p">:</span> <span class="p">[</span>
-    <span class="dl">'</span><span class="s1">./app/**/*.{js,ts,jsx,tsx,mdx}</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// Note the addition of the `app` directory.</span>
-    <span class="dl">'</span><span class="s1">./pages/**/*.{js,ts,jsx,tsx,mdx}</span><span class="dl">'</span><span class="p">,</span>
-    <span class="dl">'</span><span class="s1">./components/**/*.{js,ts,jsx,tsx,mdx}</span><span class="dl">'</span><span class="p">,</span>
- 
-    <span class="c1">// Or if using `src` directory:</span>
-    <span class="dl">'</span><span class="s1">./src/**/*.{js,ts,jsx,tsx,mdx}</span><span class="dl">'</span><span class="p">,</span>
-  <span class="p">],</span>
-  <span class="na">theme</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">extend</span><span class="p">:</span> <span class="p">{},</span>
-  <span class="p">},</span>
-  <span class="na">plugins</span><span class="p">:</span> <span class="p">[],</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>在全局样式表 <code class="language-plaintext highlighter-rouge">styles/globals.css</code> 中引入 TailwaindCSS</p>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@tailwind</span> <span class="n">base</span><span class="p">;</span>
-<span class="k">@tailwind</span> <span class="n">components</span><span class="p">;</span>
-<span class="k">@tailwind</span> <span class="n">utilities</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>在 <code class="language-plaintext highlighter-rouge">pages/_app.js</code> 中引入全局样式表。<code class="language-plaintext highlighter-rouge">@</code> 的含义不明</p>
-
-<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// These styles apply to every route in the application</span>
-<span class="k">import</span> <span class="dl">'</span><span class="s1">@/styles/globals.css</span><span class="dl">'</span>
-<span class="k">import</span> <span class="nx">type</span> <span class="p">{</span> <span class="nx">AppProps</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">next/app</span><span class="dl">'</span>
- 
-<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">App</span><span class="p">({</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">pageProps</span> <span class="p">}:</span> <span class="nx">AppProps</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">&lt;</span><span class="nc">Component</span> <span class="si">{</span><span class="p">...</span><span class="nx">pageProps</span><span class="si">}</span> <span class="p">/&gt;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>在项目的 components 中使用 TailwindCSS 的类：</p>
-
-<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">Page</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">className</span><span class="p">=</span><span class="s">"text-3xl font-bold underline"</span><span class="p">&gt;</span>Hello, Next.js!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[一直听说“全栈项目 = Next.js + TailwindCSS + HeadlessUI”，但是 TailwindCSS 到底是啥，之前一直妹整明白]]></summary></entry></feed>
+</ol>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[这里所说的“别人”，也包括6个月之后，已经不记得当初如何写出这段代码的自己。]]></summary></entry></feed>

@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="scrollbar-hidden">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+
+<title>.tex | 比较两个概率分布/两条信息 | 阿掖山</title>
+<link rel="shortcut icon" href="https://mountaye.github.io/blog/favicon.ico" >
+<link rel="canonical" href="https://mountaye.github.io/blog/articles/information-entropy-kl-divergence-cross-entropy-mutual-information" />
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta name="author" content="MountAye" />
+<meta name="description" content="自信息、信息熵、KL Divergence、交叉熵、互信息" />
+<meta property="og:title" content=".tex | 比较两个概率分布/两条信息" />
+<meta property="og:locale" content="zh-CN" />
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://mountaye.github.io/blog/articles/information-entropy-kl-divergence-cross-entropy-mutual-information" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-05-14 00:00:00 -0500" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content=".tex | 比较两个概率分布/两条信息" />
+<script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MountAye"},"dateModified":"","datePublished":"2024-05-14","description":"自信息、信息熵、KL Divergence、交叉熵、互信息","headline":"自信息、信息熵、KL Divergence、交叉熵、互信息","mainEntityOfPage":{"@type":"WebPage","@id":"https://mountaye.github.io/blog/articles/information-entropy-kl-divergence-cross-entropy-mutual-information"},"url":"https://mountaye.github.io/blog/articles/information-entropy-kl-divergence-cross-entropy-mutual-information"}
+</script>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3X9B5LN42L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3X9B5LN42L');
+</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400;1,8..60,700&display=swap" rel="stylesheet">
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'oau8puo',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+    <link rel="stylesheet" href="/blog/assets/css/main.css">
+    <script src="/blog/assets/js/main.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <div id="layout-all">
+      <aside id="layout-left">
+        <a class="left-avatar"
+           href="https://mountaye.github.io/blog/"
+        >
+          <div id="avatar"></div>
+          <div id="sitename">阿掖山</div>
+        </a>
+        <div class="left-quote">
+          <div class="fade-out-left"></div>
+          <div class="side-vertical scrollbar-hidden">
+            <p><span id="quote-line">智力活动是一种生活态度</span></p> <!-- This id is used by js --> 
+            <p>——<span id="quote-author">阿掖山·一个博客</span></p>   <!-- This id is used by js --> 
+          </div>
+        </div>
+        <footer class="left-footer side-vertical">
+          <div id="social-icons">
+            <a href="/blog/feed.xml" class="icon-Popular_RSS"></a>
+            <a href="https://www.github.com/MountAye" class="icon-Popular_GitHub"></a>
+            <a href="https://www.twitter.com/MountAye" class="icon-Popular_Twitter"></a>
+            <a href="https://github.com/MountAye/comments/discussions/categories/blog" class="icon-Popular_mail" style="font-size: 13px;"></a>
+          </div>
+          <p>阿掖山 &copy; 2024
+          <br>Rights Reserved
+          <br>Theme by <a href="https://www.github.com/MountAye" style="font-size: inherit; text-decoration: none; color: #3C70C6;">MountAye</a></p>
+        </footer>
+      </aside> 
+      <div id="layout-mid">
+        <header id="header"> <!-- This id is used by js --> 
+          <h1 id="header-title">阿掖山.tex | 比较两个概率分布/两条信息</h1>
+          <div id="toc-button" class="changable-icon" onclick="tocButton(this)">
+            <div class="bar1"></div><div class="bar2"></div><div class="bar3"></div>
+          </div>
+          <div id="toc-dropdown-container" class="dropdown-content">
+            <div id="toc-dropdown"><!-- This id is used by js --></div> 
+          </div>
+        </header>
+      
+        <div id="title-banner" class="written">
+          
+          <h1>.tex | 比较两个概率分布/两条信息</h1>
+          <div id="author-card">
+            <div id="author-avatar" style='background-image: url("/blog/assets/img/before_h2.png");'></div>
+            <div id="author-texts">
+              <p><strong>MountAye</strong></p>
+              <p>May 14, 2024</p>
+            </div>
+          </div>
+          <hr>  
+        </div>
+      
+        <main class="written">
+  <blockquote>
+  <p>自鸣得意了半天，发现这篇文章基本就是维基百科 <a href="https://en.wikipedia.org/wiki/Quantities_of_information">Quantities of Information</a> 词条英文版的翻译。但是对应的中文词条没有覆盖英文版那么多的内容，所以也不完全是无用功。</p>
+
+</blockquote>
+
+<h2 id="信息和概率">信息和概率</h2>
+
+<p>一条信息由一个命题来表达。（这一个命题可以是对多个命题进行逻辑演算的一个表达式。）</p>
+
+<p>而这个命题解答了人心中的某个疑问。既然这是个疑问，那么在得到确切的信息之前，有众多其他命题，和这条消息一样有可能是问题的答案。既然是有可能，那就是概率论可以派上用场的对方。所有这些可能成为答案的命题一起，构成一个随机变量空间。</p>
+
+<p>比如说一道有 ABCD 四个选项的选择题，如果是单选题，那么答案的随机变量空间就是 {A, B, C, D}，如果是多选题，则是 {A, B, C, D, AB, AC, AD, BC, BD, CD, ABC, ABD, ACD, BCD, ABCD}，如果是排序题、不定项排序题、答案出错了的题……</p>
+
+<h2 id="描述一个概率分布的信息量">描述一个概率分布的信息量</h2>
+
+<h3 id="自信息self-information">自信息：Self Information</h3>
+
+<p>自信息是一个随机事件的性质，也就是针对一个随机变量的<strong>某一个可能取值</strong>而言的。表达式为</p>
+
+\[I(m) = -\log_n\left(p(M=m)\right)\]
+
+<p>这是一个无量纲量，但是公式中指数的底数可以任意选择——</p>
+
+<ul>
+  <li><em>n</em> = 2 的时候自信息的单位是 bit，也叫香农 (shannon), 这里的 bit 和二进制位 bit 不完全相同，一个香农是一个二进制位所能表示信息的<strong>上限</strong>：当一个二进制位完全取决于其它位时，这个位不包含任何额外信息，香农数为 0，但这个二进制位依然物理上存在；</li>
+  <li><em>n</em> = <em>e</em> 的时候单位是 nat, 因为 \(\log_e\equiv\ln\) 叫做自然对数；</li>
+  <li><em>n</em> = 10 的时候单位叫 hartley</li>
+</ul>
+
+<p>——单位之间的换算关系由对数的换底公式给出。</p>
+
+<p>这个量在信息论中的意义是，这条消息作为一个不方便问的问题的<strong>答案</strong>，<strong>最少可以</strong>用多少个 n 个选项的单选题套出答案。当 n=2 的时候，每个问题就是一个是非题，也就是一般疑问句。</p>
+
+<p>码农面试的时候经常问一类问题：一堆看起来相同的东西里面有一个不一样，你有一种不能直接测出答案的测量工具，最少需要测量几次才能辨别出来……但是自信息的计算不能提供具体的辨别方法，具体方法还是需要你自己去凑，而面试刷人很多都是在刷这种细枝末节。</p>
+
+<p>当然了，前提是你的面试官懂他自己在问什么，而不是相信美剧《硅谷》里压缩算法可以突破信息论极限的计算机民科～</p>
+
+<p>当 <em>p</em> = 0 时，自信息发散为无穷大。不过问题不大，原因在下一节。</p>
+
+<h3 id="信息熵entropy">信息熵：Entropy</h3>
+
+<p>信息熵是一个随机变量的概率分布的整体性质。</p>
+
+<p>算法很简单，就是自信息的概率期望，也就是按照随机变量每个取值的概率加权平均：</p>
+
+\[S(p(M))=\mathbb{E}_p[-\log_n p(M)]=-\sum_{m\in M}p(m)\log_n p(m)\]
+
+<p>当 <em>p</em> = 0 时，自信息发散，但是概率为零，强行定义两者的积也为零，对信息熵不构成贡献。</p>
+
+<p>当我们只对某一特定的随机事件信息感兴趣，除此以外的所有事件合并为目标事件的补集，就得到二项信息熵 binary entropy:</p>
+
+\[S_{binary} = -(1-p)\log(1-p)-p\log p = p\log\frac{1-p}{p}-\log(1-p)\]
+
+<p>沿着自信息的意义往下走，信息熵在信息论中的意义是，一个将众多信息/命题的集合作为备选答案的<strong>问题</strong>，<strong>最少可以</strong>用多少道 n 个选项的单选题的集合来等价替代。</p>
+
+<p>当这些最优的单选题确定之后，原问题的每一个选项，可以用单选题的答案序号来进行编码。指数的不同底数/信息量的不同单位就是数字的 n 进制，信息量就是相应进制下最大压缩编码后的位数。</p>
+
+<p>当然要讨论压缩的话，还需要另找地方记录各个单选题和选项，也就是压缩字典。</p>
+
+<h2 id="比较两个概率分布的信息量">比较两个概率分布的信息量</h2>
+
+<p>而如何选择单选题，使之成为针对给定问题最优的问题集，会因为各个选项概率分布的不同而变化。即便是同一组信息/备选答案，两套不同的概率分布，各自会给出一套对自己最优的问题集，一套概率分布下的最优问题集不见得是另外一套概率分布下的最优问题集。</p>
+
+<blockquote>
+  <p>下面的表达式都只写出了离散变量的形式，连续随机变量需要将求和写成对应的积分。</p>
+
+</blockquote>
+
+<h3 id="相对熵kullbackleibler-k-l-divergence">相对熵：Kullback–Leibler (K-L) Divergence</h3>
+
+<p>英文里也叫 relative entropy 或者 I-divergence</p>
+
+<p>这里的两个概率分布映射自<strong>同一个</strong>随机变量空间。</p>
+
+\[D_{KL}(p(X)|q(X))=\sum_{x\in X}p(x)\log\frac{p(x)}{q(x)}=-\sum_{x\in X}p(x)\log\frac{q(x)}{p(x)}\]
+
+<p>这个量描述了当 <em>p</em>(<em>X</em>) 作为各选项的正确概率分布的情况下，用对 <em>q</em>(<em>X</em>) 最优的单选题去提问，<strong>没问出来的信息</strong>所需要的<strong>额外的</strong>单选题数目/编码数。</p>
+
+<p>在科学应用中，<em>p</em>(<em>X</em>) 一般是从实验中测量出来的概率分布，<em>q</em>(<em>X</em>) 是理论模型的预测。</p>
+
+<p>下面的例子计算了一个单选题，选 C、选 B、假想中一群学生的答案统计、胡猜四种概率分布 <em>p, q ,r , φ</em> 之间的 KL divergence。因为概率为零会出现发散问题，所以我们取 eps = 10^(-10) 把这些概率值截断：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="k">def</span> <span class="nf">kl_div</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">eps</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">clip</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">eps</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">eps</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">clip</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">eps</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">eps</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="nf">log2</span><span class="p">(</span><span class="n">p</span><span class="o">/</span><span class="n">q</span><span class="p">))</span>
+
+<span class="n">p</span>   <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span>  <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">0</span><span class="p">])</span>
+<span class="n">q</span>   <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span>  <span class="mi">0</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">])</span>
+<span class="n">r</span>   <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">empty</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v1</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">([</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">phi</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">v2</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">([</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">phi</span><span class="p">]):</span>
+        <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nf">kl_div</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>KL-div(行, 列)/bit</th>
+      <th>p</th>
+      <th>q</th>
+      <th>r</th>
+      <th>φ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>p = [0,0,1,0]</td>
+      <td>0</td>
+      <td>33.219</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>q = [0,1,0,0]</td>
+      <td>33.219</td>
+      <td>0</td>
+      <td>2.585</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>r = [1/6, 1/6, 1/2, 1/6]</td>
+      <td>14.817</td>
+      <td>25.890</td>
+      <td>0</td>
+      <td>0.208</td>
+    </tr>
+    <tr>
+      <td>φ = [1/4,1/4,1/4,1/4]</td>
+      <td>22.914</td>
+      <td>22.914</td>
+      <td>0.189</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>从结果中我们可以看到：</p>
+
+<ul>
+  <li>对角线为 0，符合其意义。</li>
+  <li>\(D_{KL}(p,q)\) 和 \(D_{KL}(q,p)\) 都应该是 +∞，这里的有限值是 eps 截断的结果</li>
+  <li>除个别巧合，对称位置的值一般不相等。这个量不同于两点之间的距离。</li>
+</ul>
+
+<h3 id="交叉熵cross-entropy">交叉熵：Cross Entropy</h3>
+
+<p>这里的两个概率分布映射自<strong>同一个</strong>随机变量空间 X。</p>
+
+<p>概率分布 <strong><em>q</em> 相对于 <em>p</em></strong> 的交叉熵 cross entropy</p>
+
+\[CE(p(X),q(X))=-\sum_{x\in X}p(x)\log q(x)=S(p(X))+D_{KL}(p(X)|q(X))\]
+
+<p>这个量描述了当 <em>p</em>(<em>X</em>) 作为各选项的正确概率分布的情况下，用对 <em>q</em>(<em>X</em>) 最优的单选题去提问，所需要的<strong>总共的</strong>单选题数目/编码数。</p>
+
+<p>类似于二项熵，<em>p</em> 和 <em>q</em> 之间的 binary cross entropy:</p>
+
+\[BCE(p,q)=-p\log q-(1-p)\log(1-q)=p\log\frac{1-q}{q}-\log(1-q)\]
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">cross_entropy</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">eps</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">clip</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">eps</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">eps</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">clip</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">eps</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">eps</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="nf">log2</span><span class="p">(</span><span class="n">q</span><span class="p">))</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">empty</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v1</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">([</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">phi</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">v2</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">([</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">phi</span><span class="p">]):</span>
+        <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nf">cross_entropy</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cross Entropy(行, 列)/bit</th>
+      <th>p</th>
+      <th>q</th>
+      <th>r</th>
+      <th>\(\varphi\)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>p = [0,0,1,0]</td>
+      <td>0</td>
+      <td>33.219</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>q = [0,1,0,0]</td>
+      <td>33.219</td>
+      <td>0</td>
+      <td>2.585</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>r = [1/6, 1/6, 1/2, 1/6]</td>
+      <td>16.610</td>
+      <td>27.683</td>
+      <td>1.792</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>\(\varphi\) = [1/4,1/4,1/4,1/4]</td>
+      <td>24.914</td>
+      <td>24.914</td>
+      <td>2.189</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>对角线上不一定为零，而是自己的信息熵</li>
+  <li>其他位置和 KL divergence 相差大约为第一个输入分布的信息熵，误差 eps 的截断</li>
+</ul>
+
+<h3 id="互信息mutual-information">互信息：Mutual Information</h3>
+
+<p>这里的两个概率分布一般来说映射自<strong>不同的</strong>随机变量空间。</p>
+
+\[MI(X,Y)=\sum_{x,y}p(x,y)\log\frac{p(x,y)}{p(x)p(y)}=D_{KL}\left(p(X,Y)|p(X)p(Y)\right)\]
+
+<p>从后一个等号可以看出，这一性质衡量的是 <em>X, Y</em> 两个随机变量的联合分布在多大程度上不同于“<em>X</em> 和 <em>Y</em> 相互独立”的零假设。两个随机变量相互独立时，互相不反映对方的信息，互信息 <em>MI</em> = 0。</p>
+
+<p>当从 <em>X</em> 所在的随机变量空间取样的难度比较大的时候，我们需要用容易取样的<strong>另一个变量空间</strong>的随机变量 <em>Y</em> 来推测 <em>X</em> 的情况，互信息就可以用来论证我们这种选择的合理性。</p>
+
+<h2 id="扯点闲篇">扯点闲篇</h2>
+
+<h3 id="pytorch-中以此为基础的-loss-functions">PyTorch 中以此为基础的 loss functions</h3>
+
+<p><code class="language-plaintext highlighter-rouge">torch.nn</code> 中有如下几个和今天的文章相关的 loss functions：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">torch.[nn.KLDivLoss](https://pytorch.org/docs/stable/generated/torch.nn.KLDivLoss.html#torch.nn.KLDivLoss)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">torch.[nn.CrossEntropyLoss](https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html#torch.nn.CrossEntropyLoss)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">torch.[nn.BCELoss](https://pytorch.org/docs/stable/generated/torch.nn.BCELoss.html#torch.nn.BCELoss)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">torch.[nn.BCEWithLogitsLoss](https://pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html#torch.nn.BCEWithLogitsLoss)</code></li>
+</ul>
+
+<p>之所以没直接用这些函数计算上面的例子，是因为 <code class="language-plaintext highlighter-rouge">KLDivLoss</code> 是按元素计算，随后需要自己求和；<code class="language-plaintext highlighter-rouge">CrossEntropyLoss</code> 又是按类别的，还不需要归一化，而且文档的解释很复杂，我到现在也没看明白；而且还要注意这些函数的设计输入是不是 logit，这是机器学习里的概念，在此不展开了。</p>
+
+<h3 id="玻尔兹曼的墓志铭">玻尔兹曼的墓志铭</h3>
+
+\[S=k\log W\]
+
+<p>其中 <em>S</em> 是（微正则系综中的）热力学熵，<em>k</em> 是玻尔兹曼常数 \(k_B\)，<em>W</em> 是因为刻碑的师傅不会写 <em>Ω</em>。</p>
+
+<p>W 或 Ω 是处于相同能量的热力学状态的数量。因为你都需要统计物理了，显然是只知道能量，没办法知道所考虑的微观粒子究竟处于哪一个热力学状态。那此时的零假设就是处于所有状态的可能性相等，<em>p</em> = 1/Ω，信息熵</p>
+
+\[S =-\sum_{m\in M}p(m)\log_n p(m)= -\Omega\cdot(\frac{1}{\Omega}\log\frac{1}{\Omega})=\log\Omega\]
+
+<p>和热力学熵只相差一个玻尔兹曼常数。这是因为信息熵是无量纲的，熵和温度的量纲相乘之后需要得到能量的量纲，只能由 \(k_B\) 把量纲凑齐，而数值是自由能相关的实验里测出来的。</p>
+
+<p>好像这就是高中物理里熵的定义式是吧。</p>
+
+<p>上了大学以后，正则系综和巨正则系综中的熵也分别就是各自体系中各状态的概率分布的信息熵，乘上玻尔兹曼常数。<del>（我也忘得差不多了，试图萌混过关）</del></p>
+
+<h3 id="善卜者无先见之明">善卜者无先见之明</h3>
+
+<p>公元 451 年，阿提拉 Attila 率领匈人攻入罗马领土，横扫有大量其他民族居住的高卢地区。西罗马帝国将军艾提乌斯 Aetius 联络了众多畏惧匈人的民族组成联军，其中包括西哥特人的王狄奥多里克 Theodoric，两军会战于卡塔隆 Catalaunian 平原。</p>
+
+<p>本来想用这个故事举例子来着，因为我记得阿提拉在战前找了个大师算了一卦，说是一位国王将战死，一个国家将崩塌。于是阿提拉很高兴，以为哥特人和狄奥多里克要玩完了，结果战斗打响，狄奥多里克确实死于乱军，但是罗马和哥特等族的联军击败了匈人，阿提拉的霸业雨打风吹去。</p>
+
+<p>于是试图说明算命的魅力就在于，用文字游戏表达一个自信息比较低的命题，同时误导对方相信一个自信息高得多的命题，在心理疏导之外，赚一个信息熵的差价。</p>
+
+<p>结果查证的时候发现好像不是这么回事，Barbarian Rising 故事片里的预言内容不一样；维基百科上没给出处，说算命的很准，于是阿提拉推迟到下午作战，方便晚上跑路；其他地方甚至压根没有算命的情节。但是写都写了，需要积累高考作文素材的小朋友们还是可以假装被我误导了~</p>
+
+<p>当然了，算命这个事还有一种情况，就是打着不确定的幌子，售卖确定但不方便承认自己确定的信息，那就是另一种生意，和另外的价格了~</p>
+    
+</main>
+<div class="giscus" style="margin-bottom: 2em;">
+  <script src="https://giscus.app/client.js"
+          data-repo="MountAye/comments"
+          data-repo-id="R_kgDOJe4FmQ"
+          data-category="BLOG"
+          data-category-id="DIC_kwDOJe4Fmc4CWQuC"
+          data-mapping="title"
+          data-strict="1"
+          data-reactions-enabled="1"
+          data-emit-metadata="1"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="zh-CN"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+<div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920275466226790"
+     crossorigin="anonymous"></script>
+<!-- blog-header -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1920275466226790"
+     data-ad-slot="4291489170"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+      </div>
+      <aside id="layout-right">
+        <div id="right-top">
+          <div class="scrollbar-hidden">
+  <div id="toc-side"> <!-- This id is used by js --></div>
+  <div class="fade-out-bottom"></div>
+</div>
+
+        </div>
+        <div id="right-bottom">
+          <div id="right-nav-container">
+            <a class="right-nav-button" href="https://mountaye.github.io/blog/history">
+              <span class="material-symbols-outlined">calendar_month</span>
+              <span class="right-nav-text">日期归档</span>
+            </a>
+            <a class="right-nav-button" href="https://mountaye.github.io/blog/topics" >
+              <span class="material-symbols-outlined">bookmarks</span>
+              <span class="right-nav-text">话题归档</span>
+            </a>
+            <a class="right-nav-button" href="/blog/articles/information-entropy-kl-divergence-cross-entropy-mutual-information">
+              <span class="material-symbols-outlined">language_pinyin</span>
+              <span class="right-nav-text">简体中文</span>
+            </a>
+            <a class="right-nav-button" href="/blog/en/articles/information-entropy-kl-divergence-cross-entropy-mutual-information">
+              <span class="material-symbols-outlined">language_us</span>
+              <span class="right-nav-text">English</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <footer id="nav-mobile"> <!-- This id is used by js -->
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/history">
+        <span class="material-symbols-outlined">calendar_month</span>
+      </a>
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/topics" >
+        <span class="material-symbols-outlined">bookmarks</span>
+      </a>
+      <a class="nav-mobile-item" href="https://mountaye.github.io/blog/"><div class="nav-mobile-avatar"></div></a>
+      <a class="nav-mobile-item" href="/blog/articles/information-entropy-kl-divergence-cross-entropy-mutual-information">
+        <span class="material-symbols-outlined">language_pinyin</span>
+      </a>
+      <a class="nav-mobile-item" href="/blog/en/articles/information-entropy-kl-divergence-cross-entropy-mutual-information">
+        <span class="material-symbols-outlined">language_us</span>
+      </a>
+    </footer>
+  </body>
+</html>

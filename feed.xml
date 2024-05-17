@@ -1,4 +1,277 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2024-04-25T19:27:00-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.tex | 扩散方程和随机游走的等价</title><link href="https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk" rel="alternate" type="text/html" title=".tex | 扩散方程和随机游走的等价" /><published>2024-04-25T00:00:00-05:00</published><updated>2024-04-25T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://mountaye.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://mountaye.github.io/blog/" rel="alternate" type="text/html" hreflang="zh-CN" /><updated>2024-05-16T19:06:25-05:00</updated><id>https://mountaye.github.io/blog/feed.xml</id><author><name>MountAye</name></author><entry><title type="html">.tex | 比较两个概率分布/两条信息</title><link href="https://mountaye.github.io/blog/articles/information-entropy-kl-divergence-cross-entropy-mutual-information" rel="alternate" type="text/html" title=".tex | 比较两个概率分布/两条信息" /><published>2024-05-14T00:00:00-05:00</published><updated>2024-05-14T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/information-entropy-kl-divergence-cross-entropy-mutual-information</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/information-entropy-kl-divergence-cross-entropy-mutual-information"><![CDATA[<blockquote>
+  <p>自鸣得意了半天，发现这篇文章基本就是维基百科 <a href="https://en.wikipedia.org/wiki/Quantities_of_information">Quantities of Information</a> 词条英文版的翻译。但是对应的中文词条没有覆盖英文版那么多的内容，所以也不完全是无用功。</p>
+
+</blockquote>
+
+<h2 id="信息和概率">信息和概率</h2>
+
+<p>一条信息由一个命题来表达。（这一个命题可以是对多个命题进行逻辑演算的一个表达式。）</p>
+
+<p>而这个命题解答了人心中的某个疑问。既然这是个疑问，那么在得到确切的信息之前，有众多其他命题，和这条消息一样有可能是问题的答案。既然是有可能，那就是概率论可以派上用场的对方。所有这些可能成为答案的命题一起，构成一个随机变量空间。</p>
+
+<p>比如说一道有 ABCD 四个选项的选择题，如果是单选题，那么答案的随机变量空间就是 {A, B, C, D}，如果是多选题，则是 {A, B, C, D, AB, AC, AD, BC, BD, CD, ABC, ABD, ACD, BCD, ABCD}，如果是排序题、不定项排序题、答案出错了的题……</p>
+
+<h2 id="描述一个概率分布的信息量">描述一个概率分布的信息量</h2>
+
+<h3 id="自信息self-information">自信息：Self Information</h3>
+
+<p>自信息是一个随机事件的性质，也就是针对一个随机变量的<strong>某一个可能取值</strong>而言的。表达式为</p>
+
+\[I(m) = -\log_n\left(p(M=m)\right)\]
+
+<p>这是一个无量纲量，但是公式中指数的底数可以任意选择——</p>
+
+<ul>
+  <li><em>n</em> = 2 的时候自信息的单位是 bit，也叫香农 (shannon), 这里的 bit 和二进制位 bit 不完全相同，一个香农是一个二进制位所能表示信息的<strong>上限</strong>：当一个二进制位完全取决于其它位时，这个位不包含任何额外信息，香农数为 0，但这个二进制位依然物理上存在；</li>
+  <li><em>n</em> = <em>e</em> 的时候单位是 nat, 因为 \(\log_e\equiv\ln\) 叫做自然对数；</li>
+  <li><em>n</em> = 10 的时候单位叫 hartley</li>
+</ul>
+
+<p>——单位之间的换算关系由对数的换底公式给出。</p>
+
+<p>这个量在信息论中的意义是，这条消息作为一个不方便问的问题的<strong>答案</strong>，<strong>最少可以</strong>用多少个 n 个选项的单选题套出答案。当 n=2 的时候，每个问题就是一个是非题，也就是一般疑问句。</p>
+
+<p>码农面试的时候经常问一类问题：一堆看起来相同的东西里面有一个不一样，你有一种不能直接测出答案的测量工具，最少需要测量几次才能辨别出来……但是自信息的计算不能提供具体的辨别方法，具体方法还是需要你自己去凑，而面试刷人很多都是在刷这种细枝末节。</p>
+
+<p>当然了，前提是你的面试官懂他自己在问什么，而不是相信美剧《硅谷》里压缩算法可以突破信息论极限的计算机民科～</p>
+
+<p>当 <em>p</em> = 0 时，自信息发散为无穷大。不过问题不大，原因在下一节。</p>
+
+<h3 id="信息熵entropy">信息熵：Entropy</h3>
+
+<p>信息熵是一个随机变量的概率分布的整体性质。</p>
+
+<p>算法很简单，就是自信息的概率期望，也就是按照随机变量每个取值的概率加权平均：</p>
+
+\[S(p(M))=\mathbb{E}_p[-\log_n p(M)]=-\sum_{m\in M}p(m)\log_n p(m)\]
+
+<p>当 <em>p</em> = 0 时，自信息发散，但是概率为零，强行定义两者的积也为零，对信息熵不构成贡献。</p>
+
+<p>当我们只对某一特定的随机事件信息感兴趣，除此以外的所有事件合并为目标事件的补集，就得到二项信息熵 binary entropy:</p>
+
+\[S_{binary} = -(1-p)\log(1-p)-p\log p = p\log\frac{1-p}{p}-\log(1-p)\]
+
+<p>沿着自信息的意义往下走，信息熵在信息论中的意义是，一个将众多信息/命题的集合作为备选答案的<strong>问题</strong>，<strong>最少可以</strong>用多少道 n 个选项的单选题的集合来等价替代。</p>
+
+<p>当这些最优的单选题确定之后，原问题的每一个选项，可以用单选题的答案序号来进行编码。指数的不同底数/信息量的不同单位就是数字的 n 进制，信息量就是相应进制下最大压缩编码后的位数。</p>
+
+<p>当然要讨论压缩的话，还需要另找地方记录各个单选题和选项，也就是压缩字典。</p>
+
+<h2 id="比较两个概率分布的信息量">比较两个概率分布的信息量</h2>
+
+<p>而如何选择单选题，使之成为针对给定问题最优的问题集，会因为各个选项概率分布的不同而变化。即便是同一组信息/备选答案，两套不同的概率分布，各自会给出一套对自己最优的问题集，一套概率分布下的最优问题集不见得是另外一套概率分布下的最优问题集。</p>
+
+<blockquote>
+  <p>下面的表达式都只写出了离散变量的形式，连续随机变量需要将求和写成对应的积分。</p>
+
+</blockquote>
+
+<h3 id="相对熵kullbackleibler-k-l-divergence">相对熵：Kullback–Leibler (K-L) Divergence</h3>
+
+<p>英文里也叫 relative entropy 或者 I-divergence</p>
+
+<p>这里的两个概率分布映射自<strong>同一个</strong>随机变量空间。</p>
+
+\[D_{KL}(p(X)|q(X))=\sum_{x\in X}p(x)\log\frac{p(x)}{q(x)}=-\sum_{x\in X}p(x)\log\frac{q(x)}{p(x)}\]
+
+<p>这个量描述了当 <em>p</em>(<em>X</em>) 作为各选项的正确概率分布的情况下，用对 <em>q</em>(<em>X</em>) 最优的单选题去提问，<strong>没问出来的信息</strong>所需要的<strong>额外的</strong>单选题数目/编码数。</p>
+
+<p>在科学应用中，<em>p</em>(<em>X</em>) 一般是从实验中测量出来的概率分布，<em>q</em>(<em>X</em>) 是理论模型的预测。</p>
+
+<p>下面的例子计算了一个单选题，选 C、选 B、假想中一群学生的答案统计、胡猜四种概率分布 <em>p, q ,r , φ</em> 之间的 KL divergence。因为概率为零会出现发散问题，所以我们取 eps = 10^(-10) 把这些概率值截断：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="k">def</span> <span class="nf">kl_div</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">eps</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">clip</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">eps</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">eps</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">clip</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">eps</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">eps</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="nf">log2</span><span class="p">(</span><span class="n">p</span><span class="o">/</span><span class="n">q</span><span class="p">))</span>
+
+<span class="n">p</span>   <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span>  <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">0</span><span class="p">])</span>
+<span class="n">q</span>   <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span>  <span class="mi">0</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">])</span>
+<span class="n">r</span>   <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">empty</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v1</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">([</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">phi</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">v2</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">([</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">phi</span><span class="p">]):</span>
+        <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nf">kl_div</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>KL-div(行, 列)/bit</th>
+      <th>p</th>
+      <th>q</th>
+      <th>r</th>
+      <th>φ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>p = [0,0,1,0]</td>
+      <td>0</td>
+      <td>33.219</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>q = [0,1,0,0]</td>
+      <td>33.219</td>
+      <td>0</td>
+      <td>2.585</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>r = [1/6, 1/6, 1/2, 1/6]</td>
+      <td>14.817</td>
+      <td>25.890</td>
+      <td>0</td>
+      <td>0.208</td>
+    </tr>
+    <tr>
+      <td>φ = [1/4,1/4,1/4,1/4]</td>
+      <td>22.914</td>
+      <td>22.914</td>
+      <td>0.189</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>从结果中我们可以看到：</p>
+
+<ul>
+  <li>对角线为 0，符合其意义。</li>
+  <li>\(D_{KL}(p,q)\) 和 \(D_{KL}(q,p)\) 都应该是 +∞，这里的有限值是 eps 截断的结果</li>
+  <li>除个别巧合，对称位置的值一般不相等。这个量不同于两点之间的距离。</li>
+</ul>
+
+<h3 id="交叉熵cross-entropy">交叉熵：Cross Entropy</h3>
+
+<p>这里的两个概率分布映射自<strong>同一个</strong>随机变量空间 X。</p>
+
+<p>概率分布 <strong><em>q</em> 相对于 <em>p</em></strong> 的交叉熵 cross entropy</p>
+
+\[CE(p(X),q(X))=-\sum_{x\in X}p(x)\log q(x)=S(p(X))+D_{KL}(p(X)|q(X))\]
+
+<p>这个量描述了当 <em>p</em>(<em>X</em>) 作为各选项的正确概率分布的情况下，用对 <em>q</em>(<em>X</em>) 最优的单选题去提问，所需要的<strong>总共的</strong>单选题数目/编码数。</p>
+
+<p>类似于二项熵，<em>p</em> 和 <em>q</em> 之间的 binary cross entropy:</p>
+
+\[BCE(p,q)=-p\log q-(1-p)\log(1-q)=p\log\frac{1-q}{q}-\log(1-q)\]
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">cross_entropy</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">eps</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">clip</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">eps</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">eps</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">clip</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">eps</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">eps</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="nf">log2</span><span class="p">(</span><span class="n">q</span><span class="p">))</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">empty</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v1</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">([</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">phi</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">v2</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">([</span><span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">phi</span><span class="p">]):</span>
+        <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nf">cross_entropy</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cross Entropy(行, 列)/bit</th>
+      <th>p</th>
+      <th>q</th>
+      <th>r</th>
+      <th>\(\varphi\)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>p = [0,0,1,0]</td>
+      <td>0</td>
+      <td>33.219</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>q = [0,1,0,0]</td>
+      <td>33.219</td>
+      <td>0</td>
+      <td>2.585</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>r = [1/6, 1/6, 1/2, 1/6]</td>
+      <td>16.610</td>
+      <td>27.683</td>
+      <td>1.792</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>\(\varphi\) = [1/4,1/4,1/4,1/4]</td>
+      <td>24.914</td>
+      <td>24.914</td>
+      <td>2.189</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>对角线上不一定为零，而是自己的信息熵</li>
+  <li>其他位置和 KL divergence 相差大约为第一个输入分布的信息熵，误差 eps 的截断</li>
+</ul>
+
+<h3 id="互信息mutual-information">互信息：Mutual Information</h3>
+
+<p>这里的两个概率分布一般来说映射自<strong>不同的</strong>随机变量空间。</p>
+
+\[MI(X,Y)=\sum_{x,y}p(x,y)\log\frac{p(x,y)}{p(x)p(y)}=D_{KL}\left(p(X,Y)|p(X)p(Y)\right)\]
+
+<p>从后一个等号可以看出，这一性质衡量的是 <em>X, Y</em> 两个随机变量的联合分布在多大程度上不同于“<em>X</em> 和 <em>Y</em> 相互独立”的零假设。两个随机变量相互独立时，互相不反映对方的信息，互信息 <em>MI</em> = 0。</p>
+
+<p>当从 <em>X</em> 所在的随机变量空间取样的难度比较大的时候，我们需要用容易取样的<strong>另一个变量空间</strong>的随机变量 <em>Y</em> 来推测 <em>X</em> 的情况，互信息就可以用来论证我们这种选择的合理性。</p>
+
+<h2 id="扯点闲篇">扯点闲篇</h2>
+
+<h3 id="pytorch-中以此为基础的-loss-functions">PyTorch 中以此为基础的 loss functions</h3>
+
+<p><code class="language-plaintext highlighter-rouge">torch.nn</code> 中有如下几个和今天的文章相关的 loss functions：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">torch.[nn.KLDivLoss](https://pytorch.org/docs/stable/generated/torch.nn.KLDivLoss.html#torch.nn.KLDivLoss)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">torch.[nn.CrossEntropyLoss](https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html#torch.nn.CrossEntropyLoss)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">torch.[nn.BCELoss](https://pytorch.org/docs/stable/generated/torch.nn.BCELoss.html#torch.nn.BCELoss)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">torch.[nn.BCEWithLogitsLoss](https://pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html#torch.nn.BCEWithLogitsLoss)</code></li>
+</ul>
+
+<p>之所以没直接用这些函数计算上面的例子，是因为 <code class="language-plaintext highlighter-rouge">KLDivLoss</code> 是按元素计算，随后需要自己求和；<code class="language-plaintext highlighter-rouge">CrossEntropyLoss</code> 又是按类别的，还不需要归一化，而且文档的解释很复杂，我到现在也没看明白；而且还要注意这些函数的设计输入是不是 logit，这是机器学习里的概念，在此不展开了。</p>
+
+<h3 id="玻尔兹曼的墓志铭">玻尔兹曼的墓志铭</h3>
+
+\[S=k\log W\]
+
+<p>其中 <em>S</em> 是（微正则系综中的）热力学熵，<em>k</em> 是玻尔兹曼常数 \(k_B\)，<em>W</em> 是因为刻碑的师傅不会写 <em>Ω</em>。</p>
+
+<p>W 或 Ω 是处于相同能量的热力学状态的数量。因为你都需要统计物理了，显然是只知道能量，没办法知道所考虑的微观粒子究竟处于哪一个热力学状态。那此时的零假设就是处于所有状态的可能性相等，<em>p</em> = 1/Ω，信息熵</p>
+
+\[S =-\sum_{m\in M}p(m)\log_n p(m)= -\Omega\cdot(\frac{1}{\Omega}\log\frac{1}{\Omega})=\log\Omega\]
+
+<p>和热力学熵只相差一个玻尔兹曼常数。这是因为信息熵是无量纲的，熵和温度的量纲相乘之后需要得到能量的量纲，只能由 \(k_B\) 把量纲凑齐，而数值是自由能相关的实验里测出来的。</p>
+
+<p>好像这就是高中物理里熵的定义式是吧。</p>
+
+<p>上了大学以后，正则系综和巨正则系综中的熵也分别就是各自体系中各状态的概率分布的信息熵，乘上玻尔兹曼常数。<del>（我也忘得差不多了，试图萌混过关）</del></p>
+
+<h3 id="善卜者无先见之明">善卜者无先见之明</h3>
+
+<p>公元 451 年，阿提拉 Attila 率领匈人攻入罗马领土，横扫有大量其他民族居住的高卢地区。西罗马帝国将军艾提乌斯 Aetius 联络了众多畏惧匈人的民族组成联军，其中包括西哥特人的王狄奥多里克 Theodoric，两军会战于卡塔隆 Catalaunian 平原。</p>
+
+<p>本来想用这个故事举例子来着，因为我记得阿提拉在战前找了个大师算了一卦，说是一位国王将战死，一个国家将崩塌。于是阿提拉很高兴，以为哥特人和狄奥多里克要玩完了，结果战斗打响，狄奥多里克确实死于乱军，但是罗马和哥特等族的联军击败了匈人，阿提拉的霸业雨打风吹去。</p>
+
+<p>于是试图说明算命的魅力就在于，用文字游戏表达一个自信息比较低的命题，同时误导对方相信一个自信息高得多的命题，在心理疏导之外，赚一个信息熵的差价。</p>
+
+<p>结果查证的时候发现好像不是这么回事，Barbarian Rising 故事片里的预言内容不一样；维基百科上没给出处，说算命的很准，于是阿提拉推迟到下午作战，方便晚上跑路；其他地方甚至压根没有算命的情节。但是写都写了，需要积累高考作文素材的小朋友们还是可以假装被我误导了~</p>
+
+<p>当然了，算命这个事还有一种情况，就是打着不确定的幌子，售卖确定但不方便承认自己确定的信息，那就是另一种生意，和另外的价格了~</p>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[自信息、信息熵、KL Divergence、交叉熵、互信息]]></summary></entry><entry><title type="html">.tex | 扩散方程和随机游走的等价</title><link href="https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk" rel="alternate" type="text/html" title=".tex | 扩散方程和随机游走的等价" /><published>2024-04-25T00:00:00-05:00</published><updated>2024-04-25T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk"><![CDATA[<blockquote>
   <p>这些内容总结自美国研究生级别的《数学物理方法》两次课的笔记，大约两个小时。
 <br />如果是中国大学本科的话，认真的老师半个小时庶几可以讲完;
 <br />念 PPT 就算上课的话 15 分钟可以讲完，附赠一个段子;
@@ -168,7 +441,7 @@ P(i,n)=\frac{1}{2}\left[P(i-1,n-1)+P(i+1,n-1)\right]
 
 <p>讲 Markov Chain Monte Carlo 模拟的时候举的例子是计算 \(\int_{-\infty}^{+\infty}e^{-x^2}dx\), 现在系数可以对上了：\(1=4\sigma t=4 \frac{\Delta^2}{2\delta} n\delta = 2\Delta^2n\), 随机游走的步数和步长之间存在一个确定的关系，在步长确定的情况下，我们需要重复模拟大量粒子作相同步数的随机游走，然后统计这一确定步数走完之后的每个粒子的终末位置。</p>
 
-<p>所以，这并不是一个 Markov Chain Monte Carlo 模拟，只是一个普通的 Monte Carlo 模拟，我们拿到了想要知道的随机变量的原始概率分布，只不过取得这一概率分布的过程是一个 Markov 过程。</p>
+<p>所以，这并不是一个 Markov Chain Monte Carlo 模拟，只是一个普通的 Monte Carlo 模拟，我们拿到了想要知道的随机变量的原始概率分布，只不过取得符合这一概率分布的每一个样本的过程是一个 Markov 过程。</p>
 
 <p>正经的 MCMC，应该是只模拟一个粒子作随机行走，然后把它每一步的位置记录下来，统计到样本里去。这样的话时间 t 的信息就被抹去了，而且由于扩散方程描述的状态并不是热力学平衡态，并不能通过统计物理中的遍历性 (ergodicity) 来得到正确结果。</p>
 
@@ -2275,178 +2548,4 @@ if __name__ == '__main__':
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
     <span class="n">unittest</span><span class="p">.</span><span class="nf">main</span><span class="p">()</span>
-</code></pre></div></div>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[如题]]></summary></entry><entry><title type="html">.py | 让自己的代码可以被别人使用</title><link href="https://mountaye.github.io/blog/articles/python-packaging" rel="alternate" type="text/html" title=".py | 让自己的代码可以被别人使用" /><published>2023-10-13T00:00:00-05:00</published><updated>2023-10-13T00:00:00-05:00</updated><id>https://mountaye.github.io/blog/articles/python-packaging</id><content type="html" xml:base="https://mountaye.github.io/blog/articles/python-packaging"><![CDATA[<blockquote>
-  <p>这里所说的“别人”，也包括6个月之后，已经不记得当初如何写出这段代码的自己。</p>
-
-</blockquote>
-
-<p>很久以前写过一篇《<strong><a href="https://mountaye.github.io/blog/articles/python-import-script-module-package">import 引用现成的代码</a></strong>》讲如何使用别人的代码，最后讲到一个模块的 <code class="language-plaintext highlighter-rouge">setup.py</code> 文件就没再往下写，这次继续。</p>
-
-<ul>
-  <li><a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">https://packaging.python.org/en/latest/tutorials/packaging-projects/</a></li>
-  <li><a href="https://setuptools.pypa.io/en/latest/userguide/quickstart.html">https://setuptools.pypa.io/en/latest/userguide/quickstart.html</a></li>
-</ul>
-
-<h2 id="基本流程">基本流程</h2>
-
-<ul>
-  <li>写代码，且让代码项目文件的结构符合一定的要求（见下一节）</li>
-  <li>根据项目的文件结构，填写 <code class="language-plaintext highlighter-rouge">pyproject.toml</code>、<code class="language-plaintext highlighter-rouge">setup.cfg</code> <strong>或</strong> <code class="language-plaintext highlighter-rouge">setup.py</code> <strong>文件</strong></li>
-  <li>安装 build 这个库，然后运行 <code class="language-plaintext highlighter-rouge">python -m build</code>，产生 <code class="language-plaintext highlighter-rouge">dist/</code> 文件夹及下面的文件。（可选）将项目上传到 PyPi 或者 Conda</li>
-</ul>
-
-<h2 id="项目文件结构">项目文件结构</h2>
-
-<p>常用的文件结构有两种：src-layout 和 flat-layout，另外一些小项目只有一个 python 文件。</p>
-
-<h3 id="src-layout">src-layout</h3>
-
-<p>在 src-layout 里，写有 package 源代码的文件夹上层还套了一个文件夹，这个文件夹习惯上命名为 src，当然也可以是别的。<code class="language-plaintext highlighter-rouge">pyproject.toml</code> 和 <code class="language-plaintext highlighter-rouge">src/</code> 文件夹同级。</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;project_name&gt;
-├── LICENSE
-├── pyproject.toml
-├── README.md
-├── src/
-│   └── &lt;package_name&gt;/
-│       ├── __init__.py
-│       └── example.py
-└── tests/
-</code></pre></div></div>
-
-<h3 id="flat-layout">flat-layout</h3>
-
-<p>flat-layout 指的是写有 package 源代码的文件夹直接作为开发项目的第一级子文件夹，和 <code class="language-plaintext highlighter-rouge">pyproject.toml</code> 处于同一级。</p>
-
-<p>这种结构比较古老，不太推荐</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;project_name&gt;
-├── pyproject.toml  # and/or setup.cfg/setup.py (depending on the configuration method)
-├── &lt;package_name&gt;
-|   ├── __init__.py
-|   └── ... (other Python files)
-├── test
-|   └── ... (test files)
-├── # README.rst or README.md (a nice description of your package)
-└── # LICENCE (properly chosen license information, e.g. MIT, BSD-3, GPL-3, MPL-2, etc...)
-</code></pre></div></div>
-
-<h3 id="单文件项目">单文件项目</h3>
-
-<p>可以看作是 flat-layout 的一种特殊情况</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;project_name&gt;
-├── pyproject.toml  # and/or setup.cfg/setup.py (depending on the configuration method)
-├── &lt;my_module&gt;.py
-├── # README.rst or README.md (a nice description of your package)
-└── # LICENCE (properly chosen license information, e.g. MIT, BSD-3, GPL-3, MPL-2, etc...)
-</code></pre></div></div>
-
-<h2 id="填写-pyprojecttomlsetupcfg-或-setuppy-文件">填写 <code class="language-plaintext highlighter-rouge">pyproject.toml</code>、<code class="language-plaintext highlighter-rouge">setup.cfg</code> <strong>或</strong> <code class="language-plaintext highlighter-rouge">setup.py</code> <strong>文件</strong></h2>
-
-<p>要想让构建程序把我们的代码打包成安装包，标题中的三个文件至少有一个要出现在 project 的根目录。</p>
-
-<p>文件中要按照各自拓展名对应的语法，填写项目的有关信息，绝大多数可以顾名思义。</p>
-
-<p>各参数的取值和代码文件结构相关，参数主要包括 <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">packages</code>, <code class="language-plaintext highlighter-rouge">package_dir</code>。如果文件结构完全满足上一节的结构，那么 <code class="language-plaintext highlighter-rouge">setuptools.find_packages()</code> 的<a href="https://setuptools.pypa.io/en/latest/userguide/package_discovery.html#automatic-discovery">自动发现机制</a>就够用了。</p>
-
-<h3 id="name"><code class="language-plaintext highlighter-rouge">name</code></h3>
-
-<p>这是一个必填项。</p>
-
-<p>注意：上一节的文件结构中，有两个名字 <code class="language-plaintext highlighter-rouge">&lt;project_name&gt;</code> 和 <code class="language-plaintext highlighter-rouge">&lt;package_name&gt;</code> ——</p>
-
-<p><code class="language-plaintext highlighter-rouge">&lt;project_name&gt;</code> 是整个开发项目的名字，如果用了类似 git 的版本控制的话，这个名字就是你的 repository 的名字。</p>
-
-<p><code class="language-plaintext highlighter-rouge">&lt;package_name&gt;</code> 比较复杂，它可以是，但不一定是你在其他代码中 <code class="language-plaintext highlighter-rouge">import __</code> 的名字，import 的名字由 <code class="language-plaintext highlighter-rouge">pyproject.toml</code> / <code class="language-plaintext highlighter-rouge">setup.cfg</code> <strong>/</strong> <code class="language-plaintext highlighter-rouge">setup.py</code> 里面的 <code class="language-plaintext highlighter-rouge">name</code> 参数指定。不能有连字符，只能用下划线。</p>
-
-<p>如果你的 <code class="language-plaintext highlighter-rouge">name</code> 参数和 <code class="language-plaintext highlighter-rouge">&lt;package_name&gt;</code> 不同，还需要填写 <code class="language-plaintext highlighter-rouge">package_dir</code> 参数，</p>
-
-<p>此外还有第三个名字，就是 <code class="language-plaintext highlighter-rouge">pip install __</code> 时候的名字，上传到 PyPI 的时候填写，可以带有连字符，比如 scikit-image。</p>
-
-<h3 id="packages"><code class="language-plaintext highlighter-rouge">packages</code></h3>
-
-<p>参数是一个 list，但是一般都使用 <code class="language-plaintext highlighter-rouge">setuptools.find_packages()</code> 的结果。</p>
-
-<p>该函数常用三个参数，都是可选的：</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">where</code>: 一个路径，相对于 <code class="language-plaintext highlighter-rouge">setup.py</code></li>
-  <li><code class="language-plaintext highlighter-rouge">include</code>: 一个 list，元素是 glob patterns</li>
-  <li><code class="language-plaintext highlighter-rouge">exclude</code>: 一个 list，元素是 glob patterns</li>
-</ul>
-
-<p>不指明任何参数 = 使用自动发现机制</p>
-
-<h3 id="package_dir"><code class="language-plaintext highlighter-rouge">package_dir</code></h3>
-
-<p>参数是一个 dict，两种用法：</p>
-
-<ul>
-  <li>标准的 src-layout，直接写 <code class="language-plaintext highlighter-rouge">{"": "src/"}</code>, 表示所有的代码都在这个文件夹里。</li>
-  <li>当 python 模块的结构和代码的文件结构不同的时候，用这个 dict 指明 模块-文件夹 之间的关系。</li>
-</ul>
-
-<p>文件的路径相对于 <code class="language-plaintext highlighter-rouge">setup.py</code> 而言</p>
-
-<h3 id="py_modules"><code class="language-plaintext highlighter-rouge">py_modules</code></h3>
-
-<p>参数是一个文件路径的列表，几乎专为单文件结构而存在。</p>
-
-<h2 id="打包和上传">打包和上传</h2>
-
-<p>安装 build 工具：<code class="language-plaintext highlighter-rouge">python3 -m pip install --upgrade build</code></p>
-
-<p>运行 build：<code class="language-plaintext highlighter-rouge">python3 -m build</code></p>
-
-<p>如此会生成一个 <code class="language-plaintext highlighter-rouge">dist/</code> 文件夹，里面包含打包的结果。</p>
-
-<p>要想让自己的程序可以被别人用 <code class="language-plaintext highlighter-rouge">pip install</code> 的方式安装，需要将打包成果上传到 PyPI，方法在<a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/#uploading-the-distribution-archives">这里</a>。</p>
-
-<h2 id="安装">安装</h2>
-
-<h3 id="静态安装">静态安装</h3>
-
-<p>已经上传到 PyPI 的包，可以直接用 <code class="language-plaintext highlighter-rouge">pip install &lt;package&gt;</code> 安装，这种方法叫做静态安装</p>
-
-<h3 id="动态安装">动态安装</h3>
-
-<p>还在开发过程中的包，可以在 <code class="language-plaintext highlighter-rouge">setup.py</code> 所在的位置，运行 <code class="language-plaintext highlighter-rouge">pip install -e .</code> 这种安装方法叫做动态安装，因为代码的修改可以实时反映在引用的项目中。</p>
-
-<h2 id="思考题">思考题</h2>
-
-<p>上篇文章提到的一个<a href="https://gist.github.com/ericmjl/27e50331f24db3e8f957d1fe7bbbe510">数据分析项目</a>，其文件结构是这样的（我稍微改动了一下）：</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/path/to/project/directory/
-|-- notebooks/
-    |-- 01-first-logical-notebook.ipynb
-    |-- 02-second-logical-notebook.ipynb
-    |-- prototype-notebook.ipynb
-    |-- archive/
-	      |-- no-longer-useful.ipynb
-|-- src/
-    |-- projectname/
-	      |-- __init__.py
-	      |-- config.py
-	      |-- data.py
-	      |-- utils.py
-    |-- setup.py
-|-- README.md
-|-- data/
-    |-- raw/
-    |-- processed/
-    |-- cleaned/
-|-- scripts/
-    |-- script1.py
-    |-- script2.py
-    |-- archive/
-        |-- no-longer-useful.py
-|-- environment.yml
-</code></pre></div></div>
-
-<p>问：</p>
-
-<ol>
-  <li>这是一个 flat-layout 还是 src-layout？</li>
-  <li>setup.py 应该怎么写？执行动态安装时的 <code class="language-plaintext highlighter-rouge">pwd</code> 结果是什么？</li>
-</ol>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[这里所说的“别人”，也包括6个月之后，已经不记得当初如何写出这段代码的自己。]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>MountAye</name></author><summary type="html"><![CDATA[如题]]></summary></entry></feed>

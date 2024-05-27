@@ -2,6 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
+        <loc>https://mountaye.github.io/blog/articles/txt-graduation-ceremony</loc>
+    </url>
+  
+    <url>
+        <loc>https://mountaye.github.io/blog/articles/doc-graduation-ceremony</loc>
+    </url>
+  
+    <url>
         <loc>https://mountaye.github.io/blog/articles/information-entropy-kl-divergence-cross-entropy-mutual-information</loc>
     </url>
   

@@ -4,10 +4,10 @@ window.onscroll = function() {
   var currentScrollPos = window.scrollY;
   if (prevScrollpos > currentScrollPos) {
     document.getElementById("nav-mobile").style.bottom = "0";
-    document.getElementById("header").style.top = "0";
+    document.getElementById("header").style.opacity = "1";
   } else {
     document.getElementById("nav-mobile").style.bottom = "-50px";
-    document.getElementById("header").style.top = "-50px";
+    document.getElementById("header").style.opacity = "0";
   }
   prevScrollpos = currentScrollPos;
 }
@@ -38,7 +38,7 @@ function changeQuote(){
 
 // After the article loads, build a table of content on the right panel
 document.addEventListener('DOMContentLoaded', function() {
-  changeQuote();
+  // changeQuote();
 
   var headings = document.querySelectorAll('main h1, main h2, main h3');
   var navSide = document.querySelector('#toc-side');

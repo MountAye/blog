@@ -142,7 +142,7 @@
   text-align: center;
 }
 
-.left-quote {
+#left-middle {
   height: calc(100vh - 130px - 170px - 40px);
   width: inherit;
   padding-top: 20px;
@@ -151,7 +151,7 @@
   top: 130px;
 }
 
-.left-footer {
+#left-footer {
   display: -webkit-flex;
   display: flex;
   height: 160px;
@@ -160,7 +160,7 @@
   position: sticky;
   top: calc(100vh - 160px);
 }
-.left-footer p {
+#left-footer p {
   font-size: 14px;
 }
 
@@ -185,7 +185,8 @@
   height: var(--len-bar);
   position: fixed;
   top: 0;
-  transition: top 0.3s;
+  opacity: 1;
+  transition: opacity 0.3s;
   display: -webkit-flex;
   display: flex;
   justify-content: center;
@@ -197,6 +198,7 @@
   overflow: hidden;
   white-space: nowrap;
   padding-right: 65px;
+  pointer-events: none;
 }
 
 #toc-button {

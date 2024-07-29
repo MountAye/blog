@@ -239,12 +239,12 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">def</span> <span class="nf">outer</span><span class="p">()</span> <span class="p">:</span>  <span class="c1"># 外层函数
-</span>    <span class="n">s</span> <span class="o">=</span> <span class="sh">"</span><span class="s">hello</span><span class="sh">"</span>
+</span>    <span class="n">s</span> <span class="o">=</span> <span class="s">"hello"</span>
     <span class="k">def</span> <span class="nf">inner</span><span class="p">()</span> <span class="p">:</span>  <span class="c1"># 内层函数
 </span>        <span class="nf">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># 此处引用的是外层作用域的变量
 </span>
     <span class="nf">inner</span><span class="p">()</span>  <span class="c1"># 输出 hello
-</span>    <span class="n">s</span> <span class="o">=</span> <span class="sh">"</span><span class="s">world</span><span class="sh">"</span>
+</span>    <span class="n">s</span> <span class="o">=</span> <span class="s">"world"</span>
     <span class="nf">inner</span><span class="p">()</span>  <span class="c1"># 输出 world
 </span>
 </code></pre></div></div>

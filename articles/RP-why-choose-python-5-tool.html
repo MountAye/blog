@@ -147,7 +147,7 @@
 <p>如果要把上述结果拼成一个逗号分隔的字符串，还是只要一行</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="sh">'</span><span class="s">,</span><span class="sh">'</span><span class="p">.</span><span class="nf">join</span><span class="p">([</span><span class="nf">str</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span> <span class="nf">if </span><span class="p">(</span><span class="n">x</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">])</span>
+<span class="s">','</span><span class="p">.</span><span class="nf">join</span><span class="p">([</span><span class="nf">str</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span> <span class="nf">if </span><span class="p">(</span><span class="n">x</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">])</span>
 
 </code></pre></div></div>
 
@@ -157,9 +157,9 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="c1"># 传统的 ping 扫描，基于 ICMP 协议
-</span><span class="n">ans</span><span class="p">,</span><span class="n">unans</span> <span class="o">=</span> <span class="nf">sr</span><span class="p">(</span><span class="nc">IP</span><span class="p">(</span><span class="n">dst</span><span class="o">=</span><span class="sh">"</span><span class="s">192.168.1.1-254</span><span class="sh">"</span><span class="p">)</span><span class="o">/</span><span class="nc">ICMP</span><span class="p">())</span>
+</span><span class="n">ans</span><span class="p">,</span><span class="n">unans</span> <span class="o">=</span> <span class="nf">sr</span><span class="p">(</span><span class="nc">IP</span><span class="p">(</span><span class="n">dst</span><span class="o">=</span><span class="s">"192.168.1.1-254"</span><span class="p">)</span><span class="o">/</span><span class="nc">ICMP</span><span class="p">())</span>
 <span class="c1"># 局域网扫描，基于 ARP 协议
-</span><span class="n">ans</span><span class="p">,</span><span class="n">unans</span> <span class="o">=</span> <span class="nf">srp</span><span class="p">(</span><span class="nc">Ether</span><span class="p">(</span><span class="n">dst</span><span class="o">=</span><span class="sh">"</span><span class="s">ff:ff:ff:ff:ff:ff</span><span class="sh">"</span><span class="p">)</span><span class="o">/</span><span class="nc">ARP</span><span class="p">(</span><span class="n">pdst</span><span class="o">=</span><span class="sh">"</span><span class="s">192.168.1.0/24</span><span class="sh">"</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span><span class="n">ans</span><span class="p">,</span><span class="n">unans</span> <span class="o">=</span> <span class="nf">srp</span><span class="p">(</span><span class="nc">Ether</span><span class="p">(</span><span class="n">dst</span><span class="o">=</span><span class="s">"ff:ff:ff:ff:ff:ff"</span><span class="p">)</span><span class="o">/</span><span class="nc">ARP</span><span class="p">(</span><span class="n">pdst</span><span class="o">=</span><span class="s">"192.168.1.0/24"</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 </code></pre></div></div>
 

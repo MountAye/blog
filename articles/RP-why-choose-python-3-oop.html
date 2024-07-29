@@ -235,15 +235,15 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">class</span> <span class="nc">Parent1</span> <span class="p">:</span>
     <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">:</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">parent1</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"parent1"</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">Parent2</span> <span class="p">:</span>
     <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">:</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">parent2</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"parent2"</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">Child</span> <span class="p">:</span>
     <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">:</span>
-        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">child</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"child"</span><span class="p">)</span>
 
 <span class="nf">print</span><span class="p">(</span><span class="n">Child</span><span class="p">.</span><span class="n">__bases__</span><span class="p">)</span>
 <span class="n">Child</span><span class="p">.</span><span class="n">__bases__</span> <span class="o">+=</span> <span class="p">(</span><span class="n">Parent1</span><span class="p">,</span> <span class="n">Parent2</span><span class="p">)</span>  <span class="c1"># 动态追加了2个父类

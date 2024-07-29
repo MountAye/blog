@@ -164,8 +164,8 @@
 <p>假设要你实现一个函数，用来完成两个数的“某种运算”，具体的运算类型作为函数的参数传入，然后该函数返回运算结果。比如：</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nc">Foo</span><span class="p">(</span><span class="sh">"</span><span class="s">+</span><span class="sh">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># 返回 6
-</span><span class="nc">Foo</span><span class="p">(</span><span class="sh">"</span><span class="s">*</span><span class="sh">"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># 返回 15
+<span class="nc">Foo</span><span class="p">(</span><span class="s">"+"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># 返回 6
+</span><span class="nc">Foo</span><span class="p">(</span><span class="s">"*"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># 返回 15
 </span>
 </code></pre></div></div>
 
@@ -189,7 +189,7 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="k">def</span> <span class="nf">Foo</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)</span> <span class="p">:</span>
-    <span class="k">return</span> <span class="nf">eval</span><span class="p">(</span> <span class="sh">"</span><span class="s">%d %s %d</span><span class="sh">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">n2</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="nf">eval</span><span class="p">(</span> <span class="s">"%d %s %d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">n2</span><span class="p">)</span> <span class="p">)</span>
 
 </code></pre></div></div>
 

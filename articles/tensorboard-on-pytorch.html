@@ -187,7 +187,7 @@
 # optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 </span>
 <span class="c1"># default `log_dir` is "runs" - we'll be more specific here
-</span><span class="n">writer</span> <span class="o">=</span> <span class="nc">SummaryWriter</span><span class="p">(</span><span class="sh">'</span><span class="s">runs/fashion_mnist_experiment_1</span><span class="sh">'</span><span class="p">)</span>
+</span><span class="n">writer</span> <span class="o">=</span> <span class="nc">SummaryWriter</span><span class="p">(</span><span class="s">'runs/fashion_mnist_experiment_1'</span><span class="p">)</span>
 
 <span class="n">running_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># loop over the dataset multiple times
@@ -207,7 +207,7 @@
         <span class="c1"># running_loss += loss.item()
 </span>        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">999</span><span class="p">:</span>    <span class="c1"># every 1000 mini-batches...
 </span>            <span class="c1"># ...log the running loss
-</span>            <span class="n">writer</span><span class="p">.</span><span class="nf">add_scalar</span><span class="p">(</span><span class="sh">'</span><span class="s">training loss</span><span class="sh">'</span><span class="p">,</span>
+</span>            <span class="n">writer</span><span class="p">.</span><span class="nf">add_scalar</span><span class="p">(</span><span class="s">'training loss'</span><span class="p">,</span>
                             <span class="n">running_loss</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">,</span>
                             <span class="n">epoch</span> <span class="o">*</span> <span class="nf">len</span><span class="p">(</span><span class="n">trainloader</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="c1"># 注意这一行！
 # print('Finished Training')
@@ -230,7 +230,7 @@
 
 <p>新建一个这个类的实例：</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">writer</span> <span class="o">=</span> <span class="nc">SummaryWriter</span><span class="p">(</span><span class="sh">'</span><span class="s">runs/fashion_mnist_experiment_1</span><span class="sh">'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">writer</span> <span class="o">=</span> <span class="nc">SummaryWriter</span><span class="p">(</span><span class="s">'runs/fashion_mnist_experiment_1'</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>这一步会在当前工作环境下新建一个 <code class="language-plaintext highlighter-rouge">/runs</code> 文件夹，</p>

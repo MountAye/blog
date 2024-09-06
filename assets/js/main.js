@@ -1,19 +1,21 @@
+---
+---
 // When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
 var prevScrollpos = window.scrollY;
 window.onscroll = function() {
   var currentScrollPos = window.scrollY;
   if (prevScrollpos > currentScrollPos) {
     document.getElementById("nav-mobile").style.bottom = "0";
-    document.getElementById("header").style.opacity = "1";
+    document.getElementById("header").style.top = "0";
   } else {
     document.getElementById("nav-mobile").style.bottom = "-50px";
-    document.getElementById("header").style.opacity = "0";
+    document.getElementById("header").style.top = "-50px";
   }
   prevScrollpos = currentScrollPos;
 }
 
 function changeQuote(){
-  var baseurl = "/blog";
+  var baseurl = "{{ site.baseurl_root }}";
   var urlQuotes = baseurl + "/assets/data/quotes.json";
   fetch(urlQuotes)
     .then(response => {
@@ -38,7 +40,7 @@ function changeQuote(){
 
 // After the article loads, build a table of content on the right panel
 document.addEventListener('DOMContentLoaded', function() {
-  // changeQuote();
+  changeQuote();
 
   var headings = document.querySelectorAll('main h1, main h2, main h3');
   var navSide = document.querySelector('#toc-side');

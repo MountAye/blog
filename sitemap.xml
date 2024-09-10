@@ -1,484 +1,808 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/nick-lane-the-vital-question</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/reduction-potential-and-electronegativity</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/yang-yi-novel-about-tiananmen-square-protest</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/txt-graduation-ceremony</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/doc-graduation-ceremony</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/information-entropy-kl-divergence-cross-entropy-mutual-information</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mc-mcmc-markov-chain-monte-carlo-gibbs-sampling</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/farewell-grandpa</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/note-consciousness-theories</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-2-4-1</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-2-3</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/probability-vs-likelihood</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/war-in-2023-between-hamas-and-israel</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/Python-test-notes</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/python-packaging</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/notes-on-TailwindCSS</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/afaik-generative-ai</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/state-of-blog-2023</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/what-is-intelligence-not-same-as-intelligence-is-what</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/OPT-workshop-notes</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/job-search-efforts-during-march-meeting</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/physics-based-neural-network-review-note</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/your-first-philosophy-course-what-does-it-all-mean</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/parameters-in-convolution-in-neural-network-and-transposeconv</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-2-2</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/fanpaiyingping-bomi-lamesbond-chinese-movies-ending-of-opening-kaijudezhongju</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/python-decorator</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/nhk-sakamoto-ryoma-den</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/say-her-name-mahsa-amini</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/how-to-narrate</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-2-1</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/pytorch-dataset-dataloader-sampler</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/logical-science-from-west</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/what-a-PyTorch-project-looks-like</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/knowledge-structure-machine-learning-image-processing-summer-school</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-10</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/my-teacher-mr-liu</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-9</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/python-subprocess-run-bash</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-8</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mimic-mathematica-with-wolfram-engine-and-vscode</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/June-fourth-2-campaigns</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-7</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/typescript-simple-syntax</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/rust-simple-syntax</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/essential-cell-biology-index</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/R-install-and-simple-syntax</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-6</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/tensorboard-on-pytorch</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-5</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-4</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-3</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-2</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-1</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-0</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/barron-360-biology-contents</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/three-body-quotes</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/git-multiple-users</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/python-import-script-module-package</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/blog-update-theme-materalize</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/en-foreign-policy-china-declining</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/install-pytorch-cpu-on-fedora</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/taile-celebration-of-life</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/translate-dalio-on-china-and-arguments</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/python-interpreter-editor-virtualenv</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/civ6-game-review-france-vs-rome</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-11-ggplot</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-note-10-dimension-reduction</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-10-dimension-reduction</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-09-data-wrangling</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/qc-hackathon-write-up</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-08-renormalization-continued</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-07-renormalization</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/python-installation-and-configuration</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-06-criticality</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-05-pattern.md</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/summary-of-this-blog</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-04-order-emergence-non-equilibrium</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-03-non-equilibrium-field-theory</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-note-02-stochastic-process</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/civ6-cheatsheet-of-tech-and-civic</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-02-stochastic-process</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-note-01-introduction</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-01-Introduction</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/matters-yearly</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/barrier-forward-keyboard-mouse-to-another-computer</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/doc-share-experience</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/xls-two-years-after-buying-car</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/py-matplotlib-two-api</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/lab-note</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/how-to-spend-life</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/parents-visiting</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/measure-david-with-imagej</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/raw-image-or-not</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/read-on-Yurang-by-Fang-Xiaoru</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/yeast-cloth-food-house-travel</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/rainy-autumn-album</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/Arch-Linux-in-VirtualBox</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/TL-Paul-Graham-How-to-Disagree</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/web-brower-A-to-Z</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/spring-is-over</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/TL-why-physics-is-not-a-discipline</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/RP-naive-lover</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/RP-why-choose-python-5-tool</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/RP-why-choose-python-4-fp</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/RP-why-choose-python-3-oop</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/RP-why-choose-python-2-dynamic</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/RP-why-choose-python-1-script</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/RP-why-choose-python-0-overview</loc>
-    </url>
-  
-    <url>
-        <loc>https://mountaye.github.io/blog/articles/betrayal-and-report</loc>
-    </url>
-  
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  
-    
-      <url>
-        <loc>https://mountaye.github.io/blog/404</loc>
-      </url>
-    
-  
-    
-      <url>
-        <loc>https://mountaye.github.io/blog/history</loc>
-      </url>
-    
-  
-    
-      <url>
-        <loc>https://mountaye.github.io/blog/</loc>
-      </url>
-    
-  
-    
-  
-    
-  
-    
-  
-    
-      <url>
-        <loc>https://mountaye.github.io/blog/topics</loc>
-      </url>
-    
-  
-    
-  
-    
-  
+        <url>
+            <loc>https://mountaye.github.io/blog/</loc>
+            <lastmod>2024-09-10</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>1.0</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/history</loc>
+            <lastmod>2024-09-10</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>1.0</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/topcis</loc>
+            <lastmod>2024-09-10</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>1.0</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/discuss</loc>
+            <lastmod>2024-09-10</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>1.0</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/nick-lane-the-vital-question</loc>
+            <lastmod>2024-07-29</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/reduction-potential-and-electronegativity</loc>
+            <lastmod>2024-06-16</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/yang-yi-novel-about-tiananmen-square-protest</loc>
+            <lastmod>2024-06-04</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/doc-graduation-ceremony</loc>
+            <lastmod>2024-05-26</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/txt-graduation-ceremony</loc>
+            <lastmod>2024-05-26</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/information-entropy-kl-divergence-cross-entropy-mutual-information</loc>
+            <lastmod>2024-05-14</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/equivlance-between-diffusion-equation-and-random-walk</loc>
+            <lastmod>2024-04-25</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mc-mcmc-markov-chain-monte-carlo-gibbs-sampling</loc>
+            <lastmod>2024-04-15</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/farewell-grandpa</loc>
+            <lastmod>2024-04-08</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/note-consciousness-theories</loc>
+            <lastmod>2024-01-10</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-2-4-1</loc>
+            <lastmod>2023-12-18</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-2-3</loc>
+            <lastmod>2023-11-26</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/probability-vs-likelihood</loc>
+            <lastmod>2023-11-21</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/war-in-2023-between-hamas-and-israel</loc>
+            <lastmod>2023-11-19</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/Python-test-notes</loc>
+            <lastmod>2023-10-16</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/python-packaging</loc>
+            <lastmod>2023-10-13</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/notes-on-TailwindCSS</loc>
+            <lastmod>2023-10-11</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/afaik-generative-ai</loc>
+            <lastmod>2023-09-11</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/state-of-blog-2023</loc>
+            <lastmod>2023-08-15</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/what-is-intelligence-not-same-as-intelligence-is-what</loc>
+            <lastmod>2023-06-17</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/OPT-workshop-notes</loc>
+            <lastmod>2023-05-19</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/job-search-efforts-during-march-meeting</loc>
+            <lastmod>2023-04-05</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/physics-based-neural-network-review-note</loc>
+            <lastmod>2023-03-20</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/your-first-philosophy-course-what-does-it-all-mean</loc>
+            <lastmod>2023-03-03</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/parameters-in-convolution-in-neural-network-and-transposeconv</loc>
+            <lastmod>2022-12-29</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-2-2</loc>
+            <lastmod>2022-12-17</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/fanpaiyingping-bomi-lamesbond-chinese-movies-ending-of-opening-kaijudezhongju</loc>
+            <lastmod>2022-11-17</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/python-decorator</loc>
+            <lastmod>2022-11-09</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/nhk-sakamoto-ryoma-den</loc>
+            <lastmod>2022-11-05</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/say-her-name-mahsa-amini</loc>
+            <lastmod>2022-10-06</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/how-to-narrate</loc>
+            <lastmod>2022-10-03</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-2-1</loc>
+            <lastmod>2022-09-06</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/pytorch-dataset-dataloader-sampler</loc>
+            <lastmod>2022-09-01</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/logical-science-from-west</loc>
+            <lastmod>2022-08-22</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/knowledge-structure-machine-learning-image-processing-summer-school</loc>
+            <lastmod>2022-08-17</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/what-a-PyTorch-project-looks-like</loc>
+            <lastmod>2022-08-17</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-10</loc>
+            <lastmod>2022-08-07</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/my-teacher-mr-liu</loc>
+            <lastmod>2022-07-30</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-9</loc>
+            <lastmod>2022-07-10</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/python-subprocess-run-bash</loc>
+            <lastmod>2022-07-08</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-8</loc>
+            <lastmod>2022-07-01</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mimic-mathematica-with-wolfram-engine-and-vscode</loc>
+            <lastmod>2022-06-19</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/June-fourth-2-campaigns</loc>
+            <lastmod>2022-06-17</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-7</loc>
+            <lastmod>2022-05-19</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/R-install-and-simple-syntax</loc>
+            <lastmod>2022-04-29</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/essential-cell-biology-index</loc>
+            <lastmod>2022-04-29</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/rust-simple-syntax</loc>
+            <lastmod>2022-04-29</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/typescript-simple-syntax</loc>
+            <lastmod>2022-04-29</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-6</loc>
+            <lastmod>2022-04-19</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/tensorboard-on-pytorch</loc>
+            <lastmod>2022-04-08</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-5</loc>
+            <lastmod>2022-04-03</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-4</loc>
+            <lastmod>2022-03-27</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-3</loc>
+            <lastmod>2022-03-20</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-2</loc>
+            <lastmod>2022-03-13</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-1-1</loc>
+            <lastmod>2022-03-06</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/great-cultural-revolution-ten-years-0</loc>
+            <lastmod>2022-03-05</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/barron-360-biology-contents</loc>
+            <lastmod>2022-02-25</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/three-body-quotes</loc>
+            <lastmod>2022-01-21</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/git-multiple-users</loc>
+            <lastmod>2021-12-26</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/python-import-script-module-package</loc>
+            <lastmod>2021-12-11</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/blog-update-theme-materalize</loc>
+            <lastmod>2021-12-06</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/en-foreign-policy-china-declining</loc>
+            <lastmod>2021-12-03</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/install-pytorch-cpu-on-fedora</loc>
+            <lastmod>2021-10-13</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/taile-celebration-of-life</loc>
+            <lastmod>2021-09-23</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/translate-dalio-on-china-and-arguments</loc>
+            <lastmod>2021-08-14</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/python-interpreter-editor-virtualenv</loc>
+            <lastmod>2021-06-29</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/civ6-game-review-france-vs-rome</loc>
+            <lastmod>2021-05-26</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-11-ggplot</loc>
+            <lastmod>2021-05-18</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-note-10-dimension-reduction</loc>
+            <lastmod>2021-05-15</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-10-dimension-reduction</loc>
+            <lastmod>2021-05-14</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-09-data-wrangling</loc>
+            <lastmod>2021-04-27</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/qc-hackathon-write-up</loc>
+            <lastmod>2021-04-22</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-08-renormalization-continued</loc>
+            <lastmod>2021-03-23</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-07-renormalization</loc>
+            <lastmod>2021-03-19</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/python-installation-and-configuration</loc>
+            <lastmod>2021-03-07</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-06-criticality</loc>
+            <lastmod>2021-02-25</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-05-pattern.md</loc>
+            <lastmod>2021-02-17</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/summary-of-this-blog</loc>
+            <lastmod>2021-02-10</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-note-02-stochastic-process</loc>
+            <lastmod>2021-02-04</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-03-non-equilibrium-field-theory</loc>
+            <lastmod>2021-02-04</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-04-order-emergence-non-equilibrium</loc>
+            <lastmod>2021-02-04</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/civ6-cheatsheet-of-tech-and-civic</loc>
+            <lastmod>2021-01-29</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-02-stochastic-process</loc>
+            <lastmod>2021-01-26</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-note-01-introduction</loc>
+            <lastmod>2021-01-23</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/mpipks-non-equilibrium-physics-transcript-01-Introduction</loc>
+            <lastmod>2021-01-16</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/matters-yearly</loc>
+            <lastmod>2021-01-09</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/barrier-forward-keyboard-mouse-to-another-computer</loc>
+            <lastmod>2020-12-22</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/doc-share-experience</loc>
+            <lastmod>2020-10-31</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/xls-two-years-after-buying-car</loc>
+            <lastmod>2020-10-18</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/py-matplotlib-two-api</loc>
+            <lastmod>2020-10-04</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/lab-note</loc>
+            <lastmod>2020-09-21</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/how-to-spend-life</loc>
+            <lastmod>2020-07-05</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/parents-visiting</loc>
+            <lastmod>2020-06-05</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/measure-david-with-imagej</loc>
+            <lastmod>2020-04-29</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/raw-image-or-not</loc>
+            <lastmod>2020-03-14</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/read-on-Yurang-by-Fang-Xiaoru</loc>
+            <lastmod>2020-01-13</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/yeast-cloth-food-house-travel</loc>
+            <lastmod>2019-12-29</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/rainy-autumn-album</loc>
+            <lastmod>2019-11-12</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/Arch-Linux-in-VirtualBox</loc>
+            <lastmod>2019-09-03</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/TL-Paul-Graham-How-to-Disagree</loc>
+            <lastmod>2019-08-24</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/web-brower-A-to-Z</loc>
+            <lastmod>2019-08-16</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/spring-is-over</loc>
+            <lastmod>2019-08-14</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/TL-why-physics-is-not-a-discipline</loc>
+            <lastmod>2019-06-19</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/RP-naive-lover</loc>
+            <lastmod>2019-05-19</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/RP-why-choose-python-0-overview</loc>
+            <lastmod>2019-02-07</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/RP-why-choose-python-1-script</loc>
+            <lastmod>2019-02-07</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/RP-why-choose-python-2-dynamic</loc>
+            <lastmod>2019-02-07</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/RP-why-choose-python-3-oop</loc>
+            <lastmod>2019-02-07</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/RP-why-choose-python-4-fp</loc>
+            <lastmod>2019-02-07</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/RP-why-choose-python-5-tool</loc>
+            <lastmod>2019-02-07</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
+
+        <url>
+            <loc>https://mountaye.github.io/blog/articles/betrayal-and-report</loc>
+            <lastmod>2018-06-14</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.9</priority>
+        </url>
 </urlset>

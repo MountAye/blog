@@ -4,7 +4,7 @@
         <title>阿掖山·博客</title>
         <link>https://mountaye.github.io/blog</link>
         <description>智力活动是一种生活态度。</description>
-        <lastBuildDate>Wed, 11 Sep 2024 23:33:32 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 17 Sep 2024 23:18:21 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,272 @@
             <link>https://mountaye.github.io/blog</link>
         </image>
         <copyright>作者保留版权 2024, 阿掖山</copyright>
+        <item>
+            <title><![CDATA[.js | 博客改用 Next.js + TailwindCSS + Shadcn.UI]]></title>
+            <link>https://mountaye.github.io/blog/articles/static-blog-with-nextjs-tailwindcss-shadcn</link>
+            <guid>https://mountaye.github.io/blog/articles/static-blog-with-nextjs-tailwindcss-shadcn</guid>
+            <pubDate>Tue, 17 Sep 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[我的博客本来是用 Jekyll 生成的静态网站，如今改用 Next.js + TailwindCSS + Shadcn.UI]]></description>
+            <content:encoded><![CDATA[
+## 技术选型
+
+### 不再选择静态网站生成工具
+
+我的博客本来是用 Jekyll 生成的静态网站，因为网站架在 GitHub Pages 上，而 Jekyll 是 GitHub Pages 默认的构建工具。但是 Jekyll 的核心开发者年事已高，有的甚至已经去世，所以我感觉这个项目未来的活力堪忧。
+
+Jekyll 是用 Ruby on Rails 写成的，其他编程语言，和 Jekyll 功能类似的工具有：
+
+- Python 的 Pelican
+- JavaScript 的 Hexo
+
+但是我还想做些更复杂的事情，预计需要靠服务端来实现。所以与其花时间移植到一个和 Jekyll 功能类似的工具，不如直接一步到位，学习一个全栈框架。
+
+### Next.js
+
+虽然不同的编程语言也都有自己的全栈框架，比如 Python 有 Django，但是既然浏览器主要支持 JavaScript，所以索性前后端都用 JS 比较方便，而且这样想的人很多，社区规模使得遇到问题更容易找到答案（这个优势在生成式语言模型的时代似乎没那么重要了）。
+
+JavaScript 语言之下，也存在至少 React 和 Vue 两大阵营。之所以选择 Next.js 这样一个基于 React.js 的框架，主要是路径依赖，很久很久以前学过[赫尔辛基大学的全栈公开课](https://fullstackopen.com/zh/)，那里教的就是 React。
+
+对于 Next.js 本身，Youtube@Fireship 有一个很简洁的介绍：[https://www.youtube.com/watch?v=Sklc_fQBmcs](https://www.youtube.com/watch?v=Sklc_fQBmcs)
+
+官网提供的教程在这里：[https://nextjs.org/learn](https://nextjs.org/learn)，和我学习的时候已经不一样了，那时候只有 page router，没有 app router。开发这一框架的 Vercel 公司也提供 Next.js 的云服务。但是鉴于其有过把用户引诱到 app router 架构然后给自家服务提价的黑历史，所以短期内不打算学和用 app router.
+
+### TailwindCSS
+
+[https://tailwindcss.com/](https://tailwindcss.com/)
+
+早就学过了，但是一直没有机会用。这次本来也可以不用的，直到决定使用 Shadcn.ui 组件库，因为 TailwindCSS 是它的一个依赖项。既然已经安装了，那不用白不用。
+
+### Shadcn.UI 而非 HeadlessUI
+
+https://ui.shadcn.com/
+
+一套组件库，也就是网页中经常出现的功能单元。这个库相对于竞品的最大优势，是允许直接复制粘贴代码而不用安装，用多少抄多少～
+
+TailwindCSS 自家也有一个组件库 [HeadlessUI](https://headlessui.com/)，但是主要是 `<form/>` 表单及其成员，侧重于向后端传数据的 HTML 元素的封装。而 Shacn 有很多炫酷的交互方面的组件，突出一个现成且好看。
+
+### 没用 Figma
+
+有用的功能都收钱，免费的功能不如直接 `next dev` 实时预览。
+
+## ~~踩过的坑~~ 学到的经验
+
+### 组件化作为一种思路
+
+正常的网页，HTML 负责内容，CSS 负责装饰，JavaScript 负责交互。这种分工，专业上叫做解耦。
+
+工程实践表明，这种解耦方式非常反人类。用户看到和使用的网页，是以功能上的相似、空间上的相邻为组织的，而要对其修改时，则需要到不同源代码的不同位置去；反之，某处代码的改动，无意中可能对远处的另一部分视觉效果和功能造成破坏。
+
+于是较新的全栈框架，其解耦的方式都是以组件为单位的，内容、样式、交互逻辑都写在一起。
+
+### JavaScript/JSX 语法中的 `{}`
+
+JSX 是对 JavaScript 语法的扩展，添加了类似于 HTML 标记的写法 `<MyComponent></MyComponent>`，用来表示 react 组件。
+
+在 jsx 语言的内部写 Javascript 时，需要将 JS 外面包裹一层 `{}`
+
+JavaScript 里类似 Python f-string 的结构写作``${}``，名叫 template literal: ``this is var: ${var}``
+
+——以上规则结合起来，会产生让初学者迷惑的现象：
+
+- `<MyComponent className=’dark’/>`: 一个正常的类名，直接用引号
+- `<MyComponent className={dark}/>:` 类名是一个 JS 字符串变量
+- `<MyComponent className={`bg-${dark}`}/>`: 类名的一部分根据一个变量取值。
+
+### JavaScript 箭头函数中的 `{}` 和 `()`
+
+JavaScript 的箭头函数类似于 python 的 lambda 纯函数，但是有不同。
+
+`(var) => (expression(var))` 相当于 Python 中的 `lambda x: expression(x)` 
+
+但是箭头函数的右侧可以是 `{}` 包裹的若干表达式，此时需要显式 return：
+
+```jsx
+(var) => {
+    expression1(var);
+    expression2(var);
+    return expression3(var);
+}
+```
+
+Python 的 lambda 必须是单一表达式的纯函数，不允许上面第二种写法。
+
+### 对象解包中的 `{}`
+
+当有一个包含若干键值对的对象时
+
+```jsx
+obj = {
+		k1: "value1",
+		k2: "value2",
+		k3: "value3",
+		...
+}
+```
+
+可以用 `const { k2 } = obj;` 的方式拿到 `obj[’k2’]` 的值，赋给 `k2`。
+
+结合上一节，
+
+- `(k1,k2)=>(k1+k2);` 是一个两个自变量的函数；
+- `({k1,k2})=>(k1+k2);` 是以一个 Object 为自变量的函数，这个 Object 的名字无所谓，也不确定一共有多少个属性，但属性中至少包含 `k1` 和 `k2`.
+
+### TailwindCSS 的 arbitrary value、JavaScript 的模板字符串、Shadcn 中的 `cn()` 函数
+
+TailwindCSS 的很多属性都允许在方括号中使用任意值，比如背景色 `bg-[#a4b4c4]`
+
+本以为可以直接在 `className` 里面用 template literal `<div className={`bg-[${myColor}]`}>`，但是并不总是生效。
+
+这个“并不总是”是个大坑，一开始在开发模式用得好好的，结果某次刷新页面之后就挂了，简直莫名其妙。
+
+好在 Shadcn 提供了一个 [`cn()` 函数](https://github.com/shadcn-ui/ui/blob/main/apps/www/lib/utils.ts)，接受一个或多个 TailwindCSS 类名字符串作为输入，就可以正常使用 template literal 了，例如 `<div className={cn("block","border-0",`bg-[${myColor}]`)}></div>`
+
+### HTML + CSS 布局
+
+两类套路：
+
+1. 传统的 `display`, `position`, `float` 属性；
+2. Flex 和 Grid 布局，看阮一峰先生的博客里的教程就挺方便：[Flex](https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html), [Grid](https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html).
+
+理论上后者新一些，消耗的脑力也更少一些，应该是更好的选择。
+
+但是前者也有一些优势场景。比如现在整个博客页面的上边栏和剩下的部分就是一个上下结构的 flex 布局，这导致屏幕最右侧的滚动条其实是页面一部分的，而不是整个页面的的滚动条。在 iOS 的 Safari 浏览器下，会导致网址栏不能自动隐藏，浪费很大一片屏幕空间。之后可能会换回传统功夫。
+
+而像是目录，文章跳转开头和评论区的按钮等等，需要在页面滚动时相对屏幕静止的元素，就不得不用 position，而且为了锚定在正文上，还需要嵌套好几层。
+
+按照传统功夫——
+
+- `display`可选的取值有 4 个: block | inline | inline-block | none
+    - block: 竖排，哪怕同一行内仍有空间容纳 html 中的下一个元素。
+    - inline: 横排，像文字内容一样，没有盒模型
+    - inline-block: 横排，但是有盒模型
+    - none: 不显示，和 `visibility:hidden` 的区别是，后者依然占有显示时的空间。
+- `position`可选的取值有 5 个: static | relative | fixed | absolute | sticky
+    - static: 默认值，按照 html 文件的顺序排列。
+    - relative: 相对于 static 默认值进行偏移，偏移量由 `top`, `right`, `bottom`, `left` 四个性质决定。所谓 `left: 50px` 的意思是左侧 margin 外多出 50 像素的空间，实际是向右偏移的效果。
+    - fixed: 相对于**视窗**的位置固定，位置由 `top`, `right`, `bottom`, `left` 四个性质决定。`left: 50px` 的意思是该元素的左侧 border **外沿**距离窗口左边 50 像素。
+    - absolute: 相对于最近一层父元素的位置固定，位置由 `top`, `right`, `bottom`, `left` 四个性质决定。`left: 50px` 的意思是该元素的左侧 border **外沿**距离父元素左侧**内沿** 50 像素。设计的时候需要考虑 border 宽度。
+    - sticky: 网页加载时按照 html 文件的顺序排列，直到网页滑动到某一位置，之后该元素固定在视窗，就像 fixed 一样，行为改变的位置由 `top`, `right`, `bottom`, `left` 四个性质决定。
+- `float`:  none | left | right | inherit
+    - none: 默认值，按照 html 文件的顺序排列。
+    - left: 保持在父元素左侧，其他元素环绕之。
+    - right: 保持在父元素右侧，其他元素环绕之。
+    - inherit: 和父元素的 float 的取值一致。
+
+### Unified.js 将 Markdown 文档转换为基于 JSX 的 HTML
+
+Jekyll 等静态网站生成器的核心功能，就是把 markdown 文档翻译成 html 网页文档。在 Next.js 框架下，这一工作由以 unified.js 为基础的一群第三方库来完成。
+
+最早看到这个框架是在 DIYGOD 的博文《[如何优雅编译一个 Markdown 文档](https://diygod.cc/unified-markdown)》里，但是直接抄他在 xlog 里面的代码的话，在 next.js 之下好像会报错。所以又去官网仔细读了一下文档，现在可以说是略懂。
+
+这个话题本身值得专门写一篇文章，所以不在这里展开了。
+
+### Giscus 评论区切换黑夜模式
+
+自己写的组件的亮暗切换，是通过在 `<html/>` 元素添加和删除 `dark` 类，然后搭配 TailwindCSS 的 `dark:` 来实现的。
+
+Giscus 官方支持切换黑夜模式：[https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#parent-to-giscus-message-events](https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#parent-to-giscus-message-events)。这套方法的关键，在于服务端返回的 iframe 有一个名为 `giscus-frame` ****的类。
+
+Giscus 为 react 提供了一套组件可以直接使用，但是在这套组件里面并没有这个类。
+
+所以只能弃用官方的组件，自己用 `useEffect` 模拟官网的 `<script/>`
+
+```jsx
+export function MyGiscus() {
+  useEffect(
+    () => {
+      const onPageLoad = () => {
+        console.log("<MyGiscus/>: activated on page load.")
+        // START real business
+        const script = document.createElement('script');
+        script.src = "https://giscus.app/client.js";
+        script.setAttribute('data-repo',              '');
+        script.setAttribute('data-repo-id',           '');
+        script.setAttribute('data-category',          '');
+        script.setAttribute('data-category-id',       '');
+        script.setAttribute('data-mapping',           '');
+        script.setAttribute('data-strict',            '');
+        script.setAttribute('data-reactions-enabled', '');
+        script.setAttribute('data-emit-metadata',     '');
+        script.setAttribute('data-input-position',    '');
+        script.setAttribute('data-theme',             '');
+        script.setAttribute('data-lang',              '');
+        script.crossOrigin = 'anonymous';
+        script.async = true;
+        document.getElementById("comments").appendChild(script);
+        // END real business
+      };
+      // Check if the page is already loaded
+      if (document.readyState==='complete') {
+        onPageLoad();
+      } else {
+        // Add event listener for page load
+        window.addEventListener('load',onPageLoad);
+        // Cleanup the event listener on component unmount
+        return () => { window.removeEventListener('load',onPageLoad); }
+      };
+    },
+    []
+  );
+  return (<div id='comments'></div>);
+}
+```
+
+### Next.js 的构建参数部分
+
+要让 next.js 构建静态网站，需要在 next.config.js 中写：
+
+```jsx
+module.exports = {
+  basePath: '/blog',
+  output: 'export',
+  generateBuildId: async () => "buildID",
+  // i18n: {
+  //   locales: ['zh-CN', 'en'],
+  //   defaultLocale: 'zh-CN',
+  //   localeDetection: false,
+  // },
+}
+```
+
+`basePath` 是因为博客的 GitHub 仓库 blog 不是默认的个人网站仓库；需要注意的是，next.js 自己的 Link 组件的 `href` 参数不需要包含这个值，但是图片等等的 `src` 参数需要。
+
+`generateBuildId` 函数的返回值是随便写的，不设定的话会导致输出里的 `_next/` 文件夹里有很多哈希值为名的文件夹，在 git 下会被当成不同的 blob 一直留在项目里。
+
+`i18n` 参数被注释掉了，因为静态生成的 next.js 项目不支持自动 i18n.
+
+### RSS 源和 sitemap
+
+RSS 由 feed 这个 npm 包来构建；
+
+sitemap 则是在 ChatGPT 的帮助下手写字符串。
+
+写好的字符串，通过在主页或者历史归档页面的 `getStaticProps()` 函数，写入 next.js 项目的 `public/` 文件夹。
+
+## 还没解决的问题
+
+### 手机端搜索框的汉字输入问题
+
+页面顶端的搜索框在手机触摸屏上，用汉字输入法输入关键词之后，直接按回车键，会导致已经输入的汉字被当成拼音，传递给搜索引擎。
+
+暂时的办法是在输入汉字之后，按回车键之前按一下空格。
+
+### Shadcn.Drawer 组件的上游代码报错；Google Ads
+
+新博客把谷歌广告撤了。赚不到多少钱不说，它还会往网页里动态添加元素，破坏原来的排版。
+
+话虽如此，每篇文章的右下角还是有个[要饭的图标](https://lucide.dev/icons/hand-heart)，计划用 shadcn 的 Drawer，放赞赏二维码，或者交换来的友站链接。
+
+但是目前 Drawer 的上游代码会报错，看起来作者已经在修复了，等更新。
+
+### Google Analytics
+
+next.js 提供了 Google analytics: [https://nextjs.org/docs/pages/building-your-application/optimizing/third-party-libraries](https://nextjs.org/docs/pages/building-your-application/optimizing/third-party-libraries)
+
+但是加入之后没有反应，google 后台看不到，数据一落千丈。
+
+据说把相应的代码放到 `pages/_app.js` 可以解决问题，还没试。]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[.tex | Nick Lane "The Vital Question" 读书笔记]]></title>
             <link>https://mountaye.github.io/blog/articles/nick-lane-the-vital-question</link>
@@ -10884,169 +11150,6 @@ May 28, 2019 10:53 PM
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[.pdf | 《细胞生物学精要 Essential Cell Biology》读书笔记]]></title>
-            <link>https://mountaye.github.io/blog/articles/essential-cell-biology-index</link>
-            <guid>https://mountaye.github.io/blog/articles/essential-cell-biology-index</guid>
-            <pubDate>Fri, 29 Apr 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[捋一遍目录真的是读一次读不完的书很有效率的做法。]]></description>
-            <content:encoded><![CDATA[
-
-> 2024年1月29日更新：读“我们如何得知”第 3, 13, 15, 16, 17 节, “图版”第 3-1 节
-
-自从在个人博客上开启了[那本书](%7B%%20post_url%202022-03-05-great-cultural-revolution-ten-years-0%20%%7D)的读书笔记系列之后，发现捋一遍目录真的是读一次读不完的书很有效率的做法。
-
-上次发了一篇[《生物学知识提纲》](%7B%%20post_url%202022-02-25-barron-360-biology-contents%20%%7D)，其实我家里是有好几本大部头的本科程度的生物学教材的，这本《细胞生物学精要》就是其中之一，是爸妈来看我的时候用行李箱带过来的中译本。快要找工作了，如果决定更进一步地进入生物领域的话，是时候看点书了。
-
-这本书除了正常的章节之外，每一章都会对于一个科学命题，回答“我们如何得知这一命题”的问题，这一节插在正文中间，这次整理的时候单独摘了出来。另外部分章节末尾有图解部分概念的“图版”，也单独摘了出来。章节繁多，所以只展开了自己当下比较感兴趣的部分，并且将之标红加粗。
-
-## 篇章结构
-
-1. 介绍细胞
-2. 细胞的化学成分
-3. **能量、催化作用、生物合成**
-    1. 细胞中能量的应用
-    2. **自由能和催化作用**
-    3. 活化的载体分子与生物合成
-4. 蛋白质的结构和功能
-5. DNA 和染色体
-6. DNA 复制、修复和重组
-7. 从 DNA 到蛋白质：细胞如何阅读基因组
-8. **基因表达调控**
-    1. 基因表达概述
-    2. **转录是如何开启的**
-    3. 造成特异细胞类型的分子机制
-    4. **转录后调控**
-9. 基因和基因组如何进化
-10. 基因及基因组分析
-11. 膜的结构
-12. **膜转运**
-13. 细胞如何从食物中获得能量
-14. 线粒体和叶绿体中的能量生产
-15. 胞内区室及转运
-16. **细胞通讯**
-    1. 细胞信号传导的一般原理
-    2. G 蛋白偶联受体
-    3. 酶联受体
-17. 细胞骨架
-18. **细胞分裂周期概述**
-    1. 细胞分裂周期
-    2. **细胞周期控制系统**
-    3. S 期
-    4. M 期
-    5. 有丝分裂
-    6. 胞质分裂
-    7. 细胞数量和细胞大小的控制
-19. 性与遗传
-20. 细胞群落：组织、干细胞、癌
-
-## 我们如何得知
-
-1. 生命的共同机制
-2. 什么是大分子
-3. **使用动力学模拟和操作代谢途径**：基本都在 Machaelis-Menton 模型框架之内
-    - 一个酶对其催化反应的最大速率 $$V_{max}$$:
-        - 测量试管中不同底物浓度下的速率，找到其在底物浓度趋于无穷时的渐进行为。将浓度和速率都取倒数后作图，纵轴截距就是最大速率(!)
-        - 更快的反应（几微秒内），需要“停/流仪”([stopped flow](https://en.wikipedia.org/wiki/Stopped-flow))
-    - 调控：竞争性抑制剂不改变 $$V_{max}$$
-    - 设计：通过模拟，但是完全没提模拟的细节。可能需要看正文 10.3.3
-4. 探究蛋白质的结构
-5. 基因由 DNA 组成
-6. 复制的性质
-7. 破译遗传密码
-8. 基因调控——Eve 的故事
-9. 基因数目
-10. 人类基因组测序
-11. 测量膜流
-12. 乌贼为我们展示膜兴奋性的奥秘
-13. **发现柠檬酸循环**
-    - 当时的发现者 Krebs 等人：
-        - 肌肉切碎后的悬浮液中，特定的一群分子被快速氧化
-        - 这些分子形成两条通路：柠檬酸 → α-酮戊二酸 → 琥珀酸；琥珀酸 → 延胡索酸 → 苹果酸 → 草酰乙酸。（没有质谱技术，如何辨别这些小分子？）
-        - 小剂量的以上分子加入后可以导致大量氧气消耗
-        - 丙二酸实验
-            - 丙二酸可以特异性抑制琥珀酸脱氢酶的活性（如何知道？丙二酸结构上类似琥珀酸即丁二酸）
-            - 琥珀酸脱氢酶催化琥珀酸变为延胡索酸
-            - 将柠檬酸、异柠檬酸、α-酮戊二酸（之前通路的**上游**分子）加入含有丙二酸的肌肉细胞悬浮液后，琥珀酸会累积
-            - 将延胡索酸、苹果酸、草酰乙酸（之前通路的**下游**分子）加入含有丙二酸的肌肉细胞悬浮液后，琥珀酸**也**会累积
-        - 结论/假设：下游存在一个反应，使得最下游反应物变成最上游反应物
-            - 肌肉悬液和丙酮酸和草酰乙酸共培养时，形成了柠檬酸
-            - 假设：丙酮酸 + 草酰乙酸 → 柠檬酸或丙酮酸 + 草酰乙酸 → 柠檬酸
-            - 实际：乙酰 CoA 作为丙酮酸和草酰乙酸的中间体，十年之后才被发现
-    - 现有技术：放射性标记物 + 质谱法
-        - 放射性标记物
-        - 质谱法
-14. 化学渗透偶联如何驱动 ATP 合成
-15. **追踪蛋白质和囊泡运输**
-    - 定位到特定细胞器的蛋白含有特定“信号序列”，信号序列交换实验
-    1. in vitro, 将细胞器从细胞中分离出来，和携带信号序列的蛋白质置于同一试管中，放射性氨基酸标记和追踪；图15-29 (B) 没看懂汉语
-    2. 高温时分泌缺陷的酵母中发现了 25 种和胞吐有关的基因。25°C 转运正常，35°C 异常积累在内质网、高尔基体、囊泡中
-    3. 荧光蛋白视频
-16. **解析细胞信号通路**
-    1. 检测磷酸化：当信号通路接收到胞外信号分子时，多种蛋白被磷酸化
-        1. 破碎细胞、通过凝胶按大小分开、使用抗体检测磷酸化的蛋白
-        2. 在细胞暴露于信号分子时，提供放射性的 ATP；破碎细胞并通过凝胶；将凝胶在 X 光底片上曝光。
-    2. 鉴定相互作用蛋白：
-        1. 免疫共沉淀：用抗体抓住特定的蛋白，如果其正与其他蛋白结合，则被结合蛋白也会沉淀
-        2. DNA 重组技术：构建一系列突变蛋白，可以鉴定出用来结合的氨基酸位点。使用此种方法时，细胞内不能有对信号分子相应的正常受体（如何做到？）
-    3. 开关通路
-        1. 开：DNA 重组技术，编码不需外源信号也能持续激活的受体蛋白，例如人类癌症中的 Ras
-        2. 关：
-            1. DNA 重组技术，构建“显性失活”(dominant negative) 突变体
-            2. 小干扰 RNA (siRNA)，降解编码相应蛋白的 mRNA 或阻止 mRNA 翻译
-    4. 通路排序
-        1. 动物筛选：成千上万的实验动物用一种突变源处理，寻找突变所在的信号通路中哪一个没有正常工作，由此找到信号通路中编码蛋白的基因
-        2. 确定顺序：已于研究目标 X，选定一个基准蛋白 C，引入一种失活的 X 突变，再引入持续激活的 C，看通路是否仍能工作，能则 X 在 C 上游，反之则在下游。
-17. **寻找马达蛋白**
-    - 难点：在细胞外分离和研究相关蛋白质
-    - 方法：
-        - 显微镜技术发展，从特定种类的细胞中将胞内运输系统挤压出来。
-            - ~~光学显微镜时代：拥有巨大轴突的乌贼神经细胞，从轴突中挤出细胞质（轴浆），然后研究粒子跨细胞膜运动，轴浆被丢弃。~~
-            - 视频增强显微镜时代：空间分辨率 200nm，看到囊泡和被膜细胞器沿着细胞骨架移动，从 30~50nm 的颗粒到 5000nm 的线粒体。
-            - 这种运动需要 ATP，AMP-PNP 竞争性抑制细胞器转运
-        - 用纯化的缆绳、马达、货物从零开始装配一套正常运转的运输系统
-            - 抗体实验表明蛋白丝缆绳是 α-微管蛋白
-            - Ron Vale, Thomas Reese & Michael Sheetz 将纯化的缆绳（乌贼的视叶中纯化的微管）和货物（乌贼轴突中分离的细胞器）放在一起，寻找诱发运动的分子。乌贼轴突细胞质的提取物可以诱发运动
-            - AMP-PNP 虽抑制其运动，但仍能使组件结合。结合后提取微管，希望马达蛋白仍附着在微管上。加入 ATP 释放附着的蛋白，得到 110kDa 的多肽
-        - 细胞内观测：Steven Blcok et al, 1990
-            - 微小的硅珠包裹上低浓度的动力蛋白，能观察到硅珠沿微管行走
-            - 马达蛋白和荧光蛋白偶联，可以观察到单个动力蛋白分子
-            - 发现：每个分子从微管上掉落之前走大约 100 步，每步 8nm，约等于微管蛋白单体的长度。ATP 水解实验表明每步消耗一个 ATP
-            - 动力蛋白有两个头部，被认为以左右交替的方式前进。
-18. 细胞周期蛋白和 Cdk 的发现
-19. 利用 SNP 解开人类疾病的面纱
-20. 搞清楚那些对癌症有关键性影响的基因
-
-## 图版
-
-- 1-1. 显微镜
-- 1-2. 细胞结构
-- 2-1. 化学键和化学基团
-- 2-2. 水的化学性质
-- 2-3. 几种糖的类型概述
-- 2-4. 脂肪酸和其他脂类
-- 2-5. 蛋白质里的20种氨基酸
-- 2-6. 核苷酸概述
-- 2-7. 非共价键的主要类型
-- 3-1. **自由能与生物学反应**：写得不好，太多不加解释的事实陈述
-    - 反应的自由能变化和平衡常数之间存在函数关系，推导在 3.2.6 节
-    - 生物系统中，吉布斯自由焓为正的反应的发生，经常依靠反应耦合（多个反应共享一个或多个中间物）。总的自由能变化是各个反应自由能之和。
-- 4-1. 蛋白质功能的几个例子
-- **4-2. 描述小型 SH2 蛋白结构域的四种不同方式**
-- 4-3. 抗体的制备和使用
-- **4-4. 细胞的裂解和细胞抽提物的初步分离**
-    - “我们如何得知17”提到
-- **4-5. 用层析法分离蛋白质**
-    - “我们如何得知17”提到
-- 4-6. 用电泳法分离蛋白质
-- 13-1. 详解糖酵解的10个步骤
-- 13-2. 完整的柠檬酸循环
-- **14-1. 氧化还原电位**
-- 17-1. 三种蛋白丝的主要类型
-- 18-1. 动物细胞 M 期的主要阶段
-- 19-1. 经典遗传学的要义
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[.r | R语言入门笔记]]></title>
             <link>https://mountaye.github.io/blog/articles/R-install-and-simple-syntax</link>
             <guid>https://mountaye.github.io/blog/articles/R-install-and-simple-syntax</guid>
@@ -11230,6 +11333,169 @@ weather[, ws_kmh:=1.61*wind_speed] %>%
 .[, .(mean_ws = mean(ws_kmh)), by=month] %>%
 head()
 ```
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[.pdf | 《细胞生物学精要 Essential Cell Biology》读书笔记]]></title>
+            <link>https://mountaye.github.io/blog/articles/essential-cell-biology-index</link>
+            <guid>https://mountaye.github.io/blog/articles/essential-cell-biology-index</guid>
+            <pubDate>Fri, 29 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[捋一遍目录真的是读一次读不完的书很有效率的做法。]]></description>
+            <content:encoded><![CDATA[
+
+> 2024年1月29日更新：读“我们如何得知”第 3, 13, 15, 16, 17 节, “图版”第 3-1 节
+
+自从在个人博客上开启了[那本书](%7B%%20post_url%202022-03-05-great-cultural-revolution-ten-years-0%20%%7D)的读书笔记系列之后，发现捋一遍目录真的是读一次读不完的书很有效率的做法。
+
+上次发了一篇[《生物学知识提纲》](%7B%%20post_url%202022-02-25-barron-360-biology-contents%20%%7D)，其实我家里是有好几本大部头的本科程度的生物学教材的，这本《细胞生物学精要》就是其中之一，是爸妈来看我的时候用行李箱带过来的中译本。快要找工作了，如果决定更进一步地进入生物领域的话，是时候看点书了。
+
+这本书除了正常的章节之外，每一章都会对于一个科学命题，回答“我们如何得知这一命题”的问题，这一节插在正文中间，这次整理的时候单独摘了出来。另外部分章节末尾有图解部分概念的“图版”，也单独摘了出来。章节繁多，所以只展开了自己当下比较感兴趣的部分，并且将之标红加粗。
+
+## 篇章结构
+
+1. 介绍细胞
+2. 细胞的化学成分
+3. **能量、催化作用、生物合成**
+    1. 细胞中能量的应用
+    2. **自由能和催化作用**
+    3. 活化的载体分子与生物合成
+4. 蛋白质的结构和功能
+5. DNA 和染色体
+6. DNA 复制、修复和重组
+7. 从 DNA 到蛋白质：细胞如何阅读基因组
+8. **基因表达调控**
+    1. 基因表达概述
+    2. **转录是如何开启的**
+    3. 造成特异细胞类型的分子机制
+    4. **转录后调控**
+9. 基因和基因组如何进化
+10. 基因及基因组分析
+11. 膜的结构
+12. **膜转运**
+13. 细胞如何从食物中获得能量
+14. 线粒体和叶绿体中的能量生产
+15. 胞内区室及转运
+16. **细胞通讯**
+    1. 细胞信号传导的一般原理
+    2. G 蛋白偶联受体
+    3. 酶联受体
+17. 细胞骨架
+18. **细胞分裂周期概述**
+    1. 细胞分裂周期
+    2. **细胞周期控制系统**
+    3. S 期
+    4. M 期
+    5. 有丝分裂
+    6. 胞质分裂
+    7. 细胞数量和细胞大小的控制
+19. 性与遗传
+20. 细胞群落：组织、干细胞、癌
+
+## 我们如何得知
+
+1. 生命的共同机制
+2. 什么是大分子
+3. **使用动力学模拟和操作代谢途径**：基本都在 Machaelis-Menton 模型框架之内
+    - 一个酶对其催化反应的最大速率 $$V_{max}$$:
+        - 测量试管中不同底物浓度下的速率，找到其在底物浓度趋于无穷时的渐进行为。将浓度和速率都取倒数后作图，纵轴截距就是最大速率(!)
+        - 更快的反应（几微秒内），需要“停/流仪”([stopped flow](https://en.wikipedia.org/wiki/Stopped-flow))
+    - 调控：竞争性抑制剂不改变 $$V_{max}$$
+    - 设计：通过模拟，但是完全没提模拟的细节。可能需要看正文 10.3.3
+4. 探究蛋白质的结构
+5. 基因由 DNA 组成
+6. 复制的性质
+7. 破译遗传密码
+8. 基因调控——Eve 的故事
+9. 基因数目
+10. 人类基因组测序
+11. 测量膜流
+12. 乌贼为我们展示膜兴奋性的奥秘
+13. **发现柠檬酸循环**
+    - 当时的发现者 Krebs 等人：
+        - 肌肉切碎后的悬浮液中，特定的一群分子被快速氧化
+        - 这些分子形成两条通路：柠檬酸 → α-酮戊二酸 → 琥珀酸；琥珀酸 → 延胡索酸 → 苹果酸 → 草酰乙酸。（没有质谱技术，如何辨别这些小分子？）
+        - 小剂量的以上分子加入后可以导致大量氧气消耗
+        - 丙二酸实验
+            - 丙二酸可以特异性抑制琥珀酸脱氢酶的活性（如何知道？丙二酸结构上类似琥珀酸即丁二酸）
+            - 琥珀酸脱氢酶催化琥珀酸变为延胡索酸
+            - 将柠檬酸、异柠檬酸、α-酮戊二酸（之前通路的**上游**分子）加入含有丙二酸的肌肉细胞悬浮液后，琥珀酸会累积
+            - 将延胡索酸、苹果酸、草酰乙酸（之前通路的**下游**分子）加入含有丙二酸的肌肉细胞悬浮液后，琥珀酸**也**会累积
+        - 结论/假设：下游存在一个反应，使得最下游反应物变成最上游反应物
+            - 肌肉悬液和丙酮酸和草酰乙酸共培养时，形成了柠檬酸
+            - 假设：丙酮酸 + 草酰乙酸 → 柠檬酸或丙酮酸 + 草酰乙酸 → 柠檬酸
+            - 实际：乙酰 CoA 作为丙酮酸和草酰乙酸的中间体，十年之后才被发现
+    - 现有技术：放射性标记物 + 质谱法
+        - 放射性标记物
+        - 质谱法
+14. 化学渗透偶联如何驱动 ATP 合成
+15. **追踪蛋白质和囊泡运输**
+    - 定位到特定细胞器的蛋白含有特定“信号序列”，信号序列交换实验
+    1. in vitro, 将细胞器从细胞中分离出来，和携带信号序列的蛋白质置于同一试管中，放射性氨基酸标记和追踪；图15-29 (B) 没看懂汉语
+    2. 高温时分泌缺陷的酵母中发现了 25 种和胞吐有关的基因。25°C 转运正常，35°C 异常积累在内质网、高尔基体、囊泡中
+    3. 荧光蛋白视频
+16. **解析细胞信号通路**
+    1. 检测磷酸化：当信号通路接收到胞外信号分子时，多种蛋白被磷酸化
+        1. 破碎细胞、通过凝胶按大小分开、使用抗体检测磷酸化的蛋白
+        2. 在细胞暴露于信号分子时，提供放射性的 ATP；破碎细胞并通过凝胶；将凝胶在 X 光底片上曝光。
+    2. 鉴定相互作用蛋白：
+        1. 免疫共沉淀：用抗体抓住特定的蛋白，如果其正与其他蛋白结合，则被结合蛋白也会沉淀
+        2. DNA 重组技术：构建一系列突变蛋白，可以鉴定出用来结合的氨基酸位点。使用此种方法时，细胞内不能有对信号分子相应的正常受体（如何做到？）
+    3. 开关通路
+        1. 开：DNA 重组技术，编码不需外源信号也能持续激活的受体蛋白，例如人类癌症中的 Ras
+        2. 关：
+            1. DNA 重组技术，构建“显性失活”(dominant negative) 突变体
+            2. 小干扰 RNA (siRNA)，降解编码相应蛋白的 mRNA 或阻止 mRNA 翻译
+    4. 通路排序
+        1. 动物筛选：成千上万的实验动物用一种突变源处理，寻找突变所在的信号通路中哪一个没有正常工作，由此找到信号通路中编码蛋白的基因
+        2. 确定顺序：已于研究目标 X，选定一个基准蛋白 C，引入一种失活的 X 突变，再引入持续激活的 C，看通路是否仍能工作，能则 X 在 C 上游，反之则在下游。
+17. **寻找马达蛋白**
+    - 难点：在细胞外分离和研究相关蛋白质
+    - 方法：
+        - 显微镜技术发展，从特定种类的细胞中将胞内运输系统挤压出来。
+            - ~~光学显微镜时代：拥有巨大轴突的乌贼神经细胞，从轴突中挤出细胞质（轴浆），然后研究粒子跨细胞膜运动，轴浆被丢弃。~~
+            - 视频增强显微镜时代：空间分辨率 200nm，看到囊泡和被膜细胞器沿着细胞骨架移动，从 30~50nm 的颗粒到 5000nm 的线粒体。
+            - 这种运动需要 ATP，AMP-PNP 竞争性抑制细胞器转运
+        - 用纯化的缆绳、马达、货物从零开始装配一套正常运转的运输系统
+            - 抗体实验表明蛋白丝缆绳是 α-微管蛋白
+            - Ron Vale, Thomas Reese & Michael Sheetz 将纯化的缆绳（乌贼的视叶中纯化的微管）和货物（乌贼轴突中分离的细胞器）放在一起，寻找诱发运动的分子。乌贼轴突细胞质的提取物可以诱发运动
+            - AMP-PNP 虽抑制其运动，但仍能使组件结合。结合后提取微管，希望马达蛋白仍附着在微管上。加入 ATP 释放附着的蛋白，得到 110kDa 的多肽
+        - 细胞内观测：Steven Blcok et al, 1990
+            - 微小的硅珠包裹上低浓度的动力蛋白，能观察到硅珠沿微管行走
+            - 马达蛋白和荧光蛋白偶联，可以观察到单个动力蛋白分子
+            - 发现：每个分子从微管上掉落之前走大约 100 步，每步 8nm，约等于微管蛋白单体的长度。ATP 水解实验表明每步消耗一个 ATP
+            - 动力蛋白有两个头部，被认为以左右交替的方式前进。
+18. 细胞周期蛋白和 Cdk 的发现
+19. 利用 SNP 解开人类疾病的面纱
+20. 搞清楚那些对癌症有关键性影响的基因
+
+## 图版
+
+- 1-1. 显微镜
+- 1-2. 细胞结构
+- 2-1. 化学键和化学基团
+- 2-2. 水的化学性质
+- 2-3. 几种糖的类型概述
+- 2-4. 脂肪酸和其他脂类
+- 2-5. 蛋白质里的20种氨基酸
+- 2-6. 核苷酸概述
+- 2-7. 非共价键的主要类型
+- 3-1. **自由能与生物学反应**：写得不好，太多不加解释的事实陈述
+    - 反应的自由能变化和平衡常数之间存在函数关系，推导在 3.2.6 节
+    - 生物系统中，吉布斯自由焓为正的反应的发生，经常依靠反应耦合（多个反应共享一个或多个中间物）。总的自由能变化是各个反应自由能之和。
+- 4-1. 蛋白质功能的几个例子
+- **4-2. 描述小型 SH2 蛋白结构域的四种不同方式**
+- 4-3. 抗体的制备和使用
+- **4-4. 细胞的裂解和细胞抽提物的初步分离**
+    - “我们如何得知17”提到
+- **4-5. 用层析法分离蛋白质**
+    - “我们如何得知17”提到
+- 4-6. 用电泳法分离蛋白质
+- 13-1. 详解糖酵解的10个步骤
+- 13-2. 完整的柠檬酸循环
+- **14-1. 氧化还原电位**
+- 17-1. 三种蛋白丝的主要类型
+- 18-1. 动物细胞 M 期的主要阶段
+- 19-1. 经典遗传学的要义
 ]]></content:encoded>
         </item>
         <item>

@@ -4,7 +4,7 @@
         <title>阿掖山·博客</title>
         <link>https://mountaye.github.io/blog</link>
         <description>智力活动是一种生活态度。</description>
-        <lastBuildDate>Tue, 17 Sep 2024 23:18:21 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 20 Sep 2024 22:38:18 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -83,7 +83,10 @@ JavaScript 里类似 Python f-string 的结构写作``${}``，名叫 template li
 
 - `<MyComponent className=’dark’/>`: 一个正常的类名，直接用引号
 - `<MyComponent className={dark}/>:` 类名是一个 JS 字符串变量
-- `<MyComponent className={`bg-${dark}`}/>`: 类名的一部分根据一个变量取值。
+- 类名的一部分根据一个变量取值:
+  ```javascript
+  <MyComponent className={`bg-${dark}`}/>
+  ```
 
 ### JavaScript 箭头函数中的 `{}` 和 `()`
 

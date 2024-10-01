@@ -4,7 +4,7 @@
         <title>阿掖山·博客</title>
         <link>https://blog.mountaye.com</link>
         <description>智力活动是一种生活态度。</description>
-        <lastBuildDate>Tue, 01 Oct 2024 00:20:53 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 01 Oct 2024 03:10:49 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,18 @@
             <link>https://blog.mountaye.com</link>
         </image>
         <copyright>作者保留版权 2024, 阿掖山</copyright>
+        <item>
+            <title><![CDATA[通知：本站网址変更]]></title>
+            <link>https://blog.mountaye.com/articles/switched-domain-name</link>
+            <guid>https://blog.mountaye.com/articles/switched-domain-name</guid>
+            <pubDate>Mon, 30 Sep 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[未来可能无法自动跳转，请浏览器收藏和 RSS 订阅的读者更新网址。]]></description>
+            <content:encoded><![CDATA[<p>2024 年 9 月 30 日起，本站网址从 <code>https://mountaye.github.io/blog/</code> 变更为 <code>https://blog.mountaye.com</code>.</p>
+<p>因为网站仍然架设在 GitHub Pages 上，所以旧网址可以自动跳转到新网址。</p>
+<p>但是下一步计划把网站迁移到 Cloudflare Pages 上，因为 Next.js 项目不同构建之间文件差异过多，不适合作为 git 仓库的内容进行托管。</p>
+<p>所以无法保证将来旧网址依然可以自动跳转。请使用浏览器收藏功能的读者更新收藏夹，使用 RSS 订阅功能的读者更新 RSS 源。</p>
+<p>根据初步计划，过渡期将持续到 2024 年 12 月 31 日。</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[.m | Bayesian 贝叶斯，从公式到世界观]]></title>
             <link>https://blog.mountaye.com/articles/bayesian-equation-and-view-of-world</link>
@@ -157,7 +169,7 @@ M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlis
 <li><code>&#x3C;MyComponent className=’dark’/></code>: 一个正常的类名，直接用引号</li>
 <li><code>&#x3C;MyComponent className={dark}/>:</code> 类名是一个 JS 字符串变量</li>
 <li>类名的一部分根据一个变量取值:
-<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">&#x3C;</span><span style="color:#005CC5;--shiki-dark:#8DDB8C">MyComponent</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF"> className</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#F47067">{</span><span style="color:#032F62;--shiki-dark:#96D0FF">`bg-${</span><span style="color:#032F62;--shiki-dark:#ADBAC7">dark</span><span style="color:#032F62;--shiki-dark:#96D0FF">}`</span><span style="color:#032F62;--shiki-dark:#F47067">}</span><span style="color:#032F62;--shiki-dark:#ADBAC7">/></span></span></code></pre>
+<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">&#x3C;</span><span style="color:#005CC5;--shiki-dark:#8DDB8C">MyComponent</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF"> className</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#F47067">{</span><span style="color:#032F62;--shiki-dark:#96D0FF">`bg-${</span><span style="color:#24292E;--shiki-dark:#ADBAC7">dark</span><span style="color:#24292E;--shiki-dark:#96D0FF">}`</span><span style="color:#24292E;--shiki-dark:#F47067">}</span><span style="color:#24292E;--shiki-dark:#ADBAC7">/></span></span></code></pre>
 </li>
 </ul>
 <h3 id="javascript-箭头函数中的--和-"><a href="#javascript-箭头函数中的--和-">JavaScript 箭头函数中的 <code>{}</code> 和 <code>()</code></a></h3>
@@ -1155,48 +1167,6 @@ M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlis
 </blockquote>
 <p>这个性质针对于某一种元素，不限于反应，不限于状态。</p>
 <p>好像不同的人给出了不同的定义和计算方法，感觉有点随意啊……</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[.pdf | 芥川赏作品·杨逸《時が滲む朝》]]></title>
-            <link>https://blog.mountaye.com/articles/yang-yi-novel-about-tiananmen-square-protest</link>
-            <guid>https://blog.mountaye.com/articles/yang-yi-novel-about-tiananmen-square-protest</guid>
-            <pubDate>Tue, 04 Jun 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[早听说有在日本的华人作家以六四事件为题材写了一篇小说，获得了日本文学界的一个很有分量的奖项。]]></description>
-            <content:encoded><![CDATA[<p>早听说有在日本的华人作家以六四事件为题材写了一篇小说，获得了日本文学界的一个很有分量的奖项。</p>
-<p>通过推特上的只言片语，得知谈论的作品应该是作家杨逸的小说《時が滲む朝》。标题直译为“浸透了时光的早晨”。</p>
-<p><del>这本书没有用中文出版，</del> 这本书有一本台湾出版的中译本《时光浸染》，但是我没有 <del>找</del> 买到。花了大约一周的时间，边读日语本边翻译了一下。我不懂日语，所谓翻译，就是：</p>
-<ul>
-<li>把几个自然段复制粘贴到翻译软件中，然后把结果复制粘贴回来；</li>
-<li>把两种语言并列排版；</li>
-<li>根据汉语语感，把明显不通顺的句子改写了一下；</li>
-<li>把本不需要翻译的汉语诗句和人名换回原文。</li>
-</ul>
-<p>时间仓促，可能有些人名仍未纠正，比如“梁浩远”就经常被误译为“浩源”“弘人”，“大雄”误译为“黛玉”，“民生”误译为“民夫”，“英露”误译为英国和俄国……</p>
-<hr>
-<p>我不懂日语，用翻译软件一段一段地读，原文看起来经常有省略主语的语法现象，所以不好判断原文究竟是用第一人称还是第三人称来写作。但无论哪种情况，文章很明显是梁浩远一人的视角，其心友谢志强占据了不少篇幅，但并非双线叙事。</p>
-<p>故事从1988年主人公高考开始，两人从黄土高原的农村，考入了西部某省会的大学，学习文学专业。两人认识且爱上了同一个女同学。</p>
-<p>在大学，受到老师甘先生的教育，和中国传统的“天下兴亡，匹夫有责”精神的感召，在 89 年学潮中先是参与了在省会的集会活动，后坐火车前往天安门，返校后一段时间才发生中国人民解放军的清场。</p>
-<p>主角一行人因为六四遭受的迫害并非直接来自官方对运动的清算，而是在校外饭馆喝酒时，因为与一般市民对运动的理解不同，产生争吵，进而恶化成斗殴，因此被公安机关拘留，被学校开除。</p>
-<p>主角前往海外的原因和六四无关，近乎天降巧合：主角的邻居中，有抗战胜利后遗留在中国的日侨，改革开放后返回日本。女儿回日本之后不能适应当地的文化，转学回来寄宿在主角的妹妹处，与主人公产生感情，两人结婚后一并赴日，过程一笔带过。</p>
-<p>在海外的时间所占的篇幅不大，情节也不多。略写了海外反共组织之松散，对当地社会几乎没有声量，成员参加活动的目的主要是申请政治庇护签证，组织者有的爱财逐利，有的偏执专断。</p>
-<p>故事到2001年北京申奥成功那年结束。妻子不再支持主人公在妻弟的餐厅里张贴反共海报，主人公得知了心友、老师、暗恋的女同学的下落，并且还和他们在日本见了面，回忆了往事，送别他们离开，接受了现实。</p>
-<hr>
-<p>作者的写作相当克制。</p>
-<p>几乎没有使用倒叙插叙等时间剪辑手段，中间的情节按照时间顺序平铺直叙，每一部分所占篇幅都很平均。而且全文基本只作记叙和描写，不见抒情和议论。</p>
-<p>虽无抒情，但是通过对让人产生情感的情节进行记叙，画面进行描写，使读者与主人公共情。通过消除作者在作品中的存在，尽力体现历史现实和个人命运本身的力量。</p>
-<p>只采用一个人的视角，而且是一个平凡人物的视角，在当代文学天然有胜过英雄视角的道德高度。</p>
-<p>而且也从侧面表现了这场运动空间范围上的广泛，不只限于北京等大城市；社会阶层参与的广泛，普通市民给学生送饭送大衣，并非只是少数精英大学生的表演，所谓境外敌对势力的煽动更非主要因素。</p>
-<hr>
-<p>但是，如果说作品有什么问题，那也源自于作者选择的视角。</p>
-<p>以一名平凡人物为中心，就没办法介绍六四事件的起因，以“反贪污，反腐败”的简单口号动员起来的政治运动，为什么能够得到全国人民的响应，从书中得不到线索，来的莫名其妙，甚至连“反官倒”的口号在文中都没有出现。</p>
-<p>主角团的退学并不明显来自于官方的报复，虽然退学的原因表现了学生运动与人民群众的脱节，但是这种情节安排缺乏对中共秋后算账的描写。</p>
-<p>主角去国靠的是跨国婚姻，在文学上的巧合性强而典型性弱，而原文对此的伏笔与描写太少，以至于显得突兀。</p>
-<p>这些情节设定本不应该成为批评的对象，因为在一个重大历史事件里，个例的巧合和不全面，无法反映历史的全貌，不仅是正常的，甚至可以说是客观描写下的唯一合理结果。当社会可以对这一事件普遍公开讨论之后，众多不全面的个例统计在一起，自然能让后人近似得到全面的认识。</p>
-<p>但是现实是，时至 35 年后的今日，当局对此事依然如临大敌，在其执政范围内，对这一话题的讨论不普遍，不开放。身为在海外的华人，面对文学小说这样一个允许艺术创作的体裁，在有大量一手史料的环境里，稍微多花一点精力就可以在文学真实和情节全面之间取得平衡的情况下，选择对一个不完美素材作此白描，略显可惜。</p>
-<hr>
-<p>作者将故事结局定格在了 2001 年，也就是北京申奥成功的那年，而作品写于 2008 年，也就是北京奥运当年，两者都是中华人民共和国政府声望的里程碑。无怪乎文章最后悲情无奈地与现实“和解”。</p>
-<p>真的能和解吗？</p>
-<p>尽管运动的参与者不可能每人都熟知政治哲学理论，但民众的不满其来有自……[待续]</p>]]></content:encoded>
         </item>
     </channel>
 </rss>

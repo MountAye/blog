@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>阿掖山·博客</title>
-        <link>https://mountaye.github.io/blog</link>
+        <link>https://blog.mountaye.com</link>
         <description>智力活动是一种生活态度。</description>
-        <lastBuildDate>Sat, 28 Sep 2024 03:42:38 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 01 Oct 2024 00:20:53 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
             <title>阿掖山·博客</title>
-            <url>https://mountaye.github.io/blog/assets/img/before_h2.png</url>
-            <link>https://mountaye.github.io/blog</link>
+            <url>https://blog.mountaye.com/assets/img/before_h2.png</url>
+            <link>https://blog.mountaye.com</link>
         </image>
         <copyright>作者保留版权 2024, 阿掖山</copyright>
         <item>
             <title><![CDATA[.m | Bayesian 贝叶斯，从公式到世界观]]></title>
-            <link>https://mountaye.github.io/blog/articles/bayesian-equation-and-view-of-world</link>
-            <guid>https://mountaye.github.io/blog/articles/bayesian-equation-and-view-of-world</guid>
+            <link>https://blog.mountaye.com/articles/bayesian-equation-and-view-of-world</link>
+            <guid>https://blog.mountaye.com/articles/bayesian-equation-and-view-of-world</guid>
             <pubDate>Fri, 27 Sep 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[我们老板真是太能吹了，Bro 居然跟隔壁真的在研究物理的课题组 brag abou 我会贝叶斯参数估计，yo know wat ur sayin? 赶紧来补课～]]></description>
             <content:encoded><![CDATA[<h2 id="公式"><a href="#公式">公式</a></h2>
@@ -116,8 +116,8 @@ M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlis
         </item>
         <item>
             <title><![CDATA[.js | 博客改用 Next.js + TailwindCSS + Shadcn.UI]]></title>
-            <link>https://mountaye.github.io/blog/articles/static-blog-with-nextjs-tailwindcss-shadcn</link>
-            <guid>https://mountaye.github.io/blog/articles/static-blog-with-nextjs-tailwindcss-shadcn</guid>
+            <link>https://blog.mountaye.com/articles/static-blog-with-nextjs-tailwindcss-shadcn</link>
+            <guid>https://blog.mountaye.com/articles/static-blog-with-nextjs-tailwindcss-shadcn</guid>
             <pubDate>Tue, 17 Sep 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[我的博客本来是用 Jekyll 生成的静态网站，如今改用 Next.js + TailwindCSS + Shadcn.UI]]></description>
             <content:encoded><![CDATA[<h2 id="技术选型"><a href="#技术选型">技术选型</a></h2>
@@ -157,7 +157,7 @@ M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlis
 <li><code>&#x3C;MyComponent className=’dark’/></code>: 一个正常的类名，直接用引号</li>
 <li><code>&#x3C;MyComponent className={dark}/>:</code> 类名是一个 JS 字符串变量</li>
 <li>类名的一部分根据一个变量取值:
-<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">&#x3C;</span><span style="color:#005CC5;--shiki-dark:#8DDB8C">MyComponent</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF"> className</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#F47067">{</span><span style="color:#032F62;--shiki-dark:#96D0FF">`bg-${</span><span style="color:#24292E;--shiki-dark:#ADBAC7">dark</span><span style="color:#032F62;--shiki-dark:#96D0FF">}`</span><span style="color:#24292E;--shiki-dark:#F47067">}</span><span style="color:#24292E;--shiki-dark:#ADBAC7">/></span></span></code></pre>
+<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">&#x3C;</span><span style="color:#005CC5;--shiki-dark:#8DDB8C">MyComponent</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF"> className</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#F47067">{</span><span style="color:#032F62;--shiki-dark:#96D0FF">`bg-${</span><span style="color:#032F62;--shiki-dark:#ADBAC7">dark</span><span style="color:#032F62;--shiki-dark:#96D0FF">}`</span><span style="color:#032F62;--shiki-dark:#F47067">}</span><span style="color:#032F62;--shiki-dark:#ADBAC7">/></span></span></code></pre>
 </li>
 </ul>
 <h3 id="javascript-箭头函数中的--和-"><a href="#javascript-箭头函数中的--和-">JavaScript 箭头函数中的 <code>{}</code> 和 <code>()</code></a></h3>
@@ -307,8 +307,8 @@ M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlis
         </item>
         <item>
             <title><![CDATA[.tex | Nick Lane "The Vital Question" 读书笔记]]></title>
-            <link>https://mountaye.github.io/blog/articles/nick-lane-the-vital-question</link>
-            <guid>https://mountaye.github.io/blog/articles/nick-lane-the-vital-question</guid>
+            <link>https://blog.mountaye.com/articles/nick-lane-the-vital-question</link>
+            <guid>https://blog.mountaye.com/articles/nick-lane-the-vital-question</guid>
             <pubDate>Mon, 29 Jul 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[顾简体中文名思义，这本书把真核细胞组成的多细胞生命体称为“复杂生命”，认为这种生命形式起源于一件“在历史上只发生过一次”的事件——线粒体“内共生”(endosymbiosis)——一个古菌 (archaea) 细胞吞噬了一个有氧呼吸的细菌，然后两者一起存活了下来。前者和后者一起演化成了现代真核细胞，其中后者演化成了真核细胞中的线粒体。]]></description>
             <content:encoded><![CDATA[<p>往年暑假，隔壁理论组都会发起一个不务正业系列演讲，每周五抓壮丁讲点和科研本职工作无关的话题，例如美国央行的历史、自然利率、公园里的松鼠、以 stroad (street-road) 为代表的傻逼郊区规划……</p>
@@ -1110,8 +1110,8 @@ M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlis
         </item>
         <item>
             <title><![CDATA[.tex | 还原电位和电负性]]></title>
-            <link>https://mountaye.github.io/blog/articles/reduction-potential-and-electronegativity</link>
-            <guid>https://mountaye.github.io/blog/articles/reduction-potential-and-electronegativity</guid>
+            <link>https://blog.mountaye.com/articles/reduction-potential-and-electronegativity</link>
+            <guid>https://blog.mountaye.com/articles/reduction-potential-and-electronegativity</guid>
             <pubDate>Sun, 16 Jun 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[最近在看 Nick Lane 的《The Vital Question》，里面提到了“还原电位”的概念，就此复习一下高中学过的电化学知识。]]></description>
             <content:encoded><![CDATA[<blockquote>
@@ -1158,8 +1158,8 @@ M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlis
         </item>
         <item>
             <title><![CDATA[.pdf | 芥川赏作品·杨逸《時が滲む朝》]]></title>
-            <link>https://mountaye.github.io/blog/articles/yang-yi-novel-about-tiananmen-square-protest</link>
-            <guid>https://mountaye.github.io/blog/articles/yang-yi-novel-about-tiananmen-square-protest</guid>
+            <link>https://blog.mountaye.com/articles/yang-yi-novel-about-tiananmen-square-protest</link>
+            <guid>https://blog.mountaye.com/articles/yang-yi-novel-about-tiananmen-square-protest</guid>
             <pubDate>Tue, 04 Jun 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[早听说有在日本的华人作家以六四事件为题材写了一篇小说，获得了日本文学界的一个很有分量的奖项。]]></description>
             <content:encoded><![CDATA[<p>早听说有在日本的华人作家以六四事件为题材写了一篇小说，获得了日本文学界的一个很有分量的奖项。</p>

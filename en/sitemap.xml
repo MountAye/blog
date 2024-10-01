@@ -2,77 +2,77 @@
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
         <url>
-            <loc>https://mountaye.github.io/blog/en/</loc>
-            <lastmod>2024-09-28</lastmod>
+            <loc>https://blog.mountaye.com/en/</loc>
+            <lastmod>2024-10-01</lastmod>
             <changefreq>monthly</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
-            <loc>https://mountaye.github.io/blog/en/history</loc>
-            <lastmod>2024-09-28</lastmod>
+            <loc>https://blog.mountaye.com/en/history</loc>
+            <lastmod>2024-10-01</lastmod>
             <changefreq>monthly</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
-            <loc>https://mountaye.github.io/blog/en/topcis</loc>
-            <lastmod>2024-09-28</lastmod>
+            <loc>https://blog.mountaye.com/en/topcis</loc>
+            <lastmod>2024-10-01</lastmod>
             <changefreq>monthly</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
-            <loc>https://mountaye.github.io/blog/en/discuss</loc>
-            <lastmod>2024-09-28</lastmod>
+            <loc>https://blog.mountaye.com/en/discuss</loc>
+            <lastmod>2024-10-01</lastmod>
             <changefreq>monthly</changefreq>
             <priority>1.0</priority>
         </url>
 
         <url>
-            <loc>https://mountaye.github.io/blog/en/articles/OPT-workshop-notes</loc>
+            <loc>https://blog.mountaye.com/en/articles/OPT-workshop-notes</loc>
             <lastmod>2023-05-19</lastmod>
             <changefreq>yearly</changefreq>
             <priority>0.9</priority>
         </url>
 
         <url>
-            <loc>https://mountaye.github.io/blog/en/articles/job-search-efforts-during-march-meeting</loc>
+            <loc>https://blog.mountaye.com/en/articles/job-search-efforts-during-march-meeting</loc>
             <lastmod>2023-04-05</lastmod>
             <changefreq>yearly</changefreq>
             <priority>0.9</priority>
         </url>
 
         <url>
-            <loc>https://mountaye.github.io/blog/en/articles/notes-during-APS-march-meeting-2022-Chicago</loc>
+            <loc>https://blog.mountaye.com/en/articles/notes-during-APS-march-meeting-2022-Chicago</loc>
             <lastmod>2023-03-12</lastmod>
             <changefreq>yearly</changefreq>
             <priority>0.9</priority>
         </url>
 
         <url>
-            <loc>https://mountaye.github.io/blog/en/articles/notes-during-APS-march-meeting-2023-Las-Vegas</loc>
+            <loc>https://blog.mountaye.com/en/articles/notes-during-APS-march-meeting-2023-Las-Vegas</loc>
             <lastmod>2023-03-12</lastmod>
             <changefreq>yearly</changefreq>
             <priority>0.9</priority>
         </url>
 
         <url>
-            <loc>https://mountaye.github.io/blog/en/articles/python-interpreter-editor-virtualenv</loc>
+            <loc>https://blog.mountaye.com/en/articles/python-interpreter-editor-virtualenv</loc>
             <lastmod>2021-06-29</lastmod>
             <changefreq>yearly</changefreq>
             <priority>0.9</priority>
         </url>
 
         <url>
-            <loc>https://mountaye.github.io/blog/en/articles/mpipks-non-equilibrium-physics-note-10-dimension-reduction</loc>
+            <loc>https://blog.mountaye.com/en/articles/mpipks-non-equilibrium-physics-note-10-dimension-reduction</loc>
             <lastmod>2021-05-15</lastmod>
             <changefreq>yearly</changefreq>
             <priority>0.9</priority>
         </url>
 
         <url>
-            <loc>https://mountaye.github.io/blog/en/articles/python-installation-and-configuration</loc>
+            <loc>https://blog.mountaye.com/en/articles/python-installation-and-configuration</loc>
             <lastmod>2021-03-07</lastmod>
             <changefreq>yearly</changefreq>
             <priority>0.9</priority>

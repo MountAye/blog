@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>MountAye·Blog</title>
-        <link>https://mountaye.github.io/blog/en</link>
+        <link>https://blog.mountaye.com/en</link>
         <description>Intellectual thinking is a lifestyle.</description>
-        <lastBuildDate>Sat, 28 Sep 2024 03:42:36 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 01 Oct 2024 00:20:51 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
             <title>MountAye·Blog</title>
-            <url>https://mountaye.github.io/blog/assets/img/before_h2.png</url>
-            <link>https://mountaye.github.io/blog/en</link>
+            <url>https://blog.mountaye.com/assets/img/before_h2.png</url>
+            <link>https://blog.mountaye.com/en</link>
         </image>
         <copyright>Rights Reserved 2024, MountAye</copyright>
         <item>
             <title><![CDATA[.doc | OPT Workshop Notes]]></title>
-            <link>https://mountaye.github.io/blog/en/articles/OPT-workshop-notes</link>
-            <guid>https://mountaye.github.io/blog/en/articles/OPT-workshop-notes</guid>
+            <link>https://blog.mountaye.com/en/articles/OPT-workshop-notes</link>
+            <guid>https://blog.mountaye.com/en/articles/OPT-workshop-notes</guid>
             <pubDate>Fri, 19 May 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[OPT is the abbreviation of Optional Practice Training.]]></description>
             <content:encoded><![CDATA[<h2 id="who-is-eligible"><a href="#who-is-eligible">Who is eligible</a></h2>
@@ -106,8 +106,8 @@
         </item>
         <item>
             <title><![CDATA[.doc | Job Search Efforts During March Meeting]]></title>
-            <link>https://mountaye.github.io/blog/en/articles/job-search-efforts-during-march-meeting</link>
-            <guid>https://mountaye.github.io/blog/en/articles/job-search-efforts-during-march-meeting</guid>
+            <link>https://blog.mountaye.com/en/articles/job-search-efforts-during-march-meeting</link>
+            <guid>https://blog.mountaye.com/en/articles/job-search-efforts-during-march-meeting</guid>
             <pubDate>Wed, 05 Apr 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[[Translated by ChatGPT] 2 interviews and 1 focus session during March Meeting 2023.]]></description>
             <content:encoded><![CDATA[<h3 id="before-the-meeting"><a href="#before-the-meeting">Before the Meeting</a></h3>
@@ -155,8 +155,8 @@
         </item>
         <item>
             <title><![CDATA[.tex | Notes during APS March Meeting 2022 in Chicago]]></title>
-            <link>https://mountaye.github.io/blog/en/articles/notes-during-APS-march-meeting-2022-Chicago</link>
-            <guid>https://mountaye.github.io/blog/en/articles/notes-during-APS-march-meeting-2022-Chicago</guid>
+            <link>https://blog.mountaye.com/en/articles/notes-during-APS-march-meeting-2022-Chicago</link>
+            <guid>https://blog.mountaye.com/en/articles/notes-during-APS-march-meeting-2022-Chicago</guid>
             <pubDate>Sun, 12 Mar 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[Notes during the March Meeting in 2022 Chicago]]></description>
             <content:encoded><![CDATA[<h2 id="physical-of-artificial-system"><a href="#physical-of-artificial-system">Physical of Artificial System</a></h2>
@@ -580,8 +580,8 @@
         </item>
         <item>
             <title><![CDATA[.tex | Notes during APS March Meeting 2023 in Las Vegas]]></title>
-            <link>https://mountaye.github.io/blog/en/articles/notes-during-APS-march-meeting-2023-Las-Vegas</link>
-            <guid>https://mountaye.github.io/blog/en/articles/notes-during-APS-march-meeting-2023-Las-Vegas</guid>
+            <link>https://blog.mountaye.com/en/articles/notes-during-APS-march-meeting-2023-Las-Vegas</link>
+            <guid>https://blog.mountaye.com/en/articles/notes-during-APS-march-meeting-2023-Las-Vegas</guid>
             <pubDate>Sun, 12 Mar 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[Notes during APS March Meeting 2023 in Las Vegas]]></description>
             <content:encoded><![CDATA[<p>Some interesting sessions:</p>
@@ -1098,8 +1098,8 @@ M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist
         </item>
         <item>
             <title><![CDATA[.py | Python's Interpreter, Editor, and Virtual Environment]]></title>
-            <link>https://mountaye.github.io/blog/en/articles/python-interpreter-editor-virtualenv</link>
-            <guid>https://mountaye.github.io/blog/en/articles/python-interpreter-editor-virtualenv</guid>
+            <link>https://blog.mountaye.com/en/articles/python-interpreter-editor-virtualenv</link>
+            <guid>https://blog.mountaye.com/en/articles/python-interpreter-editor-virtualenv</guid>
             <pubDate>Tue, 29 Jun 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Really, what are Python's interpreter, editor, and virtual environment]]></description>
             <content:encoded><![CDATA[<p>In the previous post "<a href="python-installation-and-configuration">Configuring Python Development Environment on Windows 10</a>", I did roughly three things:</p>

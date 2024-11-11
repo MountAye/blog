@@ -4,7 +4,7 @@
         <title>MountAye·Blog</title>
         <link>https://blog.mountaye.com/en</link>
         <description>Intellectual thinking is a lifestyle.</description>
-        <lastBuildDate>Mon, 21 Oct 2024 23:24:54 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 11 Nov 2024 03:16:51 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -66,7 +66,7 @@
 <h2 id="verify-admission-status-i94-record-is-correct"><a href="#verify-admission-status-i94-record-is-correct">Verify admission status I94 record is correct</a></h2>
 <p><a href="http://i94.cbp.dhs.gov">i94.cbp.dhs.gov</a></p>
 <h2 id="summary"><a href="#summary">summary</a></h2>
-<p><img src="/blog/photos/2023-05-19-main-status.png" alt="how to maintain the OPT status"></p>
+<figure class="rehype-figure"><img src="/blog/photos/2023-05-19-main-status.png" alt="how to maintain the OPT status"><figcaption>how to maintain the OPT status</figcaption></figure>
 <h2 id="who-can-apply-for-extension"><a href="#who-can-apply-for-extension">Who can apply for extension</a></h2>
 <h3 id="24-month-stem-opt-extension"><a href="#24-month-stem-opt-extension">24-month STEM OPT extension</a></h3>
 <p>aply during the last 90 days end of OPT</p>
@@ -89,7 +89,7 @@
 <p><strong>application estimated to take 4 weeks.</strong></p>
 <p>90 days before program end date → I-20 end date → 60 days after program end date</p>
 <p>pick requested start date: 1 day after I 20 end date → end of 60 day grace period</p>
-<p><img src="/blog/photos/2023-05-19-time-window.png" alt="time window of OPT application"></p>
+<figure class="rehype-figure"><img src="/blog/photos/2023-05-19-time-window.png" alt="time window of OPT application"><figcaption>time window of OPT application</figcaption></figure>
 <h2 id="packet"><a href="#packet">Packet</a></h2>
 <h3 id="request-opt-i20"><a href="#request-opt-i20">request OPT-I20</a></h3>
 <p>requested OPT start date form</p>
@@ -585,12 +585,12 @@
             <pubDate>Sun, 12 Mar 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[Notes during APS March Meeting 2023 in Las Vegas]]></description>
             <content:encoded><![CDATA[<p>Some interesting sessions:</p>
-<p><img src="/blog/photos/2023-03-12-5FB0A373-E7B7-45FF-97A5-81F9392CBB02.jpeg" alt="5FB0A373-E7B7-45FF-97A5-81F9392CBB02.jpeg"></p>
-<p><img src="/blog/photos/2023-03-12-E35F718E-38ED-432D-AC00-44E8D8893CC6.jpeg" alt="E35F718E-38ED-432D-AC00-44E8D8893CC6.jpeg"></p>
-<p><img src="/blog/photos/2023-03-12-A44D0789-44CC-42F5-85D1-E0CA93952712.jpeg" alt="A44D0789-44CC-42F5-85D1-E0CA93952712.jpeg"></p>
-<p><img src="/blog/photos/2023-03-12-7E0D2844-3BC8-4BEF-BABA-2818EEBA2C15.jpeg" alt="7E0D2844-3BC8-4BEF-BABA-2818EEBA2C15.jpeg"></p>
-<p><img src="/blog/photos/2023-03-12-A727558B-D110-48A1-B125-67A7067BFBD5.jpeg" alt="A727558B-D110-48A1-B125-67A7067BFBD5.jpeg"></p>
-<p><img src="/blog/photos/2023-03-12-B635604C-B9BD-4A34-9767-AD7338A80765.jpeg" alt="B635604C-B9BD-4A34-9767-AD7338A80765.jpeg"></p>
+<figure class="rehype-figure"><img src="/blog/photos/2023-03-12-5FB0A373-E7B7-45FF-97A5-81F9392CBB02.jpeg" alt="5FB0A373-E7B7-45FF-97A5-81F9392CBB02.jpeg"><figcaption>5FB0A373-E7B7-45FF-97A5-81F9392CBB02.jpeg</figcaption></figure>
+<figure class="rehype-figure"><img src="/blog/photos/2023-03-12-E35F718E-38ED-432D-AC00-44E8D8893CC6.jpeg" alt="E35F718E-38ED-432D-AC00-44E8D8893CC6.jpeg"><figcaption>E35F718E-38ED-432D-AC00-44E8D8893CC6.jpeg</figcaption></figure>
+<figure class="rehype-figure"><img src="/blog/photos/2023-03-12-A44D0789-44CC-42F5-85D1-E0CA93952712.jpeg" alt="A44D0789-44CC-42F5-85D1-E0CA93952712.jpeg"><figcaption>A44D0789-44CC-42F5-85D1-E0CA93952712.jpeg</figcaption></figure>
+<figure class="rehype-figure"><img src="/blog/photos/2023-03-12-7E0D2844-3BC8-4BEF-BABA-2818EEBA2C15.jpeg" alt="7E0D2844-3BC8-4BEF-BABA-2818EEBA2C15.jpeg"><figcaption>7E0D2844-3BC8-4BEF-BABA-2818EEBA2C15.jpeg</figcaption></figure>
+<figure class="rehype-figure"><img src="/blog/photos/2023-03-12-A727558B-D110-48A1-B125-67A7067BFBD5.jpeg" alt="A727558B-D110-48A1-B125-67A7067BFBD5.jpeg"><figcaption>A727558B-D110-48A1-B125-67A7067BFBD5.jpeg</figcaption></figure>
+<figure class="rehype-figure"><img src="/blog/photos/2023-03-12-B635604C-B9BD-4A34-9767-AD7338A80765.jpeg" alt="B635604C-B9BD-4A34-9767-AD7338A80765.jpeg"><figcaption>B635604C-B9BD-4A34-9767-AD7338A80765.jpeg</figcaption></figure>
 <h2 id="network-theory-and-application-to-complex-systems"><a href="#network-theory-and-application-to-complex-systems">Network theory and application to complex systems</a></h2>
 <p>1st talk: <strong>Avalanches Dynamics</strong> and its critical points, cortes dynamics, very long, missed first ~10 minutes, hard to follow, coarse grained 朗道-金斯堡 theory</p>
 <p>Fokker-Planck equation, Fourier expansions, use as parameters of ____, choose a closure to solve</p>
@@ -683,14 +683,14 @@ M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist
 <h3 id="active-transport-and-cell-self-organization"><a href="#active-transport-and-cell-self-organization">Active transport and Cell self organization</a></h3>
 <p>A lot of microtubules</p>
 <p>CCB-FL</p>
-<p><img src="/blog/photos/2023-03-12-214D3DB8-7A99-42AC-8C18-051171564D6D.jpeg" alt="214D3DB8-7A99-42AC-8C18-051171564D6D.jpeg"></p>
+<figure class="rehype-figure"><img src="/blog/photos/2023-03-12-214D3DB8-7A99-42AC-8C18-051171564D6D.jpeg" alt="214D3DB8-7A99-42AC-8C18-051171564D6D.jpeg"><figcaption>214D3DB8-7A99-42AC-8C18-051171564D6D.jpeg</figcaption></figure>
 <p>Steam flows in large cells B. Corti 1741, fruit fly oocyte</p>
 <p>Flows in organelle positioning. Zidovska PNAS 2013, 2018. Gatlin lab U Wy</p>
 <p>Microscopic mechanisms about micro tubules is ill understood</p>
 <p>aLENS a living ensemble simulator</p>
 <p>1model: Cytoplasm as confined Newtonian fluid</p>
 <p>Another model: coarse grained stokes force: fruit fly oogenesis</p>
-<p><img src="/blog/photos/2023-03-12-C622BD7E-E638-4194-A563-096F73209132.jpeg" alt="C622BD7E-E638-4194-A563-096F73209132.jpeg"></p>
+<figure class="rehype-figure"><img src="/blog/photos/2023-03-12-C622BD7E-E638-4194-A563-096F73209132.jpeg" alt="C622BD7E-E638-4194-A563-096F73209132.jpeg"><figcaption>C622BD7E-E638-4194-A563-096F73209132.jpeg</figcaption></figure>
 <p>skellySim</p>
 <h3 id="di-pierro-physical-genomics"><a href="#di-pierro-physical-genomics">Di Pierro: physical genomics</a></h3>
 <p>Nucleosome</p>
@@ -894,7 +894,7 @@ M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist
 <p>NBA has position data every 40 ms!</p>
 <p>50 feet x 50 feet heatmap of shots</p>
 <p>postulates: location of ball changes player spatial tendencies, 2 types of player defense and offense</p>
-<p><img src="/blog/photos/2023-03-12-8795A615-E1CB-44C4-B02B-3AB5884AA384.jpeg" alt="8795A615-E1CB-44C4-B02B-3AB5884AA384.jpeg"></p>
+<figure class="rehype-figure"><img src="/blog/photos/2023-03-12-8795A615-E1CB-44C4-B02B-3AB5884AA384.jpeg" alt="8795A615-E1CB-44C4-B02B-3AB5884AA384.jpeg"><figcaption>8795A615-E1CB-44C4-B02B-3AB5884AA384.jpeg</figcaption></figure>
 <p>forecast a play, evaluate a position, improving a player’s positioning.</p>
 <h3 id="honeycomb-formation-under-geometric-frustrations"><a href="#honeycomb-formation-under-geometric-frustrations">honeycomb formation under geometric frustrations</a></h3>
 <p>decentralized division of labour, to build honeycomb</p>
@@ -919,7 +919,7 @@ M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist
 <p>South carolina, Congaree National Park</p>
 <h3 id="synchronization-of-human-networks"><a href="#synchronization-of-human-networks">Synchronization of human networks</a></h3>
 <p>Moti Fridman (Bar Ilan University)</p>
-<p><img src="/blog/photos/2023-03-12-3790D8EF-864E-4107-9C44-2CD22D76AF8F.jpeg" alt="3790D8EF-864E-4107-9C44-2CD22D76AF8F.jpeg"></p>
+<figure class="rehype-figure"><img src="/blog/photos/2023-03-12-3790D8EF-864E-4107-9C44-2CD22D76AF8F.jpeg" alt="3790D8EF-864E-4107-9C44-2CD22D76AF8F.jpeg"><figcaption>3790D8EF-864E-4107-9C44-2CD22D76AF8F.jpeg</figcaption></figure>
 <p>previous works deal with the case where everyone sees everyone</p>
 <p>violin players，但是成员互相看不到对方，one control position(? why need it)</p>
 <p>bidirectional and delay</p>
@@ -1062,8 +1062,8 @@ M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist
 <p>Experiment: Australien fairy circles regenerated</p>
 <p>WebGL and JavaScript</p>
 <h3 id="network-architecture-of-plant-pathogen-interactions"><a href="#network-architecture-of-plant-pathogen-interactions">network architecture of plant pathogen interactions</a></h3>
-<p><img src="/blog/photos/2023-03-12-D185C1B7-F5EB-4629-B767-0ECF7F72C591.jpeg" alt="D185C1B7-F5EB-4629-B767-0ECF7F72C591.jpeg"></p>
-<p><img src="/blog/photos/2023-03-12-03A05C17-8E19-4B30-B449-1A99D02093A9.jpeg" alt="03A05C17-8E19-4B30-B449-1A99D02093A9.jpeg"></p>
+<figure class="rehype-figure"><img src="/blog/photos/2023-03-12-D185C1B7-F5EB-4629-B767-0ECF7F72C591.jpeg" alt="D185C1B7-F5EB-4629-B767-0ECF7F72C591.jpeg"><figcaption>D185C1B7-F5EB-4629-B767-0ECF7F72C591.jpeg</figcaption></figure>
+<figure class="rehype-figure"><img src="/blog/photos/2023-03-12-03A05C17-8E19-4B30-B449-1A99D02093A9.jpeg" alt="03A05C17-8E19-4B30-B449-1A99D02093A9.jpeg"><figcaption>03A05C17-8E19-4B30-B449-1A99D02093A9.jpeg</figcaption></figure>
 <p>Translation/degradation, xxx, xxx</p>
 <p>Simple model. complex systems</p>
 <p>Rockefeller U.</p>

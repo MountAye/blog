@@ -4,7 +4,7 @@
         <title>阿掖山·博客</title>
         <link>https://blog.mountaye.com</link>
         <description>智力活动是一种生活态度。</description>
-        <lastBuildDate>Mon, 21 Oct 2024 23:24:57 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 11 Nov 2024 03:16:51 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <image>
@@ -13,6 +13,202 @@
             <link>https://blog.mountaye.com</link>
         </image>
         <copyright>作者保留版权 2024, 阿掖山</copyright>
+        <item>
+            <title><![CDATA[.ai | PyTorch 中的自动微分 autograd]]></title>
+            <link>https://blog.mountaye.com/articles/notes-on-pytorch-autograd</link>
+            <guid>https://blog.mountaye.com/articles/notes-on-pytorch-autograd</guid>
+            <pubDate>Sun, 10 Nov 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[我对 PyTorch 中的自动微分还是一知半解，停留在知道计算图和反向传播的概念，以及能看懂和小改别人写好的代码的水平。之所以存在这样的认知断层，是因为介绍自动微分的时候一般是手动计算张量，然后给读者画个计算图；而真正干活的时候一般是写一个神经网络的类，这个类继承自 `torch.nn.Module`。]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<p>装了这么久的 ML/AI 爱好者，我发现我对 PyTorch 中的自动微分还是一知半解，停留在知道计算图和反向传播的概念，以及能看懂和小改别人写好的代码的水平。所以自觉还得再补补课。</p>
+<p><del>真实动机是前女友找到了国内的研发工作，马上要回国赚大钱了，我破防了</del></p>
+<p>之所以存在这样的认知断层，是因为介绍自动微分的时候一般是手动计算张量，然后给读者画个计算图；而真正干活的时候一般是写一个神经网络的类，这个类继承自 <code>torch.nn.Module</code>。</p>
+<p>这样一包装，承载微分的张量很少被点名取用；而计算过程被一刀两段，绝大多数计算包装在了这个类的 <code>forward()</code> 方法中，但是最后一步计算模型预测和训练目标的差异 (loss)，往往留在了训练的控制流中，让人以为两者之间有什么本质区别。</p>
+<p>其实不然——自动微分只针对 PyTorch 张量，<code>torch.nn.Module</code> 的实例是一个包含若干参数的函数，其参数要么是 <code>torch.nn.Parameter</code>，要么是其他含参的 <code>torch.nn.Module</code> 实例的参数，（用 <code>.parameters()</code> 方法取得，常见于 optimizer 的首个参数）。每次把训练输入张量带入这个函数，中间的数学计算就会被自动微分机制记录。对于自动微分来说，这些计算和最后对 loss 的计算没什么不同。</p>
+<p>这个道理其实在做《<a href="what-a-PyTorch-project-looks-like"><strong>一个 PyTorch 机器学习项目长什么样</strong></a>》这篇笔记的时候就应该理解，而实际上没有理解，说明——</p>
+<ul>
+<li>一来信息和知识不是同一层面的概念，相同的信息嵌入在不同元信息中，可以给出不同深度的知识；</li>
+<li>再者费曼学习法虽然像实验记录一样有让人快速恢复学习进度的好处，但也有让人沉溺于流量，忘记学习本心的危险，戒之在躁。</li>
+</ul>
+</blockquote>
+<p>一个机器学习项目的过程包括：准备数据、定义模型、训练、评估效果。先来个简单例子：</p>
+<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">import</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> torch</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">from</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> torch </span><span style="color:#D73A49;--shiki-dark:#F47067">import</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> data,nn,optim</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># Data Preparation</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">dataset </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> data.Dataset(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">...</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">trainloader </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> data.DataLoader(dataset,</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">...</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># Model Definition</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">class</span><span style="color:#6F42C1;--shiki-dark:#F69D50"> Net</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF">nn</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF">Module</span><span style="color:#24292E;--shiki-dark:#ADBAC7">):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> __init__</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self):</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        super</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(Net, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">).</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">__init__</span><span style="color:#24292E;--shiki-dark:#ADBAC7">()</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        # ...</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> forward</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self, x):</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        # forward calculation ...</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> x</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">net </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> Net()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">criterion </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> nn.CrossEntropyLoss()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">optimizer </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> optim.SGD(net.parameters(), </span><span style="color:#E36209;--shiki-dark:#F69D50">lr</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">0.001</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#E36209;--shiki-dark:#F69D50">momentum</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">0.9</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># Training</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> epoch </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> range</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">2</span><span style="color:#24292E;--shiki-dark:#ADBAC7">):</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    running_loss </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 0.0</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> i, data </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> enumerate</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(trainloader, </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">0</span><span style="color:#24292E;--shiki-dark:#ADBAC7">):</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        # get the inputs</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        inputs, labels </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> data</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        # zero the parameter gradients</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        optimizer.zero_grad()</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        # forward + backward + optimize</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        outputs </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> net(inputs)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        loss </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> criterion(outputs, labels)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        loss.backward()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        optimizer.step()</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        # print statistics</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        # ...</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'Finished Training'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390"># Validation</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">correct </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 0</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">total </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 0</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">with</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> torch.no_grad():</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> data </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> testloader:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        images, labels </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> data</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        outputs </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> net(images)</span></span></code></pre>
+<h2 id="张量自动微分的对象"><a href="#张量自动微分的对象">张量——自动微分的对象</a></h2>
+<blockquote>
+<p><a href="https://pytorch.org/tutorials/beginner/introyt/tensors_deeper_tutorial.html">https://pytorch.org/tutorials/beginner/introyt/tensors_deeper_tutorial.html</a></p>
+</blockquote>
+<p>对于基本数据结构——张量，<del>不应该</del> 也可以用大写的 <code>torch.Tensor(data)</code> 来创建；官方推荐的方法是小写的 <code>torch.tensor(data)</code>，产生的张量是 <code>data</code> 的拷贝，对一方的改动不反映到另一方。</p>
+<p>如果数据已经是 <code>numpy.ndarray</code> 了，可以用 <code>x_tensor = torch.from_numpy(x_array)</code> 和 <code>x_array = x_tensor.numpy()</code> 互相转化，他们使用同一片内存，对一方的改动会反映到另一方。</p>
+<p>更推荐的方法是用各种工厂函数，比如</p>
+<ul>
+<li><code>torch.empty()</code></li>
+<li><code>torch.zeros()</code>, <code>torch.zeros_like()</code></li>
+<li><code>torch.ones()</code>, <code>torch.ones_like()</code></li>
+<li><code>torch.eye()</code></li>
+<li><code>torch.rand()</code>, <code>torch.rand_like()</code></li>
+</ul>
+<p>其中在声明随机张量之前使用 <code>torch.manual_seed(seed)</code>，可以让距离该函数相同执行距离的随机数代码总是产生相同的数值：</p>
+<blockquote>
+<p><a href="https://pytorch.org/docs/stable/notes/randomness.html">https://pytorch.org/docs/stable/notes/randomness.html</a></p>
+</blockquote>
+<h3 id="尺寸相关"><a href="#尺寸相关">尺寸相关</a></h3>
+<p>张量的尺寸是一个它本身的一个性质 <code>x.shape</code>, 属于 <code>torch.Size</code> 类。</p>
+<p>张量之间的计算，在尺寸不同时，遵循类似 NumPy 的 broadcasting 规则。</p>
+<p><code>x.item()</code> 从一个单元素张量（不一定是标量）里取出它的值，返回值的数据类型不再是 PyTorch 自己的类型，而是 python 原生类型。</p>
+<p><code>x.unsqueeze(dim)</code> 在第 dim 个维度增加一个长度为 1 的维度。</p>
+<p>更一般的改变形状需要 <code>x.reshape(*new_shape)</code> 和 <code>torch.reshape(x,new_shape)</code></p>
+<h3 id="物理设备相关"><a href="#物理设备相关">物理设备相关</a></h3>
+<p>一般数学函数也有 <code>out</code> 参数，可以原位写入已存在的张量，不改变原张量的 id。</p>
+<p>原位计算是在一般数学函数名字后面加一下划线，如 <code>torch.sin_(x)</code>, <code>x1.add_(x2)</code></p>
+<p>张量的赋值是传递指针，而不是传递数值。数值拷贝需要 <code>x2 = x1.clone()</code>. 克隆产物会保持和之前一样的 <code>requires_grad</code> 参数值。如果原张量在计算图里，新张量不需要的话应该 <code>c = a.detach().clone()</code></p>
+<p>参与运算的两个张量需要在同一设备 (CPU/GPU). 创建张量的时候可以用 <code>device</code> 参数声明设备，已经创建的张量可以用 <code>x.to(device)</code> 改变设备。</p>
+<h3 id="自动微分和神经网络相关"><a href="#自动微分和神经网络相关">自动微分和神经网络相关</a></h3>
+<p>PyTorch 中的张量都有 <code>requires_grad</code> 参数，默认为 False。</p>
+<p>对于带有 <code>requires_grad=True</code> 参数的张量，都受到自动微分机制 autograd 的控制。</p>
+<p>前面每个每个创建张量的函数都接受这个参数，也自动传染给对自动微分的张量进行数学计算的结果。</p>
+<p>神经网络，也就是继承自 <code>torch.nn.Module</code> 的对象（假设实例化为 <code>net</code>），内部有两个方法<code>net.parameters()</code> 和 <code>net.buffers()</code>，它们取到的是张量的 iterator，其中前者里面的张量（绝大多数）受 autograd 控制，后者不然。</p>
+<p>要想取得某个神经网络的单个参数，需要知道 <code>__init__()</code> 方法中的变量名，以及官网文档中的参数名（一般在 Variables 小节，比如<a href="https://pytorch.org/docs/stable/generated/torch.nn.Linear.html">这个例子</a>）</p>
+<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">class</span><span style="color:#6F42C1;--shiki-dark:#F69D50"> MyNetwork</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF">torch</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF">nn</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF">Module</span><span style="color:#24292E;--shiki-dark:#ADBAC7">):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> __init__</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self):</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        super</span><span style="color:#24292E;--shiki-dark:#ADBAC7">().</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">__init__</span><span style="color:#24292E;--shiki-dark:#ADBAC7">()</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.param1 </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> torch.nn.Parameter(torch.zeros((</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">5</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,)),</span><span style="color:#E36209;--shiki-dark:#F69D50">requires_grad</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">True</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">        self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.linear </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> torch.nn.Linear(</span><span style="color:#E36209;--shiki-dark:#F69D50">in_features</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">5</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span><span style="color:#E36209;--shiki-dark:#F69D50">out_features</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span><span style="color:#E36209;--shiki-dark:#F69D50">bias</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">True</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> forward</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(self,x):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.linear(x </span><span style="color:#D73A49;--shiki-dark:#F47067">*</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> self</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.param1)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">net </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> MyNetwork()</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">with</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> torch.no_grad():</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(net.param1)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(net.linear.weight)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">    print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(net.linear.bias)</span></span></code></pre>
+<h2 id="自动微分"><a href="#自动微分">自动微分</a></h2>
+<blockquote>
+<p><a href="https://pytorch.org/tutorials/beginner/introyt/autogradyt_tutorial.html">https://pytorch.org/tutorials/beginner/introyt/autogradyt_tutorial.html</a></p>
+</blockquote>
+<p>autograd 自动根据代码动态构建计算图：</p>
+<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">a </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> torch.linspace(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">0</span><span style="color:#24292E;--shiki-dark:#ADBAC7">., </span><span style="color:#005CC5;--shiki-dark:#6CB6FF">2</span><span style="color:#24292E;--shiki-dark:#ADBAC7">. </span><span style="color:#D73A49;--shiki-dark:#F47067">*</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> math.pi, </span><span style="color:#E36209;--shiki-dark:#F69D50">steps</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">25</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#E36209;--shiki-dark:#F69D50">requires_grad</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">True</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">b </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> torch.sin(a)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">c </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 2</span><span style="color:#D73A49;--shiki-dark:#F47067"> *</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> b</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">d </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> c </span><span style="color:#D73A49;--shiki-dark:#F47067">+</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 1</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">out </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> d.sum()</span></span></code></pre>
+<figure class="rehype-figure"><img src="/photos/2024-11-10-computation-graph.png" alt="上述代码构成的计算图"><figcaption>上述代码构成的计算图</figcaption></figure>
+<p>对于数学函数 <code>b = f(a,*args)</code> 计算出来的张量 <code>b</code> ——</p>
+<h3 id="grad_fn-是一个函数"><a href="#grad_fn-是一个函数"><code>.grad_fn</code> 是一个函数</a></h3>
+<ul>
+<li>输入只有一个，尺寸需要和 <code>a</code> 的尺寸对齐 <del>（我感觉很奇怪）</del></li>
+<li>输出的数量等于计算出这个张量的函数的输入的数量。</li>
+<li><del>直接运行这个函数 ，基本就是把输入张量重复输出</del>。从<a href="https://stackoverflow.com/questions/66402331/in-pytorch-what-exactly-does-the-grad-fn-attribute-store-and-how-is-it-used">这个问答</a>来看，直接运行这个函数几乎没有意义，因为自动微分是用其他编程语言实现的，<code>SinBackward0</code> 并不是 Python 对象。</li>
+<li><code>t.grad_fn.next_functions</code> 是一个 tuple，成员是 <code>x1</code> 等参数的 <code>.grad_fn</code>, 可以继续递推到工厂函数创建的张量，也就是这个计算图的叶节点。叶节点的 <code>.grad_fn</code> 为 <code>None</code></li>
+</ul>
+<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(a.grad_fn)   </span><span style="color:#6A737D;--shiki-dark:#768390"># None</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(b.grad_fn)   </span><span style="color:#6A737D;--shiki-dark:#768390"># &#x3C;SinBackward0 object at 0x000001C8E240F400></span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(c.grad_fn)   </span><span style="color:#6A737D;--shiki-dark:#768390"># &#x3C;MulBackward0 object at 0x000001C8E240EB30></span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(d.grad_fn)   </span><span style="color:#6A737D;--shiki-dark:#768390"># &#x3C;AddBackward0 object at 0x000001C8E240F400></span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(out.grad_fn) </span><span style="color:#6A737D;--shiki-dark:#768390"># &#x3C;SumBackward0 object at 0x000001C8E240F190></span></span></code></pre>
+<h3 id="backward"><a href="#backward"><code>.backward()</code></a></h3>
+<ul>
+<li>默认状态下，计算图的最终节点 <code>out</code> 是一个标量，也就是 0 阶张量。
+<ul>
+<li>要想让计算图的最终节点是一个高阶张量，需要指定 <code>out.backward(gradient)</code> 参数。<code>gradient</code>和 <code>out</code> 尺寸相同，两者对应元素相乘后求和，从而成为一个标量。</li>
+<li>这种设定可以让一个张量的梯度 <code>.grad</code> 的尺寸只和自身的尺寸相等；如果允许计算从 <code>out</code> 到自身的 Jacobian 矩阵，会导致计算规模按多项式（一般是平方）增长。</li>
+</ul>
+</li>
+<li>默认状态下，一个计算图只能有一个<code>.backward()</code>，且只能执行一次。多次执行会报 <code>RuntimeError</code>: “Trying to backward through the graph a second time”。
+<ul>
+<li>要想对完全相同的计算图做多次 <code>.backward()</code>, 需指定 <code>out.backward(retain_graph-True)</code> 参数。</li>
+</ul>
+</li>
+</ul>
+<h3 id="tgrad"><a href="#tgrad"><code>t.grad</code></a></h3>
+<ul>
+<li>偏导数张量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∂</mi><mrow><mi mathvariant="normal">o</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">t</mi></mrow><mi mathvariant="normal">/</mi><mi mathvariant="normal">∂</mi><mi mathvariant="normal">t</mi></mrow><annotation encoding="application/x-tex">\partial\mathrm {out}/\partial \mathrm t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord"><span class="mord mathrm">out</span></span><span class="mord">/</span><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord mathrm">t</span></span></span></span>，在最终节点运行 <code>.backward()</code> 之后，计算图中各节点的 <code>.grad</code> 会自动被 autograd 赋值</li>
+<li>默认情况下，只有计算图的叶节点可以访问其 <code>.grad</code></li>
+<li>要取得中间节点的 <code>.grad</code>，需要在 <code>.backward()</code> 之前对相应张量执行 <code>.retain_grad()</code></li>
+</ul>
+<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">b.retain_grad()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">out.backward()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(a.grad)   </span><span style="color:#6A737D;--shiki-dark:#768390"># tensor([...],...), 约等于 2 * torch.cos(a)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(b.grad)   </span><span style="color:#6A737D;--shiki-dark:#768390"># tensor([2.,2.,2.,...2.],...)</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(c.grad)   </span><span style="color:#6A737D;--shiki-dark:#768390"># None，不是计算图的叶节点，也没有 .retain_grad()</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(d.grad)   </span><span style="color:#6A737D;--shiki-dark:#768390"># None，不是计算图的叶节点，也没有 .retain_grad()</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(out.grad) </span><span style="color:#6A737D;--shiki-dark:#768390"># None，不是计算图的叶节点，也没有 .retain_grad()</span></span></code></pre>
+<p>以上各个操作基本上符合数学的习惯。</p>
+<h2 id="张量及其微分的更新"><a href="#张量及其微分的更新">张量及其微分的更新</a></h2>
+<p>以下设定更多的是为了工程上方便：</p>
+<p><code>.grad</code> 是一个张量的性质，不是最终节点和该张量两者之间的性质，也不是计算图整体的性质。</p>
+<p>不论是 <code>.backward(retain_graph=True)</code>，还是另外构建了新的计算图并运行 <code>.backward()</code>（比如训练时加载了训练集的新一轮 batch），当一个已有 <code>.grad</code> 的张量被新的 <code>.backward()</code> 波及时，<code>.grad</code> 的新值会是旧值和本轮偏导数的相加。</p>
+<p>如果不想要这种累加，需要主动提前将张量 <code>.grad</code> 改成 0 或者 None。</p>
+<p>除了梯度张量的置 0，</p>
+<h3 id="手动"><a href="#手动">手动</a></h3>
+<p>正常情况下，<code>requires_grad=True</code> 的张量，对其做的所有操作都会被 autograd 记录，包括赋值操作，这就导致正常情况下，不论是清空梯度，还是根据梯度更新模型的参数，会导致 auto grad 的混乱。</p>
+<p>所以需要特殊操作，通知 autograd 某些对受控张量的改动，不需要成为计算图的一部分。</p>
+<p>所谓的特殊操作就是 <code>torch.no_grad()</code></p>
+<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">a </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> torch.arange(</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">5</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.,</span><span style="color:#E36209;--shiki-dark:#F69D50">requires_grad</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">True</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">b </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> torch.sin(a)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">b.backward(</span><span style="color:#E36209;--shiki-dark:#F69D50">gradient</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7">torch.ones_like(b))</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">with</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> torch.no_grad():</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    a[</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">] </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> 10</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    a.grad.zero_()  </span><span style="color:#6A737D;--shiki-dark:#768390"># a.grad = 0</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">print</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(a)  </span><span style="color:#6A737D;--shiki-dark:#768390"># tensor([0,10,2,3,4], requires_grad=True)</span></span></code></pre>
+<p>在完全不涉及训练，只需要推理的环境，<code>with torch.inference():</code> 比 <code>with torch.no_grad():</code> 更节省计算资源。</p>
+<h3 id="自动"><a href="#自动">自动</a></h3>
+<p>PyTorch 提供了上述操作的接口。</p>
+<p>神经网络的参数的更新有一整个 <code>torch.optim</code> <a href="https://pytorch.org/docs/stable/optim.html#algorithms">模块</a> 提供的更新参数的方式（<code>Optimizer</code> 的子类）。里面的优化器都实现了两个方法：<code>.step()</code> 和 <code>.zero_grad()</code>，前者修改参数本身的值，后者将各参数的梯度归零。</p>
+<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">class</span><span style="color:#6F42C1;--shiki-dark:#F69D50"> MyModel</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF">torch</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF">nn</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF">Module</span><span style="color:#24292E;--shiki-dark:#ADBAC7">):</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> __init__</span><span style="color:#24292E;--shiki-dark:#ADBAC7">():</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        # ...</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    def</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> forward</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(x):</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        # ...</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> x</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">net </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> MyModel()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">opt </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> torch.optim.SGD(net.parameters(),</span><span style="color:#E36209;--shiki-dark:#F69D50">lr</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">0.01</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">for</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> e </span><span style="color:#D73A49;--shiki-dark:#F47067">in</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> range</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(epoch):</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">    # ...</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    opt.step()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    opt.zero_grad()</span></span></code></pre>
+<p>如果只需要将梯度归零的话，nn.Module 也有一个 <code>.zero_grad()</code> 方法。</p>
+<h3 id="tensor-vs-tensordata"><a href="#tensor-vs-tensordata"><code>tensor</code> vs. <code>tensor.data</code></a></h3>
+<p>看 SGD 优化器的源码的时候，看到更新权重的时候不是 <code>with torch.no_grad():</code>，而是用到了张量的 <code>a.data</code> 和 <code>a.grad.data</code></p>
+<p><code>a</code> vs. <code>a.data</code>, <code>b.grad</code> vs. <code>b.grad.data</code> 的区别今天不需要知道，不应该知道。这是旧的 Variable 对象的残留，新的接口将 Variable 合并进了 Tensor，<code>.data</code> 只是为了兼容旧代码而存在的，不再推荐这种用法。</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[.tex | 误差的传递，科学之所以科学]]></title>
             <link>https://blog.mountaye.com/articles/error-propagation-and-philosophy-of-science</link>
@@ -138,8 +334,8 @@ s76,-153,76,-153s77,-151,77,-151c0.7,0.7,35.7,202,105,604c67.3,400.7,102,602.7,1
 <p>Yellowstone 整个公园相当于一个活火山的火山口，园内有大量温泉、间歇泉、地热，还有黄石河切削而成的峡谷和瀑布，一年四季的景色都很优美。但是园内植被主要是常绿针叶林，所以秋天并不额外出彩。</p>
 <p>另外秋季两个公园内的野生动物都不活跃，不过对于像我这样没有 100 - 400 mm 长焦镜头的普通游客影响不大～</p>
 <p>两个公园的门票都是一周内无限次进入，好处是景区内商家不存在行政垄断，吃饭加油的价格并不比外面贵；坏消息是外面和公园里一样贵，提顿村汽油每加仑超过 $5，杰克逊稍微便宜一些但也很贵。</p>
-<p><img src="/photos/2024-10-13-GrandTeton.png" alt="大提顿公园地图"></p>
-<p><img src="/photos/2024-10-13-Yellowstone.png" alt="黄石公园地图"></p>
+<figure class="rehype-figure"><img src="/photos/2024-10-13-GrandTeton.png" alt="大提顿公园地图"><figcaption>大提顿公园地图</figcaption></figure>
+<figure class="rehype-figure"><img src="/photos/2024-10-13-Yellowstone.png" alt="黄石公园地图"><figcaption>黄石公园地图</figcaption></figure>
 <h3 id="流水账"><a href="#流水账">流水账</a></h3>
 <ul>
 <li>第一天
@@ -237,7 +433,7 @@ s76,-153,76,-153s77,-151,77,-151c0.7,0.7,35.7,202,105,604c67.3,400.7,102,602.7,1
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>p</mi><mi>o</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>o</mi><mi>r</mi><mo>∝</mo><mi>l</mi><mi>i</mi><mi>k</mi><mi>e</mi><mi>l</mi><mi>i</mi><mi>h</mi><mi>o</mi><mi>o</mi><mi>d</mi><mo>⋅</mo><mi>p</mi><mi>r</mi><mi>i</mi><mi>o</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">posterior \propto likelihood \cdot prior</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">os</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∝</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.03148em;">ik</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">ih</span><span class="mord mathnormal">oo</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span></span></span></span></span>
 <h3 id="举个例子"><a href="#举个例子">举个例子</a></h3>
 <p>隔壁组的问题可以简化为下图：</p>
-<p><img src="/photos/2024-09-27-two-gaussian.png" alt=""></p>
+<figure class="rehype-figure"><img src="/photos/2024-09-27-two-gaussian.png" alt=""></figure>
 <ul>
 <li>有两组数据 (x, y1), (x, y2) 可以用同一族函数来拟合。（假设为两个高斯函数的叠加，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><msub><mi>f</mi><mrow><msub><mi>A</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>A</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>μ</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>μ</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>σ</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>σ</mi><mn>2</mn></msub></mrow></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>A</mi><mn>1</mn></msub><msup><mi>e</mi><mrow><mo>−</mo><mfrac><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><msub><mi>μ</mi><mn>1</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><msubsup><mi>σ</mi><mn>1</mn><mn>2</mn></msubsup></mfrac></mrow></msup><mo>+</mo><msub><mi>A</mi><mn>2</mn></msub><msup><mi>e</mi><mrow><mo>−</mo><mfrac><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><msub><mi>μ</mi><mn>2</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><msubsup><mi>σ</mi><mn>2</mn><mn>2</mn></msubsup></mfrac></mrow></msup></mrow><annotation encoding="application/x-tex">y=f_{A_1,A_2,\mu_1,\mu_2,\sigma_1,\sigma_2}(x) = A_1e^{-\frac{(x-\mu_1)^2}{\sigma_1^2}} + A_2e^{-\frac{(x-\mu_2)^2}{\sigma_2^2}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3173em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathnormal mtight">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3173em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathnormal mtight">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3173em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathnormal mtight">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3173em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3173em;"><span style="top:-2.357em;margin-left:-0.0359em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3173em;"><span style="top:-2.357em;margin-left:-0.0359em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.7771em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.6271em;"><span style="top:-3.7266em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2864em;"><span style="top:-2.4699em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9892em;"><span style="top:-2.1488em;margin-left:-0.0359em;margin-right:0.1em;"><span class="pstrut" style="height:2.6444em;"></span><span class="mord mtight">1</span></span><span style="top:-2.9892em;margin-right:0.1em;"><span class="pstrut" style="height:2.6444em;"></span><span class="mord mtight">2</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4956em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.5375em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">x</span><span class="mbin mtight">−</span><span class="mord mtight"><span class="mord mathnormal mtight">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.6444em;"></span><span class="mord mtight">1</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2996em;"><span></span></span></span></span></span></span><span class="mclose mtight"><span class="mclose mtight">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.0484em;"><span style="top:-3.0484em;margin-right:0.1em;"><span class="pstrut" style="height:2.6444em;"></span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8841em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.7771em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.6271em;"><span style="top:-3.7266em;margin-right:0.05em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2864em;"><span style="top:-2.4699em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9892em;"><span style="top:-2.1488em;margin-left:-0.0359em;margin-right:0.1em;"><span class="pstrut" style="height:2.6444em;"></span><span class="mord mtight">2</span></span><span style="top:-2.9892em;margin-right:0.1em;"><span class="pstrut" style="height:2.6444em;"></span><span class="mord mtight">2</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4956em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.2255em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.5375em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">x</span><span class="mbin mtight">−</span><span class="mord mtight"><span class="mord mathnormal mtight">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3448em;margin-left:0em;margin-right:0.1em;"><span class="pstrut" style="height:2.6444em;"></span><span class="mord mtight">2</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2996em;"><span></span></span></span></span></span></span><span class="mclose mtight"><span class="mclose mtight">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.0484em;"><span style="top:-3.0484em;margin-right:0.1em;"><span class="pstrut" style="height:2.6444em;"></span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8841em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span></span></span></span></span></span></span></span></li>
 <li>两组数据的误差不同。（红色数据点显然比蓝色数据点，相对于理论值偏离得更远一些）</li>
@@ -305,197 +501,6 @@ M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlis
 <p>你能否据此评价母校和家乡的教学质量，以及本省各地区之间教育水平的平均程度？</p>
 <p>你该如何评价，从定义原假设和备择假设，到用何种概率分布对先验概率建模？</p>
 <p>你有资格评价吗？</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[.js | 博客改用 Next.js + TailwindCSS + Shadcn.UI]]></title>
-            <link>https://blog.mountaye.com/articles/static-blog-with-nextjs-tailwindcss-shadcn</link>
-            <guid>https://blog.mountaye.com/articles/static-blog-with-nextjs-tailwindcss-shadcn</guid>
-            <pubDate>Tue, 17 Sep 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[我的博客本来是用 Jekyll 生成的静态网站，如今改用 Next.js + TailwindCSS + Shadcn.UI]]></description>
-            <content:encoded><![CDATA[<h2 id="技术选型"><a href="#技术选型">技术选型</a></h2>
-<h3 id="不再选择静态网站生成工具"><a href="#不再选择静态网站生成工具">不再选择静态网站生成工具</a></h3>
-<p>我的博客本来是用 Jekyll 生成的静态网站，因为网站架在 GitHub Pages 上，而 Jekyll 是 GitHub Pages 默认的构建工具。但是 Jekyll 的核心开发者年事已高，有的甚至已经去世，所以我感觉这个项目未来的活力堪忧。</p>
-<p>Jekyll 是用 Ruby on Rails 写成的，其他编程语言，和 Jekyll 功能类似的工具有：</p>
-<ul>
-<li>Python 的 Pelican</li>
-<li>JavaScript 的 Hexo</li>
-</ul>
-<p>但是我还想做些更复杂的事情，预计需要靠服务端来实现。所以与其花时间移植到一个和 Jekyll 功能类似的工具，不如直接一步到位，学习一个全栈框架。</p>
-<h3 id="nextjs"><a href="#nextjs">Next.js</a></h3>
-<p>虽然不同的编程语言也都有自己的全栈框架，比如 Python 有 Django，但是既然浏览器主要支持 JavaScript，所以索性前后端都用 JS 比较方便，而且这样想的人很多，社区规模使得遇到问题更容易找到答案（这个优势在生成式语言模型的时代似乎没那么重要了）。</p>
-<p>JavaScript 语言之下，也存在至少 React 和 Vue 两大阵营。之所以选择 Next.js 这样一个基于 React.js 的框架，主要是路径依赖，很久很久以前学过<a href="https://fullstackopen.com/zh/">赫尔辛基大学的全栈公开课</a>，那里教的就是 React。</p>
-<p>对于 Next.js 本身，Youtube@Fireship 有一个很简洁的介绍：<a href="https://www.youtube.com/watch?v=Sklc_fQBmcs">https://www.youtube.com/watch?v=Sklc_fQBmcs</a></p>
-<p>官网提供的教程在这里：<a href="https://nextjs.org/learn">https://nextjs.org/learn</a>，和我学习的时候已经不一样了，那时候只有 page router，没有 app router。开发这一框架的 Vercel 公司也提供 Next.js 的云服务。但是鉴于其有过把用户引诱到 app router 架构然后给自家服务提价的黑历史，所以短期内不打算学和用 app router.</p>
-<h3 id="tailwindcss"><a href="#tailwindcss">TailwindCSS</a></h3>
-<p><a href="https://tailwindcss.com/">https://tailwindcss.com/</a></p>
-<p>早就学过了，但是一直没有机会用。这次本来也可以不用的，直到决定使用 Shadcn.ui 组件库，因为 TailwindCSS 是它的一个依赖项。既然已经安装了，那不用白不用。</p>
-<h3 id="shadcnui-而非-headlessui"><a href="#shadcnui-而非-headlessui">Shadcn.UI 而非 HeadlessUI</a></h3>
-<p><a href="https://ui.shadcn.com/">https://ui.shadcn.com/</a></p>
-<p>一套组件库，也就是网页中经常出现的功能单元。这个库相对于竞品的最大优势，是允许直接复制粘贴代码而不用安装，用多少抄多少～</p>
-<p>TailwindCSS 自家也有一个组件库 <a href="https://headlessui.com/">HeadlessUI</a>，但是主要是 <code>&#x3C;form/></code> 表单及其成员，侧重于向后端传数据的 HTML 元素的封装。而 Shacn 有很多炫酷的交互方面的组件，突出一个现成且好看。</p>
-<h3 id="没用-figma"><a href="#没用-figma">没用 Figma</a></h3>
-<p>有用的功能都收钱，免费的功能不如直接 <code>next dev</code> 实时预览。</p>
-<h2 id="踩过的坑-学到的经验"><a href="#踩过的坑-学到的经验"><del>踩过的坑</del> 学到的经验</a></h2>
-<h3 id="组件化作为一种思路"><a href="#组件化作为一种思路">组件化作为一种思路</a></h3>
-<p>正常的网页，HTML 负责内容，CSS 负责装饰，JavaScript 负责交互。这种分工，专业上叫做解耦。</p>
-<p>工程实践表明，这种解耦方式非常反人类。用户看到和使用的网页，是以功能上的相似、空间上的相邻为组织的，而要对其修改时，则需要到不同源代码的不同位置去；反之，某处代码的改动，无意中可能对远处的另一部分视觉效果和功能造成破坏。</p>
-<p>于是较新的全栈框架，其解耦的方式都是以组件为单位的，内容、样式、交互逻辑都写在一起。</p>
-<h3 id="javascriptjsx-语法中的-"><a href="#javascriptjsx-语法中的-">JavaScript/JSX 语法中的 <code>{}</code></a></h3>
-<p>JSX 是对 JavaScript 语法的扩展，添加了类似于 HTML 标记的写法 <code>&#x3C;MyComponent>&#x3C;/MyComponent></code>，用来表示 react 组件。</p>
-<p>在 jsx 语言的内部写 Javascript 时，需要将 JS 外面包裹一层 <code>{}</code></p>
-<p>JavaScript 里类似 Python f-string 的结构写作<code>${}</code>，名叫 template literal: <code>this is var: ${var}</code></p>
-<p>——以上规则结合起来，会产生让初学者迷惑的现象：</p>
-<ul>
-<li><code>&#x3C;MyComponent className=’dark’/></code>: 一个正常的类名，直接用引号</li>
-<li><code>&#x3C;MyComponent className={dark}/>:</code> 类名是一个 JS 字符串变量</li>
-<li>类名的一部分根据一个变量取值:
-<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">&#x3C;</span><span style="color:#005CC5;--shiki-dark:#8DDB8C">MyComponent</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF"> className</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#F47067">{</span><span style="color:#032F62;--shiki-dark:#96D0FF">`bg-${</span><span style="color:#24292E;--shiki-dark:#ADBAC7">dark</span><span style="color:#24292E;--shiki-dark:#96D0FF">}`</span><span style="color:#24292E;--shiki-dark:#F47067">}</span><span style="color:#24292E;--shiki-dark:#ADBAC7">/></span></span></code></pre>
-</li>
-</ul>
-<h3 id="javascript-箭头函数中的--和-"><a href="#javascript-箭头函数中的--和-">JavaScript 箭头函数中的 <code>{}</code> 和 <code>()</code></a></h3>
-<p>JavaScript 的箭头函数类似于 python 的 lambda 纯函数，但是有不同。</p>
-<p><code>(var) => (expression(var))</code> 相当于 Python 中的 <code>lambda x: expression(x)</code></p>
-<p>但是箭头函数的右侧可以是 <code>{}</code> 包裹的若干表达式，此时需要显式 return：</p>
-<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#E36209;--shiki-dark:#F69D50">var</span><span style="color:#24292E;--shiki-dark:#ADBAC7">) </span><span style="color:#D73A49;--shiki-dark:#F47067">=></span><span style="color:#24292E;--shiki-dark:#ADBAC7"> {</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#DCBDFB">    expression1</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(var);</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#DCBDFB">    expression2</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(var);</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">    return</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> expression3</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(var);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">}</span></span></code></pre>
-<p>Python 的 lambda 必须是单一表达式的纯函数，不允许上面第二种写法。</p>
-<h3 id="对象解包中的-"><a href="#对象解包中的-">对象解包中的 <code>{}</code></a></h3>
-<p>当有一个包含若干键值对的对象时</p>
-<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">obj </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> {</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">		k1: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"value1"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">		k2: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"value2"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">		k3: </span><span style="color:#032F62;--shiki-dark:#96D0FF">"value3"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">		...</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">}</span></span></code></pre>
-<p>可以用 <code>const { k2 } = obj;</code> 的方式拿到 <code>obj[’k2’]</code> 的值，赋给 <code>k2</code>。</p>
-<p>结合上一节，</p>
-<ul>
-<li><code>(k1,k2)=>(k1+k2);</code> 是一个两个自变量的函数；</li>
-<li><code>({k1,k2})=>(k1+k2);</code> 是以一个 Object 为自变量的函数，这个 Object 的名字无所谓，也不确定一共有多少个属性，但属性中至少包含 <code>k1</code> 和 <code>k2</code>.</li>
-</ul>
-<h3 id="tailwindcss-的-arbitrary-valuejavascript-的模板字符串shadcn-中的-cn-函数"><a href="#tailwindcss-的-arbitrary-valuejavascript-的模板字符串shadcn-中的-cn-函数">TailwindCSS 的 arbitrary value、JavaScript 的模板字符串、Shadcn 中的 <code>cn()</code> 函数</a></h3>
-<p>TailwindCSS 的很多属性都允许在方括号中使用任意值，比如背景色 <code>bg-[#a4b4c4]</code></p>
-<p>本以为可以直接在 <code>className</code> 里面用 template literal <code>&#x3C;div className={</code>bg-[${myColor}]<code>}></code>，但是并不总是生效。</p>
-<p>这个“并不总是”是个大坑，一开始在开发模式用得好好的，结果某次刷新页面之后就挂了，简直莫名其妙。</p>
-<p>好在 Shadcn 提供了一个 <a href="https://github.com/shadcn-ui/ui/blob/main/apps/www/lib/utils.ts"><code>cn()</code> 函数</a>，接受一个或多个 TailwindCSS 类名字符串作为输入，就可以正常使用 template literal 了，例如 <code>&#x3C;div className={cn("block","border-0",</code>bg-[${myColor}]<code>)}>&#x3C;/div></code></p>
-<h3 id="html--css-布局"><a href="#html--css-布局">HTML + CSS 布局</a></h3>
-<p>两类套路：</p>
-<ol>
-<li>传统的 <code>display</code>, <code>position</code>, <code>float</code> 属性；</li>
-<li>Flex 和 Grid 布局，看阮一峰先生的博客里的教程就挺方便：<a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">Flex</a>, <a href="https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">Grid</a>.</li>
-</ol>
-<p>理论上后者新一些，消耗的脑力也更少一些，应该是更好的选择。</p>
-<p>但是前者也有一些优势场景。比如现在整个博客页面的上边栏和剩下的部分就是一个上下结构的 flex 布局，这导致屏幕最右侧的滚动条其实是页面一部分的，而不是整个页面的的滚动条。在 iOS 的 Safari 浏览器下，会导致网址栏不能自动隐藏，浪费很大一片屏幕空间。之后可能会换回传统功夫。</p>
-<p>而像是目录，文章跳转开头和评论区的按钮等等，需要在页面滚动时相对屏幕静止的元素，就不得不用 position，而且为了锚定在正文上，还需要嵌套好几层。</p>
-<p>按照传统功夫——</p>
-<ul>
-<li><code>display</code>可选的取值有 4 个: block | inline | inline-block | none
-<ul>
-<li>block: 竖排，哪怕同一行内仍有空间容纳 html 中的下一个元素。</li>
-<li>inline: 横排，像文字内容一样，没有盒模型</li>
-<li>inline-block: 横排，但是有盒模型</li>
-<li>none: 不显示，和 <code>visibility:hidden</code> 的区别是，后者依然占有显示时的空间。</li>
-</ul>
-</li>
-<li><code>position</code>可选的取值有 5 个: static | relative | fixed | absolute | sticky
-<ul>
-<li>static: 默认值，按照 html 文件的顺序排列。</li>
-<li>relative: 相对于 static 默认值进行偏移，偏移量由 <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> 四个性质决定。所谓 <code>left: 50px</code> 的意思是左侧 margin 外多出 50 像素的空间，实际是向右偏移的效果。</li>
-<li>fixed: 相对于<strong>视窗</strong>的位置固定，位置由 <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> 四个性质决定。<code>left: 50px</code> 的意思是该元素的左侧 border <strong>外沿</strong>距离窗口左边 50 像素。</li>
-<li>absolute: 相对于最近一层父元素的位置固定，位置由 <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> 四个性质决定。<code>left: 50px</code> 的意思是该元素的左侧 border <strong>外沿</strong>距离父元素左侧<strong>内沿</strong> 50 像素。设计的时候需要考虑 border 宽度。</li>
-<li>sticky: 网页加载时按照 html 文件的顺序排列，直到网页滑动到某一位置，之后该元素固定在视窗，就像 fixed 一样，行为改变的位置由 <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> 四个性质决定。</li>
-</ul>
-</li>
-<li><code>float</code>:  none | left | right | inherit
-<ul>
-<li>none: 默认值，按照 html 文件的顺序排列。</li>
-<li>left: 保持在父元素左侧，其他元素环绕之。</li>
-<li>right: 保持在父元素右侧，其他元素环绕之。</li>
-<li>inherit: 和父元素的 float 的取值一致。</li>
-</ul>
-</li>
-</ul>
-<h3 id="unifiedjs-将-markdown-文档转换为基于-jsx-的-html"><a href="#unifiedjs-将-markdown-文档转换为基于-jsx-的-html">Unified.js 将 Markdown 文档转换为基于 JSX 的 HTML</a></h3>
-<p>Jekyll 等静态网站生成器的核心功能，就是把 markdown 文档翻译成 html 网页文档。在 Next.js 框架下，这一工作由以 unified.js 为基础的一群第三方库来完成。</p>
-<p>最早看到这个框架是在 DIYGOD 的博文《<a href="https://diygod.cc/unified-markdown">如何优雅编译一个 Markdown 文档</a>》里，但是直接抄他在 xlog 里面的代码的话，在 next.js 之下好像会报错。所以又去官网仔细读了一下文档，现在可以说是略懂。</p>
-<p>这个话题本身值得专门写一篇文章，所以不在这里展开了。</p>
-<h3 id="giscus-评论区切换黑夜模式"><a href="#giscus-评论区切换黑夜模式">Giscus 评论区切换黑夜模式</a></h3>
-<p>自己写的组件的亮暗切换，是通过在 <code>&#x3C;html/></code> 元素添加和删除 <code>dark</code> 类，然后搭配 TailwindCSS 的 <code>dark:</code> 来实现的。</p>
-<p>Giscus 官方支持切换黑夜模式：<a href="https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#parent-to-giscus-message-events">https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#parent-to-giscus-message-events</a>。这套方法的关键，在于服务端返回的 iframe 有一个名为 <code>giscus-frame</code> ****的类。</p>
-<p>Giscus 为 react 提供了一套组件可以直接使用，但是在这套组件里面并没有这个类。</p>
-<p>所以只能弃用官方的组件，自己用 <code>useEffect</code> 模拟官网的 <code>&#x3C;script/></code></p>
-<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">export</span><span style="color:#D73A49;--shiki-dark:#F47067"> function</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> MyGiscus</span><span style="color:#24292E;--shiki-dark:#ADBAC7">() {</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#DCBDFB">  useEffect</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    () </span><span style="color:#D73A49;--shiki-dark:#F47067">=></span><span style="color:#24292E;--shiki-dark:#ADBAC7"> {</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">      const</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB"> onPageLoad</span><span style="color:#D73A49;--shiki-dark:#F47067"> =</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> () </span><span style="color:#D73A49;--shiki-dark:#F47067">=></span><span style="color:#24292E;--shiki-dark:#ADBAC7"> {</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        console.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">log</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"&#x3C;MyGiscus/>: activated on page load."</span><span style="color:#24292E;--shiki-dark:#ADBAC7">)</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        // START real business</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        const</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> script</span><span style="color:#D73A49;--shiki-dark:#F47067"> =</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> document.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">createElement</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'script'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.src </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#032F62;--shiki-dark:#96D0FF"> "https://giscus.app/client.js"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">;</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">setAttribute</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'data-repo'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,              </span><span style="color:#032F62;--shiki-dark:#96D0FF">''</span><span style="color:#24292E;--shiki-dark:#ADBAC7">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">setAttribute</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'data-repo-id'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,           </span><span style="color:#032F62;--shiki-dark:#96D0FF">''</span><span style="color:#24292E;--shiki-dark:#ADBAC7">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">setAttribute</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'data-category'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,          </span><span style="color:#032F62;--shiki-dark:#96D0FF">''</span><span style="color:#24292E;--shiki-dark:#ADBAC7">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">setAttribute</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'data-category-id'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,       </span><span style="color:#032F62;--shiki-dark:#96D0FF">''</span><span style="color:#24292E;--shiki-dark:#ADBAC7">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">setAttribute</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'data-mapping'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,           </span><span style="color:#032F62;--shiki-dark:#96D0FF">''</span><span style="color:#24292E;--shiki-dark:#ADBAC7">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">setAttribute</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'data-strict'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,            </span><span style="color:#032F62;--shiki-dark:#96D0FF">''</span><span style="color:#24292E;--shiki-dark:#ADBAC7">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">setAttribute</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'data-reactions-enabled'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">, </span><span style="color:#032F62;--shiki-dark:#96D0FF">''</span><span style="color:#24292E;--shiki-dark:#ADBAC7">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">setAttribute</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'data-emit-metadata'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,     </span><span style="color:#032F62;--shiki-dark:#96D0FF">''</span><span style="color:#24292E;--shiki-dark:#ADBAC7">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">setAttribute</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'data-input-position'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,    </span><span style="color:#032F62;--shiki-dark:#96D0FF">''</span><span style="color:#24292E;--shiki-dark:#ADBAC7">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">setAttribute</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'data-theme'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,             </span><span style="color:#032F62;--shiki-dark:#96D0FF">''</span><span style="color:#24292E;--shiki-dark:#ADBAC7">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">setAttribute</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'data-lang'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,              </span><span style="color:#032F62;--shiki-dark:#96D0FF">''</span><span style="color:#24292E;--shiki-dark:#ADBAC7">);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.crossOrigin </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#032F62;--shiki-dark:#96D0FF"> 'anonymous'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">;</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        script.async </span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#005CC5;--shiki-dark:#6CB6FF"> true</span><span style="color:#24292E;--shiki-dark:#ADBAC7">;</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        document.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">getElementById</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">"comments"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">).</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">appendChild</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(script);</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        // END real business</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      };</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">      // Check if the page is already loaded</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">      if</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> (document.readyState</span><span style="color:#D73A49;--shiki-dark:#F47067">===</span><span style="color:#032F62;--shiki-dark:#96D0FF">'complete'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">) {</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#DCBDFB">        onPageLoad</span><span style="color:#24292E;--shiki-dark:#ADBAC7">();</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      } </span><span style="color:#D73A49;--shiki-dark:#F47067">else</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> {</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        // Add event listener for page load</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">        window.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">addEventListener</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'load'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,onPageLoad);</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">        // Cleanup the event listener on component unmount</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">        return</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> () </span><span style="color:#D73A49;--shiki-dark:#F47067">=></span><span style="color:#24292E;--shiki-dark:#ADBAC7"> { window.</span><span style="color:#6F42C1;--shiki-dark:#DCBDFB">removeEventListener</span><span style="color:#24292E;--shiki-dark:#ADBAC7">(</span><span style="color:#032F62;--shiki-dark:#96D0FF">'load'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,onPageLoad); }</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">      };</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    },</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">    []</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">  );</span></span>
-<span class="line"><span style="color:#D73A49;--shiki-dark:#F47067">  return</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> (&#x3C;</span><span style="color:#22863A;--shiki-dark:#8DDB8C">div</span><span style="color:#6F42C1;--shiki-dark:#6CB6FF"> id</span><span style="color:#D73A49;--shiki-dark:#F47067">=</span><span style="color:#032F62;--shiki-dark:#96D0FF">'comments'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">>&#x3C;/</span><span style="color:#22863A;--shiki-dark:#8DDB8C">div</span><span style="color:#24292E;--shiki-dark:#ADBAC7">>);</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">}</span></span></code></pre>
-<h3 id="nextjs-的构建参数部分"><a href="#nextjs-的构建参数部分">Next.js 的构建参数部分</a></h3>
-<p>要让 next.js 构建静态网站，需要在 next.config.js 中写：</p>
-<pre class="shiki shiki-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7" tabindex="0"><code><span class="line"><span style="color:#005CC5;--shiki-dark:#6CB6FF">module</span><span style="color:#24292E;--shiki-dark:#ADBAC7">.</span><span style="color:#005CC5;--shiki-dark:#6CB6FF">exports</span><span style="color:#D73A49;--shiki-dark:#F47067"> =</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> {</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">  basePath: </span><span style="color:#032F62;--shiki-dark:#96D0FF">'/blog'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">  output: </span><span style="color:#032F62;--shiki-dark:#96D0FF">'export'</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#DCBDFB">  generateBuildId</span><span style="color:#24292E;--shiki-dark:#ADBAC7">: </span><span style="color:#D73A49;--shiki-dark:#F47067">async</span><span style="color:#24292E;--shiki-dark:#ADBAC7"> () </span><span style="color:#D73A49;--shiki-dark:#F47067">=></span><span style="color:#032F62;--shiki-dark:#96D0FF"> "buildID"</span><span style="color:#24292E;--shiki-dark:#ADBAC7">,</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">  // i18n: {</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">  //   locales: ['zh-CN', 'en'],</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">  //   defaultLocale: 'zh-CN',</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">  //   localeDetection: false,</span></span>
-<span class="line"><span style="color:#6A737D;--shiki-dark:#768390">  // },</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#ADBAC7">}</span></span></code></pre>
-<p><code>basePath</code> 是因为博客的 GitHub 仓库 blog 不是默认的个人网站仓库；需要注意的是，next.js 自己的 Link 组件的 <code>href</code> 参数不需要包含这个值，但是图片等等的 <code>src</code> 参数需要。</p>
-<p><code>generateBuildId</code> 函数的返回值是随便写的，不设定的话会导致输出里的 <code>_next/</code> 文件夹里有很多哈希值为名的文件夹，在 git 下会被当成不同的 blob 一直留在项目里。</p>
-<p><code>i18n</code> 参数被注释掉了，因为静态生成的 next.js 项目不支持自动 i18n.</p>
-<h3 id="rss-源和-sitemap"><a href="#rss-源和-sitemap">RSS 源和 sitemap</a></h3>
-<p>RSS 由 feed 这个 npm 包来构建；</p>
-<p>sitemap 则是在 ChatGPT 的帮助下手写字符串。</p>
-<p>写好的字符串，通过在主页或者历史归档页面的 <code>getStaticProps()</code> 函数，写入 next.js 项目的 <code>public/</code> 文件夹。</p>
-<h2 id="还没解决的问题"><a href="#还没解决的问题">还没解决的问题</a></h2>
-<h3 id="手机端搜索框的汉字输入问题"><a href="#手机端搜索框的汉字输入问题">手机端搜索框的汉字输入问题</a></h3>
-<p>页面顶端的搜索框在手机触摸屏上，用汉字输入法输入关键词之后，直接按回车键，会导致已经输入的汉字被当成拼音，传递给搜索引擎。</p>
-<p>暂时的办法是在输入汉字之后，按回车键之前按一下空格。</p>
-<h3 id="shadcndrawer-组件的上游代码报错google-ads"><a href="#shadcndrawer-组件的上游代码报错google-ads">Shadcn.Drawer 组件的上游代码报错；Google Ads</a></h3>
-<p>新博客把谷歌广告撤了。赚不到多少钱不说，它还会往网页里动态添加元素，破坏原来的排版。</p>
-<p>话虽如此，每篇文章的右下角还是有个<a href="https://lucide.dev/icons/hand-heart">要饭的图标</a>，计划用 shadcn 的 Drawer，放赞赏二维码，或者交换来的友站链接。</p>
-<p>但是目前 Drawer 的上游代码会报错，看起来作者已经在修复了，等更新。</p>
-<h3 id="google-analytics"><a href="#google-analytics">Google Analytics</a></h3>
-<p>next.js 提供了 Google analytics: <a href="https://nextjs.org/docs/pages/building-your-application/optimizing/third-party-libraries">https://nextjs.org/docs/pages/building-your-application/optimizing/third-party-libraries</a></p>
-<p>但是加入之后没有反应，google 后台看不到，数据一落千丈。</p>
-<p>据说把相应的代码放到 <code>pages/_app.js</code> 可以解决问题，还没试。</p>]]></content:encoded>
         </item>
     </channel>
 </rss>
